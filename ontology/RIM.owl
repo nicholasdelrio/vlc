@@ -1,0 +1,854 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY RIM "https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#" >
+]>
+
+
+<rdf:RDF xmlns="https://raw.github.com/nicholasdelrio/RIM/master/ontology/RIM.owl#"
+     xml:base="https://raw.github.com/nicholasdelrio/RIM/master/ontology/RIM.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:RIM="https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#affiliatedWithInstitution -->
+
+    <owl:ObjectProperty rdf:about="&RIM;affiliatedWithInstitution"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#collaboratesWithProject -->
+
+    <owl:ObjectProperty rdf:about="&RIM;collaboratesWithProject">
+        <rdfs:subPropertyOf rdf:resource="&RIM;hasInteractionWith"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#contributesToProject -->
+
+    <owl:ObjectProperty rdf:about="&RIM;contributesToProject">
+        <rdfs:subPropertyOf rdf:resource="&RIM;hasInteractionWith"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasCoPrincipalInvestigator -->
+
+    <owl:ObjectProperty rdf:about="&RIM;hasCoPrincipalInvestigator"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasDiscipline -->
+
+    <owl:ObjectProperty rdf:about="&RIM;hasDiscipline"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasInstitution -->
+
+    <owl:ObjectProperty rdf:about="&RIM;hasInstitution"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasInteractionWith -->
+
+    <owl:ObjectProperty rdf:about="&RIM;hasInteractionWith"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasPrincipalInvestigator -->
+
+    <owl:ObjectProperty rdf:about="&RIM;hasPrincipalInvestigator"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasRelatedWork -->
+
+    <owl:ObjectProperty rdf:about="&RIM;hasRelatedWork"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasRelatedWorkSet -->
+
+    <owl:ObjectProperty rdf:about="&RIM;hasRelatedWorkSet"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasResult -->
+
+    <owl:ObjectProperty rdf:about="&RIM;hasResult"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasResultSet -->
+
+    <owl:ObjectProperty rdf:about="&RIM;hasResultSet"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasSubProject -->
+
+    <owl:ObjectProperty rdf:about="&RIM;hasSubProject"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#isInfluencedBy -->
+
+    <owl:ObjectProperty rdf:about="&RIM;isInfluencedBy"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#usesProject -->
+
+    <owl:ObjectProperty rdf:about="&RIM;usesProject">
+        <rdfs:subPropertyOf rdf:resource="&RIM;hasInteractionWith"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#viewsProject -->
+
+    <owl:ObjectProperty rdf:about="&RIM;viewsProject">
+        <rdfs:subPropertyOf rdf:resource="&RIM;hasInteractionWith"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasAbstract -->
+
+    <owl:DatatypeProperty rdf:about="&RIM;hasAbstract"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasBudget -->
+
+    <owl:DatatypeProperty rdf:about="&RIM;hasBudget"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasEndDate_Funding -->
+
+    <owl:DatatypeProperty rdf:about="&RIM;hasEndDate_Funding"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasFundingAgency -->
+
+    <owl:DatatypeProperty rdf:about="&RIM;hasFundingAgency">
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasGoals -->
+
+    <owl:DatatypeProperty rdf:about="&RIM;hasGoals"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasName -->
+
+    <owl:DatatypeProperty rdf:about="&RIM;hasName"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasRating -->
+
+    <owl:DatatypeProperty rdf:about="&RIM;hasRating"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasStartDate_Funding -->
+
+    <owl:DatatypeProperty rdf:about="&RIM;hasStartDate_Funding"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasStartDate_Inception -->
+
+    <owl:DatatypeProperty rdf:about="&RIM;hasStartDate_Inception"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasTitle -->
+
+    <owl:DatatypeProperty rdf:about="&RIM;hasTitle"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#hasURL -->
+
+    <owl:DatatypeProperty rdf:about="&RIM;hasURL"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Collaborator -->
+
+    <owl:Class rdf:about="&RIM;Collaborator">
+        <rdfs:subClassOf rdf:resource="&RIM;Contributer"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Contributer -->
+
+    <owl:Class rdf:about="&RIM;Contributer">
+        <rdfs:subClassOf rdf:resource="&RIM;User"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Data -->
+
+    <owl:Class rdf:about="&RIM;Data">
+        <rdfs:subClassOf rdf:resource="&RIM;Result"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Discipline -->
+
+    <owl:Class rdf:about="&RIM;Discipline"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Geology -->
+
+    <owl:Class rdf:about="&RIM;Geology"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Institution -->
+
+    <owl:Class rdf:about="&RIM;Institution"/>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#LearningMaterial -->
+
+    <owl:Class rdf:about="&RIM;LearningMaterial">
+        <rdfs:subClassOf rdf:resource="&RIM;Media"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Media -->
+
+    <owl:Class rdf:about="&RIM;Media">
+        <rdfs:subClassOf rdf:resource="&RIM;Result"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Person -->
+
+    <owl:Class rdf:about="&RIM;Person">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&RIM;affiliatedWithInstitution"/>
+                        <owl:someValuesFrom rdf:resource="&RIM;Institution"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&RIM;hasDiscipline"/>
+                        <owl:someValuesFrom rdf:resource="&RIM;Discipline"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&RIM;hasName"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;string"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Project -->
+
+    <owl:Class rdf:about="&RIM;Project">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&RIM;hasPrincipalInvestigator"/>
+                        <owl:someValuesFrom rdf:resource="&RIM;Person"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&RIM;hasRelatedWorkSet"/>
+                        <owl:someValuesFrom rdf:resource="&RIM;RelatedWorkSet"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&RIM;hasCoPrincipalInvestigator"/>
+                        <owl:onClass rdf:resource="&RIM;Person"/>
+                        <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&RIM;hasRelatedWork"/>
+                        <owl:onClass rdf:resource="&RIM;Project"/>
+                        <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&RIM;hasResultSet"/>
+                        <owl:onClass rdf:resource="&RIM;ResultsSet"/>
+                        <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&RIM;hasSubProject"/>
+                        <owl:onClass rdf:resource="&RIM;Project"/>
+                        <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&RIM;hasAbstract"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&RIM;hasGoals"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&RIM;hasStartDate_Inception"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&RIM;hasTitle"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&RIM;hasEndDate_Funding"/>
+                        <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onDataRange rdf:resource="&xsd;dateTime"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&RIM;hasFundingAgency"/>
+                        <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onDataRange rdf:resource="&xsd;string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&RIM;hasStartDate_Funding"/>
+                        <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onDataRange rdf:resource="&xsd;dateTime"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Publication -->
+
+    <owl:Class rdf:about="&RIM;Publication">
+        <rdfs:subClassOf rdf:resource="&RIM;Media"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#RelatedWork -->
+
+    <owl:Class rdf:about="&RIM;RelatedWork">
+        <rdfs:subClassOf rdf:resource="&RIM;Resource"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&RIM;hasRating"/>
+                <owl:someValuesFrom rdf:resource="&xsd;float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#RelatedWorkSet -->
+
+    <owl:Class rdf:about="&RIM;RelatedWorkSet">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&RIM;hasRelatedWork"/>
+                <owl:someValuesFrom rdf:resource="&RIM;RelatedWork"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Resource -->
+
+    <owl:Class rdf:about="&RIM;Resource">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&RIM;hasURL"/>
+                <owl:someValuesFrom rdf:resource="&xsd;anyURI"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Result -->
+
+    <owl:Class rdf:about="&RIM;Result">
+        <rdfs:subClassOf rdf:resource="&RIM;Resource"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&RIM;hasRating"/>
+                <owl:someValuesFrom rdf:resource="&xsd;float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Includes methods, data, products, and publications</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#ResultsSet -->
+
+    <owl:Class rdf:about="&RIM;ResultsSet">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&RIM;hasResult"/>
+                <owl:someValuesFrom rdf:resource="&RIM;Result"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Tool -->
+
+    <owl:Class rdf:about="&RIM;Tool">
+        <rdfs:subClassOf rdf:resource="&RIM;Result"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#User -->
+
+    <owl:Class rdf:about="&RIM;User">
+        <rdfs:subClassOf rdf:resource="&RIM;Viewer"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Viewer -->
+
+    <owl:Class rdf:about="&RIM;Viewer">
+        <rdfs:subClassOf rdf:resource="&RIM;Person"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Computer-Science -->
+
+    <owl:NamedIndividual rdf:about="&RIM;Computer-Science">
+        <rdf:type rdf:resource="&RIM;Discipline"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Geology -->
+
+    <owl:NamedIndividual rdf:about="&RIM;Geology">
+        <rdf:type rdf:resource="&RIM;Geology"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#HolesCode -->
+
+    <owl:NamedIndividual rdf:about="&RIM;HolesCode">
+        <rdf:type rdf:resource="&RIM;Project"/>
+        <RIM:hasStartDate_Inception rdf:datatype="&xsd;dateTime">1978-10-26T21:32:52</RIM:hasStartDate_Inception>
+        <RIM:hasTitle rdf:datatype="&xsd;string">Holes Code</RIM:hasTitle>
+        <RIM:hasAbstract rdf:datatype="&xsd;string">Technique for generating a velocity structure based on refraction.</RIM:hasAbstract>
+        <RIM:hasGoals rdf:datatype="&xsd;string">The goal if this approach is to improve upon Vidale&apos;s algorithm by using light wave refraction.</RIM:hasGoals>
+        <RIM:hasRelatedWorkSet rdf:resource="&RIM;HolesCode-RelatedWorkSet"/>
+        <RIM:hasResultSet rdf:resource="&RIM;HolesCode-ResultSet"/>
+        <RIM:hasPrincipalInvestigator rdf:resource="&RIM;John-Hole"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#HolesCode-RelatedWorkSet -->
+
+    <owl:NamedIndividual rdf:about="&RIM;HolesCode-RelatedWorkSet">
+        <rdf:type rdf:resource="&RIM;RelatedWorkSet"/>
+        <RIM:hasRelatedWork rdf:resource="&RIM;Tomography"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#HolesCode-ResultSet -->
+
+    <owl:NamedIndividual rdf:about="&RIM;HolesCode-ResultSet">
+        <rdf:type rdf:resource="&RIM;ResultsSet"/>
+        <RIM:hasResult rdf:resource="&RIM;HolesCode-SeminalPaper"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#HolesCode-SeminalPaper -->
+
+    <owl:NamedIndividual rdf:about="&RIM;HolesCode-SeminalPaper">
+        <rdf:type rdf:resource="&RIM;Publication"/>
+        <RIM:hasURL rdf:datatype="&xsd;anyURI">http://www.geophys.geos.vt.edu/hole/abstracts/fdrefl.html</RIM:hasURL>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#John-Hole -->
+
+    <owl:NamedIndividual rdf:about="&RIM;John-Hole">
+        <rdf:type rdf:resource="&RIM;Person"/>
+        <RIM:hasName rdf:datatype="&xsd;string">John Hole</RIM:hasName>
+        <RIM:hasDiscipline rdf:resource="&RIM;Geology"/>
+        <RIM:affiliatedWithInstitution rdf:resource="&RIM;VirginiaTech"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Julio-Olaya -->
+
+    <owl:NamedIndividual rdf:about="&RIM;Julio-Olaya">
+        <rdf:type rdf:resource="&RIM;Person"/>
+        <RIM:hasName rdf:datatype="&xsd;string">Julio Olaya</RIM:hasName>
+        <RIM:hasDiscipline rdf:resource="&RIM;Computer-Science"/>
+        <RIM:affiliatedWithInstitution rdf:resource="&RIM;UTEP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#ModelFusion -->
+
+    <owl:NamedIndividual rdf:about="&RIM;ModelFusion">
+        <rdf:type rdf:resource="&RIM;Project"/>
+        <RIM:hasStartDate_Funding rdf:datatype="&xsd;dateTime">2007-10-26T21:32:52</RIM:hasStartDate_Funding>
+        <RIM:hasStartDate_Inception rdf:datatype="&xsd;dateTime">2009-10-26T21:32:52</RIM:hasStartDate_Inception>
+        <RIM:hasEndDate_Funding rdf:datatype="&xsd;dateTime">2017-10-26T21:32:52</RIM:hasEndDate_Funding>
+        <RIM:hasTitle rdf:datatype="&xsd;string">Model Fusion</RIM:hasTitle>
+        <RIM:hasFundingAgency rdf:datatype="&xsd;string">NSF</RIM:hasFundingAgency>
+        <RIM:hasGoals rdf:datatype="&xsd;string">The goal of this research is to create a technique to combine different models of the earth&apos;s interior structure.</RIM:hasGoals>
+        <RIM:hasAbstract rdf:datatype="&xsd;string">This approach defines an approach to combine different models of the earth based on accuracy, resolution and coverage.</RIM:hasAbstract>
+        <RIM:hasRelatedWork rdf:resource="&RIM;HolesCode"/>
+        <RIM:hasRelatedWorkSet rdf:resource="&RIM;ModelFusion-RelatedWorkSet"/>
+        <RIM:hasPrincipalInvestigator rdf:resource="&RIM;Omar-Ochoa"/>
+        <RIM:hasCoPrincipalInvestigator rdf:resource="&RIM;Vladik-Kreinovich"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#ModelFusion-RelatedWorkSet -->
+
+    <owl:NamedIndividual rdf:about="&RIM;ModelFusion-RelatedWorkSet">
+        <rdf:type rdf:resource="&RIM;RelatedWorkSet"/>
+        <RIM:hasRelatedWork rdf:resource="&RIM;RioGrande-VelocityModel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#ModelFusion-Uncertainty -->
+
+    <owl:NamedIndividual rdf:about="&RIM;ModelFusion-Uncertainty">
+        <rdf:type rdf:resource="&RIM;Project"/>
+        <RIM:hasStartDate_Funding rdf:datatype="&xsd;dateTime">2007-10-26T21:32:52</RIM:hasStartDate_Funding>
+        <RIM:hasStartDate_Inception rdf:datatype="&xsd;dateTime">2010-10-26T21:32:52</RIM:hasStartDate_Inception>
+        <RIM:hasEndDate_Funding rdf:datatype="&xsd;dateTime">2017-10-26T21:32:52</RIM:hasEndDate_Funding>
+        <RIM:hasTitle rdf:datatype="&xsd;string">Model Fusion using Uncertainly</RIM:hasTitle>
+        <RIM:hasFundingAgency rdf:datatype="&xsd;string">NSF</RIM:hasFundingAgency>
+        <RIM:hasGoals rdf:datatype="&xsd;string">The goal of this research is to improve upon existing techniques for velocity modeling of the Earth&apos;s interior structure.</RIM:hasGoals>
+        <RIM:hasAbstract rdf:datatype="&xsd;string">This approach uses Monte-Carlo to simulate different uncertainty of different velocity models and then combines them using the model fusion technique. </RIM:hasAbstract>
+        <RIM:hasPrincipalInvestigator rdf:resource="&RIM;Julio-Olaya"/>
+        <RIM:hasRelatedWork rdf:resource="&RIM;ModelFusion"/>
+        <RIM:hasRelatedWorkSet rdf:resource="&RIM;ModelFusion-Uncertainty-RelatedWorkSet"/>
+        <RIM:hasCoPrincipalInvestigator rdf:resource="&RIM;Rodrigo-Romero"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#ModelFusion-Uncertainty-RelatedWorkSet -->
+
+    <owl:NamedIndividual rdf:about="&RIM;ModelFusion-Uncertainty-RelatedWorkSet">
+        <rdf:type rdf:resource="&RIM;RelatedWorkSet"/>
+        <RIM:hasRelatedWork rdf:resource="&RIM;Monte-Carlo-Simulation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Monte-Carlo-Simulation -->
+
+    <owl:NamedIndividual rdf:about="&RIM;Monte-Carlo-Simulation">
+        <rdf:type rdf:resource="&RIM;RelatedWork"/>
+        <RIM:hasURL rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Monte_Carlo_method</RIM:hasURL>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Omar-Ochoa -->
+
+    <owl:NamedIndividual rdf:about="&RIM;Omar-Ochoa">
+        <rdf:type rdf:resource="&RIM;Person"/>
+        <RIM:hasName rdf:datatype="&xsd;string">Omar Ochoa</RIM:hasName>
+        <RIM:hasDiscipline rdf:resource="&RIM;Computer-Science"/>
+        <RIM:affiliatedWithInstitution rdf:resource="&RIM;UTEP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#RioGrande-VelocityModel -->
+
+    <owl:NamedIndividual rdf:about="&RIM;RioGrande-VelocityModel">
+        <rdf:type rdf:resource="&RIM;RelatedWork"/>
+        <RIM:hasURL rdf:datatype="&xsd;anyURI">http://utep/cybershare/omars-paper.pdf</RIM:hasURL>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Rodrigo-Romero -->
+
+    <owl:NamedIndividual rdf:about="&RIM;Rodrigo-Romero">
+        <rdf:type rdf:resource="&RIM;Person"/>
+        <RIM:hasName rdf:datatype="&xsd;string">Rodrigo Romero</RIM:hasName>
+        <RIM:hasDiscipline rdf:resource="&RIM;Computer-Science"/>
+        <RIM:affiliatedWithInstitution rdf:resource="&RIM;UTEP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Tomography -->
+
+    <owl:NamedIndividual rdf:about="&RIM;Tomography">
+        <rdf:type rdf:resource="&RIM;RelatedWork"/>
+        <RIM:hasURL rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Tomography</RIM:hasURL>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#UTEP -->
+
+    <owl:NamedIndividual rdf:about="&RIM;UTEP">
+        <rdf:type rdf:resource="&RIM;Institution"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#VirginiaTech -->
+
+    <owl:NamedIndividual rdf:about="&RIM;VirginiaTech">
+        <rdf:type rdf:resource="&RIM;Institution"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#Vladik-Kreinovich -->
+
+    <owl:NamedIndividual rdf:about="&RIM;Vladik-Kreinovich">
+        <rdf:type rdf:resource="&RIM;Person"/>
+        <RIM:hasName rdf:datatype="&xsd;string">Vladik Kreinovich</RIM:hasName>
+        <RIM:hasDiscipline rdf:resource="&RIM;Computer-Science"/>
+        <RIM:affiliatedWithInstitution rdf:resource="&RIM;UTEP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="urn:swrl#x">
+        <rdf:type rdf:resource="&swrl;Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl#y">
+        <rdf:type rdf:resource="&swrl;Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl#z">
+        <rdf:type rdf:resource="&swrl;Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;AtomList"/>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&swrl;AtomList"/>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="&RIM;hasRelatedWork"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                            </rdf:Description>
+                        </rdf:rest>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&swrl;ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="&RIM;Project"/>
+                                <swrl:argument1 rdf:resource="urn:swrl#y"/>
+                            </rdf:Description>
+                        </rdf:first>
+                    </rdf:Description>
+                </rdf:rest>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="&RIM;Project"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&RIM;isInfluencedBy"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;AtomList"/>
+                        <rdf:rest rdf:resource="&rdf;nil"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="&RIM;isInfluencedBy"/>
+                                <swrl:argument1 rdf:resource="urn:swrl#y"/>
+                                <swrl:argument2 rdf:resource="urn:swrl#z"/>
+                            </rdf:Description>
+                        </rdf:first>
+                    </rdf:Description>
+                </rdf:rest>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&RIM;isInfluencedBy"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&RIM;isInfluencedBy"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#z"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+
