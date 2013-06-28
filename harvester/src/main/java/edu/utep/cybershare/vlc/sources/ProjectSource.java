@@ -23,6 +23,9 @@ public abstract class ProjectSource {
 	}
 	
 	public List<Project> getProjects(){
+		
+		System.out.println("projects size: " + projects.values().size());
+		
 		return new ArrayList<Project>(projects.values());
 	}
 
@@ -33,6 +36,7 @@ public abstract class ProjectSource {
 			String hasAbstract,
 			GregorianCalendar hasStartDate_Funding,
 			GregorianCalendar hasEndDate_Funding){
+		
 		Project project = projects.get(hasTitle);
 		
 		if(project == null){
@@ -43,6 +47,7 @@ public abstract class ProjectSource {
 			project.setHasAbstract(hasAbstract);
 			project.setHasStartDate_Funding(hasStartDate_Funding);
 			project.setHasEndDate_Funding(hasEndDate_Funding);
+			projects.put(hasTitle, project);
 		}
 	}
 
@@ -81,10 +86,13 @@ public abstract class ProjectSource {
 	
 	@Override
 	public String toString(){
+		int i = 0;
 		List<Project> projects = getProjects();
 		String projectListing = "--- Projects ---\n";
-		for(Project project : projects)
+		for(Project project : projects){
+			System.out.println(i ++);
 			projectListing += "\t- project: " + project + "\n";
+		}
 		
 		return projectListing;
 	}

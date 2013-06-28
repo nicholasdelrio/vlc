@@ -33,17 +33,28 @@ public class NSFAwards extends ProjectSource {
 		}catch(Exception e){e.printStackTrace();}
 	}
 	
+	private String getCoInvestigator(Element awardElement){
+		String coiName = null;
+		NodeList pis = awardElement.getElementsByTagName("Co-PIName");
+		if(pis.getLength() > 0)
+			coiName = pis.item(0).getTextContent();
+		
+		return coiName;
+	}
+	
 	private void populateProjects(Document awardsDoc){
 		NodeList awardsList = awardsDoc.getElementsByTagName("Award");
 			
 		for (int i = 0; i < awardsList.getLength(); i++) {
 			Node awardNode = awardsList.item(i);
-				
+		
+			System.out.println("award number: " + (int)(i + 1));
+			
 			if (awardNode.getNodeType() == Node.ELEMENT_NODE) {
 				Element awardElement = (Element) awardNode;
 				
 				String piName = awardElement.getElementsByTagName("PrincipalInvestigator").item(0).getTextContent();
-				String coiName = awardElement.getElementsByTagName("Co-PIName").item(0).getTextContent();
+				String coiName = getCoInvestigator(awardElement);
 				String institutionName = awardElement.getElementsByTagName("Organization").item(0).getTextContent();
 				String disciplineName = awardElement.getElementsByTagName("Program").item(0).getTextContent();
 				String title = awardElement.getElementsByTagName("Title").item(0).getTextContent();

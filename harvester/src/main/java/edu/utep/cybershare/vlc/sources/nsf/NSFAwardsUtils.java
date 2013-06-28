@@ -4,11 +4,25 @@ import java.util.GregorianCalendar;
 
 public class NSFAwardsUtils {
 	public static String getFirstName(String properName){
-		return properName.split(" ")[0];
+		String firstName = null;
+		String[] nameParts;
+		if(properName != null){
+			nameParts = properName.split(" ");
+			if(nameParts.length == 2)
+				firstName = nameParts[0];
+		}
+		return firstName;
 	}
 	
 	public static String getLastName(String properName){
-		return properName.split(" ")[1];
+		String lastName = null;
+		String[] nameParts;
+		if(properName != null){
+			nameParts = properName.split(" ");
+			if(nameParts.length == 2)
+				lastName = nameParts[1];
+		}
+		return lastName;
 	}
 	
 	public static GregorianCalendar getDate(String stringDate){
