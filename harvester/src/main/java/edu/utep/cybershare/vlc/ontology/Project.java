@@ -53,4 +53,22 @@ public class Project {
 	public void setHasEndDate_Funding(GregorianCalendar hasEndDate_Funding) {
 		this.hasEndDate_Funding = hasEndDate_Funding;
 	}
+	
+	@Override
+	public String toString(){
+		
+		String projectString = "--- Project ---\n";
+		
+		projectString += "\t- hasTitle: " + hasTitle + "\n";
+		projectString += "\t- hasAbstract: " + hasAbstract + "\n";
+		projectString += "\t- hasPrincipalInvestigator: " + hasPrincipalInvestigator + "\n";
+		
+		for(Person aCOI : hasCoPrincipalInvestigator)
+			projectString += "\t- hasCoPrincipalInvestigator: " + aCOI + "\n";
+		
+		projectString += "\t- hasStartDate_Funding: " + hasStartDate_Funding + "\n";
+		projectString += "\t- hasEndDate_Funding: " + hasEndDate_Funding;
+		
+		return projectString;
+	}
 }

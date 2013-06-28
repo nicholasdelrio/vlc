@@ -3,7 +3,6 @@ package edu.utep.cybershare.vlc.sources.nsf;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
-import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -16,7 +15,6 @@ import org.w3c.dom.NodeList;
 import edu.utep.cybershare.vlc.ontology.Discipline;
 import edu.utep.cybershare.vlc.ontology.Institution;
 import edu.utep.cybershare.vlc.ontology.Person;
-import edu.utep.cybershare.vlc.ontology.Project;
 import edu.utep.cybershare.vlc.sources.ProjectSource;
 
 public class NSFAwards extends ProjectSource {
@@ -25,14 +23,14 @@ public class NSFAwards extends ProjectSource {
 	private static final String NSF = CACHED_AWARD_DATA + "NSF/";
 	private static final File AWARDS_NSF_SEMANTIC_WEB_File = new File(NSF + "awards-nsf-semantic-web.xml");
 
-	public NSFAwards() throws Exception {
-		
-		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-		Document awardsDoc = dBuilder.parse(AWARDS_NSF_SEMANTIC_WEB_File);	 
-		awardsDoc.getDocumentElement().normalize();
-		
-		populateProjects(awardsDoc);
+	public NSFAwards() {
+		try{
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document awardsDoc = dBuilder.parse(AWARDS_NSF_SEMANTIC_WEB_File);	 
+			awardsDoc.getDocumentElement().normalize();
+			populateProjects(awardsDoc);
+		}catch(Exception e){e.printStackTrace();}
 	}
 	
 	private void populateProjects(Document awardsDoc){
@@ -61,7 +59,7 @@ public class NSFAwards extends ProjectSource {
 				Discipline discipline = this.getDiscipline(disciplineName);		
 				Person hasPrincipalInvestigator = getPerson(NSFAwardsUtils.getFirstName(piName), NSFAwardsUtils.getLastName(piName), discipline, institution);
 
-				Person hasCoPrincipalInvestigator = getPerson(NSFAwardsUtils.getFirstName(piName), NSFAwardsUtils.getLastName(piName), discipline, institution);
+				Person hasCoPrincipalInvestigator = getPerson(NSFAwardsUtils.getFirstName(coiName), NSFAwardsUtils.getLastName(coiName), discipline, institution);
 				ArrayList<Person> coPrincipalInvestigators = new ArrayList<Person>();
 				coPrincipalInvestigators.add(hasCoPrincipalInvestigator);
 

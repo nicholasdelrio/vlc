@@ -12,5 +12,11 @@ public class Discipline {
 		this.hasName = hasName;
 	}
 
-	
+	@Override
+	public String toString(){
+		String disciplineString = "--- Discipline ---\n";
+		disciplineString += "\t- hasName: " + hasName;
+		
+		return disciplineString;
+	}
 }

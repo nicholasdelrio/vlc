@@ -40,5 +40,18 @@ public class Person {
 		this.hasLastName = hasLastName;
 	}
 	
-	
+	@Override
+	public String toString(){
+		String personString = "--- Person ---\n";
+		personString += "\t- hasFirstName: " + hasFirstName + "\n";
+		personString += "\t- hasLastName: " + hasLastName + "\n";
+		
+		for(Institution anInstitution : affiliatedWithInstitution)
+			personString += "\t- affiliatedWithInstitution: " + anInstitution + "\n";
+		
+		for(Discipline aDiscipline : hasDiscipline)
+			personString += "\t- hasDiscipline: " + aDiscipline + "\n";
+		
+		return personString;
+	}
 }

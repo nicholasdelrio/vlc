@@ -18,5 +18,13 @@ public class Institution {
 	public void setHasPoint(Point hasPoint) {
 		this.hasPoint = hasPoint;
 	}
-
+	
+	@Override
+	public String toString(){
+		String institutionString = "--- Institution ---\n";
+		institutionString += "\t- hasName: " + hasName + "\n";
+		institutionString += "\t- hasPoint: " + hasPoint;
+		
+		return institutionString;
+	}
 }

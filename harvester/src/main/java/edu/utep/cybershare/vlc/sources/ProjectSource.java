@@ -78,4 +78,14 @@ public abstract class ProjectSource {
 		}
 		return person;
 	}
+	
+	@Override
+	public String toString(){
+		List<Project> projects = getProjects();
+		String projectListing = "--- Projects ---\n";
+		for(Project project : projects)
+			projectListing += "\t- project: " + project + "\n";
+		
+		return projectListing;
+	}
 }
