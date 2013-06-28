@@ -1,5 +1,6 @@
 package edu.utep.cybershare.vlc.ontology;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Person {
@@ -9,18 +10,22 @@ public class Person {
 	private String hasFirstName;
 	private String hasLastName;
 	
+	public Person(){
+		affiliatedWithInstitution = new ArrayList<Institution>();
+		hasDiscipline = new ArrayList<Discipline>();
+	}
+	
 	public List<Institution> getAffiliatedWithInstitution() {
 		return affiliatedWithInstitution;
 	}
-	public void setAffiliatedWithInstitution(
-			List<Institution> affiliatedWithInstitution) {
-		this.affiliatedWithInstitution = affiliatedWithInstitution;
+	public void addAffiliatedWithInstitution(Institution institution) {
+		this.affiliatedWithInstitution.add(institution);
 	}
 	public List<Discipline> getHasDiscipline() {
 		return hasDiscipline;
 	}
-	public void setHasDiscipline(List<Discipline> hasDiscipline) {
-		this.hasDiscipline = hasDiscipline;
+	public void addHasDiscipline(Discipline discipline) {
+		this.hasDiscipline.add(discipline);
 	}
 	public String getHasFirstName() {
 		return hasFirstName;
