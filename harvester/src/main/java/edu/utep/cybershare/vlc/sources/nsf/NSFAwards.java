@@ -23,8 +23,22 @@ public class NSFAwards extends ProjectSource {
 	private static final String NSF = CACHED_AWARD_DATA + "NSF/";
 
 	private static final File[] AWARDS_NSF = new File[]{
-		new File(NSF + "semantic-web.xml"),
-		new File(NSF + "knowledge-representation.xml")};
+		new File(NSF + "biodiversity-forecasting.xml"),
+		new File(NSF + "data-curation"),
+		new File(NSF + "data-integration"),
+		new File(NSF + "data-management"),
+		new File(NSF + "geoepidemiology"),
+		new File(NSF + "knowledge-representation"),
+		new File(NSF + "ontology"),
+		new File(NSF + "semantic-web"),
+		new File(NSF + "semantic-web"),
+		new File(NSF + "sensor-data"),
+		new File(NSF + "sensor-networks"),
+		new File(NSF + "spatial-epidemiology"),
+		new File(NSF + "sustainability-science"),
+		new File(NSF + "visual-analytics"),
+		new File(NSF + "visualization"),
+		new File(NSF + "water-models")};
 
 	
 	public NSFAwards() {
