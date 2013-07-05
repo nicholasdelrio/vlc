@@ -52,6 +52,6 @@ public class Person {
 		for(Discipline aDiscipline : hasDiscipline)
 			personString += "\t- hasDiscipline: " + aDiscipline + "\n";
 		
-		return personString;
+		return personString.substring(0, personString.length() - 1);
 	}
 }

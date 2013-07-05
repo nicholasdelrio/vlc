@@ -91,7 +91,7 @@ public abstract class ProjectSource {
 		String projectListing = "--- Projects ---\n";
 		for(Project project : projects){
 			System.out.println(i ++);
-			projectListing += "\t- project: " + project + "\n";
+			projectListing += "project: " + project + "\n\n";
 		}
 		
 		return projectListing;

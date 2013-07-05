@@ -21,15 +21,25 @@ public class NSFAwards extends ProjectSource {
 	
 	private static final String CACHED_AWARD_DATA = "./cached-award-data/";
 	private static final String NSF = CACHED_AWARD_DATA + "NSF/";
-	private static final File AWARDS_NSF_SEMANTIC_WEB_File = new File(NSF + "awards-nsf-semantic-web.xml");
 
+	private static final File[] AWARDS_NSF = new File[]{
+		new File(NSF + "semantic-web.xml"),
+		new File(NSF + "knowledge-representation.xml")};
+
+	
 	public NSFAwards() {
+		DocumentBuilderFactory dbFactory;
+		DocumentBuilder dBuilder;
+		Document awardsDoc;
 		try{
-			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document awardsDoc = dBuilder.parse(AWARDS_NSF_SEMANTIC_WEB_File);	 
-			awardsDoc.getDocumentElement().normalize();
-			populateProjects(awardsDoc);
+			for(File awardFile : AWARDS_NSF){
+				dbFactory = DocumentBuilderFactory.newInstance();
+				dBuilder = dbFactory.newDocumentBuilder();
+				awardsDoc = dBuilder.parse(awardFile);	 
+				awardsDoc.getDocumentElement().normalize();
+				populateProjects(awardsDoc);
+				dBuilder.reset();
+			}
 		}catch(Exception e){e.printStackTrace();}
 	}
 	
