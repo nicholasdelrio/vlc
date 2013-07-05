@@ -88,8 +88,6 @@ public class NSFAwards extends ProjectSource {
 			
 		for (int i = 0; i < awardsList.getLength(); i++) {
 			Node awardNode = awardsList.item(i);
-		
-			System.out.println("award number: " + (int)(i + 1));
 			
 			if (awardNode.getNodeType() == Node.ELEMENT_NODE) {
 				Element awardElement = (Element) awardNode;
