@@ -24,21 +24,20 @@ public class NSFAwards extends ProjectSource {
 
 	private static final File[] AWARDS_NSF = new File[]{
 		new File(NSF + "biodiversity-forecasting.xml"),
-		new File(NSF + "data-curation"),
-		new File(NSF + "data-integration"),
-		new File(NSF + "data-management"),
-		new File(NSF + "geoepidemiology"),
-		new File(NSF + "knowledge-representation"),
-		new File(NSF + "ontology"),
-		new File(NSF + "semantic-web"),
-		new File(NSF + "semantic-web"),
-		new File(NSF + "sensor-data"),
-		new File(NSF + "sensor-networks"),
-		new File(NSF + "spatial-epidemiology"),
-		new File(NSF + "sustainability-science"),
-		new File(NSF + "visual-analytics"),
-		new File(NSF + "visualization"),
-		new File(NSF + "water-models")};
+		new File(NSF + "data-curation.xml"),
+		new File(NSF + "data-integration.xml"),
+		new File(NSF + "data-management.xml"),
+		new File(NSF + "geoepidemiology.xml"),
+		new File(NSF + "knowledge-representation.xml"),
+		new File(NSF + "ontology.xml"),
+		new File(NSF + "semantic-web.xml"),
+		new File(NSF + "sensor-data.xml"),
+		new File(NSF + "sensor-networks.xml"),
+		new File(NSF + "spatial-epidemiology.xml"),
+		new File(NSF + "sustainability-science.xml"),
+		new File(NSF + "visual-analytics.xml"),
+		new File(NSF + "visualization.xml"),
+		new File(NSF + "water-models.xml")};
 
 	
 	public NSFAwards() {
@@ -58,12 +57,30 @@ public class NSFAwards extends ProjectSource {
 	}
 	
 	private String getCoInvestigator(Element awardElement){
-		String coiName = null;
+		String coiName = ProjectSource.NULL_PERSON;
 		NodeList pis = awardElement.getElementsByTagName("Co-PIName");
 		if(pis.getLength() > 0)
 			coiName = pis.item(0).getTextContent();
 		
 		return coiName;
+	}
+	
+	private String getProgram(Element awardElement){
+		String program = ProjectSource.NULL_DISCIPLINE;
+		NodeList programs = awardElement.getElementsByTagName("Program");
+		if(programs.getLength() > 0)
+			program = programs.item(0).getTextContent();
+		
+		return program;
+	}
+	
+	private String getPI(Element awardElement){
+		String pi = ProjectSource.NULL_PERSON;
+		NodeList pis = awardElement.getElementsByTagName("PrincipalInvestigator");
+		if(pis.getLength() > 0)
+			pi = pis.item(0).getTextContent();
+		
+		return pi;
 	}
 	
 	private void populateProjects(Document awardsDoc){
@@ -77,10 +94,10 @@ public class NSFAwards extends ProjectSource {
 			if (awardNode.getNodeType() == Node.ELEMENT_NODE) {
 				Element awardElement = (Element) awardNode;
 				
-				String piName = awardElement.getElementsByTagName("PrincipalInvestigator").item(0).getTextContent();
+				String piName = getPI(awardElement);
 				String coiName = getCoInvestigator(awardElement);
 				String institutionName = awardElement.getElementsByTagName("Organization").item(0).getTextContent();
-				String disciplineName = awardElement.getElementsByTagName("Program").item(0).getTextContent();
+				String disciplineName = getProgram(awardElement);
 				String title = awardElement.getElementsByTagName("Title").item(0).getTextContent();
 				String abstractText = awardElement.getElementsByTagName("Abstract").item(0).getTextContent();
 				

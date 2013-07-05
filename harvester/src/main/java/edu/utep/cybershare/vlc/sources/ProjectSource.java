@@ -15,17 +15,30 @@ public abstract class ProjectSource {
 	private Hashtable<String,Institution> institutions;
 	private Hashtable<String,Discipline> disciplines;
 	
+	public static final String NULL_DISCIPLINE = "null-discipline";
+	public static final String NULL_PERSON = "null-person";
+	
 	public ProjectSource(){
 		projects = new Hashtable<String,Project>();	
 		people = new Hashtable<String,Person>();
 		institutions = new Hashtable<String,Institution>();
 		disciplines = new Hashtable<String,Discipline>();
+		
+		addNullDiscipline();
+		addNullPerson();
+	}
+	
+	private void addNullDiscipline(){
+		Discipline nullDiscipline = new Discipline();
+		disciplines.put(NULL_DISCIPLINE, nullDiscipline);
+	}
+	
+	private void addNullPerson(){
+		Person nullPerson = new Person();
+		people.put(NULL_PERSON, nullPerson);
 	}
 	
 	public List<Project> getProjects(){
-		
-		System.out.println("projects size: " + projects.values().size());
-		
 		return new ArrayList<Project>(projects.values());
 	}
 
@@ -52,12 +65,17 @@ public abstract class ProjectSource {
 	}
 
 	protected Discipline getDiscipline(String disciplineName){
-		Discipline discipline = disciplines.get(disciplineName);
-		if(discipline == null){
-			discipline = new Discipline();
-			discipline.setHasName(disciplineName);
-			disciplines.put(disciplineName, discipline);
+		Discipline discipline = disciplines.get("null");
+		
+		if(disciplineName != null){
+			discipline = disciplines.get(disciplineName);
+			if(discipline == null){
+				discipline = new Discipline();
+				discipline.setHasName(disciplineName);
+				disciplines.put(disciplineName, discipline);
+			}
 		}
+		
 		return discipline;
 	}
 	

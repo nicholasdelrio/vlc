@@ -7,6 +7,6 @@ public class ProjectSources {
 	public static void main(String[] args){
 		
 		ProjectSource nsfSource = new NSFAwards();
-		System.out.println(nsfSource.toString());
+		System.out.println("number of projects: " + nsfSource.getProjects().size());
 	}
 }
