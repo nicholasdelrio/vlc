@@ -13,7 +13,7 @@ import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 public abstract class AxiomSetter {
 
-	protected static FactoryBundle bundle = new FactoryBundle();
+	protected static FactoryBundle bundle;
 	
 	protected ArrayList<OWLAxiom> owlAxioms;
 	protected OWLNamedIndividual individual;	
@@ -53,4 +53,8 @@ public abstract class AxiomSetter {
 	}
 	
 	public OWLNamedIndividual getIndividual(){return individual;}
+	
+	public static void setBundle(FactoryBundle aBundle){
+		bundle = aBundle;
+	}
 }

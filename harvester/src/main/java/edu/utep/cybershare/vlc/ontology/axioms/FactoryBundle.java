@@ -1,5 +1,6 @@
 package edu.utep.cybershare.vlc.ontology.axioms;
 
+import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
@@ -9,6 +10,15 @@ public class FactoryBundle {
 	private OWLOntology ontology;
 	private OWLOntologyManager ontologyManager;
 	private String baseIRI;
+	
+	public FactoryBundle(String baseIRI){
+		this.baseIRI = baseIRI;
+		
+		dataFactory = OWLManager.getOWLDataFactory();
+		ontologyManager = OWLManager.createOWLOntologyManager();
+		try{ontology = ontologyManager.createOntology();}
+		catch(Exception e){e.printStackTrace();}
+	}
 	
 	public String getIndividualIRI(String individualName){
 		return baseIRI + "#" + individualName;
