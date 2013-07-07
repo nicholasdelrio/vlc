@@ -8,12 +8,9 @@ import org.semanticweb.owlapi.model.OWLLiteral;
 import edu.utep.cybershare.vlc.ontology.Discipline;
 
 public class DisciplineAxioms extends AxiomSetter {
-
-	private Discipline discipline;
 	
 	public DisciplineAxioms(Discipline aDiscipline) {
-		super(aDiscipline.getHasName(), Vocabulary.CLASS_IRI_Discipline);
-		discipline = aDiscipline;
+		super(aDiscipline.getHasName(), Vocabulary.CLASS_IRI_Discipline, aDiscipline);
 	}
 
 	@Override

@@ -9,12 +9,9 @@ import org.semanticweb.owlapi.model.OWLObjectProperty;
 import edu.utep.cybershare.vlc.ontology.Person;
 
 public class PersonAxioms extends AxiomSetter {
-
-	private Person person;
 	
 	public PersonAxioms(Person aPerson) {
-		super(aPerson.getHasLastName() + "-" + aPerson.getHasFirstName(), Vocabulary.CLASS_IRI_Person);
-		person = aPerson;
+		super(aPerson.getHasLastName() + "-" + aPerson.getHasFirstName(), Vocabulary.CLASS_IRI_Person, aPerson);
 	}
 
 	@Override

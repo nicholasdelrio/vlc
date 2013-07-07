@@ -10,6 +10,11 @@ import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
+import edu.utep.cybershare.vlc.ontology.Discipline;
+import edu.utep.cybershare.vlc.ontology.Institution;
+import edu.utep.cybershare.vlc.ontology.Person;
+import edu.utep.cybershare.vlc.ontology.Project;
+
 
 public abstract class AxiomSetter {
 
@@ -17,11 +22,37 @@ public abstract class AxiomSetter {
 	private static Hashtable<String, OWLNamedIndividual> individuals = new Hashtable<String, OWLNamedIndividual>();
 	
 	protected ArrayList<OWLAxiom> owlAxioms;
-	protected OWLNamedIndividual individual;	
+	protected OWLNamedIndividual individual;
 	
-	public AxiomSetter(String individualName, String classIRI){
-		owlAxioms = new ArrayList<OWLAxiom>();		
+	protected Project project;
+	protected Person person;
+	protected Institution institution;
+	protected Discipline discipline;
+	
+	public AxiomSetter(String individualName, String classIRI, Project project){
+		this.project = project;
+		this.setIndividual(individualName, classIRI);
+	}
+	
+	public AxiomSetter(String individualName, String classIRI, Person person){
+		this.person = person;
+		this.setIndividual(individualName, classIRI);
+	}
 
+	public AxiomSetter(String individualName, String classIRI, Institution institution){
+		this.institution = institution;
+		this.setIndividual(individualName, classIRI);
+	}
+
+	public AxiomSetter(String individualName, String classIRI, Discipline discipline){
+		this.discipline = discipline;
+		this.setIndividual(individualName, classIRI);
+	}
+
+	
+	private void setIndividual(String individualName, String classIRI){
+		owlAxioms = new ArrayList<OWLAxiom>();		
+		
 		individual = individuals.get(individualName);
 		IRI individualIRI;
 		if(individual == null){

@@ -8,11 +8,9 @@ import org.semanticweb.owlapi.model.OWLLiteral;
 import edu.utep.cybershare.vlc.ontology.Institution;
 
 public class InstitutionAxioms extends AxiomSetter {
-
-	private Institution institution;
 	
 	public InstitutionAxioms(Institution anInstitution) {
-		super(anInstitution.getHasName(), Vocabulary.CLASS_IRI_Institution);
+		super(anInstitution.getHasName(), Vocabulary.CLASS_IRI_Institution, anInstitution);
 		institution = anInstitution;
 	}
 

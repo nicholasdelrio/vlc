@@ -11,16 +11,13 @@ import edu.utep.cybershare.vlc.ontology.Project;
 
 public class ProjectAxioms extends AxiomSetter{
 	
-	private Project project;
-	
 	public ProjectAxioms(Project aProject){
-		super(aProject.getHasTitle(), Vocabulary.CLASS_IRI_Project);
-		project = aProject;	
-	}	
+		super(aProject.getHasTitle(), Vocabulary.CLASS_IRI_Project, aProject);
+	}
 	
 	@Override
 	protected void populateIndividualAxioms() {
-		owlAxioms.add(this.getEndStartDate_Funding());
+		owlAxioms.add(this.getHasEndDate_Funding());
 		owlAxioms.add(this.getHasAbstract());
 		owlAxioms.add(this.getHasCoPrincipalInvestigatorAssertion());
 		owlAxioms.add(this.getHasPrincipalInvestigatorAssertion());
@@ -49,7 +46,7 @@ public class ProjectAxioms extends AxiomSetter{
 		return assertion;		
 	}
 	
-	private OWLAxiom getEndStartDate_Funding(){
+	private OWLAxiom getHasEndDate_Funding(){
 		OWLDataProperty hasEndDate_Funding = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasEndDate_Funding));		
 		OWLLiteral endDate_Funding = bundle.getDataFactory().getOWLLiteral(project.getHasEndDate_Funding().toString());
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasEndDate_Funding, individual, endDate_Funding);
