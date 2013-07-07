@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.ontology;
+package edu.utep.cybershare.vlc.ontology.axioms;
 
 public class Vocabulary {
 	

@@ -10,7 +10,8 @@ import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
-public abstract class VLCAxiomSetter {
+
+public abstract class AxiomSetter {
 
 	protected static FactoryBundle bundle = new FactoryBundle();
 	
@@ -18,7 +19,7 @@ public abstract class VLCAxiomSetter {
 	protected OWLNamedIndividual individual;	
 	private Hashtable<String, OWLNamedIndividual> individuals;
 	
-	public VLCAxiomSetter(String individualName, String classIRI){
+	public AxiomSetter(String individualName, String classIRI){
 		owlAxioms = new ArrayList<OWLAxiom>();		
 
 		individual = individuals.get(individualName);

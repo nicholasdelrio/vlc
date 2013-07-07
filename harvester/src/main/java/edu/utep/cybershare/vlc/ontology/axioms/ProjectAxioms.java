@@ -8,14 +8,13 @@ import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 
 import edu.utep.cybershare.vlc.ontology.Project;
-import edu.utep.cybershare.vlc.ontology.Vocabulary;
 
-public class ProjectAxioms extends VLCAxiomSetter{
+public class ProjectAxioms extends AxiomSetter{
 	
 	private Project project;
 	
-	public ProjectAxioms(Project aProject, String aProjectName){
-		super(aProjectName, Vocabulary.CLASS_IRI_Project);
+	public ProjectAxioms(Project aProject){
+		super(aProject.getHasTitle(), Vocabulary.CLASS_IRI_Project);
 		project = aProject;	
 	}	
 	
