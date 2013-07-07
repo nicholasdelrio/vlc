@@ -14,10 +14,10 @@ import org.semanticweb.owlapi.model.OWLNamedIndividual;
 public abstract class AxiomSetter {
 
 	protected static FactoryBundle bundle;
+	private static Hashtable<String, OWLNamedIndividual> individuals = new Hashtable<String, OWLNamedIndividual>();
 	
 	protected ArrayList<OWLAxiom> owlAxioms;
 	protected OWLNamedIndividual individual;	
-	private Hashtable<String, OWLNamedIndividual> individuals;
 	
 	public AxiomSetter(String individualName, String classIRI){
 		owlAxioms = new ArrayList<OWLAxiom>();		
