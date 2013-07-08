@@ -58,7 +58,7 @@ public class NSFAwards extends ProjectSource {
 	}
 	
 	private List<String> getCoInvestigators(Element awardElement){
-		String coiName = ProjectSource.NULL_PERSON;
+		String coiName = ProjectSource.NULL_PERSON_PROPERNAME;
 		NodeList pis = awardElement.getElementsByTagName("Co-PIName");
 		List<String> pisList = NSFAwardsUtils.nodeListConverter(pis);
 		
@@ -80,7 +80,7 @@ public class NSFAwards extends ProjectSource {
 	}
 	
 	private String getPI(Element awardElement){
-		String pi = ProjectSource.NULL_PERSON;
+		String pi = ProjectSource.NULL_PERSON_PROPERNAME;
 		NodeList pis = awardElement.getElementsByTagName("PrincipalInvestigator");
 		if(pis.getLength() > 0)
 			pi = pis.item(0).getTextContent();

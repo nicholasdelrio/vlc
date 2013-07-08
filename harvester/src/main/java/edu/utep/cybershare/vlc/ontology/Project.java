@@ -13,6 +13,10 @@ public class Project {
 	private GregorianCalendar hasStartDate_Funding;
 	private GregorianCalendar hasEndDate_Funding;
 	
+	public Project(){
+		hasCoPrincipalInvestigator = new Hashtable<String, Person>();
+	}
+	
 	public Person getHasPrincipalInvestigator() {
 		return hasPrincipalInvestigator;
 	}

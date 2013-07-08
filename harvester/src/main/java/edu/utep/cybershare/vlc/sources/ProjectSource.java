@@ -17,8 +17,8 @@ public abstract class ProjectSource {
 	
 	public static final String NULL_INSTITUTION = "null-institution";
 	public static final String NULL_DISCIPLINE = "null-discipline";
-	public static final String NULL_PERSON = "null-person";
 	public static final String NULL_NAME = "null-name";
+	public static final String NULL_PERSON_PROPERNAME = NULL_NAME + " " + NULL_NAME;
 	
 	public ProjectSource(){
 		projects = new Hashtable<String,Project>();	
@@ -35,7 +35,7 @@ public abstract class ProjectSource {
 		Person nullPerson = new Person();
 		nullPerson.setHasFirstName(NULL_NAME);
 		nullPerson.setHasLastName(NULL_NAME);
-		people.put(NULL_PERSON, nullPerson);
+		people.put(nullPerson.getProperName(), nullPerson);
 	}
 	
 	private void addNullDiscipline(){
