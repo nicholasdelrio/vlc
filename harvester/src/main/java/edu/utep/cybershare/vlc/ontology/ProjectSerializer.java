@@ -1,6 +1,10 @@
 package edu.utep.cybershare.vlc.ontology;
 
+import java.io.File;
 import java.util.List;
+
+import org.semanticweb.owlapi.io.FileDocumentTarget;
+import org.semanticweb.owlapi.io.StringDocumentTarget;
 
 import edu.utep.cybershare.vlc.ontology.axioms.AxiomSetter;
 import edu.utep.cybershare.vlc.ontology.axioms.FactoryBundle;
@@ -19,7 +23,15 @@ public class ProjectSerializer {
 	}
 	
 	public void serializeToRDF(){
-		bundle.getOntology().getAxiomCount();
+		
+		FileDocumentTarget target = new FileDocumentTarget(new File("./output-rdf/projects.rdf"));
+		try{
+			bundle.getOntologyManager().saveOntology(bundle.getOntology(), target);
+			System.out.println(target.toString());
+			
+			
+			
+		}catch(Exception e){e.printStackTrace();}
 	}
 	
 	private void convertToAxioms(){

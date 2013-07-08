@@ -39,6 +39,8 @@ public class NSFAwards extends ProjectSource {
 		new File(NSF + "visual-analytics.xml"),
 		new File(NSF + "visualization.xml"),
 		new File(NSF + "water-models.xml")};
+	
+	private int counter = 0;
 
 	
 	public NSFAwards() {
@@ -55,6 +57,8 @@ public class NSFAwards extends ProjectSource {
 				dBuilder.reset();
 			}
 		}catch(Exception e){e.printStackTrace();}
+		
+		System.out.println("total projects: " + counter);
 	}
 	
 	private List<String> getCoInvestigators(Element awardElement){
@@ -92,6 +96,9 @@ public class NSFAwards extends ProjectSource {
 		NodeList awardsList = awardsDoc.getElementsByTagName("Award");
 			
 		for (int i = 0; i < awardsList.getLength(); i++) {
+			
+			counter ++;
+			
 			Node awardNode = awardsList.item(i);
 			
 			if (awardNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -104,7 +111,7 @@ public class NSFAwards extends ProjectSource {
 				String title = awardElement.getElementsByTagName("Title").item(0).getTextContent();
 				String abstractText = awardElement.getElementsByTagName("Abstract").item(0).getTextContent();				
 				String startDateString = awardElement.getElementsByTagName("StartDate").item(0).getTextContent();
-				String endDateString = awardElement.getElementsByTagName("ExpirationDate").item(0).getTextContent();;
+				String endDateString = awardElement.getElementsByTagName("ExpirationDate").item(0).getTextContent();
 				
 				GregorianCalendar startDate = NSFAwardsUtils.getDate(startDateString);
 				GregorianCalendar endDate = NSFAwardsUtils.getDate(endDateString);

@@ -74,7 +74,21 @@ public class Project implements Concept {
 	}
 
 	public boolean isFullySpecified() {
-		return this.getHasAbstract() != null
+
+		boolean isSpecified = true;
+		for(Person person : this.getHasCoPrincipalInvestigator()){
+			isSpecified &= person.isFullySpecified();
+			if(!isSpecified)
+				System.out.println("something wrong with co-pi: " + person.getHasFirstName());
+		}
+		
+		if(!this.getHasPrincipalInvestigator().isFullySpecified()){
+			System.out.println("something wrong with pi: " + this.getHasPrincipalInvestigator().getHasFirstName());
+			System.out.println("something wrong with pi: " + this.getHasPrincipalInvestigator().getHasLastName());
+		}
+			
+		return isSpecified
+				&& this.getHasAbstract() != null
 				&& this.getHasPrincipalInvestigator().isFullySpecified()
 				&& this.getHasEndDate_Funding() != null
 				&& this.getHasStartDate_Funding() != null

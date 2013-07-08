@@ -15,15 +15,12 @@ public class Harvester {
 		System.out.println("number of projects: " + projects.size());
 		
 		for(Project aProject : projects){
-			System.out.println(aProject.getHasTitle());
 			if(!aProject.isFullySpecified()){
 				System.out.println("something is null!, noooo!");
 				break;
 			}
 		}
-
-		/*
 		ProjectSerializer serializer = new ProjectSerializer(projects);
-		serializer.serializeToRDF(); */
+		serializer.serializeToRDF();
 	}
 }

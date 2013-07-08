@@ -12,7 +12,7 @@ public class NSFAwardsUtils {
 		String[] nameParts;
 		if(properName != null){
 			nameParts = properName.split(" ");
-			if(nameParts.length == 2)
+			if(nameParts.length > 1)
 				firstName = nameParts[0];
 		}
 		return firstName;
@@ -23,7 +23,7 @@ public class NSFAwardsUtils {
 		String[] nameParts;
 		if(properName != null){
 			nameParts = properName.split(" ");
-			if(nameParts.length == 2)
+			if(nameParts.length > 1)
 				lastName = nameParts[1];
 		}
 		return lastName;
