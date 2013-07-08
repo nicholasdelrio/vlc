@@ -75,7 +75,7 @@ public class Project implements Concept {
 
 	public boolean isFullySpecified() {
 		return this.getHasAbstract() != null
-				&& this.getHasPrincipalInvestigator() != null
+				&& this.getHasPrincipalInvestigator().isFullySpecified()
 				&& this.getHasEndDate_Funding() != null
 				&& this.getHasStartDate_Funding() != null
 				&& this.getHasTitle() != null;

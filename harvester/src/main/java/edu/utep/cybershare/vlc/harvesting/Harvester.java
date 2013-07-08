@@ -16,6 +16,10 @@ public class Harvester {
 		
 		for(Project aProject : projects){
 			System.out.println(aProject.getHasTitle());
+			if(!aProject.isFullySpecified()){
+				System.out.println("something is null!, noooo!");
+				break;
+			}
 		}
 
 		/*
