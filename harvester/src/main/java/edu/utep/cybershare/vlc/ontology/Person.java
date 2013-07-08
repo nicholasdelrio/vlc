@@ -1,31 +1,31 @@
 package edu.utep.cybershare.vlc.ontology;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.Hashtable;
 
 public class Person {
 	
-	private List<Institution> affiliatedWithInstitution;
-	private	List<Discipline> hasDiscipline;
+	private Hashtable<String, Institution> affiliatedWithInstitution;
+	private	Hashtable<String, Discipline> hasDiscipline;
 	private String hasFirstName;
 	private String hasLastName;
 	
 	public Person(){
-		affiliatedWithInstitution = new ArrayList<Institution>();
-		hasDiscipline = new ArrayList<Discipline>();
+		affiliatedWithInstitution = new Hashtable<String, Institution>();
+		hasDiscipline = new Hashtable<String, Discipline>();
 	}
 	
-	public List<Institution> getAffiliatedWithInstitution() {
-		return affiliatedWithInstitution;
+	public Collection<Institution> getAffiliatedWithInstitution() {
+		return affiliatedWithInstitution.values();
 	}
 	public void addAffiliatedWithInstitution(Institution institution) {
-		this.affiliatedWithInstitution.add(institution);
+		this.affiliatedWithInstitution.put(institution.getHasName(), institution);
 	}
-	public List<Discipline> getHasDiscipline() {
-		return hasDiscipline;
+	public Collection<Discipline> getHasDiscipline() {
+		return hasDiscipline.values();
 	}
 	public void addHasDiscipline(Discipline discipline) {
-		this.hasDiscipline.add(discipline);
+		this.hasDiscipline.put(discipline.getHasName(), discipline);
 	}
 	public String getHasFirstName() {
 		return hasFirstName;
@@ -40,16 +40,20 @@ public class Person {
 		this.hasLastName = hasLastName;
 	}
 	
+	public String getProperName(){
+		return this.hasLastName + ", " + this.getHasFirstName();
+	}
+	
 	@Override
 	public String toString(){
 		String personString = "--- Person ---\n";
 		personString += "\t- hasFirstName: " + hasFirstName + "\n";
 		personString += "\t- hasLastName: " + hasLastName + "\n";
 		
-		for(Institution anInstitution : affiliatedWithInstitution)
+		for(Institution anInstitution : affiliatedWithInstitution.values())
 			personString += "\t- affiliatedWithInstitution: " + anInstitution + "\n";
 		
-		for(Discipline aDiscipline : hasDiscipline)
+		for(Discipline aDiscipline : hasDiscipline.values())
 			personString += "\t- hasDiscipline: " + aDiscipline + "\n";
 		
 		return personString.substring(0, personString.length() - 1);

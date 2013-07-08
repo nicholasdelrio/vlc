@@ -1,6 +1,10 @@
 package edu.utep.cybershare.vlc.sources.nsf;
 
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.List;
+
+import org.w3c.dom.NodeList;
 
 public class NSFAwardsUtils {
 	public static String getFirstName(String properName){
@@ -23,6 +27,13 @@ public class NSFAwardsUtils {
 				lastName = nameParts[1];
 		}
 		return lastName;
+	}
+	
+	public static List<String> nodeListConverter(NodeList nodeList){
+		ArrayList<String> stringList = new ArrayList<String>();
+		for(int i = 0; i < nodeList.getLength(); i ++)
+			stringList.add(nodeList.item(i).getTextContent());
+		return stringList;
 	}
 	
 	public static GregorianCalendar getDate(String stringDate){

@@ -1,12 +1,13 @@
 package edu.utep.cybershare.vlc.ontology;
 
+import java.util.Collection;
 import java.util.GregorianCalendar;
-import java.util.List;
+import java.util.Hashtable;
 
 public class Project {
 	
 	private Person hasPrincipalInvestigator;
-	private List<Person> hasCoPrincipalInvestigator;
+	private Hashtable<String, Person> hasCoPrincipalInvestigator;
 	private String hasTitle;
 	private String hasAbstract;
 	private GregorianCalendar hasStartDate_Funding;
@@ -18,16 +19,12 @@ public class Project {
 	public void setHasPrincipalInvestigator(Person hasPrincipalInvestigator) {
 		this.hasPrincipalInvestigator = hasPrincipalInvestigator;
 	}
-	public List<Person> getHasCoPrincipalInvestigator() {
-		return hasCoPrincipalInvestigator;
+	public Collection<Person> getHasCoPrincipalInvestigator() {
+		return hasCoPrincipalInvestigator.values();
 	}
-	
-	public void setHasCoPrincipalInvestigator(List<Person> coPrincipalInvestigators) {
-		this.hasCoPrincipalInvestigator = coPrincipalInvestigators;
-	}
-	
+		
 	public void addHasCoPrincipalInvestigator(Person coPrincipalInvestigator) {
-		this.hasCoPrincipalInvestigator.add(coPrincipalInvestigator);
+		this.hasCoPrincipalInvestigator.put(coPrincipalInvestigator.getProperName(), coPrincipalInvestigator);
 	}
 	public String getHasTitle() {
 		return hasTitle;
@@ -63,7 +60,7 @@ public class Project {
 		projectString += "\t- hasAbstract: " + hasAbstract + "\n";
 		projectString += "\t- hasPrincipalInvestigator: " + hasPrincipalInvestigator + "\n";
 		
-		for(Person aCOI : hasCoPrincipalInvestigator)
+		for(Person aCOI : hasCoPrincipalInvestigator.values())
 			projectString += "\t- hasCoPrincipalInvestigator: " + aCOI + "\n";
 		
 		projectString += "\t- hasStartDate_Funding: " + hasStartDate_Funding + "\n";

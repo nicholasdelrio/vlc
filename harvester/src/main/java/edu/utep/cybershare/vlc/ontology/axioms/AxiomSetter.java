@@ -60,19 +60,18 @@ public abstract class AxiomSetter {
 			individual = bundle.getDataFactory().getOWLNamedIndividual(individualIRI);
 			individuals.put(individualName, individual);
 
-			owlAxioms.add(getTypeAssertion(classIRI));
+			addTypeAssertion(classIRI);
 			populateIndividualAxioms();
 			populateOntologyWithAxioms();
 		}		
 	}
 	
-	private OWLAxiom getTypeAssertion(String classIRI){
+	private void addTypeAssertion(String classIRI){
 		OWLClass projectClass = bundle.getDataFactory().getOWLClass(IRI.create(classIRI));		
 		OWLClassAssertionAxiom classAssertionAxiom = bundle.getDataFactory().getOWLClassAssertionAxiom(projectClass, individual);
-		return classAssertionAxiom;
+		owlAxioms.add(classAssertionAxiom);
 	}
 
-		
 	protected abstract void populateIndividualAxioms();
 	
 	protected void populateOntologyWithAxioms(){

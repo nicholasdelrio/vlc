@@ -16,29 +16,29 @@ public class InstitutionAxioms extends AxiomSetter {
 
 	@Override
 	protected void populateIndividualAxioms() {
-		owlAxioms.add(this.getHasLatitude());
-		owlAxioms.add(this.getHasLongitude());
-		owlAxioms.add(this.getHasNameAssertion());
+		addHasLatitude();
+		addHasLongitude();
+		addHasNameAssertion();
 	}
 	
-	private OWLAxiom getHasLongitude(){
+	private void addHasLongitude(){
 		OWLDataProperty hasLongitude = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasLongitude));		
 		OWLLiteral longitude = bundle.getDataFactory().getOWLLiteral(institution.getHasPoint().getX());
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasLongitude, individual, longitude);
-		return assertion;		
+		owlAxioms.add(assertion);		
 	}
 
-	private OWLAxiom getHasLatitude(){
+	private void addHasLatitude(){
 		OWLDataProperty hasLatitude = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasLatitude));		
 		OWLLiteral latitude = bundle.getDataFactory().getOWLLiteral(institution.getHasPoint().getY());
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasLatitude, individual, latitude);
-		return assertion;		
+		owlAxioms.add(assertion);	
 	}
 	
-	private OWLAxiom getHasNameAssertion(){
+	private void addHasNameAssertion(){
 		OWLDataProperty hasName = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasName));		
 		OWLLiteral name = bundle.getDataFactory().getOWLLiteral(institution.getHasName());
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasName, individual, name);
-		return assertion;		
+		owlAxioms.add(assertion);		
 	}
 }

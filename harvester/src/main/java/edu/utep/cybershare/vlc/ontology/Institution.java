@@ -6,6 +6,12 @@ public class Institution {
 	
 	private String hasName;
 	private Point hasPoint;
+	
+	public Institution(){
+		hasPoint = new Point();
+		hasPoint.setLocation(0, 0);
+	}
+	
 	public String getHasName() {
 		return hasName;
 	}

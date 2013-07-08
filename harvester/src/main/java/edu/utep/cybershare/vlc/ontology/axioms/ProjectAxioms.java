@@ -7,6 +7,7 @@ import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 
+import edu.utep.cybershare.vlc.ontology.Person;
 import edu.utep.cybershare.vlc.ontology.Project;
 
 public class ProjectAxioms extends AxiomSetter{
@@ -17,53 +18,58 @@ public class ProjectAxioms extends AxiomSetter{
 	
 	@Override
 	protected void populateIndividualAxioms() {
-		owlAxioms.add(this.getHasEndDate_Funding());
-		owlAxioms.add(this.getHasAbstract());
-		owlAxioms.add(this.getHasCoPrincipalInvestigatorAssertion());
-		owlAxioms.add(this.getHasPrincipalInvestigatorAssertion());
-		owlAxioms.add(this.getHasStartDate_Funding());
-		owlAxioms.add(this.getHasTitleAssertion());
+		this.addHasEndDate_Funding();
+		this.addHasAbstract();
+		this.addHasCoPrincipalInvestigatorAssertion();
+		this.addHasPrincipalInvestigatorAssertion();
+		this.addHasStartDate_Funding();
+		this.addHasTitleAssertion();
 	}
 		
-	private OWLAxiom getHasTitleAssertion(){
+	private void addHasTitleAssertion(){
 		OWLDataProperty hasTitle = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasTitle));		
 		OWLLiteral title = bundle.getDataFactory().getOWLLiteral(project.getHasTitle());
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasTitle, individual, title);
-		return assertion;		
+		owlAxioms.add(assertion);	
 	}
 	
-	private OWLAxiom getHasAbstract(){
+	private void addHasAbstract(){
 		OWLDataProperty hasAbstract = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasAbstract));		
 		OWLLiteral projectAbstract = bundle.getDataFactory().getOWLLiteral(project.getHasAbstract());
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasAbstract, individual, projectAbstract);
-		return assertion;		
+		owlAxioms.add(assertion);		
 	}
 	
-	private OWLAxiom getHasStartDate_Funding(){
+	private void addHasStartDate_Funding(){
 		OWLDataProperty hasStartDate_Funding = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasStartDate_Funding));		
 		OWLLiteral startDate_Funding = bundle.getDataFactory().getOWLLiteral(project.getHasStartDate_Funding().toString());
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasStartDate_Funding, individual, startDate_Funding);
-		return assertion;		
+		owlAxioms.add(assertion);
 	}
 	
-	private OWLAxiom getHasEndDate_Funding(){
+	private void addHasEndDate_Funding(){
 		OWLDataProperty hasEndDate_Funding = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasEndDate_Funding));		
 		OWLLiteral endDate_Funding = bundle.getDataFactory().getOWLLiteral(project.getHasEndDate_Funding().toString());
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasEndDate_Funding, individual, endDate_Funding);
-		return assertion;		
+		owlAxioms.add(assertion);		
 	}
 	
-	private OWLAxiom getHasCoPrincipalInvestigatorAssertion(){
+	private void addHasCoPrincipalInvestigatorAssertion(){
 		OWLObjectProperty hasCoPrincipalInvestigator = bundle.getDataFactory().getOWLObjectProperty(IRI.create(Vocabulary.OBJECT_PROPERTY_IRI_hasCoPrincipalInvestigator));		
-		PersonAxioms personAxioms = new PersonAxioms(project.getHasCoPrincipalInvestigator().get(0));
-		OWLAxiom assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(hasCoPrincipalInvestigator, individual, personAxioms.getIndividual());
-		return assertion;				
+		
+		PersonAxioms personAxioms;
+		OWLAxiom assertion;
+		for(Person person : project.getHasCoPrincipalInvestigator()){
+			personAxioms = new PersonAxioms(person);
+			assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(hasCoPrincipalInvestigator, individual, personAxioms.getIndividual());
+			owlAxioms.add(assertion);
+		}
 	}
 	
-	private OWLAxiom getHasPrincipalInvestigatorAssertion(){
+	private void addHasPrincipalInvestigatorAssertion(){
 		OWLObjectProperty hasPrincipalInvestigator = bundle.getDataFactory().getOWLObjectProperty(IRI.create(Vocabulary.OBJECT_PROPERTY_IRI_hasPrincipalInvestigator));		
-		PersonAxioms personAxioms = new PersonAxioms(project.getHasCoPrincipalInvestigator().get(0));
+		PersonAxioms personAxioms = new PersonAxioms(project.getHasPrincipalInvestigator());
 		OWLAxiom assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(hasPrincipalInvestigator, individual, personAxioms.getIndividual());
-		return assertion;				
+		owlAxioms.add(assertion);	
 	}
 }

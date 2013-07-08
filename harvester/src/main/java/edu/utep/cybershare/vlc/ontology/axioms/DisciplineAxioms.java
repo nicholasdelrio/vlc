@@ -15,13 +15,13 @@ public class DisciplineAxioms extends AxiomSetter {
 
 	@Override
 	protected void populateIndividualAxioms() {
-		owlAxioms.add(this.getHasNameAssertion());
+		addHasNameAssertion();
 	}
 	
-	private OWLAxiom getHasNameAssertion(){
+	private void addHasNameAssertion(){
 		OWLDataProperty hasName = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasName));		
 		OWLLiteral name = bundle.getDataFactory().getOWLLiteral(discipline.getHasName());
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasName, individual, name);
-		return assertion;		
+		owlAxioms.add(assertion);
 	}
 }

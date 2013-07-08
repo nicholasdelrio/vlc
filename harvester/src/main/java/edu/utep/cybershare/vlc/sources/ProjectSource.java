@@ -15,8 +15,10 @@ public abstract class ProjectSource {
 	private Hashtable<String,Institution> institutions;
 	private Hashtable<String,Discipline> disciplines;
 	
+	public static final String NULL_INSTITUTION = "null-institution";
 	public static final String NULL_DISCIPLINE = "null-discipline";
 	public static final String NULL_PERSON = "null-person";
+	public static final String NULL_NAME = "null-name";
 	
 	public ProjectSource(){
 		projects = new Hashtable<String,Project>();	
@@ -26,16 +28,26 @@ public abstract class ProjectSource {
 		
 		addNullDiscipline();
 		addNullPerson();
+		addNullInstitution();
+	}
+		
+	private void addNullPerson(){
+		Person nullPerson = new Person();
+		nullPerson.setHasFirstName(NULL_NAME);
+		nullPerson.setHasLastName(NULL_NAME);
+		people.put(NULL_PERSON, nullPerson);
 	}
 	
 	private void addNullDiscipline(){
 		Discipline nullDiscipline = new Discipline();
+		nullDiscipline.setHasName(NULL_NAME);
 		disciplines.put(NULL_DISCIPLINE, nullDiscipline);
 	}
-	
-	private void addNullPerson(){
-		Person nullPerson = new Person();
-		people.put(NULL_PERSON, nullPerson);
+
+	private void addNullInstitution(){
+		Institution nullInstitution = new Institution();
+		nullInstitution.setHasName(NULL_NAME);
+		institutions.put(NULL_INSTITUTION, nullInstitution);
 	}
 	
 	public List<Project> getProjects(){
@@ -55,7 +67,10 @@ public abstract class ProjectSource {
 		if(project == null){
 			project = new Project();
 			project.setHasPrincipalInvestigator(hasPrincipalInvestigator);
-			project.setHasCoPrincipalInvestigator(hasCoPrincipalInvestigators);
+			
+			for(Person coPI : hasCoPrincipalInvestigators)
+				project.addHasCoPrincipalInvestigator(coPI);
+			
 			project.setHasTitle(hasTitle);
 			project.setHasAbstract(hasAbstract);
 			project.setHasStartDate_Funding(hasStartDate_Funding);
@@ -65,17 +80,12 @@ public abstract class ProjectSource {
 	}
 
 	protected Discipline getDiscipline(String disciplineName){
-		Discipline discipline = disciplines.get("null");
-		
-		if(disciplineName != null){
-			discipline = disciplines.get(disciplineName);
-			if(discipline == null){
-				discipline = new Discipline();
-				discipline.setHasName(disciplineName);
-				disciplines.put(disciplineName, discipline);
-			}
+		Discipline discipline = disciplines.get(disciplineName);
+		if(discipline == null){
+			discipline = new Discipline();
+			discipline.setHasName(disciplineName);
+			disciplines.put(disciplineName, discipline);
 		}
-		
 		return discipline;
 	}
 	
@@ -97,7 +107,7 @@ public abstract class ProjectSource {
 			person.setHasLastName(lastName);
 			person.addHasDiscipline(discipline);
 			person.addAffiliatedWithInstitution(institution);
-			people.put(lastName + ", " + firstName, person);
+			people.put(person.getProperName(), person);
 		}
 		return person;
 	}
