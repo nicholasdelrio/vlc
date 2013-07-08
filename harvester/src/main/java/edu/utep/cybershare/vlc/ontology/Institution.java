@@ -2,7 +2,7 @@ package edu.utep.cybershare.vlc.ontology;
 
 import java.awt.Point;
 
-public class Institution {
+public class Institution implements Concept {
 	
 	private String hasName;
 	private Point hasPoint;
@@ -32,5 +32,9 @@ public class Institution {
 		institutionString += "\t- hasPoint: " + hasPoint;
 		
 		return institutionString;
+	}
+
+	public boolean isFullySpecified() {
+		return this.getHasName() != null && this.getHasPoint() != null;
 	}
 }

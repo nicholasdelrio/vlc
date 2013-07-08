@@ -1,6 +1,6 @@
 package edu.utep.cybershare.vlc.ontology;
 
-public class Discipline {
+public class Discipline implements Concept {
 	
 	private String hasName;
 
@@ -18,5 +18,9 @@ public class Discipline {
 		disciplineString += "\t- hasName: " + hasName;
 		
 		return disciplineString;
+	}
+
+	public boolean isFullySpecified() {
+		return this.getHasName() != null;
 	}
 }

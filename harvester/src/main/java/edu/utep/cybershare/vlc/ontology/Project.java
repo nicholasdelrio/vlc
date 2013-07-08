@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.GregorianCalendar;
 import java.util.Hashtable;
 
-public class Project {
+public class Project implements Concept {
 	
 	private Person hasPrincipalInvestigator;
 	private Hashtable<String, Person> hasCoPrincipalInvestigator;
@@ -72,4 +72,12 @@ public class Project {
 		
 		return projectString;
 	}
+
+	public boolean isFullySpecified() {
+		return this.getHasAbstract() != null
+				&& this.getHasPrincipalInvestigator() != null
+				&& this.getHasEndDate_Funding() != null
+				&& this.getHasStartDate_Funding() != null
+				&& this.getHasTitle() != null;
+	}	
 }

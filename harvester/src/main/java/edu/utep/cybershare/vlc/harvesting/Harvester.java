@@ -17,8 +17,9 @@ public class Harvester {
 		for(Project aProject : projects){
 			System.out.println(aProject.getHasTitle());
 		}
-		
+
+		/*
 		ProjectSerializer serializer = new ProjectSerializer(projects);
-		serializer.serializeToRDF();
+		serializer.serializeToRDF(); */
 	}
 }

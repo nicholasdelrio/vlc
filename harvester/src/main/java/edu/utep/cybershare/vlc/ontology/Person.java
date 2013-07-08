@@ -3,7 +3,7 @@ package edu.utep.cybershare.vlc.ontology;
 import java.util.Collection;
 import java.util.Hashtable;
 
-public class Person {
+public class Person implements Concept {
 	
 	private Hashtable<String, Institution> affiliatedWithInstitution;
 	private	Hashtable<String, Discipline> hasDiscipline;
@@ -57,5 +57,18 @@ public class Person {
 			personString += "\t- hasDiscipline: " + aDiscipline + "\n";
 		
 		return personString.substring(0, personString.length() - 1);
+	}
+
+	public boolean isFullySpecified() {
+		boolean isSpecified = true;
+		for(Institution institution : this.getAffiliatedWithInstitution())
+			isSpecified &= institution.isFullySpecified();
+		
+		for(Discipline discipline : this.getHasDiscipline())
+			isSpecified &= discipline.isFullySpecified();
+		
+		return isSpecified
+				&& this.getHasFirstName() != null
+				&& this.getHasLastName() != null;
 	}
 }
