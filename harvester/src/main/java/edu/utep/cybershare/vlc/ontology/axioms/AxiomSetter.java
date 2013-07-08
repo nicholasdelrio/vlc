@@ -31,24 +31,28 @@ public abstract class AxiomSetter {
 	
 	public AxiomSetter(String individualName, String classIRI, Project project){
 		this.project = project;
-		this.setIndividual(individualName, classIRI);
+		this.setIndividual(makeURI(individualName), classIRI);
 	}
 	
 	public AxiomSetter(String individualName, String classIRI, Person person){
 		this.person = person;
-		this.setIndividual(individualName, classIRI);
+		this.setIndividual(makeURI(individualName), classIRI);
 	}
 
 	public AxiomSetter(String individualName, String classIRI, Institution institution){
 		this.institution = institution;
-		this.setIndividual(individualName, classIRI);
+		this.setIndividual(makeURI(individualName), classIRI);
 	}
 
 	public AxiomSetter(String individualName, String classIRI, Discipline discipline){
 		this.discipline = discipline;
-		this.setIndividual(individualName, classIRI);
+		this.setIndividual(makeURI(individualName), classIRI);
 	}
 
+	private String makeURI(String candidateURI){
+		return candidateURI.replaceAll(" ", "_");
+	}
+	
 	
 	private void setIndividual(String individualName, String classIRI){
 		owlAxioms = new ArrayList<OWLAxiom>();		
