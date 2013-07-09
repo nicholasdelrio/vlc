@@ -34,37 +34,40 @@ public abstract class AxiomSetter {
 	
 	public AxiomSetter(String individualName, String classIRI, Project project){
 		this.project = project;
-		this.setIndividual(makeURICompliant(individualName), classIRI);
+		this.setIndividual(makeURICompliantFragment(individualName), classIRI);
 	}
 	
 	public AxiomSetter(String individualName, String classIRI, Person person){
 		this.person = person;
-		this.setIndividual(makeURICompliant(individualName), classIRI);
+		this.setIndividual(makeURICompliantFragment(individualName), classIRI);
 	}
 
 	public AxiomSetter(String individualName, String classIRI, Institution institution){
 		this.institution = institution;
-		this.setIndividual(makeURICompliant(individualName), classIRI);
+		this.setIndividual(makeURICompliantFragment(individualName), classIRI);
 	}
 
 	public AxiomSetter(String individualName, String classIRI, Discipline discipline){
 		this.discipline = discipline;
-		this.setIndividual(makeURICompliant(individualName), classIRI);
+		this.setIndividual(makeURICompliantFragment(individualName), classIRI);
 	}
 
-	private String makeURICompliant(String candidateIRI){		
-		String newIRI = candidateIRI
+	private String makeURICompliantFragment(String candidateIRIFragment){		
+		String newIRIFragment = candidateIRIFragment
 				.replaceAll("[^A-Za-z0-9\\s]", "")
 				.replaceAll("\\s", "-");
 		
-		try{return new URI(bundle.getIndividualIRI(newIRI)).toASCIIString();}
+		try{
+			new URI(bundle.getIndividualIRI(newIRIFragment));
+			return newIRIFragment;
+		}
 		catch(Exception e){
-			System.err.println("Offending Name: " + candidateIRI);
-			for(int i = 0; i < candidateIRI.length(); i ++)
-				System.err.println("character: " + candidateIRI.charAt(i) + ", value: " + candidateIRI.codePointAt(i));
+			System.err.println("Offending Name: " + candidateIRIFragment);
+			for(int i = 0; i < candidateIRIFragment.length(); i ++)
+				System.err.println("character: " + candidateIRIFragment.charAt(i) + ", value: " + candidateIRIFragment.codePointAt(i));
 			e.printStackTrace();
 		}
-		return newIRI;
+		return null;
 	}
 	
 	

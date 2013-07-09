@@ -28,14 +28,14 @@ public class ProjectAxioms extends AxiomSetter{
 		
 	private void addHasTitleAssertion(){
 		OWLDataProperty hasTitle = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasTitle));		
-		OWLLiteral title = bundle.getDataFactory().getOWLLiteral(cleanTitle(project.getHasTitle()));
+		OWLLiteral title = bundle.getDataFactory().getOWLLiteral(removeIllegalCharacters(project.getHasTitle()));
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasTitle, individual, title);
 		owlAxioms.add(assertion);	
 	}
 	
 	private void addHasAbstract(){
 		OWLDataProperty hasAbstract = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasAbstract));		
-		OWLLiteral projectAbstract = bundle.getDataFactory().getOWLLiteral(project.getHasAbstract());
+		OWLLiteral projectAbstract = bundle.getDataFactory().getOWLLiteral(removeIllegalCharacters(project.getHasAbstract()));
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasAbstract, individual, projectAbstract);
 		owlAxioms.add(assertion);		
 	}
@@ -47,8 +47,16 @@ public class ProjectAxioms extends AxiomSetter{
 		owlAxioms.add(assertion);
 	}
 	
-	private String cleanTitle(String title){
-		return title.replaceAll("\\x7F", "");
+	private String removeIllegalCharacters(String text){
+		// XML 1.0
+		// #x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF]
+		String xml10pattern = "[^"
+		                    + "\u0009\r\n"
+		                    + "\u0020-\uD7FF"
+		                    + "\uE000-\uFFFD"
+		                    + "\ud800\udc00-\udbff\udfff"
+		                    + "]";
+		return text.replaceAll(xml10pattern, "");
 	}
 	
 	private void addHasEndDate_Funding(){
