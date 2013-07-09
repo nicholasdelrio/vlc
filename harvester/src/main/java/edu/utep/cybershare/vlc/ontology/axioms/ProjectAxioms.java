@@ -60,8 +60,6 @@ public class ProjectAxioms extends AxiomSetter{
 		PersonAxioms personAxioms;
 		OWLAxiom assertion;
 		for(Person person : project.getHasCoPrincipalInvestigator()){
-			System.out.println(person.getHasFirstName());
-			System.out.println(person.getHasLastName());
 			personAxioms = new PersonAxioms(person);
 			assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(hasCoPrincipalInvestigator, individual, personAxioms.getIndividual());
 			owlAxioms.add(assertion);
