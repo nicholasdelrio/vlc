@@ -12,6 +12,8 @@ import edu.utep.cybershare.vlc.sources.ProjectSource;
 import edu.utep.cybershare.vlc.sources.nsf.NSFAwards;
 
 public class Harvester {
+	
+	private static final String OWL_FILENAME = "projects.owl";
 
 	public static void main(String[] args){
 		//load set of project objects
@@ -24,7 +26,7 @@ public class Harvester {
 		System.out.println("Disciplines: " + nsfSource.getDisciplines().size());
 		
 		//set the tools that the axiom setters will use to populate the ontology
-		OntologyToolset toolset = new OntologyToolset("http://vlc.cybershare.utep.edu");
+		OntologyToolset toolset = new OntologyToolset("http://vlc.cybershare.utep.edu/" + OWL_FILENAME);
 		AxiomSetter.setToolset(toolset);
 		
 		//convert each project to a set of ontology axioms
@@ -38,7 +40,7 @@ public class Harvester {
 		}
 		
 		//print out the resulting ontology
-		toolset.dumpOntology(new File("./output-rdf/projects.owl"));
+		toolset.dumpOntology(new File("./output-rdf/" + OWL_FILENAME));
 		
 		//print out any errors
 		printBadProjects(badProjects);

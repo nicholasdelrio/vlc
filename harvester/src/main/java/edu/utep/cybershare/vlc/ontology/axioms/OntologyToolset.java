@@ -22,7 +22,7 @@ public class OntologyToolset {
 		
 		dataFactory = OWLManager.getOWLDataFactory();
 		ontologyManager = OWLManager.createOWLOntologyManager();
-		try{ontology = ontologyManager.createOntology();}
+		try{ontology = ontologyManager.createOntology(IRI.create(baseIRI));}
 		catch(Exception e){e.printStackTrace();}
 		
 		importVLCOntology();
