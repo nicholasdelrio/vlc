@@ -58,7 +58,7 @@ public class NSFAwards extends ProjectSource {
 			}
 		}catch(Exception e){e.printStackTrace();}
 		
-		System.out.println("total projects: " + counter);
+		System.out.println("Total Projects Processed: " + counter);
 	}
 	
 	private List<String> getCoInvestigators(Element awardElement){

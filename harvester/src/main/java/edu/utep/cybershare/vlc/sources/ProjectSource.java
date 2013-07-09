@@ -53,6 +53,18 @@ public abstract class ProjectSource {
 	public List<Project> getProjects(){
 		return new ArrayList<Project>(projects.values());
 	}
+	
+	public List<Person> getPeople(){
+		return new ArrayList<Person>(people.values());
+	}
+	
+	public List<Discipline> getDisciplines(){
+		return new ArrayList<Discipline>(disciplines.values());
+	}
+	
+	public List<Institution> getInstitutions(){
+		return new ArrayList<Institution>(institutions.values());
+	}
 
 	protected void addProject(
 			Person hasPrincipalInvestigator,

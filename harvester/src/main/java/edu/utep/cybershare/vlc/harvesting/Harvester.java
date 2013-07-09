@@ -18,6 +18,11 @@ public class Harvester {
 		ProjectSource nsfSource = new NSFAwards();
 		List<Project> projects = nsfSource.getProjects();
 		
+		System.out.println("Unique Projects: " + projects.size());
+		System.out.println("People: " + nsfSource.getPeople().size());
+		System.out.println("Institutions: " + nsfSource.getInstitutions().size());
+		System.out.println("Disciplines: " + nsfSource.getDisciplines().size());
+		
 		//set the tools that the axiom setters will use to populate the ontology
 		OntologyToolset toolset = new OntologyToolset("http://vlc.cybershare.utep.edu");
 		AxiomSetter.setToolset(toolset);
