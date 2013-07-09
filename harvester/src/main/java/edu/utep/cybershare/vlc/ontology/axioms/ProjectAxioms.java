@@ -28,7 +28,7 @@ public class ProjectAxioms extends AxiomSetter{
 		
 	private void addHasTitleAssertion(){
 		OWLDataProperty hasTitle = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasTitle));		
-		OWLLiteral title = bundle.getDataFactory().getOWLLiteral(project.getHasTitle());
+		OWLLiteral title = bundle.getDataFactory().getOWLLiteral(cleanTitle(project.getHasTitle()));
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasTitle, individual, title);
 		owlAxioms.add(assertion);	
 	}
@@ -45,6 +45,10 @@ public class ProjectAxioms extends AxiomSetter{
 		OWLLiteral startDate_Funding = bundle.getDataFactory().getOWLLiteral(project.getHasStartDate_Funding().toString());
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasStartDate_Funding, individual, startDate_Funding);
 		owlAxioms.add(assertion);
+	}
+	
+	private String cleanTitle(String title){
+		return title.replaceAll("\\x7F", "");
 	}
 	
 	private void addHasEndDate_Funding(){

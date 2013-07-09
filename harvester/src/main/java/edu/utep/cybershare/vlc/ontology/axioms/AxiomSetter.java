@@ -1,5 +1,6 @@
 package edu.utep.cybershare.vlc.ontology.axioms;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
@@ -18,6 +19,8 @@ import edu.utep.cybershare.vlc.ontology.Project;
 
 public abstract class AxiomSetter {
 
+	private static int counter = 0;
+	
 	protected static OntologyToolset bundle;
 	private static Hashtable<String, OWLNamedIndividual> individuals = new Hashtable<String, OWLNamedIndividual>();
 	
@@ -31,26 +34,37 @@ public abstract class AxiomSetter {
 	
 	public AxiomSetter(String individualName, String classIRI, Project project){
 		this.project = project;
-		this.setIndividual(makeURI(individualName), classIRI);
+		this.setIndividual(makeURICompliant(individualName), classIRI);
 	}
 	
 	public AxiomSetter(String individualName, String classIRI, Person person){
 		this.person = person;
-		this.setIndividual(makeURI(individualName), classIRI);
+		this.setIndividual(makeURICompliant(individualName), classIRI);
 	}
 
 	public AxiomSetter(String individualName, String classIRI, Institution institution){
 		this.institution = institution;
-		this.setIndividual(makeURI(individualName), classIRI);
+		this.setIndividual(makeURICompliant(individualName), classIRI);
 	}
 
 	public AxiomSetter(String individualName, String classIRI, Discipline discipline){
 		this.discipline = discipline;
-		this.setIndividual(makeURI(individualName), classIRI);
+		this.setIndividual(makeURICompliant(individualName), classIRI);
 	}
 
-	private String makeURI(String candidateURI){
-		return candidateURI.replaceAll(" ", "_");
+	private String makeURICompliant(String candidateIRI){		
+		String newIRI = candidateIRI
+				.replaceAll("[^A-Za-z0-9\\s]", "")
+				.replaceAll("\\s", "-");
+		
+		try{return new URI(bundle.getIndividualIRI(newIRI)).toASCIIString();}
+		catch(Exception e){
+			System.err.println("Offending Name: " + candidateIRI);
+			for(int i = 0; i < candidateIRI.length(); i ++)
+				System.err.println("character: " + candidateIRI.charAt(i) + ", value: " + candidateIRI.codePointAt(i));
+			e.printStackTrace();
+		}
+		return newIRI;
 	}
 	
 	
