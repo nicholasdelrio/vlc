@@ -48,7 +48,6 @@ public class PersonAxioms extends AxiomSetter {
 	}
 
 	private void addHasFirstNameAssertion(){
-		System.out.println(person.getHasFirstName());
 		OWLDataProperty hasFirstName = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasFirstName));		
 		OWLLiteral firstName = bundle.getDataFactory().getOWLLiteral(person.getHasFirstName());
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasFirstName, individual, firstName);
@@ -57,7 +56,7 @@ public class PersonAxioms extends AxiomSetter {
 	
 	private void addHasLastNameAssertion(){
 		OWLDataProperty hasLastName = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasLastName));		
-		OWLLiteral lastName = bundle.getDataFactory().getOWLLiteral(person.getHasFirstName());
+		OWLLiteral lastName = bundle.getDataFactory().getOWLLiteral(person.getHasLastName());
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasLastName, individual, lastName);
 		owlAxioms.add(assertion);
 	}

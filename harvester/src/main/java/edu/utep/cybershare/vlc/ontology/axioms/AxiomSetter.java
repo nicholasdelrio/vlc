@@ -18,7 +18,7 @@ import edu.utep.cybershare.vlc.ontology.Project;
 
 public abstract class AxiomSetter {
 
-	protected static FactoryBundle bundle;
+	protected static OntologyToolset bundle;
 	private static Hashtable<String, OWLNamedIndividual> individuals = new Hashtable<String, OWLNamedIndividual>();
 	
 	protected ArrayList<OWLAxiom> owlAxioms;
@@ -88,7 +88,7 @@ public abstract class AxiomSetter {
 	
 	public OWLNamedIndividual getIndividual(){return individual;}
 	
-	public static void setBundle(FactoryBundle aBundle){
+	public static void setToolset(OntologyToolset aBundle){
 		bundle = aBundle;
 	}
 }
