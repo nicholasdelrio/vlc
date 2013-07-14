@@ -1,6 +1,6 @@
 package edu.utep.cybershare.vlc.ontology.axioms;
 
-
+import javax.xml.bind.DatatypeConverter;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLDataProperty;
@@ -11,6 +11,8 @@ import edu.utep.cybershare.vlc.ontology.Person;
 import edu.utep.cybershare.vlc.ontology.Project;
 
 public class ProjectAxioms extends AxiomSetter{
+	
+	
 	
 	public ProjectAxioms(Project aProject){
 		super(aProject.getHasTitle(), Vocabulary.CLASS_IRI_Project, aProject);
@@ -42,7 +44,7 @@ public class ProjectAxioms extends AxiomSetter{
 	
 	private void addHasStartDate_Funding(){
 		OWLDataProperty hasStartDate_Funding = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasStartDate_Funding));		
-		OWLLiteral startDate_Funding = bundle.getDataFactory().getOWLLiteral(this.removeIllegalCharacters(project.getHasStartDate_Funding().toString()));
+		OWLLiteral startDate_Funding = bundle.getDataFactory().getOWLLiteral(DatatypeConverter.printDateTime(project.getHasStartDate_Funding()), xsdDateTime);
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasStartDate_Funding, individual, startDate_Funding);
 		owlAxioms.add(assertion);
 	}
@@ -61,7 +63,7 @@ public class ProjectAxioms extends AxiomSetter{
 	
 	private void addHasEndDate_Funding(){
 		OWLDataProperty hasEndDate_Funding = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasEndDate_Funding));		
-		OWLLiteral endDate_Funding = bundle.getDataFactory().getOWLLiteral(this.removeIllegalCharacters(project.getHasEndDate_Funding().toString()));
+		OWLLiteral endDate_Funding = bundle.getDataFactory().getOWLLiteral(DatatypeConverter.printDateTime(project.getHasEndDate_Funding()), xsdDateTime);
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasEndDate_Funding, individual, endDate_Funding);
 		owlAxioms.add(assertion);		
 	}

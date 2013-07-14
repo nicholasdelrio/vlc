@@ -9,6 +9,7 @@ import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
+import org.semanticweb.owlapi.model.OWLDatatype;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 import edu.utep.cybershare.vlc.ontology.Discipline;
@@ -26,6 +27,8 @@ public abstract class AxiomSetter {
 	
 	protected ArrayList<OWLAxiom> owlAxioms;
 	protected OWLNamedIndividual individual;
+	
+	protected OWLDatatype xsdDateTime;
 	
 	protected Project project;
 	protected Person person;
@@ -72,6 +75,8 @@ public abstract class AxiomSetter {
 	
 	
 	private void setIndividual(String individualName, String classIRI){
+		xsdDateTime = bundle.getDataFactory().getOWLDatatype(IRI.create("http://www.w3.org/2001/XMLSchema#dateTime"));
+		
 		owlAxioms = new ArrayList<OWLAxiom>();		
 		
 		individual = individuals.get(individualName);
