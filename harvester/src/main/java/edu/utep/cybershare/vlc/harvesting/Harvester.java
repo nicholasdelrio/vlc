@@ -31,13 +31,23 @@ public class Harvester {
 		
 		//convert each project to a set of ontology axioms
 		ArrayList<Project> badProjects = new ArrayList<Project>();
-		for(Project aProject : projects){
+		
+		for(int i = 0; i < 10; i ++){
+			Project aProject = projects.get(i);
 			if(!aProject.isFullySpecified()) //if project project is missing required properties, add to naughty list
 				badProjects.add(aProject);
 			
 			else //else, convert to axioms
 				new ProjectAxioms(aProject);
 		}
+		/*
+		for(Project aProject : projects){
+			if(!aProject.isFullySpecified()) //if project project is missing required properties, add to naughty list
+				badProjects.add(aProject);
+			
+			else //else, convert to axioms
+				new ProjectAxioms(aProject);
+		}*/
 		
 		//print out the resulting ontology
 		toolset.dumpOntology(new File("./output-rdf/" + OWL_FILENAME));
