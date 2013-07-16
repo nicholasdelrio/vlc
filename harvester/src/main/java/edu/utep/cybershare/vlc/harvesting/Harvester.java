@@ -13,7 +13,7 @@ import edu.utep.cybershare.vlc.sources.nsf.NSFAwards;
 
 public class Harvester {
 	
-	private static final String OWL_FILENAME = "projects-3.owl";
+	private static final String OWL_FILENAME = "projects.owl";
 
 	public static void main(String[] args){
 		//load set of project objects

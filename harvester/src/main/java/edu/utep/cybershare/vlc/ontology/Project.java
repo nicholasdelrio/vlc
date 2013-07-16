@@ -31,6 +31,9 @@ public class Project implements Concept {
 		this.hasCoPrincipalInvestigator.put(coPrincipalInvestigator.getProperName(), coPrincipalInvestigator);
 	}
 	public String getHasTitle() {
+		if(hasTitle == null || hasTitle.isEmpty())
+			return "Null Title";
+		
 		return hasTitle;
 	}
 	public void setHasTitle(String hasTitle) {

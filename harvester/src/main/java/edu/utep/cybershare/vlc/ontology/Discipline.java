@@ -5,6 +5,9 @@ public class Discipline implements Concept {
 	private String hasName;
 
 	public String getHasName() {
+		if(hasName == null || hasName.isEmpty())
+			return "Null Discipline Name";
+		
 		return hasName;
 	}
 

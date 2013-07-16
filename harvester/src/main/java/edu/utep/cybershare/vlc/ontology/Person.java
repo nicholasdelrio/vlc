@@ -28,12 +28,17 @@ public class Person implements Concept {
 		this.hasDiscipline.put(discipline.getHasName(), discipline);
 	}
 	public String getHasFirstName() {
+		if(hasFirstName == null || hasFirstName.isEmpty())
+			return "Null First Name";
 		return hasFirstName;
 	}
 	public void setHasFirstName(String hasFirstName) {
 		this.hasFirstName = hasFirstName;
 	}
 	public String getHasLastName() {
+		if(hasLastName == null || hasLastName.isEmpty())
+			return "Null Last Name";
+		
 		return hasLastName;
 	}
 	public void setHasLastName(String hasLastName) {

@@ -13,6 +13,9 @@ public class Institution implements Concept {
 	}
 	
 	public String getHasName() {
+		if(hasName == null || hasName.isEmpty())
+			return "Null Name";
+		
 		return hasName;
 	}
 	public void setHasName(String hasName) {
