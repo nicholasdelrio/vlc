@@ -13,7 +13,7 @@ import edu.utep.cybershare.vlc.sources.nsf.NSFAwards;
 
 public class Harvester {
 	
-	private static final String OWL_FILENAME = "projects.owl";
+	private static final String OWL_FILENAME = "projects-3.owl";
 
 	public static void main(String[] args){
 		//load set of project objects
@@ -32,6 +32,7 @@ public class Harvester {
 		//convert each project to a set of ontology axioms
 		ArrayList<Project> badProjects = new ArrayList<Project>();
 		
+		/*
 		for(int i = 0; i < 10; i ++){
 			Project aProject = projects.get(i);
 			if(!aProject.isFullySpecified()) //if project project is missing required properties, add to naughty list
@@ -39,15 +40,15 @@ public class Harvester {
 			
 			else //else, convert to axioms
 				new ProjectAxioms(aProject);
-		}
-		/*
+		}*/
+		
 		for(Project aProject : projects){
 			if(!aProject.isFullySpecified()) //if project project is missing required properties, add to naughty list
 				badProjects.add(aProject);
 			
 			else //else, convert to axioms
 				new ProjectAxioms(aProject);
-		}*/
+		}
 		
 		//print out the resulting ontology
 		toolset.dumpOntology(new File("./output-rdf/" + OWL_FILENAME));

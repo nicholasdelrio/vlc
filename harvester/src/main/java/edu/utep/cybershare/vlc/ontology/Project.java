@@ -37,6 +37,9 @@ public class Project implements Concept {
 		this.hasTitle = hasTitle;
 	}
 	public String getHasAbstract() {
+		if(hasAbstract == null || hasAbstract.isEmpty())
+			return "Null Abstract";
+		
 		return hasAbstract;
 	}
 	public void setHasAbstract(String hasAbstract) {
