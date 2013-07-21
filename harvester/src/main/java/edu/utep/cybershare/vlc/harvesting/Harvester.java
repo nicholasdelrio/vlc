@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.utep.cybershare.vlc.geocoding.InstitutionCSV;
 import edu.utep.cybershare.vlc.ontology.Project;
 import edu.utep.cybershare.vlc.ontology.axioms.AxiomSetter;
 import edu.utep.cybershare.vlc.ontology.axioms.OntologyToolset;
@@ -24,7 +25,13 @@ public class Harvester {
 		System.out.println("People: " + nsfSource.getPeople().size());
 		System.out.println("Institutions: " + nsfSource.getInstitutions().size());
 		System.out.println("Disciplines: " + nsfSource.getDisciplines().size());
-		/*
+		
+		//aggregate lat/lon coordinates with each institution
+		InstitutionCSV coordinates = new InstitutionCSV();
+		coordinates.setInstitutionCoordinates(nsfSource.getInstitutions());
+		
+		//construct OWL ontology
+	
 		//set the tools that the axiom setters will use to populate the ontology
 		OntologyToolset toolset = new OntologyToolset("http://vlc.cybershare.utep.edu/" + OWL_FILENAME);
 		AxiomSetter.setToolset(toolset);
@@ -43,7 +50,7 @@ public class Harvester {
 		toolset.dumpOntology(new File("./output-rdf/" + OWL_FILENAME));
 		
 		//print out any errors
-		printBadProjects(badProjects);*/
+		printBadProjects(badProjects);
 	}
 	
 	private static void printBadProjects(List<Project> badProjects){

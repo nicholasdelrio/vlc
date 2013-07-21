@@ -19,24 +19,31 @@ public class InstitutionCSV {
 	private List<Institution> institutions;
 	private Hashtable<String,Point> institutionToCoordinates;
 	
+	private static Point nullPoint = new Point(0, 0);
+	
 	public InstitutionCSV(List<Institution> institutions){
 		this.institutions = institutions;
 	}
 	
-	public InstitutionCSV(File csvFile){
+	public InstitutionCSV(){
+		File csvFile = new File("./output-institutions/institutions-geocoded.csv");
+		
 	    institutionToCoordinates = new Hashtable <String, Point>();
 		
 		try{
 			CSVReader reader = new CSVReader(new FileReader(csvFile));
 			List<String[]> geocodedRecords = reader.readAll();
-		    String lat;
+		    String[] record;
+			String lat;
 		    String lon;
 		    String name;
 		    Point location;
-			for(String[] entry : geocodedRecords){
-		    	name = entry[4];
-				lat = entry[29];
-		    	lon = entry[30];
+			
+		    for(int i = 1; i < geocodedRecords.size(); i ++){
+				record = geocodedRecords.get(i);
+		    	name = record[4];
+				lat = record[29];
+		    	lon = record[30];
 		    	location = new Point();
 		    	location.setLocation(Double.valueOf(lon), Double.valueOf(lat));
 		    	institutionToCoordinates.put(name, location);
@@ -45,9 +52,23 @@ public class InstitutionCSV {
 		}catch(Exception e){e.printStackTrace();}
 	}
 	
-	public Point getCoordinates(String institutionName){
-		String cleanedName = institutionName.replaceAll(",", "");
-		return this.institutionToCoordinates.get(cleanedName);
+	public void setInstitutionCoordinates(List<Institution> institutions){
+		String name;
+		Point coordinates;
+		for(Institution anInstitution : institutions){
+			name = anInstitution.getHasName();
+			coordinates = getCoordinates(name);
+			anInstitution.setHasPoint(coordinates);
+		}
+	}
+	
+	private Point getCoordinates(String institutionName){
+		String cleanedName = institutionName.replaceAll(",", " ");
+		Point coordinates = institutionToCoordinates.get(cleanedName);
+		if(coordinates == null)
+			return nullPoint;
+		else
+			return coordinates;
 	}
 	
 	public void dumpCSVFile(){
