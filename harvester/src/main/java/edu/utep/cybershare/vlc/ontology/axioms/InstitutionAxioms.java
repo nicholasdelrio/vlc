@@ -55,23 +55,22 @@ public class InstitutionAxioms extends AxiomSetter {
 	
 	private void addHasCityAssertion(){
 		OWLDataProperty hasCity = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasCity));		
-		OWLLiteral city = bundle.getDataFactory().getOWLLiteral(institution.getHasName());
+		OWLLiteral city = bundle.getDataFactory().getOWLLiteral(institution.getHasCity());
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasCity, individual, city);
 		owlAxioms.add(assertion);		
 	}
 	
 	private void addHasStateAssertion(){
 		OWLDataProperty hasState = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasState));		
-		OWLLiteral state = bundle.getDataFactory().getOWLLiteral(institution.getHasName());
+		OWLLiteral state = bundle.getDataFactory().getOWLLiteral(institution.getHasState());
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasState, individual, state);
 		owlAxioms.add(assertion);		
 	}
 
 	private void addHasZipcodeAssertion(){
 		OWLDataProperty hasZipcode = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasZipcode));		
-		OWLLiteral zipcode = bundle.getDataFactory().getOWLLiteral(institution.getHasName());
+		OWLLiteral zipcode = bundle.getDataFactory().getOWLLiteral(institution.getHasZipCode());
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasZipcode, individual, zipcode);
 		owlAxioms.add(assertion);
 	}
-
 }
