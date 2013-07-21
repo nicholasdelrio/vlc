@@ -19,6 +19,10 @@ public class InstitutionAxioms extends AxiomSetter {
 		addHasLatitude();
 		addHasLongitude();
 		addHasNameAssertion();
+		addHasAddressAssertion();
+		addHasCityAssertion();
+		addHasStateAssertion();
+		addHasZipcodeAssertion();
 	}
 	
 	private void addHasLongitude(){
@@ -41,4 +45,33 @@ public class InstitutionAxioms extends AxiomSetter {
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasName, individual, name);
 		owlAxioms.add(assertion);		
 	}
+	
+	private void addHasAddressAssertion(){
+		OWLDataProperty hasAddress = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasAddress));		
+		OWLLiteral address = bundle.getDataFactory().getOWLLiteral(institution.getHasAddress());
+		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasAddress, individual, address);
+		owlAxioms.add(assertion);		
+	}
+	
+	private void addHasCityAssertion(){
+		OWLDataProperty hasCity = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasCity));		
+		OWLLiteral city = bundle.getDataFactory().getOWLLiteral(institution.getHasName());
+		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasCity, individual, city);
+		owlAxioms.add(assertion);		
+	}
+	
+	private void addHasStateAssertion(){
+		OWLDataProperty hasState = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasState));		
+		OWLLiteral state = bundle.getDataFactory().getOWLLiteral(institution.getHasName());
+		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasState, individual, state);
+		owlAxioms.add(assertion);		
+	}
+
+	private void addHasZipcodeAssertion(){
+		OWLDataProperty hasZipcode = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasZipcode));		
+		OWLLiteral zipcode = bundle.getDataFactory().getOWLLiteral(institution.getHasName());
+		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasZipcode, individual, zipcode);
+		owlAxioms.add(assertion);
+	}
+
 }

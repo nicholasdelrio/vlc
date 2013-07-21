@@ -25,6 +25,14 @@ public class Vocabulary {
 	public static final String DATA_PROPERTY_IRI_hasName = VLC_ONTOLOGY_IRI + "#hasName";
 	public static final String DATA_PROPERTY_IRI_hasLatitude = VLC_ONTOLOGY_IRI + "#hasLatitude";
 	public static final String DATA_PROPERTY_IRI_hasLongitude = VLC_ONTOLOGY_IRI + "#hasLongitude";
+	public static final String DATA_PROPERTY_IRI_hasState = VLC_ONTOLOGY_IRI + "#hasState";
+	public static final String DATA_PROPERTY_IRI_hasCity = VLC_ONTOLOGY_IRI + "#hasCity";
+	public static final String DATA_PROPERTY_IRI_hasZipcode = VLC_ONTOLOGY_IRI + "#hasZipcode";
+	public static final String DATA_PROPERTY_IRI_hasAddress = VLC_ONTOLOGY_IRI + "#hasAddress";
+
+
+
+
 	
 	//Discipline
 	public static final String CLASS_IRI_Discipline = VLC_ONTOLOGY_IRI + "#Discipline";	
