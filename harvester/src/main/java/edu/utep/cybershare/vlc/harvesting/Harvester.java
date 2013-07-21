@@ -11,11 +11,13 @@ import edu.utep.cybershare.vlc.ontology.axioms.OntologyToolset;
 import edu.utep.cybershare.vlc.ontology.axioms.ProjectAxioms;
 import edu.utep.cybershare.vlc.sources.ProjectSource;
 import edu.utep.cybershare.vlc.sources.nsf.NSFAwards;
+import edu.utep.cybershare.vlc.subsetting.FilteredProjects;
 
 public class Harvester {
 	
 	private static final String OWL_FILENAME = "projects.owl";
-
+	private static final String OWL_FILENAME_FILTERED = "filtered-projects.owl";
+	
 	public static void main(String[] args){
 		//load set of project objects
 		ProjectSource nsfSource = new NSFAwards();
@@ -29,6 +31,11 @@ public class Harvester {
 		//aggregate lat/lon coordinates with each institution
 		InstitutionCSV coordinates = new InstitutionCSV();
 		coordinates.setInstitutionCoordinates(nsfSource.getInstitutions());
+
+		//filter projects based on Deana Pennington's identified persons
+		FilteredProjects filter = new FilteredProjects();
+		projects = filter.filter(projects);
+		System.out.println("Projects filtered down to: " + projects.size());
 		
 		//construct OWL ontology
 	
@@ -47,7 +54,7 @@ public class Harvester {
 		}
 		
 		//print out the resulting ontology
-		toolset.dumpOntology(new File("./output-rdf/" + OWL_FILENAME));
+		toolset.dumpOntology(new File("./output-rdf/" + OWL_FILENAME_FILTERED));
 		
 		//print out any errors
 		printBadProjects(badProjects);
