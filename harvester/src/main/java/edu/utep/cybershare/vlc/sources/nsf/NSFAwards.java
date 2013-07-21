@@ -105,8 +105,6 @@ public class NSFAwards extends ProjectSource {
 				Element awardElement = (Element) awardNode;
 				
 				String piName = getPI(awardElement);
-				List<String> coiNames = getCoInvestigators(awardElement);
-				String institutionName = awardElement.getElementsByTagName("Organization").item(0).getTextContent();
 				String disciplineName = getProgram(awardElement);
 				String title = awardElement.getElementsByTagName("Title").item(0).getTextContent();
 				String abstractText = awardElement.getElementsByTagName("Abstract").item(0).getTextContent();				
@@ -116,19 +114,36 @@ public class NSFAwards extends ProjectSource {
 				GregorianCalendar startDate = NSFAwardsUtils.getDate(startDateString);
 				GregorianCalendar endDate = NSFAwardsUtils.getDate(endDateString);
 				
-				Institution institution = this.getInstitution(institutionName);
 				Discipline discipline = this.getDiscipline(disciplineName);
+				Institution institution = this.getInstitution(awardElement);
+				List<Person> coPrincipalInvestigators = this.getCoPrincipalInvestigators(awardElement, discipline, institution);				
 				Person hasPrincipalInvestigator = getPerson(NSFAwardsUtils.getFirstName(piName), NSFAwardsUtils.getLastName(piName), discipline, institution);
 
-				ArrayList<Person> coPrincipalInvestigators = new ArrayList<Person>();
-				Person hasCoPrincipalInvestigator;
-				for(String coiName : coiNames){
-					hasCoPrincipalInvestigator = getPerson(NSFAwardsUtils.getFirstName(coiName), NSFAwardsUtils.getLastName(coiName), discipline, institution);
-					coPrincipalInvestigators.add(hasCoPrincipalInvestigator);				
-				}
-				
-				this.addProject(hasPrincipalInvestigator, coPrincipalInvestigators, title, abstractText, startDate, endDate);
+				addProject(hasPrincipalInvestigator, coPrincipalInvestigators, title, abstractText, startDate, endDate);
 			}
 		}
+	}
+	
+	private List<Person> getCoPrincipalInvestigators(Element awardElement, Discipline discipline, Institution institution){
+		List<String> coiNames = getCoInvestigators(awardElement);
+
+		ArrayList<Person> coPrincipalInvestigators = new ArrayList<Person>();
+		Person hasCoPrincipalInvestigator;
+		for(String coiName : coiNames){
+			hasCoPrincipalInvestigator = getPerson(NSFAwardsUtils.getFirstName(coiName), NSFAwardsUtils.getLastName(coiName), discipline, institution);
+			coPrincipalInvestigators.add(hasCoPrincipalInvestigator);				
+		}
+		
+		return coPrincipalInvestigators;
+	}
+	
+	private Institution getInstitution(Element awardElement){
+		String institutionName = awardElement.getElementsByTagName("Organization").item(0).getTextContent();		
+		String city = awardElement.getElementsByTagName("OrganizationCity").item(0).getTextContent();		
+		String state = awardElement.getElementsByTagName("OrganizationState").item(0).getTextContent();				
+		String zipCode = awardElement.getElementsByTagName("OrganizationZip").item(0).getTextContent();
+		String address = awardElement.getElementsByTagName("OrganizationStreet").item(0).getTextContent();		
+
+		return getInstitution(institutionName, address, city, state, zipCode);
 	}
 }

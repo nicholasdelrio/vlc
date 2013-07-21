@@ -101,11 +101,20 @@ public abstract class ProjectSource {
 		return discipline;
 	}
 	
-	protected Institution getInstitution(String institutionName){
+	protected Institution getInstitution(
+			String institutionName,
+			String address,
+			String city,
+			String state,
+			String zipCode){
 		Institution institution = institutions.get(institutionName);
 		if(institution == null){
 			institution = new Institution();
 			institution.setHasName(institutionName);
+			institution.setHasAddress(address);
+			institution.setHasCity(city);
+			institution.setHasState(state);
+			institution.setHasZipCode(zipCode);
 			institutions.put(institutionName, institution);
 		}
 		return institution;
