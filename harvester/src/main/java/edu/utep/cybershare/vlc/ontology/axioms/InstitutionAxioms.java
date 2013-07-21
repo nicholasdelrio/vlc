@@ -23,14 +23,14 @@ public class InstitutionAxioms extends AxiomSetter {
 	
 	private void addHasLongitude(){
 		OWLDataProperty hasLongitude = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasLongitude));		
-		OWLLiteral longitude = bundle.getDataFactory().getOWLLiteral(institution.getHasPoint().getX());
+		OWLLiteral longitude = bundle.getDataFactory().getOWLLiteral(institution.getLongitude());
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasLongitude, individual, longitude);
 		owlAxioms.add(assertion);		
 	}
 
 	private void addHasLatitude(){
 		OWLDataProperty hasLatitude = bundle.getDataFactory().getOWLDataProperty(IRI.create(Vocabulary.DATA_PROPERTY_IRI_hasLatitude));		
-		OWLLiteral latitude = bundle.getDataFactory().getOWLLiteral(institution.getHasPoint().getY());
+		OWLLiteral latitude = bundle.getDataFactory().getOWLLiteral(institution.getLatitude());
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasLatitude, individual, latitude);
 		owlAxioms.add(assertion);	
 	}

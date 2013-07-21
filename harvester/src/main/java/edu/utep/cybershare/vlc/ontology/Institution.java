@@ -1,19 +1,17 @@
 package edu.utep.cybershare.vlc.ontology;
 
-import java.awt.Point;
 
 public class Institution implements Concept {
 	
 	private String hasName;
-	private Point hasPoint;
+	private Point hasCoordinates;
 	private String hasCity;
 	private String hasAddress;
 	private String hasZipCode;
 	private String hasState;
 	
 	public Institution(){
-		hasPoint = new Point();
-		hasPoint.setLocation(0, 0);
+		hasCoordinates = new Point(0,0);
 	}
 	
 	public String getHasName() {
@@ -25,11 +23,21 @@ public class Institution implements Concept {
 	public void setHasName(String hasName) {
 		this.hasName = hasName;
 	}
-	public Point getHasPoint() {
-		return hasPoint;
+	
+	public double getLatitude(){
+		return hasCoordinates.getY();
 	}
-	public void setHasPoint(Point hasPoint) {
-		this.hasPoint = hasPoint;
+	
+	public double getLongitude(){
+		return hasCoordinates.getX();
+	}
+	
+	public Point getHasCoordinates(){
+		return hasCoordinates;
+	}
+	
+	public void setHasCoordinates(Point coordinates) {
+		hasCoordinates = coordinates;
 	}
 	public void setHasCity(String cityName){
 		this.hasCity = cityName;
@@ -70,7 +78,7 @@ public class Institution implements Concept {
 	public String toString(){
 		String institutionString = "--- Institution ---\n";
 		institutionString += "\t- hasName: " + hasName + "\n";
-		institutionString += "\t- hasPoint: " + hasPoint;
+		institutionString += "\t- hasCoordinates: " + hasCoordinates;
 		
 		return institutionString;
 	}
@@ -78,7 +86,7 @@ public class Institution implements Concept {
 	public boolean isFullySpecified() {
 		return 
 				this.getHasName() != null
-				&& this.getHasPoint() != null
+				&& this.getHasCoordinates() != null
 				&& this.getHasAddress() != null
 				&& this.getHasCity() != null
 				&& this.getHasState() != null

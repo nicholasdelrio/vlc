@@ -1,6 +1,6 @@
 package edu.utep.cybershare.vlc.geocoding;
 
-import java.awt.Point;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -11,15 +11,14 @@ import java.util.List;
 import au.com.bytecode.opencsv.CSVReader;
 
 import edu.utep.cybershare.vlc.ontology.Institution;
+import edu.utep.cybershare.vlc.ontology.Point;
 import edu.utep.cybershare.vlc.sources.ProjectSource;
 import edu.utep.cybershare.vlc.sources.nsf.NSFAwards;
 
 public class InstitutionCSV {
 
 	private List<Institution> institutions;
-	private Hashtable<String,Point> institutionToCoordinates;
-	
-	private static Point nullPoint = new Point(0, 0);
+	private Hashtable<String, Point> institutionToCoordinates;
 	
 	public InstitutionCSV(List<Institution> institutions){
 		this.institutions = institutions;
@@ -34,19 +33,16 @@ public class InstitutionCSV {
 			CSVReader reader = new CSVReader(new FileReader(csvFile));
 			List<String[]> geocodedRecords = reader.readAll();
 		    String[] record;
-			String lat;
-		    String lon;
+		    Double lat;
+		    Double lon;
 		    String name;
-		    Point location;
-			
+		    
 		    for(int i = 1; i < geocodedRecords.size(); i ++){
 				record = geocodedRecords.get(i);
 		    	name = record[4];
-				lat = record[29];
-		    	lon = record[30];
-		    	location = new Point();
-		    	location.setLocation(Double.valueOf(lon), Double.valueOf(lat));
-		    	institutionToCoordinates.put(name, location);
+				lat = Double.valueOf(record[29]);
+		    	lon = Double.valueOf(record[30]);
+		    	institutionToCoordinates.put(name, new Point(lon, lat));
 		    }
 			reader.close();
 		}catch(Exception e){e.printStackTrace();}
@@ -58,17 +54,19 @@ public class InstitutionCSV {
 		for(Institution anInstitution : institutions){
 			name = anInstitution.getHasName();
 			coordinates = getCoordinates(name);
-			anInstitution.setHasPoint(coordinates);
+			if(coordinates != null)
+				anInstitution.setHasCoordinates(coordinates);
 		}
 	}
 	
 	private Point getCoordinates(String institutionName){
 		String cleanedName = institutionName.replaceAll(",", " ");
 		Point coordinates = institutionToCoordinates.get(cleanedName);
-		if(coordinates == null)
-			return nullPoint;
-		else
+		
+		if(coordinates != null)
 			return coordinates;
+		
+		return null;
 	}
 	
 	public void dumpCSVFile(){
