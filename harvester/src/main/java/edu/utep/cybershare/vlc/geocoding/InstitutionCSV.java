@@ -6,7 +6,6 @@ import java.io.StringWriter;
 import java.util.List;
 
 import edu.utep.cybershare.vlc.ontology.Institution;
-import edu.utep.cybershare.vlc.ontology.Project;
 import edu.utep.cybershare.vlc.sources.ProjectSource;
 import edu.utep.cybershare.vlc.sources.nsf.NSFAwards;
 
