@@ -19,13 +19,26 @@ public class InstitutionCSV {
 	
 	public void dumpCSVFile(){
 		StringWriter writer = new StringWriter();
-		writer.append("Address, City, State, Zip, Institution Name");
+		writer.append("Address, City, State, Zip, Institution Name\n");
+		
+		String address;
+		String city;
+		String state;
+		String zipCode;
+		String institutionName;
 		for(Institution anInstitution : institutions){
-			writer.append(anInstitution.getHasAddress() + ", ");
-			writer.append(anInstitution.getHasCity() + ", ");
-			writer.append(anInstitution.getHasState() + ", ");
-			writer.append(anInstitution.getHasZipCode() + ", ");
-			writer.append(anInstitution.getHasName());
+			
+			address = anInstitution.getHasAddress().replaceAll(",", "");
+			city = anInstitution.getHasCity().replaceAll(", ", "");
+			state = anInstitution.getHasState().replaceAll(",", "");
+			zipCode = anInstitution.getHasZipCode().replaceAll(",", "");
+			institutionName = anInstitution.getHasName().replaceAll(",", "");
+			
+			writer.append(address + ", ");
+			writer.append(city + ", ");
+			writer.append(state + ", ");
+			writer.append(zipCode + ", ");
+			writer.append(institutionName + "\n");
 		}
 
 		File csvFile = new File("./output-institutions/institutions.csv");
