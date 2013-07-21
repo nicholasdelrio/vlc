@@ -24,24 +24,13 @@ public class Harvester {
 		System.out.println("People: " + nsfSource.getPeople().size());
 		System.out.println("Institutions: " + nsfSource.getInstitutions().size());
 		System.out.println("Disciplines: " + nsfSource.getDisciplines().size());
-		
+		/*
 		//set the tools that the axiom setters will use to populate the ontology
 		OntologyToolset toolset = new OntologyToolset("http://vlc.cybershare.utep.edu/" + OWL_FILENAME);
 		AxiomSetter.setToolset(toolset);
 		
 		//convert each project to a set of ontology axioms
-		ArrayList<Project> badProjects = new ArrayList<Project>();
-		
-		/*
-		for(int i = 0; i < 10; i ++){
-			Project aProject = projects.get(i);
-			if(!aProject.isFullySpecified()) //if project project is missing required properties, add to naughty list
-				badProjects.add(aProject);
-			
-			else //else, convert to axioms
-				new ProjectAxioms(aProject);
-		}*/
-		
+		ArrayList<Project> badProjects = new ArrayList<Project>();		
 		for(Project aProject : projects){
 			if(!aProject.isFullySpecified()) //if project project is missing required properties, add to naughty list
 				badProjects.add(aProject);
@@ -54,7 +43,7 @@ public class Harvester {
 		toolset.dumpOntology(new File("./output-rdf/" + OWL_FILENAME));
 		
 		//print out any errors
-		printBadProjects(badProjects);
+		printBadProjects(badProjects);*/
 	}
 	
 	private static void printBadProjects(List<Project> badProjects){
