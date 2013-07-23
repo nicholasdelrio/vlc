@@ -2,6 +2,7 @@ package edu.utep.cybershare.vlc.subsetting;
 
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -10,6 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import au.com.bytecode.opencsv.CSVReader;
+import au.com.bytecode.opencsv.CSVWriter;
 import edu.utep.cybershare.vlc.ontology.Person;
 import edu.utep.cybershare.vlc.ontology.Project;
 
@@ -85,4 +87,39 @@ public class FilteredProjects {
 		return lastName + ", " + firstName;
 	}
 
+	public void filterAndDumpCSV(List<Project> projects){
+		List<Project> filteredProjects = filter(projects);
+		try{
+			CSVWriter writer = new CSVWriter(new FileWriter("./people-of-interest/target-vlc-projects.csv"), ',');
+			// feed in your array (or convert your data to an array)
+
+			String[] header = new String[]{"Project Title", "Principal Investigator", "Co-Principal Investigators", "Related to Project"};
+			writer.writeNext(header);
+			Collection<Person> coPis;
+			Person pi;
+			String[] aRecord = new String[3];
+			for(Project aProject : filteredProjects){
+				aRecord[0] = aProject.getHasTitle();
+				pi = aProject.getHasPrincipalInvestigator();
+				aRecord[1] = pi.getHasFirstName() + " " + pi.getHasLastName();
+			
+				String coPiList = "";
+				coPis = aProject.getHasCoPrincipalInvestigator();
+				for(Person coPi : coPis){
+					if(coPi.getHasFirstName().equals("null-name"))
+						coPiList += "None";
+					else
+						coPiList += coPi.getHasFirstName() + " " + coPi.getHasLastName() + ", ";
+				}
+				
+				if(coPiList.lastIndexOf(", ") > -1)
+					coPiList = coPiList.substring(0, coPiList.lastIndexOf(", "));
+				
+				aRecord[2] = coPiList;
+			
+				writer.writeNext(aRecord);
+			}
+			writer.close();
+		}catch(Exception e){e.printStackTrace();}
+	}
 }

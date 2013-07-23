@@ -34,6 +34,9 @@ public class Harvester {
 
 		//filter projects based on Deana Pennington's identified persons
 		FilteredProjects filter = new FilteredProjects();
+		filter.filterAndDumpCSV(projects);
+		
+		/*
 		projects = filter.filter(projects);
 		System.out.println("Projects filtered down to: " + projects.size());
 		
@@ -57,7 +60,7 @@ public class Harvester {
 		toolset.dumpOntology(new File("./output-rdf/" + OWL_FILENAME_FILTERED));
 		
 		//print out any errors
-		printBadProjects(badProjects);
+		printBadProjects(badProjects);*/
 	}
 	
 	private static void printBadProjects(List<Project> badProjects){
