@@ -5,6 +5,11 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.HttpMethod;
@@ -13,15 +18,32 @@ import org.apache.commons.httpclient.methods.GetMethod;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class HTMLQueryBatch {
+public class HTMLQueryBatchService extends HttpServlet {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+		String jsonSources = request.getParameter("jsonSources");
+		
+		HTMLQueryBatch queryBatch = new HTMLQueryBatch(jsonSources);
+		String jsonResult = queryBatch.getJSONResultString();
+		
+		response.setContentType("application/json");
+		response.getWriter().write(jsonResult);
+	}
+	
+	private static class HTMLQueryBatch {
+	
 	private ArrayList<URL> webPageURLs;
 	private ArrayList<JSONObject> results;
 
 	private HttpClient client;
 
-	private static URL viskoServerURL;
-
+	private static URL viskoServerURL;  
+	
 	public HTMLQueryBatch(String jsonInput) {
 		webPageURLs = new ArrayList<URL>();
 		results = new ArrayList<JSONObject>();
@@ -32,14 +54,17 @@ public class HTMLQueryBatch {
 	}
 
 	private void extractInputURLs(String jsonInput) {
+		JSONObject sources;
+		JSONArray sourcesArray;
 		JSONObject input;
 		String aWebPageURLString;
 		URL aWebPageURL;
 		try {
-			JSONArray inputArray = new JSONArray(jsonInput);
-			for (int i = 0; i < inputArray.length(); i++) {
-				input = inputArray.getJSONObject(i);
-				aWebPageURLString = input.getString("input-url");
+			sources = new JSONObject(jsonInput);
+			sourcesArray = sources.getJSONArray("source_urls");
+			for (int i = 0; i < sourcesArray.length(); i++) {
+				input = sourcesArray.getJSONObject(i);
+				aWebPageURLString = input.getString("source_url");
 				aWebPageURL = new URL(aWebPageURLString);
 				webPageURLs.add(aWebPageURL);
 			}
@@ -71,7 +96,7 @@ public class HTMLQueryBatch {
 				inputDataURL = extractInputDataURL(aVisKoResult);
 				outputURL = extractResultURL(aVisKoResult);
 				aJSONResult = new JSONObject();
-				aJSONResult.put("inputURL", inputDataURL).put("outputURL", outputURL);
+				aJSONResult.put("source_url", inputDataURL).put("image_url", outputURL);
 				
 				jsonResultArray.add(aJSONResult);
 			}		
@@ -171,4 +196,5 @@ public class HTMLQueryBatch {
 		}
 		return result;
 	}
+}
 }

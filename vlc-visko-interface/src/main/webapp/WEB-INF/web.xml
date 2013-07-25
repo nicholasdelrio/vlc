@@ -1,7 +1,28 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+	
+	<display-name>Archetype Created Web Application</display-name>
 
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
+ 	 <!--  CORS Filter -->
+  	<filter>
+		<filter-name>CORS</filter-name>
+		<filter-class>com.thetransactioncompany.cors.CORSFilter</filter-class>
+ 	</filter>
+
+ 	<filter-mapping>
+    	<filter-name>CORS</filter-name>
+    	<url-pattern>/*</url-pattern>
+ 	</filter-mapping>
+
+	<servlet>
+    	<description>Batch URLs from VLC and feed to VisKo</description>
+    	<display-name>HTMLQueryBatchService</display-name>
+    	<servlet-name>HTMLQueryBatchService</servlet-name>
+    	<servlet-class>edu.utep.cybershare.vlc.visko.HTMLQueryBatchService</servlet-class>
+  	</servlet>
+  
+  	<servlet-mapping>
+    	<servlet-name>HTMLQueryBatchService</servlet-name>
+    	<url-pattern>/HTMLQueryBatchService</url-pattern>
+  	</servlet-mapping> 
 </web-app>
