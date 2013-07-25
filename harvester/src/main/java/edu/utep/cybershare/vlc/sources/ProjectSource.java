@@ -89,6 +89,9 @@ public abstract class ProjectSource {
 			project.setHasEndDate_Funding(hasEndDate_Funding);
 			projects.put(hasTitle, project);
 		}
+		else
+			for(Person coPI : hasCoPrincipalInvestigators)
+				project.addHasCoPrincipalInvestigator(coPI);
 	}
 
 	protected Discipline getDiscipline(String disciplineName){
