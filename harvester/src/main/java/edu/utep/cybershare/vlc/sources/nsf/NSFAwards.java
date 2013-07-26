@@ -19,6 +19,8 @@ import edu.utep.cybershare.vlc.ontology.Person;
 import edu.utep.cybershare.vlc.sources.ProjectSource;
 
 public class NSFAwards extends ProjectSource {
+
+	private static final String NULL_PERSON_PROPERNAME = NULL_NAME + " " + NULL_NAME;
 	
 	private static final String CACHED_AWARD_DATA = "./cached-award-data/";
 	private static final String NSF = CACHED_AWARD_DATA + "NSF/";
@@ -62,7 +64,7 @@ public class NSFAwards extends ProjectSource {
 	}
 	
 	private List<String> getCoInvestigators(Element awardElement){
-		String coiName = ProjectSource.NULL_PERSON_PROPERNAME;
+		String coiName = NULL_PERSON_PROPERNAME;
 		NodeList pis = awardElement.getElementsByTagName("Co-PIName");
 		List<String> pisList = NSFAwardsUtils.nodeListConverter(pis);
 		
@@ -84,7 +86,7 @@ public class NSFAwards extends ProjectSource {
 	}
 	
 	private String getPI(Element awardElement){
-		String pi = ProjectSource.NULL_PERSON_PROPERNAME;
+		String pi = NULL_PERSON_PROPERNAME;
 		NodeList pis = awardElement.getElementsByTagName("PrincipalInvestigator");
 		if(pis.getLength() > 0)
 			pi = pis.item(0).getTextContent();

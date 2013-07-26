@@ -18,7 +18,6 @@ public abstract class ProjectSource {
 	public static final String NULL_INSTITUTION = "null-institution";
 	public static final String NULL_DISCIPLINE = "null-discipline";
 	public static final String NULL_NAME = "null-name";
-	public static final String NULL_PERSON_PROPERNAME = NULL_NAME + " " + NULL_NAME;
 	
 	public ProjectSource(){
 		projects = new Hashtable<String,Project>();	
@@ -89,9 +88,13 @@ public abstract class ProjectSource {
 			project.setHasEndDate_Funding(hasEndDate_Funding);
 			projects.put(hasTitle, project);
 		}
-		else
+		else{
+			if(!hasPrincipalInvestigator.getHasFirstName().equals(NULL_NAME))
+				project.setHasPrincipalInvestigator(hasPrincipalInvestigator);
+			
 			for(Person coPI : hasCoPrincipalInvestigators)
 				project.addHasCoPrincipalInvestigator(coPI);
+		}
 	}
 
 	protected Discipline getDiscipline(String disciplineName){
