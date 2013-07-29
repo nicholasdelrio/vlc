@@ -1,8 +1,9 @@
 package edu.utep.cybershare.vlc.ontology;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.Hashtable;
+import java.util.List;
 
 public class Project implements Concept {
 	
@@ -13,18 +14,19 @@ public class Project implements Concept {
 	private GregorianCalendar hasStartDate_Funding;
 	private GregorianCalendar hasEndDate_Funding;
 	
-	private Project hasRelatedProject;
+	private Hashtable<String,Project> hasRelatedProject;
 	
-	public Project getHasRelatedProject() {
-		return hasRelatedProject;
+	public List<Project> getHasRelatedProject() {
+		return new ArrayList<Project>(hasRelatedProject.values());
 	}
 
-	public void setHasRelatedProject(Project hasRelatedProject) {
-		this.hasRelatedProject = hasRelatedProject;
+	public void addHasRelatedProject(Project hasRelatedProject) {
+		this.hasRelatedProject.put(hasRelatedProject.getHasTitle(), hasRelatedProject);
 	}
 
 	public Project(){
 		hasCoPrincipalInvestigator = new Hashtable<String, Person>();
+		hasRelatedProject = new Hashtable<String, Project>();
 	}
 	
 	public Person getHasPrincipalInvestigator() {
@@ -33,8 +35,8 @@ public class Project implements Concept {
 	public void setHasPrincipalInvestigator(Person hasPrincipalInvestigator) {
 		this.hasPrincipalInvestigator = hasPrincipalInvestigator;
 	}
-	public Collection<Person> getHasCoPrincipalInvestigator() {
-		return hasCoPrincipalInvestigator.values();
+	public List<Person> getHasCoPrincipalInvestigator() {
+		return new ArrayList<Person>(hasCoPrincipalInvestigator.values());
 	}
 		
 	public void addHasCoPrincipalInvestigator(Person coPrincipalInvestigator) {

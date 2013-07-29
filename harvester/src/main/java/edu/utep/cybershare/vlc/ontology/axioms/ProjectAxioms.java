@@ -26,6 +26,7 @@ public class ProjectAxioms extends AxiomSetter{
 		this.addHasPrincipalInvestigatorAssertion();
 		this.addHasStartDate_Funding();
 		this.addHasTitleAssertion();
+		this.addHasRelatedProject();
 	}
 		
 	private void addHasTitleAssertion(){
@@ -40,6 +41,18 @@ public class ProjectAxioms extends AxiomSetter{
 		OWLLiteral projectAbstract = bundle.getDataFactory().getOWLLiteral(removeIllegalCharacters(project.getHasAbstract()));
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(hasAbstract, individual, projectAbstract);
 		owlAxioms.add(assertion);		
+	}
+
+	private void addHasRelatedProject(){
+		OWLObjectProperty hasRelatedProject = bundle.getDataFactory().getOWLObjectProperty(IRI.create(Vocabulary.OBJECT_PROPERTY_IRI_hasRelatedProject));		
+		
+		ProjectAxioms projectAxioms;
+		OWLAxiom assertion;
+		for(Project aProject : project.getHasRelatedProject()){
+			projectAxioms = new ProjectAxioms(aProject);
+			assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(hasRelatedProject, individual, projectAxioms.getIndividual());
+			owlAxioms.add(assertion);
+		}
 	}
 	
 	private void addHasStartDate_Funding(){

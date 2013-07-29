@@ -9,6 +9,7 @@ import edu.utep.cybershare.vlc.ontology.Project;
 import edu.utep.cybershare.vlc.ontology.axioms.AxiomSetter;
 import edu.utep.cybershare.vlc.ontology.axioms.OntologyToolset;
 import edu.utep.cybershare.vlc.ontology.axioms.ProjectAxioms;
+import edu.utep.cybershare.vlc.relationships.Relationships;
 import edu.utep.cybershare.vlc.sources.ProjectSource;
 import edu.utep.cybershare.vlc.sources.nsf.NSFAwards;
 import edu.utep.cybershare.vlc.subsetting.FilteredProjects;
@@ -22,6 +23,9 @@ public class Harvester {
 		//load set of project objects
 		ProjectSource nsfSource = new NSFAwards();
 		List<Project> projects = nsfSource.getProjects();
+
+		Relationships relationships = new Relationships();
+		nsfSource.setProjectRelationships(relationships);
 		
 		System.out.println("Unique Projects: " + projects.size());
 		System.out.println("People: " + nsfSource.getPeople().size());
@@ -31,17 +35,14 @@ public class Harvester {
 		//aggregate lat/lon coordinates with each institution
 		InstitutionCSV coordinates = new InstitutionCSV();
 		coordinates.setInstitutionCoordinates(nsfSource.getInstitutions());
-
+		
 		//filter projects based on Deana Pennington's identified persons
 		FilteredProjects filter = new FilteredProjects();
-		filter.filterAndDumpCSV(projects);
+		//filter.filterAndDumpCSV(projects);
 		
-		/*
 		projects = filter.filter(projects);
 		System.out.println("Projects filtered down to: " + projects.size());
-		
-		//construct OWL ontology
-	
+				
 		//set the tools that the axiom setters will use to populate the ontology
 		OntologyToolset toolset = new OntologyToolset("http://vlc.cybershare.utep.edu/" + OWL_FILENAME);
 		AxiomSetter.setToolset(toolset);
@@ -60,7 +61,7 @@ public class Harvester {
 		toolset.dumpOntology(new File("./output-rdf/" + OWL_FILENAME_FILTERED));
 		
 		//print out any errors
-		printBadProjects(badProjects);*/
+		printBadProjects(badProjects);
 	}
 	
 	private static void printBadProjects(List<Project> badProjects){

@@ -8,6 +8,7 @@ import edu.utep.cybershare.vlc.ontology.Discipline;
 import edu.utep.cybershare.vlc.ontology.Institution;
 import edu.utep.cybershare.vlc.ontology.Person;
 import edu.utep.cybershare.vlc.ontology.Project;
+import edu.utep.cybershare.vlc.relationships.Relationships;
 public abstract class ProjectSource {
 		
 	private Hashtable<String,Person> people;
@@ -65,7 +66,23 @@ public abstract class ProjectSource {
 		return new ArrayList<Institution>(institutions.values());
 	}
 	
-	
+	public void setProjectRelationships(Relationships relationships){
+		List<String> relatedProjectTitles;
+		Project relatedProject;
+		for(Project aProject : getProjects()){
+			relatedProjectTitles = relationships.getRelatedProjectTitles(aProject.getHasTitle());
+			
+			for(String relatedProjectTitle : relatedProjectTitles){
+				relatedProject = projects.get(relatedProjectTitle);
+				if(relatedProject != null){
+					System.out.println("adding related project: " + aProject.getHasTitle() + " to: " + relatedProjectTitle);
+					aProject.addHasRelatedProject(relatedProject);
+				}
+				else
+					System.err.println("Can't find reference to project via the title: " + relatedProjectTitle);
+			}
+		}
+	}
 
 	protected void addProject(
 			Person hasPrincipalInvestigator,

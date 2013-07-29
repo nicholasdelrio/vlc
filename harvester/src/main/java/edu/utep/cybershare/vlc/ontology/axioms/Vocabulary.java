@@ -8,6 +8,7 @@ public class Vocabulary {
 	public static final String CLASS_IRI_Project = VLC_ONTOLOGY_IRI + "#Project";
 	public static final String OBJECT_PROPERTY_IRI_hasPrincipalInvestigator = VLC_ONTOLOGY_IRI + "#hasPrincipalInvestigator";
 	public static final String OBJECT_PROPERTY_IRI_hasCoPrincipalInvestigator = VLC_ONTOLOGY_IRI + "#hasCoPrincipalInvestigator";
+	public static final String OBJECT_PROPERTY_IRI_hasRelatedProject = VLC_ONTOLOGY_IRI + "#hasRelatedProject";
 	public static final String DATA_PROPERTY_IRI_hasTitle = VLC_ONTOLOGY_IRI + "#hasTitle";
 	public static final String DATA_PROPERTY_IRI_hasAbstract = VLC_ONTOLOGY_IRI + "#hasAbstract";
 	public static final String DATA_PROPERTY_IRI_hasStartDate_Funding = VLC_ONTOLOGY_IRI + "#hasStartDate_Funding";
