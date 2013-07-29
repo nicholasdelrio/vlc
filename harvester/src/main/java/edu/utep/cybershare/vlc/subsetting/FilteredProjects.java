@@ -22,7 +22,7 @@ public class FilteredProjects {
 	public FilteredProjects(){
 		peopleOfInterest = new Hashtable<String, Boolean>();
 		
-		File csvFile = new File("./people-of-interest/VLC-demo-people.csv");
+		File csvFile = new File("./people-of-interest/vlc-demo-people.csv");
 		
 		try{
 			CSVReader reader = new CSVReader(new FileReader(csvFile));

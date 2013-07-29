@@ -13,6 +13,16 @@ public class Project implements Concept {
 	private GregorianCalendar hasStartDate_Funding;
 	private GregorianCalendar hasEndDate_Funding;
 	
+	private Project hasRelatedProject;
+	
+	public Project getHasRelatedProject() {
+		return hasRelatedProject;
+	}
+
+	public void setHasRelatedProject(Project hasRelatedProject) {
+		this.hasRelatedProject = hasRelatedProject;
+	}
+
 	public Project(){
 		hasCoPrincipalInvestigator = new Hashtable<String, Person>();
 	}
