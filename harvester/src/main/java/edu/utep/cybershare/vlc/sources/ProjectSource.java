@@ -70,10 +70,14 @@ public abstract class ProjectSource {
 		List<String> relatedProjectTitles;
 		Project relatedProject;
 		for(Project aProject : getProjects()){
+			
+			setParentCollection(relationships, aProject);
+			
 			relatedProjectTitles = relationships.getRelatedProjectTitles(aProject.getHasTitle());
 			
 			for(String relatedProjectTitle : relatedProjectTitles){
 				relatedProject = projects.get(relatedProjectTitle);
+				
 				if(relatedProject != null){
 					System.out.println("adding related project: " + aProject.getHasTitle() + " to: " + relatedProjectTitle);
 					aProject.addHasRelatedProject(relatedProject);
@@ -82,6 +86,12 @@ public abstract class ProjectSource {
 					System.err.println("Can't find reference to project via the title: " + relatedProjectTitle);
 			}
 		}
+	}
+	
+	private void setParentCollection(Relationships relationships, Project aProject){
+		List<String> parentCollectionIDs = relationships.getParentCollection(aProject.getHasTitle());
+		for(String collectionID :parentCollectionIDs)
+			aProject.addParentCollectionID(collectionID);
 	}
 
 	protected void addProject(

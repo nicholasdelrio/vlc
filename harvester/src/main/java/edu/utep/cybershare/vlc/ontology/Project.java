@@ -13,8 +13,16 @@ public class Project implements Concept {
 	private String hasAbstract;
 	private GregorianCalendar hasStartDate_Funding;
 	private GregorianCalendar hasEndDate_Funding;
-	
+	private ArrayList<String> hasParentCollectionIDs;
 	private Hashtable<String,Project> hasRelatedProject;
+	
+	public List<String> getParentCollectionIDs(){
+		return hasParentCollectionIDs;
+	}
+	
+	public void addParentCollectionID(String collectionID){
+		hasParentCollectionIDs.add(collectionID);
+	}
 	
 	public List<Project> getHasRelatedProject() {
 		return new ArrayList<Project>(hasRelatedProject.values());
@@ -27,6 +35,7 @@ public class Project implements Concept {
 	public Project(){
 		hasCoPrincipalInvestigator = new Hashtable<String, Person>();
 		hasRelatedProject = new Hashtable<String, Project>();
+		hasParentCollectionIDs = new ArrayList<String>();
 	}
 	
 	public Person getHasPrincipalInvestigator() {
@@ -35,6 +44,7 @@ public class Project implements Concept {
 	public void setHasPrincipalInvestigator(Person hasPrincipalInvestigator) {
 		this.hasPrincipalInvestigator = hasPrincipalInvestigator;
 	}
+	
 	public List<Person> getHasCoPrincipalInvestigator() {
 		return new ArrayList<Person>(hasCoPrincipalInvestigator.values());
 	}
