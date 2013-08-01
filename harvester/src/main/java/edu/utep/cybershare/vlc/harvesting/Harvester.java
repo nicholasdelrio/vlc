@@ -13,6 +13,7 @@ import edu.utep.cybershare.vlc.relationships.Relationships;
 import edu.utep.cybershare.vlc.sources.ProjectSource;
 import edu.utep.cybershare.vlc.sources.nsf.NSFAwards;
 import edu.utep.cybershare.vlc.subsetting.FilteredProjects;
+import edu.utep.cybershare.vlc.upload.VLCProjectsUploader;
 
 public class Harvester {
 	
@@ -24,6 +25,7 @@ public class Harvester {
 		ProjectSource nsfSource = new NSFAwards();
 		List<Project> projects = nsfSource.getProjects();
 
+		// add relationships between projects as identified by Deana Pennington, including parent collections
 		Relationships relationships = new Relationships();
 		nsfSource.setProjectRelationships(relationships);
 		
@@ -32,20 +34,44 @@ public class Harvester {
 		System.out.println("Institutions: " + nsfSource.getInstitutions().size());
 		System.out.println("Disciplines: " + nsfSource.getDisciplines().size());
 		
-		//aggregate lat/lon coordinates with each institution
-		InstitutionCSV coordinates = new InstitutionCSV();
-		coordinates.setInstitutionCoordinates(nsfSource.getInstitutions());
-		
 		//filter projects based on Deana Pennington's identified persons
 		FilteredProjects filter = new FilteredProjects();
-		//filter.filterAndDumpCSV(projects);
-		
 		projects = filter.filter(projects);
-		System.out.println("Projects filtered down to: " + projects.size());
-				
+		System.out.println("number of projects after filtering: " + projects.size());
+		
+		//aggregate lat/lon coordinates with each institution
+		InstitutionCSV coordinates = new InstitutionCSV();
+		coordinates.setInstitutionCoordinates(nsfSource.getInstitutions());		
+		
+		//either dump or upload to VLC
+		publishToVLC(projects);
+		//dumpRDF(projects, OWL_FILENAME);
+		
+	}
+	
+	private static void printBadProjects(List<Project> badProjects){
+		if(badProjects.size() > 0){
+			System.out.println("There were some naughty projects that were missing required properties! Punish them!!!");
+			
+			for(Project aBadProject : badProjects)
+				System.out.println(aBadProject);
+		}
+	}
+	
+	private static void publishToVLC(List<Project> projects){
+		VLCProjectsUploader uploader = new VLCProjectsUploader();
+		uploader.setProjects(projects);
+		uploader.upload(2);
+	}	
+	
+	private static void dumpRDF(List<Project> projects, String fileName){
+		
 		//set the tools that the axiom setters will use to populate the ontology
-		OntologyToolset toolset = new OntologyToolset("http://vlc.cybershare.utep.edu/" + OWL_FILENAME);
+		OntologyToolset toolset = new OntologyToolset("http://vlc.cybershare.utep.edu/" + fileName);
 		AxiomSetter.setToolset(toolset);
+		
+		String outputFilePath = "./output-rdf/" + fileName;
+		
 		
 		//convert each project to a set of ontology axioms
 		ArrayList<Project> badProjects = new ArrayList<Project>();		
@@ -58,18 +84,9 @@ public class Harvester {
 		}
 		
 		//print out the resulting ontology
-		toolset.dumpOntology(new File("./output-rdf/" + OWL_FILENAME_FILTERED));
+		toolset.dumpOntology(new File(outputFilePath));
 		
 		//print out any errors
 		printBadProjects(badProjects);
-	}
-	
-	private static void printBadProjects(List<Project> badProjects){
-		if(badProjects.size() > 0){
-			System.out.println("There were some naughty projecs that were missing required properties! Punish them!!!");
-			
-			for(Project aBadProject : badProjects)
-				System.out.println(aBadProject);
-		}
 	}
 }

@@ -61,21 +61,21 @@ public class Relationships {
 	
 	private void setCollectionMapping(String projectTitle, String[] aRecord){
 		String collections = "";
-		if(aRecord[Relationships.arctic] != null)
+		if(!aRecord[Relationships.arctic].isEmpty())
 			collections += "collectionR43U52,";
-		if(aRecord[Relationships.biodiversity] != null)
+		if(!aRecord[Relationships.biodiversity].isEmpty())
 			collections += "collectionR41U52,";
-		if(aRecord[Relationships.diffusion] != null)
+		if(!aRecord[Relationships.diffusion].isEmpty())
 			collections += "collectionR45U52,";
-		if(aRecord[Relationships.geospatial] != null)
+		if(!aRecord[Relationships.geospatial].isEmpty())
 			collections += "collectionR46U52,";
-		if(aRecord[Relationships.infectionDisease] != null)
+		if(!aRecord[Relationships.infectionDisease].isEmpty())
 			collections += "collectionR42U52,";
-		if(aRecord[Relationships.semantic] != null)
+		if(!aRecord[Relationships.semantic].isEmpty())
 			collections += "collectionR40U52,";
-		if(aRecord[Relationships.sensors] != null)
+		if(!aRecord[Relationships.sensors].isEmpty())
 			collections += "collectionR47U52,";
-		if(aRecord[Relationships.workflows] != null)
+		if(!aRecord[Relationships.workflows].isEmpty())
 			collections += "collectionR44U52,";
 		
 		if(!collections.isEmpty()){

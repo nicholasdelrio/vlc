@@ -1,7 +1,9 @@
 package edu.utep.cybershare.vlc.ontology;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Hashtable;
+import java.util.List;
 
 public class Person implements Concept {
 	
@@ -15,8 +17,8 @@ public class Person implements Concept {
 		hasDiscipline = new Hashtable<String, Discipline>();
 	}
 	
-	public Collection<Institution> getAffiliatedWithInstitution() {
-		return affiliatedWithInstitution.values();
+	public List<Institution> getAffiliatedWithInstitution() {
+		return new ArrayList<Institution>(affiliatedWithInstitution.values());
 	}
 	public void addAffiliatedWithInstitution(Institution institution) {
 		this.affiliatedWithInstitution.put(institution.getHasName(), institution);
