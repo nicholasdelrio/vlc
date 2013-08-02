@@ -61,7 +61,7 @@ public class Harvester {
 	private static void publishToVLC(List<Project> projects){
 		VLCProjectsUploader uploader = new VLCProjectsUploader();
 		uploader.setProjects(projects);
-		uploader.upload(2);
+		uploader.upload();
 	}	
 	
 	private static void dumpRDF(List<Project> projects, String fileName){

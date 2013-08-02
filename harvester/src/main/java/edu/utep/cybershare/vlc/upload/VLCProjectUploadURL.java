@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.httpclient.NameValuePair;
+import org.apache.commons.lang.StringEscapeUtils;
 
 public class VLCProjectUploadURL {
 	
@@ -174,34 +175,26 @@ public class VLCProjectUploadURL {
 		
 		return pairs;
 	}
-	
-	private String encodeValue(String value){
-		if(value != null && !value.isEmpty())
-			return value;
 		
+	private String encodeValue(String value){
+		if(value != null && !value.isEmpty()){
+			String text = StringEscapeUtils.escapeXml(value);
+			text = StringEscapeUtils.escapeHtml(text);
+			System.out.println(text);
+			return text;
+		}
+					
 		return "nullvalue";
 	}
 	
 	private String encodeValue(List<String> list){
 		String stringList = "";
 		for(String item : list)
-			stringList += item + ",";
+			stringList += encodeValue(item) + ",";
 		
 		if(stringList.isEmpty())
 			stringList="nullvalue";
-		else
-			stringList = encodeValue(stringList.substring(0, stringList.lastIndexOf(",")));
 
 		return stringList;
-	}
-	
-	private String encodeURL(String queryString){
-		String encodedURLString = null;
-		try{
-			URI uri = new URI(PROTOCOL, DOMAIN, PATH, queryString, null);
-			encodedURLString = uri.toASCIIString();
-		}catch(Exception e){e.printStackTrace();}
-		
-		return encodedURLString;
 	}
 }
