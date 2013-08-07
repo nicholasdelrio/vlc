@@ -44,8 +44,8 @@ public class Harvester {
 		coordinates.setInstitutionCoordinates(nsfSource.getInstitutions());		
 		
 		//either dump or upload to VLC
-		publishToVLC(projects);
-		//dumpRDF(projects, OWL_FILENAME);
+		//publishToVLC(projects);
+		dumpRDF(projects, OWL_FILENAME_FILTERED);
 		
 	}
 	
