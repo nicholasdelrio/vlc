@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.visualization.transformers.projects.graphBuilders;
+package edu.utep.cybershare.vlc.visualization.transformers.graphBuilders;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

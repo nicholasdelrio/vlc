@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.visualization.transformers.projects.graphBuilders.graphs;
+package edu.utep.cybershare.vlc.visualization.transformers.graphBuilders.graphs;
 
 import java.util.List;
 
