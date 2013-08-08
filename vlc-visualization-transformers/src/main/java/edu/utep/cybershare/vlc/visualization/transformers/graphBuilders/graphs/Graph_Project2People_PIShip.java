@@ -67,7 +67,8 @@ public class Graph_Project2People_PIShip {
 			
 			jsonNode = new JSONObject();
 			try{
-				jsonNode.put("project", node.getNodeName());
+				jsonNode.put("name", node.getNodeName());
+				jsonNode.put("type", node.getType());
 				jsonNodes.put(i, jsonNode);
 			}catch(Exception e){e.printStackTrace();}
 		}
