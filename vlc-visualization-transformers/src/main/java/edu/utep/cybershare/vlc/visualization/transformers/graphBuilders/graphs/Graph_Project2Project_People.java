@@ -24,8 +24,13 @@ public class Graph_Project2Project_People {
 	public void addLink(ProjectLink link){
 		String key = link.getKey();
 		
-		if(linksMap.get(key) == null)
+		ProjectLink existingLink = linksMap.get(key);
+		if(existingLink == null)
 			linksMap.put(key, link);
+		else
+			for(String personName : link.getPeople())
+				existingLink.addPerson(personName);
+			
 	}
 	
 	private void populateNodes(){
@@ -148,7 +153,8 @@ public class Graph_Project2Project_People {
 		}
 		
 		public void addPerson(String personName){
-			people.add(personName);
+			if(!people.contains(personName))
+				people.add(personName);
 		}
 		
 		private List<String> getPeople(){
