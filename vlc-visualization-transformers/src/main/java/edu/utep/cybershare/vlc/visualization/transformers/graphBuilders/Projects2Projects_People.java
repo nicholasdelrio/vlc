@@ -13,6 +13,7 @@ public class Projects2Projects_People {
 	private SparqlEndpoint endpoint;
 	
 	public Projects2Projects_People(SparqlEndpoint endpoint){
+		this.endpoint = endpoint;
 		endpoint.setQuery(SparqlQueries.getProjectsByPeople());
 	}
 	
@@ -26,8 +27,8 @@ public class Projects2Projects_People {
 	
 	public String getJSONGraph(){
 		Graph_Project2Project_People graph = getGraph(getResults());
-		String stringGraph = graph.getGraph().toString();
-		try{stringGraph = graph.getGraph().toString(4);}
+		String stringGraph = "{}";
+		try{stringGraph = graph.getJSONObjectGraph().toString(4);}
 		catch(Exception e){e.printStackTrace();}
 		return stringGraph;
 	}

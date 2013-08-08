@@ -8,9 +8,9 @@ public class SparqlQueries {
 	private static String newline = "\n";
 	
 	public static String getProjectsByPeople(){
-		String query = prefixDeclaration_RIM;
+		String query = prefixDeclaration_RIM									+ newline;
 		
-		query += "select distinct(?person) ?sourceProject ?targetProject" 				+ newline;
+		query += "select distinct(?person) ?sourceProject ?targetProject" 		+ newline;
 		query += "from <http://vlc.cybershare.utep.edu/filtered-projects.owl>"	+ newline;
 		query += "where"														+ newline;
 		query += "{{"															+ newline;
@@ -30,6 +30,7 @@ public class SparqlQueries {
 		query += "}"															+ newline;
 		query += "filter(?sourceProject != ?targetProject)"						+ newline;
 		query += "filter(?person != ?person1)"									+ newline;
+		query += "}"															+ newline;
 			
 		return query;
 	}

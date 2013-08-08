@@ -14,16 +14,9 @@ public class SparqlResultsPicker {
 			emptyArray = new JSONArray();
 		}catch(Exception e){e.printStackTrace();}
 	}
-	
-	public static JSONObject getResults(JSONObject sparqlResults){
-		try{return sparqlResults.getJSONObject("results");}
-		catch(Exception e){e.printStackTrace();}
-		return emptyObject;
-	}
-	
-	
+		
 	public static JSONArray getBindings(JSONObject sparqlResults){
-		try{return sparqlResults.getJSONArray("bindings");}
+		try{return sparqlResults.getJSONObject("results").getJSONArray("bindings");}
 		catch(Exception e){e.printStackTrace();}
 		return emptyArray;
 	}

@@ -51,6 +51,7 @@ public class Graph_Project2Project_People {
 		if(index == null){
 			nodesMap.put(node.getKey(), new Integer(nodeCounter ++));
 			nodes.add(node);
+			index = nodeCounter;
 		}
 		
 		return index;
@@ -62,6 +63,7 @@ public class Graph_Project2Project_People {
 		ProjectNode node;
 		for(int i = 0; i < nodes.size(); i ++){
 			node = nodes.get(i);
+			
 			jsonNode = new JSONObject();
 			try{
 				jsonNode.put("project", node.getProjectName());
@@ -90,12 +92,13 @@ public class Graph_Project2Project_People {
 		return jsonLinks; 
 	}
 	
-	public JSONObject getGraph(){
+	public JSONObject getJSONObjectGraph(){
 		populateNodes();
 		
 		JSONObject graph = new JSONObject();
 		JSONArray links = getJSONArrayLinks();
 		JSONArray nodes = getJSONArrayNodes();
+		
 		try{		
 			graph.put("links", links);
 			graph.put("nodes", nodes);

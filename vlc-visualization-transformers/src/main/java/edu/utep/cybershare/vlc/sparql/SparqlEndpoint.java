@@ -80,7 +80,7 @@ public class SparqlEndpoint {
 	}
 	
 	private String getQueryString(){
-		String queryString = "?&query=" + encodedQuery + "&format=" + "text%2Fjson";
+		String queryString = "?query=" + encodedQuery + "&format=" + "application%2Fjson";
 		return queryString;
 	}
 }
