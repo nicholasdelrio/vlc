@@ -1,9 +1,5 @@
 package edu.utep.cybershare.vlc.visualization.transformers.graphBuilders;
 
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.List;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -15,42 +11,57 @@ import edu.utep.cybershare.vlc.visualization.transformers.graphBuilders.graphs.G
 public class Projects2Projects_People {
 	
 	private SparqlEndpoint endpoint;
-	private Hashtable<String,LinkAndPeople> edgesToPeople;
 	
 	public Projects2Projects_People(SparqlEndpoint endpoint){
-		edgesToPeople = new Hashtable<String,LinkAndPeople>();
-		endpoint.setQuery(getSparqlQuery());
+		endpoint.setQuery(SparqlQueries.getProjectsByPeople());
 	}
 	
-	private String getSparqlQuery(){
-		return SparqlQueries.getProjectsByPeople();
+	private JSONObject getResults(){
+		String jsonResults = endpoint.executeQuery();
+		JSONObject results = new JSONObject();
+		try{results = new JSONObject(jsonResults);}
+		catch(Exception e){e.printStackTrace();}
+		return results;
 	}
-
-	public Graph_Project2Project_People getGraph(JSONObject sparqlResults){
 	
+	public String getJSONGraph(){
+		Graph_Project2Project_People graph = getGraph(getResults());
+		String stringGraph = graph.getGraph().toString();
+		try{stringGraph = graph.getGraph().toString(4);}
+		catch(Exception e){e.printStackTrace();}
+		return stringGraph;
+	}
+	
+	private Graph_Project2Project_People getGraph(JSONObject sparqlResults){
 		JSONArray bindingsArray = SparqlResultsPicker.getBindings(sparqlResults);
 		JSONObject aBinding;
-		String person;
-		String sourceProject;
-		String targetProject;
-		LinkAndPeople link;
+		
+		String personName;
+		String sourceProjectName;
+		String targetProjectName;
+		
+		Graph_Project2Project_People.ProjectNode sourceProject;
+		Graph_Project2Project_People.ProjectNode targetProject;
+		Graph_Project2Project_People.ProjectLink link;
+		
+		Graph_Project2Project_People graph = new Graph_Project2Project_People();
 		try{
 			for(int i = 0; i < bindingsArray.length(); i ++){
 				aBinding = bindingsArray.getJSONObject(i);
-				person = aBinding.getJSONObject("person").getString("value");
-				sourceProject = aBinding.getJSONObject("sourceProject").getString("value");
-				targetProject = aBinding.getJSONObject("targetProject").getString("value");
+				personName = aBinding.getJSONObject("person").getString("value");
+				sourceProjectName = aBinding.getJSONObject("sourceProject").getString("value");
+				targetProjectName = aBinding.getJSONObject("targetProject").getString("value");
 				
-				link = new LinkAndPeople(sourceProject, targetProject);
-				link.addPerson(person);
+				sourceProject = new Graph_Project2Project_People.ProjectNode(sourceProjectName);
+				targetProject = new Graph_Project2Project_People.ProjectNode(targetProjectName);
+				
+				link = new Graph_Project2Project_People.ProjectLink(sourceProject, targetProject);
+				link.addPerson(personName);
+				
+				//add link to graph
+				graph.addLink(link);
 			}
 		}catch(Exception e){e.printStackTrace();}
-		
-		return null;
-	}
-	
-	private void addLink(){
-		
-	}
-
+		return graph;
+	}	
 }
