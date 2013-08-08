@@ -1,6 +1,9 @@
 package edu.utep.cybershare.vlc.visualization.transformers.graphBuilders.graphs;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Hashtable;
+import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -9,55 +12,67 @@ public abstract class JSONGraph {
 	
 	private JSONObject graph;
 	private JSONArray links;
-	private JSONArray nodes;
-	
-	private Hashtable<String,JSONObject> linksMap;
-	private Hashtable<String,JSONObject> nodesMap;
+	private ArrayList<JSONObject> nodes;
+
+	private Hashtable<String,Link> linksMap;
+	private Hashtable<String,Integer> nodesMap;
+
+	private int nodeCounter;
 	
 	public JSONGraph(){
-		linksMap = new Hashtable<String,JSONObject>();
-		nodesMap = new Hashtable<String,JSONObject>();
+		nodeCounter = 0;
+		linksMap = new Hashtable<String,Link>();
+		nodesMap = new Hashtable<String,Integer>();
 	}
 	
-	public void addNode(String name){
-		JSONObject node;
+	public void addLink(String sourceName, String targetName){
+		Link link;
 		try{
-			node = new JSONObject().put("name", name);
-			addNode(node);
-		}	
-		catch(Exception e){e.printStackTrace();}
-	}
-	
-	public void addLink(int source, int target){
-		JSONObject link;
-		try{
-			link = new JSONObject()
-				.put("source", source)
-				.put("target", target);
-			
+			link = new Link(sourceName, targetName);			
 			addLink(link);
 		}	
 		catch(Exception e){e.printStackTrace();}
 	}
 	
-	protected boolean addLink(JSONObject link){
-		String linkString = link.toString();
+	protected boolean addLink(Link link){
+		String key = link.getKey();
 		
-		if(linksMap.get(linkString) == null){
-			linksMap.put(linkString, link);
+		if(linksMap.get(key) == null){
+			linksMap.put(key, link);
 			return true;
 		}
 		return false;
 	}
 	
-	protected boolean addNode(JSONObject node){
-	String nodeString = node.toString();
+	private void populateNodes(){
+		List<Link> links = new ArrayList<Link>(linksMap.values());
+		nodes = new ArrayList<JSONObject>();
 		
-		if(nodesMap.get(nodeString) == null){
-			nodesMap.put(nodeString, node);
-			return true;
+		Link aLink;
+		String sourceName;
+		String targetName;
+		
+		int source;
+		int target;
+		
+		for(int i = 0; i < links.size(); i ++){
+			aLink = links.get(i);
+			sourceName = aLink.getSource();
+			targetName = aLink.getTarget();
+			
+			
+				
+			
+			aLink.get
 		}
-		return false;
+	}
+	
+	private int getIndex(String nodeName){
+		Integer index = nodesMap.get(nodeName);
+		if(index == null)
+			nodesMap.put(nodeName, new Integer(nodeCounter ++));
+		
+		return index;
 	}
 	
 	public JSONObject getGraph(){
