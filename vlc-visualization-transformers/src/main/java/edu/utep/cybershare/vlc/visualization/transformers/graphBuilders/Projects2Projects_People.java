@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import edu.utep.cybershare.vlc.sparql.SparqlEndpoint;
 import edu.utep.cybershare.vlc.sparql.SparqlQueries;
 import edu.utep.cybershare.vlc.sparql.SparqlResultsPicker;
-import edu.utep.cybershare.vlc.visualization.transformers.graphBuilders.graphs.Graph_Project2Project_People;
+import edu.utep.cybershare.vlc.visualization.transformers.graphBuilders.graphs.Graph_Projects2Projects_People;
 
 public class Projects2Projects_People {
 	
@@ -14,7 +14,7 @@ public class Projects2Projects_People {
 	
 	public Projects2Projects_People(SparqlEndpoint endpoint){
 		this.endpoint = endpoint;
-		endpoint.setQuery(SparqlQueries.getProjectsByPeople());
+		endpoint.setQuery(SparqlQueries.getProjects2ProjectsByPeople());
 	}
 	
 	private JSONObject getResults(){
@@ -26,14 +26,14 @@ public class Projects2Projects_People {
 	}
 	
 	public String getJSONGraph(){
-		Graph_Project2Project_People graph = getGraph(getResults());
+		Graph_Projects2Projects_People graph = getGraph(getResults());
 		String stringGraph = "{}";
 		try{stringGraph = graph.getJSONObjectGraph().toString(4);}
 		catch(Exception e){e.printStackTrace();}
 		return stringGraph;
 	}
 	
-	private Graph_Project2Project_People getGraph(JSONObject sparqlResults){
+	private Graph_Projects2Projects_People getGraph(JSONObject sparqlResults){
 		JSONArray bindingsArray = SparqlResultsPicker.getBindings(sparqlResults);
 		JSONObject aBinding;
 		
@@ -41,11 +41,11 @@ public class Projects2Projects_People {
 		String sourceProjectName;
 		String targetProjectName;
 		
-		Graph_Project2Project_People.ProjectNode sourceProject;
-		Graph_Project2Project_People.ProjectNode targetProject;
-		Graph_Project2Project_People.ProjectLink link;
+		Graph_Projects2Projects_People.ProjectNode sourceProject;
+		Graph_Projects2Projects_People.ProjectNode targetProject;
+		Graph_Projects2Projects_People.ProjectLink link;
 		
-		Graph_Project2Project_People graph = new Graph_Project2Project_People();
+		Graph_Projects2Projects_People graph = new Graph_Projects2Projects_People();
 		try{
 			for(int i = 0; i < bindingsArray.length(); i ++){
 				aBinding = bindingsArray.getJSONObject(i);
@@ -53,10 +53,10 @@ public class Projects2Projects_People {
 				sourceProjectName = aBinding.getJSONObject("sourceProject").getString("value");
 				targetProjectName = aBinding.getJSONObject("targetProject").getString("value");
 				
-				sourceProject = new Graph_Project2Project_People.ProjectNode(sourceProjectName);
-				targetProject = new Graph_Project2Project_People.ProjectNode(targetProjectName);
+				sourceProject = new Graph_Projects2Projects_People.ProjectNode(sourceProjectName);
+				targetProject = new Graph_Projects2Projects_People.ProjectNode(targetProjectName);
 				
-				link = new Graph_Project2Project_People.ProjectLink(sourceProject, targetProject);
+				link = new Graph_Projects2Projects_People.ProjectLink(sourceProject, targetProject);
 				link.addPerson(personName);
 				
 				//add link to graph

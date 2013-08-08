@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class Graph_Project2Project_People {
+public class Graph_Projects2Projects_People {
 		
 	private ArrayList<ProjectNode> nodes;
 	private Hashtable<String,Integer> nodesMap;
@@ -15,7 +15,7 @@ public class Graph_Project2Project_People {
 	
 	private Hashtable<String,ProjectLink> linksMap;
 	
-	public Graph_Project2Project_People(){
+	public Graph_Projects2Projects_People(){
 		nodeCounter = 0;
 		linksMap = new Hashtable<String,ProjectLink>();
 		nodesMap = new Hashtable<String,Integer>();
