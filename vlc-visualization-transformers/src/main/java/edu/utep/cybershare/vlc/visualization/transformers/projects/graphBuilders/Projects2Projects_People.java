@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.visualization.transformers.projects.graph;
+package edu.utep.cybershare.vlc.visualization.transformers.projects.graphBuilders;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -7,11 +7,11 @@ import edu.utep.cybershare.vlc.sparql.SparqlEndpoint;
 import edu.utep.cybershare.vlc.sparql.SparqlQueries;
 import edu.utep.cybershare.vlc.sparql.SparqlResultsPicker;
 
-public class ProjectsByPeople {
+public class Projects2Projects_People {
 	
 	private SparqlEndpoint endpoint;
 	
-	public ProjectsByPeople(SparqlEndpoint endpoint){
+	public Projects2Projects_People(SparqlEndpoint endpoint){
 		endpoint.setQuery(getSparqlQuery());
 	}
 	
@@ -30,5 +30,7 @@ public class ProjectsByPeople {
 				
 			}
 		}catch(Exception e){e.printStackTrace();}
+		
+		return null;
 	}
 }
