@@ -15,14 +15,14 @@
  	</filter-mapping>
 
 	<servlet>
-    	<description>Batch URLs from VLC and feed to VisKo</description>
-    	<display-name>HTMLQueryBatchService</display-name>
-    	<servlet-name>HTMLQueryBatchService</servlet-name>
-    	<servlet-class>edu.utep.cybershare.vlc.visko.HTMLQueryBatchService</servlet-class>
+    	<description>Generate Project-to-Project Graph via Common People</description>
+    	<display-name>Projects2Projects_People</display-name>
+    	<servlet-name>Projects2Projects_People</servlet-name>
+    	<servlet-class>edu.utep.cybershare.vlc.visualization.transformers.servlets.Servlet_Projects2Projects_People</servlet-class>
   	</servlet>
   
   	<servlet-mapping>
-    	<servlet-name>HTMLQueryBatchService</servlet-name>
-    	<url-pattern>/HTMLQueryBatchService</url-pattern>
+    	<servlet-name>Projects2Projects_People</servlet-name>
+    	<url-pattern>/Projects2Projects_People</url-pattern>
   	</servlet-mapping> 
 </web-app>
