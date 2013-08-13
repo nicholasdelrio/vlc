@@ -121,7 +121,7 @@ public class NSFAwards extends ProjectSource {
 				List<Person> coPrincipalInvestigators = this.getCoPrincipalInvestigators(awardElement, discipline, institution);				
 				Person hasPrincipalInvestigator = getPerson(NSFAwardsUtils.getFirstName(piName), NSFAwardsUtils.getLastName(piName), discipline, institution);
 
-				addProject(hasPrincipalInvestigator, coPrincipalInvestigators, title, abstractText, startDate, endDate);
+				addProject(hasPrincipalInvestigator, coPrincipalInvestigators, institution, title, abstractText, startDate, endDate);
 			}
 		}
 	}

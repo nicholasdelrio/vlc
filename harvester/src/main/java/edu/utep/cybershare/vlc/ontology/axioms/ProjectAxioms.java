@@ -1,19 +1,20 @@
 package edu.utep.cybershare.vlc.ontology.axioms;
 
 import javax.xml.bind.DatatypeConverter;
+
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 
+import edu.utep.cybershare.vlc.ontology.Institution;
 import edu.utep.cybershare.vlc.ontology.Person;
 import edu.utep.cybershare.vlc.ontology.Project;
 
 public class ProjectAxioms extends AxiomSetter{
 	
-	
-	
+
 	public ProjectAxioms(Project aProject){
 		super(aProject.getHasTitle(), Vocabulary.CLASS_IRI_Project, aProject);
 	}
@@ -27,6 +28,7 @@ public class ProjectAxioms extends AxiomSetter{
 		this.addHasStartDate_Funding();
 		this.addHasTitleAssertion();
 		this.addHasRelatedProject();
+		this.addHasHostingInstitution();
 	}
 		
 	private void addHasTitleAssertion(){
@@ -43,6 +45,18 @@ public class ProjectAxioms extends AxiomSetter{
 		owlAxioms.add(assertion);		
 	}
 
+	private void addHasHostingInstitution(){
+		OWLObjectProperty hasHostingInstitution = bundle.getDataFactory().getOWLObjectProperty(IRI.create(Vocabulary.OBJECT_PROPERTY_IRI_hasHostingInstitution));		
+		
+		InstitutionAxioms institutionAxioms;
+		OWLAxiom assertion;
+		for(Institution anInstitution : project.getHasHostingInstitution()){
+			institutionAxioms = new InstitutionAxioms(anInstitution);
+			assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(hasHostingInstitution, individual, institutionAxioms.getIndividual());
+			owlAxioms.add(assertion);
+		}
+	}
+	
 	private void addHasRelatedProject(){
 		OWLObjectProperty hasRelatedProject = bundle.getDataFactory().getOWLObjectProperty(IRI.create(Vocabulary.OBJECT_PROPERTY_IRI_hasRelatedProject));		
 		

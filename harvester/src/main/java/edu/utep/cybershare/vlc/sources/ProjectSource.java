@@ -97,6 +97,7 @@ public abstract class ProjectSource {
 	protected void addProject(
 			Person hasPrincipalInvestigator,
 			List<Person> hasCoPrincipalInvestigators,
+			Institution hasHostingInstitution,
 			String hasTitle,
 			String hasAbstract,
 			GregorianCalendar hasStartDate_Funding,
@@ -111,6 +112,7 @@ public abstract class ProjectSource {
 			for(Person coPI : hasCoPrincipalInvestigators)
 				project.addHasCoPrincipalInvestigator(coPI);
 			
+			project.addHasHostingInstitution(hasHostingInstitution);
 			project.setHasTitle(hasTitle);
 			project.setHasAbstract(hasAbstract);
 			project.setHasStartDate_Funding(hasStartDate_Funding);
