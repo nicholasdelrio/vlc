@@ -15,11 +15,23 @@
  	</filter-mapping>
 
 	<servlet>
-    	<description>Generate Project-to-Project Graph via Common People</description>
+    	<description>Generate Projects-to-Projects via Common People Graph</description>
     	<display-name>Projects2Projects_People</display-name>
     	<servlet-name>Projects2Projects_People</servlet-name>
     	<servlet-class>edu.utep.cybershare.vlc.visualization.transformers.servlets.Servlet_Projects2Projects_People</servlet-class>
   	</servlet>
+
+	<servlet>
+    	<description>Generate Projects-to-People via PIShip Graph</description>
+    	<display-name>Projects2People_PIShip</display-name>
+    	<servlet-name>Projects2People_PIShip</servlet-name>
+    	<servlet-class>edu.utep.cybershare.vlc.visualization.transformers.servlets.Servlet_Projects2People_PIShip</servlet-class>
+  	</servlet>
+
+  	<servlet-mapping>
+    	<servlet-name>Projects2People_PIShip</servlet-name>
+    	<url-pattern>/Projects2People_PIShip</url-pattern>
+  	</servlet-mapping> 
   
   	<servlet-mapping>
     	<servlet-name>Projects2Projects_People</servlet-name>

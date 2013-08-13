@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import edu.utep.cybershare.vlc.sparql.SparqlEndpoint;
 import edu.utep.cybershare.vlc.visualization.transformers.graphBuilders.Project2People_PIShip;
 
-public class Servlet_Project2People_PIShip extends HttpServlet {
+public class Servlet_Projects2People_PIShip extends HttpServlet {
 	
 	/**
 	 * 

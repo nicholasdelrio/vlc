@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class Graph_Project2People_PIShip {
+public class Graph_Projects2People_PIShip {
 		
 	private ArrayList<Node> nodes;
 	private Hashtable<String,Integer> nodesMap;
@@ -15,7 +15,7 @@ public class Graph_Project2People_PIShip {
 	
 	private Hashtable<String,ProjectPersonLink> linksMap;
 	
-	public Graph_Project2People_PIShip(){
+	public Graph_Projects2People_PIShip(){
 		nodeCounter = 0;
 		linksMap = new Hashtable<String,ProjectPersonLink>();
 		nodesMap = new Hashtable<String,Integer>();
