@@ -125,6 +125,8 @@ public abstract class ProjectSource {
 			
 			for(Person coPI : hasCoPrincipalInvestigators)
 				project.addHasCoPrincipalInvestigator(coPI);
+			
+			project.addHasHostingInstitution(hasHostingInstitution);
 		}
 	}
 
