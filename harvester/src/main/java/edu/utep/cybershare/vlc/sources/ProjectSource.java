@@ -165,6 +165,10 @@ public abstract class ProjectSource {
 			person.addAffiliatedWithInstitution(institution);
 			people.put(person.getProperName(), person);
 		}
+		else{
+			person.addHasDiscipline(discipline);
+			person.addAffiliatedWithInstitution(institution);
+		}
 		return person;
 	}
 	
