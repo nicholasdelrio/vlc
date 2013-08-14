@@ -49,7 +49,7 @@ public class Projects2Projects_People {
 		
 		Graph_Projects2Projects_People graph = new Graph_Projects2Projects_People();
 		try{
-			for(int i = 0; i < bindingsArray.length(); i ++){
+			for(int i = 0; i < bindingsArray.length() && i < 5; i ++){
 				aBinding = bindingsArray.getJSONObject(i);
 				personName = aBinding.getJSONObject("person").getString("value");
 				sourceProjectName = aBinding.getJSONObject("sourceProject").getString("value");

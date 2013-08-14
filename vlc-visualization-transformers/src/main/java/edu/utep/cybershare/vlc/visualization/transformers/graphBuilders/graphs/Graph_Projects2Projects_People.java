@@ -88,8 +88,8 @@ public class Graph_Projects2Projects_People {
 		Integer index = institution2index.get(projectNode.getProjectInstitution());
 		if(index == null){
 			System.out.println("adding institution: " + projectNode.getProjectInstitution() + " at " + institutionCounter);
-			institution2index.put(projectNode.getProjectInstitution(), new Integer(institutionCounter ++));
-			return institutionCounter;
+			institution2index.put(projectNode.getProjectInstitution(), new Integer(institutionCounter));
+			return institutionCounter ++;
 		}
 		return index;
 	}
