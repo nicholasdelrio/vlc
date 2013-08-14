@@ -48,7 +48,7 @@ public class SparqlEndpoint {
 	
 	public String httpGetRequest(String requestURL){
 		GetMethod method = new GetMethod(requestURL);
-		
+		System.out.println(requestURL);
 		String result = "Failure";
 		try {			
 			int statusCode = client.executeMethod(method);

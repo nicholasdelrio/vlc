@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Test</title>
+</head>
+<body>
+<p>this is a test</p>
+<!-- <script type="text/javascript" src="Test_Script.js"></script>-->
+<script src="jquery.js"></script>
+<script>
+function passingArraryTest()
+{
+	alert("in method");
+}
+//var result = JSON.parse('{"table": {"columnNames": ["column1", "column2", "column3", "column4"],"columnTypes": ["String", "String", "String", "String"],"rows": [["data00", "data01", "data02", "data03"],["data10", "data11", "data12", "data13"],["data20", "data21", "data22", "data23"],["data30", "data31", "data32", "data33"]]}}');
+$(document).ready(function()
+{
+	var result=JSON.parse('{"urls":{"rows":[["one","two"],["three","four"],["five","six"]]}}');
+	var rows = result.urls.rows;
+	alert(rows[0][0]);
+	passingArrayTest();
+}
+/*$.getJSON('http://echo.jsontest.com/key/value/one/two',*/
+/*JSON.parse('{ "1":{"1":{"name":"aa"},"2":{"name":"bb"}},"2":{"1":{"name":"cc"},"2":{"name":"dd"}}}', function(data) {
+	  var items = [];
+	  $.each(data, function(key, val) {
+	    items.push('['+key+']'+'['+val+']');
+	  });
+	  
+	  passingArraryTest(items);
+	});*/
+</script>
+<!-- <button onclick="image_URLs()">Image URLs</button>-->
+<p>test</p>
+</body>
+</html>

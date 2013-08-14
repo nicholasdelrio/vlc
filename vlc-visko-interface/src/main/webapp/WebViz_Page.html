@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Cyber-ShARE At UTEP WebViz</title>
+		<script src="jquery.js"></script>
+	    <script src="Test_Script.js"> </script>
+    	<script type="text/javascript">
+    	$(document).ready(function()
+    	{
+    		$.getJSON("document -2.json", function(result)
+    		{
+    			document.write("<h1 id='loading'>Fetching thumbnails...May take a few minutes.</h1>	");
+				var encoded="./HTMLQueryBatchService?jsonSources="+encodeURI(JSON.stringify(result));
+				$.getJSON(encoded, function(result2)
+				{
+	    			image_URLs(result2);
+   	    			//test(result);
+				});
+    		});
+    	});
+    	</script>
+</head>
+<body>
+
+</body>
+</html>

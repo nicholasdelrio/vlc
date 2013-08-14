@@ -12,11 +12,15 @@ public class Graph_Projects2Projects_People {
 	private ArrayList<ProjectNode> nodes;
 	private Hashtable<String,Integer> nodesMap;
 	private int nodeCounter;
+	private int institutionCounter;
+	
+	private Hashtable<String,Integer> institution2index;
 	
 	private Hashtable<String,ProjectLink> linksMap;
 	
 	public Graph_Projects2Projects_People(){
 		nodeCounter = 0;
+		institutionCounter = 0;
 		linksMap = new Hashtable<String,ProjectLink>();
 		nodesMap = new Hashtable<String,Integer>();
 	}
@@ -54,30 +58,42 @@ public class Graph_Projects2Projects_People {
 	private int getIndex(ProjectNode node){
 		Integer index = nodesMap.get(node.getKey());
 		if(index == null){
-			nodesMap.put(node.getKey(), new Integer(nodeCounter ++));
+			nodesMap.put(node.getKey(), new Integer(nodeCounter));
 			nodes.add(node);
-			index = nodeCounter;
+			return nodeCounter ++;
 		}
 		
 		return index;
 	}
 	
 	private JSONArray getJSONArrayNodes(){
+		institution2index = new Hashtable<String,Integer>();
+		
 		JSONArray jsonNodes = new JSONArray();
 		JSONObject jsonNode;
 		ProjectNode node;
 		for(int i = 0; i < nodes.size(); i ++){
 			node = nodes.get(i);
-			
 			jsonNode = new JSONObject();
 			try{
-				jsonNode.put("project", node.getProjectName());
+				jsonNode.put("name", node.getProjectName());
+				jsonNode.put("group", getInstitutionIndex(node));
 				jsonNodes.put(i, jsonNode);
 			}catch(Exception e){e.printStackTrace();}
 		}
 		return jsonNodes;
 	}
 	
+	private int getInstitutionIndex(ProjectNode projectNode){
+		Integer index = institution2index.get(projectNode.getProjectInstitution());
+		if(index == null){
+			System.out.println("adding institution: " + projectNode.getProjectInstitution() + " at " + institutionCounter);
+			institution2index.put(projectNode.getProjectInstitution(), new Integer(institutionCounter ++));
+			return institutionCounter;
+		}
+		return index;
+	}
+		
 	private JSONArray getJSONArrayLinks(){
 		ArrayList<ProjectLink> links = new ArrayList<ProjectLink>(linksMap.values());
 		ProjectLink projectLink;
@@ -90,11 +106,30 @@ public class Graph_Projects2Projects_People {
 				jsonLink.put("source", projectLink.getSourceProject().getIndex());
 				jsonLink.put("target", projectLink.getTargetProject().getIndex());
 				jsonLink.put("people", new JSONArray(projectLink.getPeople()));
+				jsonLink.put("value", 1);
 				
 				jsonLinks.put(i, jsonLink);
 			}catch(Exception e){e.printStackTrace();}
 		}
 		return jsonLinks; 
+	}
+	
+	private JSONArray getInstitutionGrouping(){
+		JSONArray institutions = new JSONArray();
+		JSONObject mapping;
+		int counter = 0;
+		int index;
+		for(String institution : institution2index.keySet()){
+			index = institution2index.get(institution);
+			try{
+				mapping = new JSONObject();
+				mapping.put("group", index);
+				mapping.put("name", institution);
+				institutions.put(counter++, mapping);
+			}catch(Exception e){e.printStackTrace();}
+		}
+		
+		return institutions;
 	}
 	
 	public JSONObject getJSONObjectGraph(){
@@ -104,9 +139,10 @@ public class Graph_Projects2Projects_People {
 		JSONArray links = getJSONArrayLinks();
 		JSONArray nodes = getJSONArrayNodes();
 		
-		try{		
+		try{
 			graph.put("links", links);
 			graph.put("nodes", nodes);
+			graph.put("locations", getInstitutionGrouping());
 			return graph;
 		}
 		catch(Exception e){e.printStackTrace();}
@@ -115,11 +151,17 @@ public class Graph_Projects2Projects_People {
 	
 	public static class ProjectNode{
 		private String projectName;
+		private String projectInstitution;
 		private int index;
 		
-		public ProjectNode(String projectName){
+		public ProjectNode(String projectName, String projectInstitution){
 			this.projectName = projectName;
+			this.projectInstitution = projectInstitution;
 			index = -1;
+		}
+		
+		private String getProjectInstitution(){
+			return projectInstitution;
 		}
 		
 		private String getProjectName(){

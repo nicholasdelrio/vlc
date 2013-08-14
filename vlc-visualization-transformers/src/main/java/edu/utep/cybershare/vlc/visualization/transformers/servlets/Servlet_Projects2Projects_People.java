@@ -1,5 +1,7 @@
 package edu.utep.cybershare.vlc.visualization.transformers.servlets;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -29,9 +31,11 @@ public class Servlet_Projects2Projects_People extends HttpServlet {
 		return transformer.getJSONGraph();
 	}
 	
-	public static void main(String[] args){
+	public static void main(String[] args) throws Exception {
 		SparqlEndpoint endpoint = SparqlEndpoint.getInstance();
 		Projects2Projects_People transformer = new Projects2Projects_People(endpoint);
-		System.out.println(transformer.getJSONGraph());
+		FileWriter wtr = new FileWriter(new File("./json-output/projects-to-projects-people.json"));
+		wtr.write(transformer.getJSONGraph());
+		wtr.close();
 	}
 }

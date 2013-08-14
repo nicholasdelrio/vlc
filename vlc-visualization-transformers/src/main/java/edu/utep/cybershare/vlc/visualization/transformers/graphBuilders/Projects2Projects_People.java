@@ -40,7 +40,9 @@ public class Projects2Projects_People {
 		String personName;
 		String sourceProjectName;
 		String targetProjectName;
-		
+		String sourceInstitutionName;
+		String targetInstitutionName;
+
 		Graph_Projects2Projects_People.ProjectNode sourceProject;
 		Graph_Projects2Projects_People.ProjectNode targetProject;
 		Graph_Projects2Projects_People.ProjectLink link;
@@ -52,9 +54,11 @@ public class Projects2Projects_People {
 				personName = aBinding.getJSONObject("person").getString("value");
 				sourceProjectName = aBinding.getJSONObject("sourceProject").getString("value");
 				targetProjectName = aBinding.getJSONObject("targetProject").getString("value");
+				sourceInstitutionName = aBinding.getJSONObject("sourceInstitution").getString("value");
+				targetInstitutionName = aBinding.getJSONObject("targetInstitution").getString("value");				
 				
-				sourceProject = new Graph_Projects2Projects_People.ProjectNode(sourceProjectName);
-				targetProject = new Graph_Projects2Projects_People.ProjectNode(targetProjectName);
+				sourceProject = new Graph_Projects2Projects_People.ProjectNode(sourceProjectName, sourceInstitutionName);
+				targetProject = new Graph_Projects2Projects_People.ProjectNode(targetProjectName, targetInstitutionName);
 				
 				link = new Graph_Projects2Projects_People.ProjectLink(sourceProject, targetProject);
 				link.addPerson(personName);

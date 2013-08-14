@@ -27,12 +27,21 @@ public class HTMLQueryBatchService extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
 		String jsonSources = request.getParameter("jsonSources");
-		
+
+		System.out.println("FROM VLC-VISKO-INTERFACE-------------------------------------------");
+		System.out.println("calling visko batch style...");
 		HTMLQueryBatch queryBatch = new HTMLQueryBatch(jsonSources);
+		
+		System.out.println("FROM VLC-VISKO-INTERFACE-------------------------------------------");
+		System.out.println("getting JSON result....");
 		String jsonResult = queryBatch.getJSONResultString();
+		System.out.println("Generated JSON result JSON result....");
 		
 		response.setContentType("application/json");
 		response.getWriter().write(jsonResult);
+		
+		System.out.println("FROM VLC-VISKO-INTERFACE-------------------------------------------");
+		System.out.println("wrote JSON result to response stream.  Done.");
 	}
 	
 	private static class HTMLQueryBatch {

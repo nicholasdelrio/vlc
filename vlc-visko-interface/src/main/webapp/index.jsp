@@ -21,7 +21,7 @@
 
 <h4>Invocation Details</h4>
 <ul>
-	<li>Base URL: http://iw.cs.utep.edu:8080/vlc-visko-interface/HTMLQueryBatchService
+	<li>Base URL: /vlc-visko-interface/HTMLQueryBatchService
 	<li>Parameter: jsonSources - specifies a UTF-8 encoded JSON list of web page URLs to be transformed into images
 </ul>
 
