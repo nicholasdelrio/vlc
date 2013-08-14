@@ -23,19 +23,25 @@ public class SparqlQueries {
 			?targetInstitution rim:hasLongitude ?targetLon .
 
 			filter(?sourceInstitution != ?targetInstitution)
-		}
-		
+		}		
 		*/
 		String query = prefixDeclaration_RIM									+ newline;
 		query += "select distinct ?sourceInstitution ?sourceLat ?sourceLon ?targetInstitution ?targetLat ?targetLon ?project"
 																				+ newline;
 		query += namedGraphDeclaration											+ newline;
-		query += "where{"														+ newline;
-		query += "{?project rim:hasPrincipalInvestigator ?person}"				+ newline;
-		query += "union"														+ newline;
-		query += "{?project rim:hasCoPrincipalInvestigator ?person}"			+ newline;
-		query += "filter(?person != <http://vlc.cybershare.utep.edu/filtered-projects.owl#nullnamenullname>)}";
-		
+		query += "where {"														+ newline;
+		query += "?project rim:hasHostingInstitution ?sourceInstitution ."		+ newline; 
+		query += "?project rim:hasHostingInstitution ?targetInstitution ."		+ newline;
+
+		query += "?sourceInstitution rim:hasLatitude ?sourceLat ."				+ newline;
+		query += "?sourceInstitution rim:hasLongitude ?sourceLon ."				+ newline;
+
+		query += "?targetInstitution rim:hasLatitude ?targetLat ."				+ newline;
+		query += "?targetInstitution rim:hasLongitude ?targetLon ."				+ newline;
+
+		query += "filter(?sourceInstitution != ?targetInstitution)"				+ newline;
+		query += "}";
+
 		return query;
 	}
 	
