@@ -27,10 +27,10 @@ public class Graph_Institutions2Institutions_Projects {
 		InstitutionLink existingLink = linksMap.get(key);
 		if(existingLink == null)
 			linksMap.put(key, link);
-		else
+		else{
 			for(String projectName : link.getCommonProjectNames())
 				existingLink.addCommonProjectName(projectName);
-			
+		}
 	}
 	
 	private void populateNodes(){
@@ -83,19 +83,27 @@ public class Graph_Institutions2Institutions_Projects {
 	
 	private JSONArray getJSONArrayLinks(){
 		ArrayList<InstitutionLink> links = new ArrayList<InstitutionLink>(linksMap.values());
-		InstitutionLink projectLink;
+		InstitutionLink institutionLink;
 		JSONArray jsonLinks = new JSONArray();
 		JSONObject jsonLink;
+		JSONObject jsonLinkReversed;
 		for(int i = 0; i < links.size(); i ++){
-			projectLink = links.get(i);
+			institutionLink = links.get(i);
 			jsonLink = new JSONObject();
-			try{
-				jsonLink.put("source", projectLink.getSourceInstitution().getIndex());
-				jsonLink.put("target", projectLink.getTargetInstitution().getIndex());
+			jsonLinkReversed = new JSONObject();
+			try{				
+				jsonLink.put("source", institutionLink.getSourceInstitution().getIndex());
+				jsonLink.put("target", institutionLink.getTargetInstitution().getIndex());
 				jsonLink.put("location", "");
-				jsonLink.put("projects", new JSONArray(projectLink.getCommonProjectNames()));
+				jsonLink.put("projects", new JSONArray(institutionLink.getCommonProjectNames()));
+
+				jsonLinkReversed.put("source", institutionLink.getTargetInstitution().getIndex());
+				jsonLinkReversed.put("target", institutionLink.getSourceInstitution().getIndex());
+				jsonLinkReversed.put("location", "");
+				jsonLinkReversed.put("projects", new JSONArray(institutionLink.getCommonProjectNames()));				
 				
 				jsonLinks.put(i, jsonLink);
+				jsonLinks.put(links.size() + i, jsonLinkReversed);
 			}catch(Exception e){e.printStackTrace();}
 		}
 		return jsonLinks; 
@@ -195,12 +203,11 @@ public class Graph_Institutions2Institutions_Projects {
 		//since the graph is undirected, this will help us eliminate x->y and y->x redundant links
 		//but we actually want redundancies due to Matt's current code for hiding links
 		private String getKey(){
-			/*
 			if(sourceInstitution.getKey().hashCode() > targetInstitution.getKey().hashCode())
 				return sourceInstitution.getKey() + targetInstitution.getKey();
 			else
-				return targetInstitution.getKey() + sourceInstitution.getKey();*/
-			return sourceInstitution.getKey() + targetInstitution.getKey();
+				return targetInstitution.getKey() + sourceInstitution.getKey();
+			//return sourceInstitution.getKey() + targetInstitution.getKey();
 		}
 	}
 }
