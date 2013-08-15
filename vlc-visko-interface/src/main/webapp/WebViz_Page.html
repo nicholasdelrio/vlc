@@ -3,25 +3,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Cyber-ShARE At UTEP WebViz</title>
-		<script src="jquery.js"></script>
-	    <script src="Test_Script.js"> </script>
-    	<script type="text/javascript">
-    	$(document).ready(function()
-    	{
-    		$.getJSON("document -2.json", function(result)
-    		{
-    			document.write("<h1 id='loading'>Fetching thumbnails...May take a few minutes.</h1>	");
-				var encoded="./HTMLQueryBatchService?jsonSources="+encodeURI(JSON.stringify(result));
-				$.getJSON(encoded, function(result2)
-				{
-	    			image_URLs(result2);
-   	    			//test(result);
-				});
-    		});
-    	});
-    	</script>
+		
+		
 </head>
 <body>
 
+<script src="Test_Script.js"> </script>
+    	<script type="text/javascript">
+    	//image_URLs(""); 
+
+    	$(document).ready(function()
+    	{
+				var url=document.URL;
+    			document.write("<h1 id='loading'>Fetching thumbnails...May take a few minutes.</h1>	");
+				var encoded="http://iw.cs.utep.edu:8080/vlc-visko-interface/HTMLQueryBatchService?jsonSources="+url.substring(url.indexOf("="+1,url.length));
+				$.getJSON(encoded, function(result)
+				{
+	    			image_URLs(result);
+   	    			//test(result);
+				});
+    		});
+    	
+    	</script>
 </body>
 </html>
