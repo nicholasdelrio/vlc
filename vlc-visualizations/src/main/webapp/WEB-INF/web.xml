@@ -22,15 +22,15 @@
   	</servlet>
 
 	<servlet>
-    	<description>Generate Projects-to-People via PIShip Graph</description>
-    	<display-name>Projects2People_PIShip</display-name>
-    	<servlet-name>Projects2People_PIShip</servlet-name>
-    	<servlet-class>edu.utep.cybershare.vlc.visualization.transformers.servlets.Servlet_Projects2People_PIShip</servlet-class>
+    	<description>Generate Institutions-to-Institutions Graph</description>
+    	<display-name>Institutions2Institutions_Projects</display-name>
+    	<servlet-name>Institutions2Institutions_Projects</servlet-name>
+    	<servlet-class>edu.utep.cybershare.vlc.visualization.transformers.servlets.Servlet_Institutions2Institutions_Projects</servlet-class>
   	</servlet>
 
   	<servlet-mapping>
-    	<servlet-name>Projects2People_PIShip</servlet-name>
-    	<url-pattern>/Projects2People_PIShip</url-pattern>
+    	<servlet-name>Institutions2Institutions_Projects</servlet-name>
+    	<url-pattern>/Institutions2Institutions_Projects</url-pattern>
   	</servlet-mapping> 
   
   	<servlet-mapping>

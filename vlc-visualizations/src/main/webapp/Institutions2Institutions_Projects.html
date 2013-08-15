@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<style>
+svg {
+	border-style: dotted;
+}
+
+.link {
+	fill: none;
+	stroke: #666;
+	stroke-width: 1.5px;
+}
+
+#title {
+	font: 20px sans-serif;
+	text-decoration;
+	underline;
+}
+
+.node circle {
+	fill: #ccc;
+	stroke: #fff;
+	stroke-width: 1.5px;
+}
+
+image {
+	z-index: 10;
+}
+
+text {
+	font: 10px sans-serif;
+	pointer-events: none;
+	z-index: 1;
+}
+
+}
+path {
+	stroke-linejoin: round;
+}
+
+.land-glow {
+	fill-opacity: .2;
+	filter: url(#blur);
+}
+
+.land-fill {
+	fill: #aaa;
+}
+
+.state-boundary {
+	fill: none;
+	stroke: #777;
+	stroke-width: .70px;
+}
+
+.county-boundary {
+	fill: none;
+}
+
+.land-fill,.county-boundary {
+	stroke: #777;
+	stroke-width: .35px;
+}
+</style>
+
+</head>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script><!--
+
+var width = 960,
+    height = 600;
+
+var projection = d3.geo.albersUsa()
+    .scale(1000)
+    .translate([width / 2, height / 2]);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var defs = svg.append("defs");
+
+defs.append("filter")
+    .attr("id", "blur")
+  .append("feGaussianBlur")
+    .attr("stdDeviation", 5);
+
+d3.json("geography.json", function(error, us) {
+  defs.append("path")
+      .datum(topojson.feature(us, us.objects.countries))
+      .attr("id", "land")
+      .attr("d", path);
+
+  svg.append("use")
+      .attr("class", "land-glow")
+      .attr("xlink:href", "#land");
+
+  svg.append("use")
+      .attr("class", "land-fill")
+      .attr("xlink:href", "#land");
+
+	d3.json("./Institutions2Institutions_Projects", function(error, data){
+
+		data.links.forEach(function(d) {
+			d.location = data.nodes[d.source].location;
+		    d.source = data.nodes[d.source];
+		    d.target = data.nodes[d.target];
+		  });
+		  
+		//Add links
+		link = svg.selectAll(".link")
+			.data(data.links);
+
+		link.enter()
+		.append("line")
+		.attr("class", function(d){return d.location;})
+		.style("stroke", "black")
+		.attr("stroke-width",2) 
+		.on("mouseover", function(d){d3.selectAll("line").style("visibility", "hidden"); d3.select(this).style("visibility","visible"); })
+		.on("mouseout", function(d){d3.selectAll("line").style("visibility","visible");});
+
+		
+		//remove old links
+		link.exit().remove();
+
+		//Add Nodes
+		node = svg.selectAll("g.node")
+			.data(data.nodes);
+		
+		//Enter new nodes			
+		node.enter()
+			.append("g")
+			.attr("class", "node");
+
+		link.attr("x1", function(d) { var coords = projection([d.source.lon, d.source.lat]); return coords[0];})
+		.attr("y1", function(d) { var coords = projection([d.source.lon, d.source.lat]); return coords[1];})
+		.attr("x2", function(d) { var coords = projection([d.target.lon, d.target.lat]); return coords[0];})
+		.attr("y2", function(d) { var coords = projection([d.target.lon, d.target.lat]); return coords[1];});
+		
+		node.append("circle")
+		.style("fill", "steelblue" )
+		.attr("id", function(d){return d.location})
+		.attr("r",10)
+		.attr("cx", function(d){var coords = projection([d.lon, d.lat]); return coords[0];})
+		.attr("cy", function(d){var coords = projection([d.lon, d.lat]); return coords[1];})
+		.on("mouseover", function(d){d3.selectAll("line").style("visibility", "hidden");d3.selectAll("." +  d.location).style("visibility","visible"); })
+		.on("mouseout", function(d){d3.selectAll("line").style("visibility","visible");});
+		//.on("click", function(d){d3.select("#title").text(d.name);
+			//d3.select("#description").text(d.description);});
+		
+
+  var nodeText = node.append("text")
+	.text(function(d){return d.location})
+	.attr("x", function(d){return d3.select("#"+ d.location).attr("cx");})
+    .attr("y", function(d){return parseFloat(d3.select("#"+ d.location).attr("cy"),10)+20;});
+
+
+ //  var projectsText = svg.append("text")
+	//.attr("id", "utepProjects")
+	//.text("Projects: Project1, Project2")
+	//.style("visibility", "hidden")
+	//.attr("x", function(){return d3.select("#utep").attr("cx");})
+	//.attr("y", function(){return parseFloat(d3.select("#utep").attr("cy"),10)+20;}); //return d3.select("#utep").attr("cy");});		
+
+
+	//var linkText = svg.append("text")
+	//.attr("id", "ucsdLinkText")
+	//.text("Label1")
+	//.style("visibility", "hidden")
+	//.attr("x", function(){var x2 = d3.select("#ucsdLink").attr("x2");
+		//		var x1 = d3.select("#ucsdLink").attr("x1");
+			//	return (((x2 - x1)/2) + parseInt(x1, 10));})
+	//.attr("y", function(){var y2 = d3.select("#ucsdLink").attr("y2");
+		//		var y1 = d3.select("#ucsdLink").attr("y1");
+			//	return (((y2 - y1)/2) + parseInt(y1, 10))-10;});
+
+
+	  
+	});  
+});
+
+	
+
+--></script>
+<div id="title"></div>
+<div id="description"></div>
+
+</script>

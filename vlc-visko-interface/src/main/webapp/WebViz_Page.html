@@ -15,14 +15,23 @@
     	$(document).ready(function()
     	{
 				var url=document.URL;
-    			document.write("<h1 id='loading'>Fetching thumbnails...May take a few minutes.</h1>	");
-				var encoded="http://iw.cs.utep.edu:8080/vlc-visko-interface/HTMLQueryBatchService?jsonSources="+url.substring(url.indexOf("="+1,url.length));
-				$.getJSON(encoded, function(result)
+				var check=jQuery.parseJSON(url);
+				//var check=JQuery.parseJSON("{}");
+				if(typeof check=='object')
 				{
-	    			image_URLs(result);
-   	    			//test(result);
-				});
-    		});
+    				document.write("<h1 id='loading'>Fetching thumbnails...May take a few minutes.</h1>	");
+					var encoded="http://iw.cs.utep.edu:8080/vlc-visko-interface/HTMLQueryBatchService?jsonSources="+url.substring(url.indexOf("="+1,url.length));
+					$.getJSON(encoded, function(result)
+					{
+	    				image_URLs(result);
+   	    				//test(result);
+					});
+				}
+				else
+				{
+					document.write("<h1>Supplied input is not in JSON format. Please check the input and try again.</h1>");
+				}
+    	});
     	
     	</script>
 </body>
