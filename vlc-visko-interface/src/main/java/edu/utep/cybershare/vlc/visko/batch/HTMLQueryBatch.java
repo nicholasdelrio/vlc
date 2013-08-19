@@ -78,11 +78,13 @@ public class HTMLQueryBatch {
 	}
 
 	private String extractProvenanceDataURL(JSONObject aVisKoResult){
-		String inputDataURL = "null url";
-		try{inputDataURL =  aVisKoResult.getString("provenance");}
-		catch(Exception e){e.printStackTrace();}
-
-		return inputDataURL;
+		String provenanceURL = "null url";
+		JSONArray resultsArray;
+		try{
+			resultsArray = aVisKoResult.getJSONArray("results");
+			provenanceURL = resultsArray.getJSONObject(0).getString("provenance");
+		}catch(Exception e){e.printStackTrace();}
+		return provenanceURL;
 	}
 	
 	private String extractInputDataURL(JSONObject aVisKoResult){

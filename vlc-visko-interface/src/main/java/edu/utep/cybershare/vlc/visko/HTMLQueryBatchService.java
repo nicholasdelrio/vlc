@@ -26,4 +26,18 @@ public class HTMLQueryBatchService extends HttpServlet {
 		response.getWriter().write(jsonResult);
 	}
 	
+	private static String sampleInputJSON =
+			"{"
+			+ "\"source_urls\":"
+			+ "["
+			+ "{\"source_url\" : \"http://www.google.com\"},"
+			+ "{\"source_url\" : \"http://www.nsf.gov\"}"
+			+ "]"
+			+ "}";
+	
+	public static void main(String[] args){
+		HTMLQueryBatch queryBatch = new HTMLQueryBatch(sampleInputJSON);
+		String jsonResult = queryBatch.getJSONResultString();
+		System.out.println(jsonResult);
+	}	
 }

@@ -84,6 +84,8 @@ public class Endpoint {
 	public String executeVisKo(String encodedViskoQuery) {
 		HttpMethod method = new GetMethod(viskoServerURL.toString() + getQueryString(encodedViskoQuery));
 
+		System.out.println("visko call:" + viskoServerURL.toString() + getQueryString(encodedViskoQuery));
+		
 		String result = "{}";
 		try {
 			// Execute the method.
