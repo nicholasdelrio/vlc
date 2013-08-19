@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import edu.utep.cybershare.vlc.visko.characterization.SemanticCharacteristics;
-import edu.utep.cybershare.vlc.visko.endpoint.Endpoint;
+import edu.utep.cybershare.vlc.visko.provenance.ProvenanceManager;
 
 public class HTMLQueryBatch {
 
@@ -47,15 +47,25 @@ public class HTMLQueryBatch {
 		JSONObject jsonResults = new JSONObject();
 		ArrayList<JSONObject> jsonResultArray = new ArrayList<JSONObject>();
 
+		ProvenanceManager manager = new ProvenanceManager();
+		
 		JSONObject aJSONResult;
 		String inputDataURL;
 		String outputURL;
+		String provenanceURL;
+		String pdfDocumentURL;
 		try{
 			for(JSONObject aVisKoResult : results){
 				inputDataURL = extractInputDataURL(aVisKoResult);
 				outputURL = extractResultURL(aVisKoResult);
+				provenanceURL = extractProvenanceDataURL(aVisKoResult);
+				pdfDocumentURL = manager.getIntermediatePDFDocument(provenanceURL);
+				
 				aJSONResult = new JSONObject();
-				aJSONResult.put("source_url", inputDataURL).put("image_url", outputURL);
+				aJSONResult
+					.put("source_url", inputDataURL)
+					.put("image_url", outputURL)
+					.put("pdf_version", pdfDocumentURL);
 
 				jsonResultArray.add(aJSONResult);
 			}		
@@ -67,6 +77,14 @@ public class HTMLQueryBatch {
 		return jsonResults.toString();
 	}
 
+	private String extractProvenanceDataURL(JSONObject aVisKoResult){
+		String inputDataURL = "null url";
+		try{inputDataURL =  aVisKoResult.getString("provenance");}
+		catch(Exception e){e.printStackTrace();}
+
+		return inputDataURL;
+	}
+	
 	private String extractInputDataURL(JSONObject aVisKoResult){
 		String inputDataURL = "null url";
 		try{inputDataURL =  aVisKoResult.getString("inputURL");}
@@ -120,7 +138,12 @@ public class HTMLQueryBatch {
 	}
 
 	private JSONObject executeVisKoJSON(String encodedViskoQuery){
+		Endpoint endpoint = Endpoint.getInstance();
+		endpoint.setMaxResults(1);;
+		endpoint.setProvenanceLogging(true);
+			
 		String jsonResultString = Endpoint.getInstance().executeVisKo(encodedViskoQuery);
+		
 		JSONObject result = null;
 		try{result = new JSONObject(jsonResultString);}
 		catch(Exception e){e.printStackTrace();}

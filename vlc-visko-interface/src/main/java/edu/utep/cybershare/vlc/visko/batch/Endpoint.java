@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.visko.endpoint;
+package edu.utep.cybershare.vlc.visko.batch;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,6 +33,7 @@ public class Endpoint {
 		client = new HttpClient();
 		setViskoBaseURL();
 		maxResults = 1;
+		requiredViewURI = NULL_VIEW;
 	}
 	
 	public void setRequiredViewURI(String viewURI){
