@@ -1,18 +1,13 @@
 package edu.utep.cybershare.vlc.visko.batch;
 
-import java.io.IOException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpException;
-import org.apache.commons.httpclient.HttpMethod;
-import org.apache.commons.httpclient.HttpStatus;
-import org.apache.commons.httpclient.methods.GetMethod;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import edu.utep.cybershare.vlc.visko.characterization.SemanticCharacteristics;
 import edu.utep.cybershare.vlc.visko.endpoint.Endpoint;
 
 public class HTMLQueryBatch {
@@ -103,10 +98,17 @@ public class HTMLQueryBatch {
 	}
 
 	private String getVisKoQuery(String inputURL) {
-		String queryTemplate = "VISUALIZE "
-				+ inputURL
-				+ " AS * IN-TYPE http://www.w3.org/2002/07/owl#Thing IN-FORMAT http://openvisko.org/rdf/pml2/formats/PNG.owl#PNG WHERE FORMAT = http://openvisko.org/rdf/pml2/formats/HTML.owl#HTML AND TYPE = http://www.w3.org/2002/07/owl#Thing";
-		return queryTemplate;
+		String inputFormatURI = SemanticCharacteristics.getCharacteristics(inputURL).getFormatURI();
+		String inputTypeURI = SemanticCharacteristics.getCharacteristics(inputURL).getTypeURI();
+		
+		String query = "VISUALIZE "
+				+ inputURL + " "
+				+ "AS * "
+				+ "IN-TYPE http://www.w3.org/2002/07/owl#Thing "
+				+ "IN-FORMAT http://openvisko.org/rdf/pml2/formats/PNG.owl#PNG "
+				+ "WHERE FORMAT = " + inputFormatURI + " "
+				+ "AND TYPE = " + inputTypeURI;
+		return query;
 	}
 
 	private void execute() {
@@ -117,8 +119,8 @@ public class HTMLQueryBatch {
 		}
 	}
 
-	private JSONObject executeVisKoJSON(String viskoQuery){
-		String jsonResultString = Endpoint.getInstance().executeVisKo(viskoQuery);
+	private JSONObject executeVisKoJSON(String encodedViskoQuery){
+		String jsonResultString = Endpoint.getInstance().executeVisKo(encodedViskoQuery);
 		JSONObject result = null;
 		try{result = new JSONObject(jsonResultString);}
 		catch(Exception e){e.printStackTrace();}

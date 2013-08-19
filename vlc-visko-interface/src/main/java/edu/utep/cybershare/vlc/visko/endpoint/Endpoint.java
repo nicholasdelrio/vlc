@@ -15,6 +15,12 @@ public class Endpoint {
 	
 	private HttpClient client;
 	private static URL viskoServerURL;  
+	private int maxResults;
+	private String requiredViewURI;
+	private String requiredToolkitURI;
+	private boolean provenanceRecording;
+	
+	private static final String NULL_VIEW = "NULL-VIEW";
 	
 	public static Endpoint getInstance(){
 		if(instance == null)
@@ -25,20 +31,57 @@ public class Endpoint {
 	
 	private Endpoint(){
 		client = new HttpClient();
-		setViskoURL();
+		setViskoBaseURL();
+		maxResults = 1;
 	}
 	
-	private void setViskoURL() {
-		String viskoServer = "http://iw.cs.utep.edu:8080/visko-web/ViskoServletManager?requestType=execute-query-service&maxResults=1&requiredView=NULL-VIEW";
+	public void setRequiredViewURI(String viewURI){
+		this.requiredToolkitURI = viewURI;
+	}
+	
+	public void setRequiredToolkitURI(String toolkitURI){
+		this.requiredToolkitURI = toolkitURI;
+	}
+	
+	public void setProvenanceLogging(boolean provenance){
+		this.provenanceRecording = provenance;
+	}
+	
+	public void setMaxResults(int max){
+		if(max > 0)
+			maxResults = max;
+	}
+		
+	private void setViskoBaseURL() {
+		String viskoServer = "http://iw.cs.utep.edu:8080/visko-web/ViskoServletManager";
 		try {
 			viskoServerURL = new URL(viskoServer);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
+	private String getQueryString(String encodedViskoQuery){
+		String queryString = "?requestType=execute-query-service";
+		
+		queryString += "&query=" + encodedViskoQuery;
+		queryString += "&maxResults=" + this.maxResults;
+		
+		if(provenanceRecording)
+			queryString += "&provenance=true";
+		if(this.requiredToolkitURI != null)
+			queryString += "&requiredToolkit=" + this.requiredToolkitURI;
+		
+		if(this.requiredViewURI != null)
+			queryString += "&requiredView=" + this.requiredViewURI;
+		else
+			queryString += "&requiredView=" + NULL_VIEW;
+		
+		return queryString;
+	}
 
-	public String executeVisKo(String viskoQuery) {
-		HttpMethod method = new GetMethod(viskoServerURL.toString() + "&query=" + viskoQuery);
+	public String executeVisKo(String encodedViskoQuery) {
+		HttpMethod method = new GetMethod(viskoServerURL.toString() + getQueryString(encodedViskoQuery));
 
 		String result = "{}";
 		try {
