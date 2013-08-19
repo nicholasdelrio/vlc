@@ -78,7 +78,7 @@ public class HTMLQueryBatch {
 	}
 
 	private String extractProvenanceDataURL(JSONObject aVisKoResult){
-		String provenanceURL = "null url";
+		String provenanceURL = null;
 		JSONArray resultsArray;
 		try{
 			resultsArray = aVisKoResult.getJSONArray("results");

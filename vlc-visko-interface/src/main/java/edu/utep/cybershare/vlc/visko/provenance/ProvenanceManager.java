@@ -30,18 +30,20 @@ public class ProvenanceManager {
 		catch(Exception e){e.printStackTrace();}
 	}
 		
-	public String getIntermediatePDFDocument(String provenanceURLString){		
-		setUpSesameRepository(provenanceURLString);
+	public String getIntermediatePDFDocument(String provenanceURLString){
+		
+		if(provenanceURLString != null){
+			setUpSesameRepository(provenanceURLString);
 
 		
-		Iterator<Statement> statementIterator = provenanceModel.iterator();
-		Statement aStatement;
-		while(statementIterator.hasNext()){
-			aStatement = statementIterator.next();
-			if(aStatement.getObject().stringValue().equals("http://openvisko.org/rdf/pml2/formats/PDF.owl#PDF"))
-				return aStatement.getSubject().stringValue();
+			Iterator<Statement> statementIterator = provenanceModel.iterator();
+			Statement aStatement;
+			while(statementIterator.hasNext()){
+				aStatement = statementIterator.next();
+				if(aStatement.getObject().stringValue().equals("http://openvisko.org/rdf/pml2/formats/PDF.owl#PDF"))
+					return aStatement.getSubject().stringValue();
+			}
 		}
-		
-		return null;
+		return "null url";
 	}
 }
