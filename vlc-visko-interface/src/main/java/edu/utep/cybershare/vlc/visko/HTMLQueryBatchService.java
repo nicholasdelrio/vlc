@@ -31,6 +31,8 @@ public class HTMLQueryBatchService extends HttpServlet {
 			+ "\"source_urls\":"
 			+ "["
 			+ "{\"source_url\" : \"http://www.google.com\"},"
+			+ "{\"source_url\" : \"http://1.bp.blogspot.com/-E83Wuz0q1_I/UYFEPBF74WI/AAAAAAAAAjw/pufvcH2ae2o/s320/020_Pennsylvania-Allegheny-National-Forest1.jpg\"},"
+			+ "{\"source_url\" : \"http://cybershare.utep.edu/resources/Animations/ArcticLandCoverChange/IvotukAnimation.gif\"},"
 			+ "{\"source_url\" : \"http://www.nsf.gov\"}"
 			+ "]"
 			+ "}";

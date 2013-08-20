@@ -49,7 +49,7 @@ public class SemanticCharacteristics {
 		String[] parts;
 		String suffix = null;
 		if(inputURL != null){
-			parts = inputURL.split(".");
+			parts = inputURL.split("\\.");
 			if(parts.length > 1)
 				suffix = parts[parts.length - 1];
 		}

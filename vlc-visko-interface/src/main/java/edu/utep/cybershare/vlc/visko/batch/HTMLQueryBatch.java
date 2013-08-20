@@ -124,8 +124,7 @@ public class HTMLQueryBatch {
 		String query = "VISUALIZE "
 				+ inputURL + " "
 				+ "AS * "
-				+ "IN-TYPE http://www.w3.org/2002/07/owl#Thing "
-				+ "IN-FORMAT http://openvisko.org/rdf/pml2/formats/PNG.owl#PNG "
+				+ "IN http://iw.cs.utep.edu:8080/visko-web/registry/module_vlc.owl#VLC-Viewerset "
 				+ "WHERE FORMAT = " + inputFormatURI + " "
 				+ "AND TYPE = " + inputTypeURI;
 		return query;
