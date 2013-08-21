@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="US-ASCII">
+<title>Cyber-ShARE At UTEP WebViz</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="jquery.gallerie.js"></script>
+<link rel="stylesheet" type="text/css" href="gallerie.css"/>
+<link rel="stylesheet" type="text/css" href="gallerie-effects.css"/>
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		var url=document.URL;
+		if(typeof JSON.parse(decodeURI(url.substring(url.indexOf("="),url.length))=='object'))
+		{
+			var start=url.indexOf("=")+1;
+			var end=url.length;
+			document.getElementById("header").innerHTML="Fetching thumbnails...May take a few minutes.";
+			var encoded="http://iw.cs.utep.edu:8080/vlc-visko-interface/HTMLQueryBatchService?jsonSources="+url.substring(start,end);
+			$.getJSON(encoded, function(result)
+			{
+				document.getElementById("header").innerHTML="Double clicking on an image will take you to the source page.";
+				for(var i=0;i<result.results.length;i++)
+				{
+					display(result.results[i].image_url, result.results[i].pdf_version, result.results[i].source_url);
+				}
+				$('#gallery').gallerie();
+			});
+		}
+	});
+	function display(img_url, pdf_vers, src_url)
+	{
+		var element=document.getElementById("gallery");
+		var img=document.createElement("img");
+		img.src=src_url;
+		img.width=100;
+		img.height=100;
+		img.hspace=15;
+		img.title="Double click to go to:"+src_url;
+		img.onmouseover=function()
+		{
+			bigImg(this,src_url);
+		}
+		img.onmouseout=function()
+		{
+			normalImg(this);
+		}
+		var link=document.createElement("a");
+		if(pdf_vers.substring(0,4)=='http')
+		{
+			link.href=pdf_vers;
+		}
+		else
+		{
+			link.href=img_url;
+		}
+		link.appendChild(img);
+		element.appendChild(link);
+	}
+function bigImg(x, src_url)
+{
+	x.style.height="125px";
+	x.style.width="125px";
+	x.ondblclick=function()
+	{
+		openpage(src_url);
+	}
+}
+function normalImg(x)
+{
+	x.style.height="100px";
+	x.style.width="100px";
+}
+function openpage(src_url)
+{
+	window.open(src_url,"_blank");
+}
+</script>
+<style>
+	body {
+		background-color: white;
+	}
+	
+	#gallery {
+		margin-left: auto;
+		margin-right: auto;
+	}
+</style>
+</head>
+<body>
+<h1 id="header"></h1>
+<div id="gallery"></div>
+</body>
+</html>
