@@ -13,15 +13,17 @@ public class SparqlQueries {
 		select distinct ?sourceInstitution ?sourceLat ?sourceLon ?targetInstitution ?targetLat ?targetLon ?project
 		from <http://vlc.cybershare.utep.edu/filtered-projects.owl>
 		where {
-			?project rim:hasHostingInstitution ?sourceInstitution . 
-			?project rim:hasHostingInstitution ?targetInstitution .
+			?project rim:hasHostingInstitution ?sourceInstitutionURI .
+			?project rim:hasHostingInstitution ?targetInstitutionURI .
 
-			?sourceInstitution rim:hasLatitude ?sourceLat .
-			?sourceInstitution rim:hasLongitude ?sourceLon .
+			?sourceInstitutionURI rim:hasLatitude ?sourceLat .
+			?sourceInstitutionURI rim:hasLongitude ?sourceLon .
+			?sourceInstitutionURI rim:hasName ?sourceInstitution .
 
-			?targetInstitution rim:hasLatitude ?targetLat .
-			?targetInstitution rim:hasLongitude ?targetLon .
-
+			?targetInstitutionURI rim:hasLatitude ?targetLat .
+			?targetInstitutionURI rim:hasLongitude ?targetLon .
+			?targetInstitutionURI rim:hasName ?targetInstitution .
+	
 			filter(?sourceInstitution != ?targetInstitution)
 		}		
 		*/
@@ -30,14 +32,16 @@ public class SparqlQueries {
 																				+ newline;
 		query += namedGraphDeclaration											+ newline;
 		query += "where {"														+ newline;
-		query += "?project rim:hasHostingInstitution ?sourceInstitution ."		+ newline; 
-		query += "?project rim:hasHostingInstitution ?targetInstitution ."		+ newline;
+		query += "?project rim:hasHostingInstitution ?sourceInstitutionURI ."	+ newline; 
+		query += "?project rim:hasHostingInstitution ?targetInstitutionURI ."	+ newline;
 
-		query += "?sourceInstitution rim:hasLatitude ?sourceLat ."				+ newline;
-		query += "?sourceInstitution rim:hasLongitude ?sourceLon ."				+ newline;
+		query += "?sourceInstitutionURI rim:hasLatitude ?sourceLat ."			+ newline;
+		query += "?sourceInstitutionURI rim:hasLongitude ?sourceLon ."			+ newline;
+		query += "?sourceInstitutionURI rim:hasName ?sourceInstitution ."		+ newline;
 
-		query += "?targetInstitution rim:hasLatitude ?targetLat ."				+ newline;
-		query += "?targetInstitution rim:hasLongitude ?targetLon ."				+ newline;
+		query += "?targetInstitutionURI rim:hasLatitude ?targetLat ."			+ newline;
+		query += "?targetInstitutionURI rim:hasLongitude ?targetLon ."			+ newline;
+		query += "?targetInstitutionURI rim:hasName ?targetInstitution ."		+ newline;
 
 		query += "filter(?sourceInstitution != ?targetInstitution)"				+ newline;
 		query += "}";
