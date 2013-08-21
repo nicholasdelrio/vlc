@@ -2,1359 +2,1359 @@
     "links": [
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 0,
             "target": 1
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 1,
-            "target": 2
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 2,
+            "target": 0
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 3,
             "target": 4
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Using-Images-and-Optimized-Workflow-for-Automated-Data-Acquisition-of-Mexican-Plant-Specimens-at-MICH"],
+            "projects": ["Using Images and Optimized Workflow for Automated Data Acquisition of Mexican Plant Specimens at MICH"],
             "source": 5,
             "target": 6
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#III-Large-Collaborative-Research-Moving-Objects-Databases-for-Exploration-of-Virtual-and-Real-Environments"],
+            "projects": ["III: Large: Collaborative Research: Moving Objects Databases for Exploration of Virtual and Real Environments"],
             "source": 7,
             "target": 8
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 2,
-            "target": 9
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 10,
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 9,
             "target": 2
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 3,
-            "target": 11
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 2,
+            "target": 10
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 11,
+            "target": 4
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 12,
             "target": 13
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 14,
-            "target": 13
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 12,
+            "target": 14
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-workshop-proposal-Drawing-the-roadmap-for-the-semanticontology-based-infrastructure-for-Geosciences"],
+            "projects": ["Collaborative workshop proposal: Drawing the roadmap for the semantic/ontology based infrastructure for Geosciences"],
             "source": 15,
             "target": 16
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Arctic-Observing-Networks-Collaborative-Research-Sustaining-and-amplifying-the-ITEX-AON-through-automation-and-increased-interdisciplinarity-of-observations"],
-            "source": 8,
-            "target": 17
+            "projects": ["Arctic Observing Networks: Collaborative Research: Sustaining and amplifying the ITEX AON through automation and increased interdisciplinarity of observations"],
+            "source": 17,
+            "target": 7
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Rolling-Deck-to-Repository-R2R-Transforming-the-Academic-Fleet-Into-an-Integrated-Global-Observing-System"],
+            "projects": ["Collaborative Research: Rolling Deck to Repository (R2R): Transforming the Academic Fleet Into an Integrated Global Observing System"],
             "source": 18,
             "target": 19
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Proposal-ITRSemDIS-Discovering-Complex-Relationships-in-the-Semantic-Web"],
+            "projects": ["Collaborative Proposal: ITR-SemDIS: Discovering Complex Relationships in the Semantic Web"],
             "source": 20,
             "target": 21
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 14,
-            "target": 9
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 9,
+            "target": 14
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Proposal-ITRSemDIS-Discovering-Complex-Relationships-in-the-Semantic-Web"],
-            "source": 21,
-            "target": 22
+            "projects": ["Collaborative Proposal: ITR-SemDIS: Discovering Complex Relationships in the Semantic Web"],
+            "source": 22,
+            "target": 20
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 0,
-            "target": 17
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 17,
+            "target": 1
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 10,
-            "target": 4
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 3,
+            "target": 10
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Postdoctoral-Research-Fellowship-in-Biological-Informatics-for-FY2000"],
+            "projects": ["Postdoctoral Research Fellowship in Biological Informatics for FY-2000"],
             "source": 23,
             "target": 24
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 1,
-            "target": 9
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 2,
-            "target": 4
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 12,
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 9,
             "target": 0
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 10,
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 3,
+            "target": 2
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 1,
             "target": 13
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 13,
-            "target": 4
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 12,
-            "target": 1
+            "target": 10
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 14,
-            "target": 3
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 3,
+            "target": 12
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-ELOKA-Phase-III-Toward-Sustainable-Data-Management-Support-for-CommunityBased-Observations-Contributing-to-the-Arctic-Observing-Network"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 0,
+            "target": 13
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 4,
+            "target": 14
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: ELOKA Phase III: Toward Sustainable Data Management Support for Community-Based Observations Contributing to the Arctic Observing Network"],
             "source": 25,
             "target": 26
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 0,
-            "target": 10
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 0,
-            "target": 2
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 1,
-            "target": 17
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 12,
-            "target": 11
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#III-Large-Collaborative-Research-Moving-Objects-Databases-for-Exploration-of-Virtual-and-Real-Environments"],
-            "source": 27,
-            "target": 28
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 1,
-            "target": 11
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 0,
-            "target": 9
-        },
-        {
-            "location": "",
-            "projects": [
-                "http://vlc.cybershare.utep.edu/filtered-projects.owl#SCI-SEI-II-Towards-a-Virtual-SolarTerrestrial-Observatory",
-                "http://vlc.cybershare.utep.edu/filtered-projects.owl#SDCI-DataNMI-NewImprovement--Semantic-Provenance-Capture-in-Data-Ingest-Systems-SPCDIS"
-            ],
-            "source": 29,
-            "target": 9
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Digitization-TCN-Collaborative-Research-Digitizing-Fossils-to-Enable-New-Syntheses-in-Biogeography--Creating-a-PALEONICHESTCN"],
-            "source": 30,
-            "target": 5
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Rolling-Deck-to-Repository-R2R-Transforming-the-Academic-Fleet-Into-an-Integrated-Global-Observing-System"],
-            "source": 18,
-            "target": 31
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Linkage-of-Bacterial-Pathogens-to-Human-infectious-Disease-in-an-Estuary-Subjected-to-Extreme-Climatic-Events"],
-            "source": 32,
-            "target": 33
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-The-El-NinoSouthern-Oscillation-ENSOMediterranean-Teleconnection-Observations-and-Dynamics"],
-            "source": 18,
-            "target": 34
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 12,
-            "target": 3
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 13,
-            "target": 9
-        },
-        {
-            "location": "",
-            "projects": [
-                "http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-IPY-A-Cooperative-Arctic-Data-and-Information-Service-CADIS",
-                "http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Integrated-Arctic-Data-Management-Services-IADS-to-Support-Arctic-Research"
-            ],
-            "source": 9,
-            "target": 26
-        },
-        {
-            "location": "",
-            "projects": [
-                "http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Systematic-Analysis-of-Dynamic-Earthquake-Triggering-Using-the-USArray-Data",
-                "http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"
-            ],
-            "source": 2,
-            "target": 17
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Formulated-and-Specify-Using-Visual-Programming-to-Enable-Webbased-Biodiversity-Analysis"],
-            "source": 35,
-            "target": 5
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#III-Large-Collaborative-Research-Moving-Objects-Databases-for-Exploration-of-Virtual-and-Real-Environments"],
-            "source": 8,
-            "target": 28
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 3,
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 10,
             "target": 1
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 0,
-            "target": 13
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 12,
-            "target": 4
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Rolling-Deck-to-Repository-R2R-Transforming-the-Academic-Fleet-Into-an-Integrated-Global-Observing-System"],
-            "source": 36,
-            "target": 31
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Rolling-Deck-to-Repository-R2R-Transforming-the-Academic-Fleet-Into-an-Integrated-Global-Observing-System"],
-            "source": 18,
-            "target": 36
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-CITeam-Diff-The-Virtual-Learning-Commons-STEM-Research-Communities-Learning-about-Data-Management-Geospatial-Informatics-and-Scientific-Visualization"],
-            "source": 5,
-            "target": 17
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 14,
-            "target": 0
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Systematic-Analysis-of-Dynamic-Earthquake-Triggering-Using-the-USArray-Data"],
-            "source": 31,
-            "target": 17
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 14,
-            "target": 12
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 3,
-            "target": 2
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 11,
-            "target": 2
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Rolling-Deck-to-Repository-R2R-Transforming-the-Academic-Fleet-Into-an-Integrated-Global-Observing-System"],
-            "source": 36,
-            "target": 19
-        },
-        {
-            "location": "",
-            "projects": [
-                "http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-CITeam-Diff-The-Virtual-Learning-Commons-STEM-Research-Communities-Learning-about-Data-Management-Geospatial-Informatics-and-Scientific-Visualization",
-                "http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-Enabling-the-Science-Environment-for-Ecological-Knowledge"
-            ],
-            "source": 5,
-            "target": 37
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 3,
-            "target": 13
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Science-of-Search-Data-Search-Analytics-and-Architectures-Center-DSAAC"],
-            "source": 8,
-            "target": 38
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 13,
-            "target": 17
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 14,
-            "target": 10
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 1,
-            "target": 10
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-SGER-Research-and-education-software-requirements-for-an-environmental-sensor-network-at-the-OTS-La-Selva-Biological-Station"],
-            "source": 8,
-            "target": 5
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-Enabling-the-Science-Environment-for-Ecological-Knowledge"],
-            "source": 39,
-            "target": 37
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 9,
-            "target": 17
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#III-Large-Collaborative-Research-Moving-Objects-Databases-for-Exploration-of-Virtual-and-Real-Environments"],
-            "source": 7,
-            "target": 28
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 12,
-            "target": 9
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Systematic-Analysis-of-Dynamic-Earthquake-Triggering-Using-the-USArray-Data"],
-            "source": 2,
-            "target": 31
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-Enabling-the-Science-Environment-for-Ecological-Knowledge"],
-            "source": 39,
-            "target": 5
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 14,
-            "target": 17
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 10,
-            "target": 17
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 11,
-            "target": 13
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Rolling-Deck-to-Repository-R2R-Transforming-the-Academic-Fleet-Into-an-Integrated-Global-Observing-System"],
-            "source": 31,
-            "target": 19
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 4,
-            "target": 17
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 14,
-            "target": 11
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 14,
-            "target": 4
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Digitization-TCN-Collaborative-Research-Digitizing-Fossils-to-Enable-New-Syntheses-in-Biogeography--Creating-a-PALEONICHESTCN"],
-            "source": 40,
-            "target": 5
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Digitization-TCN-Collaborative-Research-Digitizing-Fossils-to-Enable-New-Syntheses-in-Biogeography--Creating-a-PALEONICHESTCN"],
-            "source": 30,
-            "target": 40
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 10,
-            "target": 11
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 12,
-            "target": 17
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#III-Large-Collaborative-Research-Moving-Objects-Databases-for-Exploration-of-Virtual-and-Real-Environments"],
-            "source": 27,
-            "target": 7
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 3,
-            "target": 17
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 9,
-            "target": 4
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-The-El-NinoSouthern-Oscillation-ENSOMediterranean-Teleconnection-Observations-and-Dynamics"],
-            "source": 41,
-            "target": 18
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Information-Integration-for-Locating-and-Querying-Geospatial-Data"],
-            "source": 28,
-            "target": 42
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 12,
-            "target": 10
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 14,
-            "target": 1
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 3,
-            "target": 9
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 2,
-            "target": 13
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#III-Large-Collaborative-Research-Moving-Objects-Databases-for-Exploration-of-Virtual-and-Real-Environments"],
-            "source": 27,
-            "target": 8
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 0,
-            "target": 11
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-The-El-NinoSouthern-Oscillation-ENSOMediterranean-Teleconnection-Observations-and-Dynamics"],
-            "source": 41,
-            "target": 34
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Coupled-Models-of-Diffusion-and-Individual-Behavior-Over-Extremely-Large-Social-Networks"],
-            "source": 7,
-            "target": 16
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 11,
-            "target": 9
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 10,
-            "target": 9
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Proposal-ITRSemDIS-Discovering-Complex-Relationships-in-the-Semantic-Web"],
-            "source": 20,
-            "target": 22
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 1,
-            "target": 4
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 11,
-            "target": 17
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 3,
-            "target": 10
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Predicting-spatial-variation-in-West-Nile-virus-transmission"],
-            "source": 43,
-            "target": 44
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-SI2-SSE-Pipeline-Framework-for-Ensemble-Runs-on-Clouds"],
-            "source": 38,
-            "target": 45
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-Enabling-the-Science-Environment-for-Ecological-Knowledge-SEEK"],
-            "source": 46,
-            "target": 4
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-CITeam-Diff-The-Virtual-Learning-Commons-STEM-Research-Communities-Learning-about-Data-Management-Geospatial-Informatics-and-Scientific-Visualization"],
-            "source": 37,
-            "target": 17
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 11,
-            "target": 4
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 1,
-            "target": 13
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 0,
-            "target": 4
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 12,
-            "target": 2
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 14,
-            "target": 2
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 3,
-            "target": 0
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 1,
-            "target": 0
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 2,
             "target": 1
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 4,
-            "target": 3
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Using-Images-and-Optimized-Workflow-for-Automated-Data-Acquisition-of-Mexican-Plant-Specimens-at-MICH"],
-            "source": 6,
-            "target": 5
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#III-Large-Collaborative-Research-Moving-Objects-Databases-for-Exploration-of-Virtual-and-Real-Environments"],
-            "source": 8,
-            "target": 7
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 9,
-            "target": 2
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 2,
-            "target": 10
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 11,
-            "target": 3
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 13,
-            "target": 12
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 13,
-            "target": 14
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-workshop-proposal-Drawing-the-roadmap-for-the-semanticontology-based-infrastructure-for-Geosciences"],
-            "source": 16,
-            "target": 15
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Arctic-Observing-Networks-Collaborative-Research-Sustaining-and-amplifying-the-ITEX-AON-through-automation-and-increased-interdisciplinarity-of-observations"],
-            "source": 17,
-            "target": 8
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Rolling-Deck-to-Repository-R2R-Transforming-the-Academic-Fleet-Into-an-Integrated-Global-Observing-System"],
-            "source": 19,
-            "target": 18
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Proposal-ITRSemDIS-Discovering-Complex-Relationships-in-the-Semantic-Web"],
-            "source": 21,
-            "target": 20
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 9,
-            "target": 14
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Proposal-ITRSemDIS-Discovering-Complex-Relationships-in-the-Semantic-Web"],
-            "source": 22,
-            "target": 21
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 17,
             "target": 0
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 4,
-            "target": 10
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Postdoctoral-Research-Fellowship-in-Biological-Informatics-for-FY2000"],
-            "source": 24,
-            "target": 23
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 9,
-            "target": 1
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 4,
-            "target": 2
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 0,
-            "target": 12
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 13,
-            "target": 10
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 4,
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 11,
             "target": 13
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 1,
-            "target": 12
+            "projects": ["III: Large: Collaborative Research: Moving Objects Databases for Exploration of Virtual and Real Environments"],
+            "source": 27,
+            "target": 28
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 3,
-            "target": 14
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-ELOKA-Phase-III-Toward-Sustainable-Data-Management-Support-for-CommunityBased-Observations-Contributing-to-the-Arctic-Observing-Network"],
-            "source": 26,
-            "target": 25
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 10,
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 11,
             "target": 0
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 2,
-            "target": 0
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 17,
-            "target": 1
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 11,
-            "target": 12
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#III-Large-Collaborative-Research-Moving-Objects-Databases-for-Exploration-of-Virtual-and-Real-Environments"],
-            "source": 28,
-            "target": 27
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 11,
-            "target": 1
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 9,
-            "target": 0
+            "target": 1
         },
         {
             "location": "",
             "projects": [
-                "http://vlc.cybershare.utep.edu/filtered-projects.owl#SCI-SEI-II-Towards-a-Virtual-SolarTerrestrial-Observatory",
-                "http://vlc.cybershare.utep.edu/filtered-projects.owl#SDCI-DataNMI-NewImprovement--Semantic-Provenance-Capture-in-Data-Ingest-Systems-SPCDIS"
+                "SCI: SEI +II: Towards a Virtual Solar-Terrestrial Observatory",
+                "SDCI: Data/NMI New/Improvement - Semantic Provenance Capture in Data Ingest Systems (SPCDIS)"
             ],
             "source": 9,
             "target": 29
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Digitization-TCN-Collaborative-Research-Digitizing-Fossils-to-Enable-New-Syntheses-in-Biogeography--Creating-a-PALEONICHESTCN"],
-            "source": 5,
+            "projects": ["Digitization TCN: Collaborative Research: Digitizing Fossils to Enable New Syntheses in Biogeography - Creating a PALEONICHES-TCN"],
+            "source": 6,
             "target": 30
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Rolling-Deck-to-Repository-R2R-Transforming-the-Academic-Fleet-Into-an-Integrated-Global-Observing-System"],
+            "projects": ["Collaborative Research: Rolling Deck to Repository (R2R): Transforming the Academic Fleet Into an Integrated Global Observing System"],
             "source": 31,
-            "target": 18
+            "target": 19
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Linkage-of-Bacterial-Pathogens-to-Human-infectious-Disease-in-an-Estuary-Subjected-to-Extreme-Climatic-Events"],
-            "source": 33,
-            "target": 32
+            "projects": ["Collaborative Research: Linkage of Bacterial Pathogens to Human infectious Disease in an Estuary Subjected to Extreme Climatic Events"],
+            "source": 32,
+            "target": 33
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-The-El-NinoSouthern-Oscillation-ENSOMediterranean-Teleconnection-Observations-and-Dynamics"],
+            "projects": ["Collaborative Research: The El Nino-Southern Oscillation (ENSO)-Mediterranean Teleconnection: Observations and Dynamics"],
             "source": 34,
-            "target": 18
+            "target": 19
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 3,
-            "target": 12
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 9,
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 4,
             "target": 13
         },
         {
             "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 9,
+            "target": 12
+        },
+        {
+            "location": "",
             "projects": [
-                "http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-IPY-A-Cooperative-Arctic-Data-and-Information-Service-CADIS",
-                "http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Integrated-Arctic-Data-Management-Services-IADS-to-Support-Arctic-Research"
+                "Collaborative Research, IPY: A Cooperative Arctic Data and Information Service (CADIS)",
+                "Collaborative Research: Integrated Arctic Data Management Services (IADS) to Support Arctic Research"
             ],
-            "source": 26,
+            "source": 25,
             "target": 9
         },
         {
             "location": "",
             "projects": [
-                "http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Systematic-Analysis-of-Dynamic-Earthquake-Triggering-Using-the-USArray-Data",
-                "http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"
+                "Collaborative Research: Systematic Analysis of Dynamic Earthquake Triggering Using the USArray Data",
+                "ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"
             ],
             "source": 17,
             "target": 2
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Formulated-and-Specify-Using-Visual-Programming-to-Enable-Webbased-Biodiversity-Analysis"],
-            "source": 5,
+            "projects": ["Formulated and Specify: Using Visual Programming to Enable Web-based Biodiversity Analysis"],
+            "source": 6,
             "target": 35
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#III-Large-Collaborative-Research-Moving-Objects-Databases-for-Exploration-of-Virtual-and-Real-Environments"],
-            "source": 28,
-            "target": 8
+            "projects": ["III: Large: Collaborative Research: Moving Objects Databases for Exploration of Virtual and Real Environments"],
+            "source": 27,
+            "target": 7
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 1,
-            "target": 3
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 0,
+            "target": 4
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 13,
-            "target": 0
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 12,
+            "target": 1
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 4,
-            "target": 12
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 3,
+            "target": 13
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Rolling-Deck-to-Repository-R2R-Transforming-the-Academic-Fleet-Into-an-Integrated-Global-Observing-System"],
+            "projects": ["Collaborative Research: Rolling Deck to Repository (R2R): Transforming the Academic Fleet Into an Integrated Global Observing System"],
             "source": 31,
             "target": 36
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Rolling-Deck-to-Repository-R2R-Transforming-the-Academic-Fleet-Into-an-Integrated-Global-Observing-System"],
+            "projects": ["Collaborative Research: Rolling Deck to Repository (R2R): Transforming the Academic Fleet Into an Integrated Global Observing System"],
             "source": 36,
-            "target": 18
+            "target": 19
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-CITeam-Diff-The-Virtual-Learning-Commons-STEM-Research-Communities-Learning-about-Data-Management-Geospatial-Informatics-and-Scientific-Visualization"],
+            "projects": ["Collaborative Research: CI-Team Diff: The Virtual Learning Commons: STEM Research Communities Learning about Data Management, Geospatial Informatics, and Scientific Visualization"],
             "source": 17,
-            "target": 5
+            "target": 6
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 0,
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 1,
             "target": 14
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Systematic-Analysis-of-Dynamic-Earthquake-Triggering-Using-the-USArray-Data"],
+            "projects": ["Collaborative Research: Systematic Analysis of Dynamic Earthquake Triggering Using the USArray Data"],
             "source": 17,
             "target": 31
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 12,
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 13,
             "target": 14
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 2,
-            "target": 3
+            "target": 4
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 2,
             "target": 11
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Rolling-Deck-to-Repository-R2R-Transforming-the-Academic-Fleet-Into-an-Integrated-Global-Observing-System"],
-            "source": 19,
+            "projects": ["Collaborative Research: Rolling Deck to Repository (R2R): Transforming the Academic Fleet Into an Integrated Global Observing System"],
+            "source": 18,
             "target": 36
         },
         {
             "location": "",
             "projects": [
-                "http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-CITeam-Diff-The-Virtual-Learning-Commons-STEM-Research-Communities-Learning-about-Data-Management-Geospatial-Informatics-and-Scientific-Visualization",
-                "http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-Enabling-the-Science-Environment-for-Ecological-Knowledge"
+                "Collaborative Research: CI-Team Diff: The Virtual Learning Commons: STEM Research Communities Learning about Data Management, Geospatial Informatics, and Scientific Visualization",
+                "ITR Collaborative Research: Enabling the Science Environment for Ecological Knowledge"
             ],
             "source": 37,
-            "target": 5
+            "target": 6
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 13,
-            "target": 3
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 12,
+            "target": 4
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Science-of-Search-Data-Search-Analytics-and-Architectures-Center-DSAAC"],
+            "projects": ["Collaborative Research: Science of Search: Data Search, Analytics, and Architectures Center (DSAAC)"],
             "source": 38,
-            "target": 8
+            "target": 7
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 17,
-            "target": 13
+            "target": 12
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 10,
             "target": 14
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 10,
-            "target": 1
+            "target": 0
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-SGER-Research-and-education-software-requirements-for-an-environmental-sensor-network-at-the-OTS-La-Selva-Biological-Station"],
-            "source": 5,
-            "target": 8
+            "projects": ["Collaborative Research: SGER: Research and education software requirements for an environmental sensor network at the OTS La Selva Biological Station"],
+            "source": 6,
+            "target": 7
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-Enabling-the-Science-Environment-for-Ecological-Knowledge"],
+            "projects": ["ITR Collaborative Research: Enabling the Science Environment for Ecological Knowledge"],
             "source": 37,
             "target": 39
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 17,
             "target": 9
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#III-Large-Collaborative-Research-Moving-Objects-Databases-for-Exploration-of-Virtual-and-Real-Environments"],
-            "source": 28,
-            "target": 7
+            "projects": ["III: Large: Collaborative Research: Moving Objects Databases for Exploration of Virtual and Real Environments"],
+            "source": 27,
+            "target": 8
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 9,
-            "target": 12
+            "target": 13
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Systematic-Analysis-of-Dynamic-Earthquake-Triggering-Using-the-USArray-Data"],
+            "projects": ["Collaborative Research: Systematic Analysis of Dynamic Earthquake Triggering Using the USArray Data"],
             "source": 31,
             "target": 2
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-Enabling-the-Science-Environment-for-Ecological-Knowledge"],
-            "source": 5,
+            "projects": ["ITR Collaborative Research: Enabling the Science Environment for Ecological Knowledge"],
+            "source": 6,
             "target": 39
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 17,
             "target": 14
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 17,
             "target": 10
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 13,
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 12,
             "target": 11
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Rolling-Deck-to-Repository-R2R-Transforming-the-Academic-Fleet-Into-an-Integrated-Global-Observing-System"],
-            "source": 19,
+            "projects": ["Collaborative Research: Rolling Deck to Repository (R2R): Transforming the Academic Fleet Into an Integrated Global Observing System"],
+            "source": 18,
             "target": 31
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 17,
-            "target": 4
+            "target": 3
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 11,
             "target": 14
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 4,
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 3,
             "target": 14
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Digitization-TCN-Collaborative-Research-Digitizing-Fossils-to-Enable-New-Syntheses-in-Biogeography--Creating-a-PALEONICHESTCN"],
-            "source": 5,
+            "projects": ["Digitization TCN: Collaborative Research: Digitizing Fossils to Enable New Syntheses in Biogeography - Creating a PALEONICHES-TCN"],
+            "source": 6,
             "target": 40
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Digitization-TCN-Collaborative-Research-Digitizing-Fossils-to-Enable-New-Syntheses-in-Biogeography--Creating-a-PALEONICHESTCN"],
+            "projects": ["Digitization TCN: Collaborative Research: Digitizing Fossils to Enable New Syntheses in Biogeography - Creating a PALEONICHES-TCN"],
             "source": 40,
             "target": 30
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 11,
             "target": 10
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 17,
-            "target": 12
+            "target": 13
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#III-Large-Collaborative-Research-Moving-Objects-Databases-for-Exploration-of-Virtual-and-Real-Environments"],
-            "source": 7,
-            "target": 27
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 17,
-            "target": 3
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 4,
-            "target": 9
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-The-El-NinoSouthern-Oscillation-ENSOMediterranean-Teleconnection-Observations-and-Dynamics"],
-            "source": 18,
-            "target": 41
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Information-Integration-for-Locating-and-Querying-Geospatial-Data"],
-            "source": 42,
+            "projects": ["III: Large: Collaborative Research: Moving Objects Databases for Exploration of Virtual and Real Environments"],
+            "source": 8,
             "target": 28
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 10,
-            "target": 12
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 17,
+            "target": 4
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 1,
-            "target": 14
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 3,
+            "target": 9
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 9,
-            "target": 3
+            "projects": ["Collaborative Research: The El Nino-Southern Oscillation (ENSO)-Mediterranean Teleconnection: Observations and Dynamics"],
+            "source": 19,
+            "target": 41
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 13,
-            "target": 2
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#III-Large-Collaborative-Research-Moving-Objects-Databases-for-Exploration-of-Virtual-and-Real-Environments"],
-            "source": 8,
+            "projects": ["Collaborative Research: Information Integration for Locating and Querying Geospatial Data"],
+            "source": 42,
             "target": 27
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 11,
-            "target": 0
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 10,
+            "target": 13
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-The-El-NinoSouthern-Oscillation-ENSOMediterranean-Teleconnection-Observations-and-Dynamics"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 0,
+            "target": 14
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 9,
+            "target": 4
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 12,
+            "target": 2
+        },
+        {
+            "location": "",
+            "projects": ["III: Large: Collaborative Research: Moving Objects Databases for Exploration of Virtual and Real Environments"],
+            "source": 7,
+            "target": 28
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 11,
+            "target": 1
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: The El Nino-Southern Oscillation (ENSO)-Mediterranean Teleconnection: Observations and Dynamics"],
             "source": 34,
             "target": 41
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-Coupled-Models-of-Diffusion-and-Individual-Behavior-Over-Extremely-Large-Social-Networks"],
-            "source": 16,
-            "target": 7
+            "projects": ["Collaborative Research: Coupled Models of Diffusion and Individual Behavior Over Extremely Large Social Networks"],
+            "source": 15,
+            "target": 8
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 9,
             "target": 11
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 9,
             "target": 10
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Proposal-ITRSemDIS-Discovering-Complex-Relationships-in-the-Semantic-Web"],
+            "projects": ["Collaborative Proposal: ITR-SemDIS: Discovering Complex Relationships in the Semantic Web"],
             "source": 22,
-            "target": 20
+            "target": 21
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 4,
-            "target": 1
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 3,
+            "target": 0
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 17,
             "target": 11
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 10,
-            "target": 3
+            "target": 4
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Predicting-spatial-variation-in-West-Nile-virus-transmission"],
-            "source": 44,
-            "target": 43
+            "projects": ["Predicting spatial variation in West Nile virus transmission"],
+            "source": 43,
+            "target": 44
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-SI2-SSE-Pipeline-Framework-for-Ensemble-Runs-on-Clouds"],
+            "projects": ["Collaborative Research SI2 SSE: Pipeline Framework for Ensemble Runs on Clouds"],
             "source": 45,
             "target": 38
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-Enabling-the-Science-Environment-for-Ecological-Knowledge-SEEK"],
-            "source": 4,
+            "projects": ["ITR Collaborative Research: Enabling the Science Environment for Ecological Knowledge (SEEK)"],
+            "source": 3,
             "target": 46
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#Collaborative-Research-CITeam-Diff-The-Virtual-Learning-Commons-STEM-Research-Communities-Learning-about-Data-Management-Geospatial-Informatics-and-Scientific-Visualization"],
+            "projects": ["Collaborative Research: CI-Team Diff: The Virtual Learning Commons: STEM Research Communities Learning about Data Management, Geospatial Informatics, and Scientific Visualization"],
             "source": 17,
             "target": 37
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 4,
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 3,
             "target": 11
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 13,
-            "target": 1
-        },
-        {
-            "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 4,
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 12,
             "target": 0
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
-            "source": 2,
-            "target": 12
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 3,
+            "target": 1
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 2,
+            "target": 13
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 2,
             "target": 14
         },
         {
             "location": "",
-            "projects": ["http://vlc.cybershare.utep.edu/filtered-projects.owl#ITR-Collaborative-Research-GEON-A-Research-Project-to-Create-Cyberinfrastructure-for-the-Geosciences"],
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 1,
+            "target": 4
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 1,
+            "target": 0
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 0,
+            "target": 2
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 4,
+            "target": 3
+        },
+        {
+            "location": "",
+            "projects": ["Using Images and Optimized Workflow for Automated Data Acquisition of Mexican Plant Specimens at MICH"],
+            "source": 6,
+            "target": 5
+        },
+        {
+            "location": "",
+            "projects": ["III: Large: Collaborative Research: Moving Objects Databases for Exploration of Virtual and Real Environments"],
+            "source": 8,
+            "target": 7
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 2,
+            "target": 9
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 10,
+            "target": 2
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 4,
+            "target": 11
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 13,
+            "target": 12
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 14,
+            "target": 12
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative workshop proposal: Drawing the roadmap for the semantic/ontology based infrastructure for Geosciences"],
+            "source": 16,
+            "target": 15
+        },
+        {
+            "location": "",
+            "projects": ["Arctic Observing Networks: Collaborative Research: Sustaining and amplifying the ITEX AON through automation and increased interdisciplinarity of observations"],
+            "source": 7,
+            "target": 17
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: Rolling Deck to Repository (R2R): Transforming the Academic Fleet Into an Integrated Global Observing System"],
+            "source": 19,
+            "target": 18
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Proposal: ITR-SemDIS: Discovering Complex Relationships in the Semantic Web"],
+            "source": 21,
+            "target": 20
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 14,
+            "target": 9
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Proposal: ITR-SemDIS: Discovering Complex Relationships in the Semantic Web"],
+            "source": 20,
+            "target": 22
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 1,
+            "target": 17
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 10,
+            "target": 3
+        },
+        {
+            "location": "",
+            "projects": ["Postdoctoral Research Fellowship in Biological Informatics for FY-2000"],
+            "source": 24,
+            "target": 23
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 0,
+            "target": 9
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 2,
+            "target": 3
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 13,
+            "target": 1
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 10,
+            "target": 12
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 12,
+            "target": 3
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 13,
+            "target": 0
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 14,
+            "target": 4
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: ELOKA Phase III: Toward Sustainable Data Management Support for Community-Based Observations Contributing to the Arctic Observing Network"],
+            "source": 26,
+            "target": 25
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 1,
+            "target": 10
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 1,
+            "target": 2
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 0,
+            "target": 17
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 13,
+            "target": 11
+        },
+        {
+            "location": "",
+            "projects": ["III: Large: Collaborative Research: Moving Objects Databases for Exploration of Virtual and Real Environments"],
+            "source": 28,
+            "target": 27
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 0,
+            "target": 11
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 1,
+            "target": 9
+        },
+        {
+            "location": "",
+            "projects": [
+                "SCI: SEI +II: Towards a Virtual Solar-Terrestrial Observatory",
+                "SDCI: Data/NMI New/Improvement - Semantic Provenance Capture in Data Ingest Systems (SPCDIS)"
+            ],
+            "source": 29,
+            "target": 9
+        },
+        {
+            "location": "",
+            "projects": ["Digitization TCN: Collaborative Research: Digitizing Fossils to Enable New Syntheses in Biogeography - Creating a PALEONICHES-TCN"],
+            "source": 30,
+            "target": 6
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: Rolling Deck to Repository (R2R): Transforming the Academic Fleet Into an Integrated Global Observing System"],
+            "source": 19,
+            "target": 31
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: Linkage of Bacterial Pathogens to Human infectious Disease in an Estuary Subjected to Extreme Climatic Events"],
+            "source": 33,
+            "target": 32
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: The El Nino-Southern Oscillation (ENSO)-Mediterranean Teleconnection: Observations and Dynamics"],
+            "source": 19,
+            "target": 34
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 13,
+            "target": 4
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 12,
+            "target": 9
+        },
+        {
+            "location": "",
+            "projects": [
+                "Collaborative Research, IPY: A Cooperative Arctic Data and Information Service (CADIS)",
+                "Collaborative Research: Integrated Arctic Data Management Services (IADS) to Support Arctic Research"
+            ],
+            "source": 9,
+            "target": 25
+        },
+        {
+            "location": "",
+            "projects": [
+                "Collaborative Research: Systematic Analysis of Dynamic Earthquake Triggering Using the USArray Data",
+                "ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"
+            ],
+            "source": 2,
+            "target": 17
+        },
+        {
+            "location": "",
+            "projects": ["Formulated and Specify: Using Visual Programming to Enable Web-based Biodiversity Analysis"],
+            "source": 35,
+            "target": 6
+        },
+        {
+            "location": "",
+            "projects": ["III: Large: Collaborative Research: Moving Objects Databases for Exploration of Virtual and Real Environments"],
+            "source": 7,
+            "target": 27
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 4,
+            "target": 0
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 1,
+            "target": 12
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 13,
+            "target": 3
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: Rolling Deck to Repository (R2R): Transforming the Academic Fleet Into an Integrated Global Observing System"],
+            "source": 36,
+            "target": 31
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: Rolling Deck to Repository (R2R): Transforming the Academic Fleet Into an Integrated Global Observing System"],
+            "source": 19,
+            "target": 36
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: CI-Team Diff: The Virtual Learning Commons: STEM Research Communities Learning about Data Management, Geospatial Informatics, and Scientific Visualization"],
+            "source": 6,
+            "target": 17
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 14,
+            "target": 1
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: Systematic Analysis of Dynamic Earthquake Triggering Using the USArray Data"],
+            "source": 31,
+            "target": 17
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 14,
+            "target": 13
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 4,
+            "target": 2
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 11,
+            "target": 2
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: Rolling Deck to Repository (R2R): Transforming the Academic Fleet Into an Integrated Global Observing System"],
+            "source": 36,
+            "target": 18
+        },
+        {
+            "location": "",
+            "projects": [
+                "Collaborative Research: CI-Team Diff: The Virtual Learning Commons: STEM Research Communities Learning about Data Management, Geospatial Informatics, and Scientific Visualization",
+                "ITR Collaborative Research: Enabling the Science Environment for Ecological Knowledge"
+            ],
+            "source": 6,
+            "target": 37
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 4,
+            "target": 12
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: Science of Search: Data Search, Analytics, and Architectures Center (DSAAC)"],
+            "source": 7,
+            "target": 38
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 12,
+            "target": 17
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 14,
+            "target": 10
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 0,
+            "target": 10
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: SGER: Research and education software requirements for an environmental sensor network at the OTS La Selva Biological Station"],
+            "source": 7,
+            "target": 6
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: Enabling the Science Environment for Ecological Knowledge"],
+            "source": 39,
+            "target": 37
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 9,
+            "target": 17
+        },
+        {
+            "location": "",
+            "projects": ["III: Large: Collaborative Research: Moving Objects Databases for Exploration of Virtual and Real Environments"],
+            "source": 8,
+            "target": 27
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 13,
+            "target": 9
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: Systematic Analysis of Dynamic Earthquake Triggering Using the USArray Data"],
+            "source": 2,
+            "target": 31
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: Enabling the Science Environment for Ecological Knowledge"],
+            "source": 39,
+            "target": 6
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 14,
+            "target": 17
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 10,
+            "target": 17
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 11,
+            "target": 12
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: Rolling Deck to Repository (R2R): Transforming the Academic Fleet Into an Integrated Global Observing System"],
+            "source": 31,
+            "target": 18
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 3,
+            "target": 17
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 14,
+            "target": 11
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 14,
+            "target": 3
+        },
+        {
+            "location": "",
+            "projects": ["Digitization TCN: Collaborative Research: Digitizing Fossils to Enable New Syntheses in Biogeography - Creating a PALEONICHES-TCN"],
+            "source": 40,
+            "target": 6
+        },
+        {
+            "location": "",
+            "projects": ["Digitization TCN: Collaborative Research: Digitizing Fossils to Enable New Syntheses in Biogeography - Creating a PALEONICHES-TCN"],
+            "source": 30,
+            "target": 40
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 10,
+            "target": 11
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 13,
+            "target": 17
+        },
+        {
+            "location": "",
+            "projects": ["III: Large: Collaborative Research: Moving Objects Databases for Exploration of Virtual and Real Environments"],
+            "source": 28,
+            "target": 8
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 4,
+            "target": 17
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 9,
+            "target": 3
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: The El Nino-Southern Oscillation (ENSO)-Mediterranean Teleconnection: Observations and Dynamics"],
+            "source": 41,
+            "target": 19
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: Information Integration for Locating and Querying Geospatial Data"],
+            "source": 27,
+            "target": 42
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 13,
+            "target": 10
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 14,
+            "target": 0
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 4,
+            "target": 9
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 2,
+            "target": 12
+        },
+        {
+            "location": "",
+            "projects": ["III: Large: Collaborative Research: Moving Objects Databases for Exploration of Virtual and Real Environments"],
+            "source": 28,
+            "target": 7
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 1,
+            "target": 11
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: The El Nino-Southern Oscillation (ENSO)-Mediterranean Teleconnection: Observations and Dynamics"],
+            "source": 41,
+            "target": 34
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: Coupled Models of Diffusion and Individual Behavior Over Extremely Large Social Networks"],
+            "source": 8,
+            "target": 15
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 11,
+            "target": 9
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 10,
+            "target": 9
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Proposal: ITR-SemDIS: Discovering Complex Relationships in the Semantic Web"],
+            "source": 21,
+            "target": 22
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 0,
             "target": 3
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 11,
+            "target": 17
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 4,
+            "target": 10
+        },
+        {
+            "location": "",
+            "projects": ["Predicting spatial variation in West Nile virus transmission"],
+            "source": 44,
+            "target": 43
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research SI2 SSE: Pipeline Framework for Ensemble Runs on Clouds"],
+            "source": 38,
+            "target": 45
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: Enabling the Science Environment for Ecological Knowledge (SEEK)"],
+            "source": 46,
+            "target": 3
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: CI-Team Diff: The Virtual Learning Commons: STEM Research Communities Learning about Data Management, Geospatial Informatics, and Scientific Visualization"],
+            "source": 37,
+            "target": 17
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 11,
+            "target": 3
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 0,
+            "target": 12
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 1,
+            "target": 3
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 13,
+            "target": 2
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 14,
+            "target": 2
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 4,
+            "target": 1
         }
     ],
     "nodes": [
         {
-            "lat": 32.2328,
-            "location": "University of Arizona",
-            "lon": -110.959
-        },
-        {
             "lat": 46.7294,
             "location": "University of Idaho",
             "lon": -117.013
+        },
+        {
+            "lat": 32.2328,
+            "location": "University of Arizona",
+            "lon": -110.959
         },
         {
             "lat": 40.7678,
@@ -1362,19 +1362,14 @@
             "lon": -111.833
         },
         {
-            "lat": 40.0612,
-            "location": "UNAVCO, Inc.",
-            "lon": -105.206
-        },
-        {
             "lat": 37.24,
             "location": "University of California-San Diego",
             "lon": -119.503
         },
         {
-            "lat": 38.9515,
-            "location": "University of Kansas Center for Research Inc",
-            "lon": -95.2657
+            "lat": 40.0612,
+            "location": "UNAVCO, Inc.",
+            "lon": -105.206
         },
         {
             "lat": 42.244,
@@ -1382,14 +1377,19 @@
             "lon": -83.7392
         },
         {
-            "lat": 42.0512,
-            "location": "Northwestern University",
-            "lon": -87.6847
+            "lat": 38.9515,
+            "location": "University of Kansas Center for Research Inc",
+            "lon": -95.2657
         },
         {
             "lat": 25.7753,
             "location": "Florida International University",
             "lon": -80.2089
+        },
+        {
+            "lat": 42.0512,
+            "location": "Northwestern University",
+            "lon": -87.6847
         },
         {
             "lat": 39.9796,
@@ -1407,14 +1407,14 @@
             "lon": -97.4436
         },
         {
-            "lat": 40.0218,
-            "location": "Bryn Mawr College",
-            "lon": -75.3222
-        },
-        {
             "lat": 42.4348,
             "location": "Cornell University",
             "lon": -76.4632
+        },
+        {
+            "lat": 40.0218,
+            "location": "Bryn Mawr College",
+            "lon": -75.3222
         },
         {
             "lat": 33.4281,
@@ -1422,14 +1422,14 @@
             "lon": -111.931
         },
         {
-            "lat": 33.7533,
-            "location": "Georgia State University Research Foundation, Inc.",
-            "lon": -84.39
-        },
-        {
             "lat": 37.2295,
             "location": "Virginia Polytechnic Institute and State University",
             "lon": -80.5217
+        },
+        {
+            "lat": 33.7533,
+            "location": "Georgia State University Research Foundation, Inc.",
+            "lon": -84.39
         },
         {
             "lat": 31.8492,
@@ -1437,19 +1437,14 @@
             "lon": -106.433
         },
         {
-            "lat": 40.8084,
-            "location": "Columbia University",
-            "lon": -73.9635
-        },
-        {
             "lat": 41.5334,
             "location": "Woods Hole Oceanographic Institution",
             "lon": -70.6454
         },
         {
-            "lat": 33.9335,
-            "location": "University of Georgia Research Foundation Inc",
-            "lon": -83.3759
+            "lat": 40.8084,
+            "location": "Columbia University",
+            "lon": -73.9635
         },
         {
             "lat": 39.2556,
@@ -1457,14 +1452,14 @@
             "lon": -76.7112
         },
         {
+            "lat": 33.9335,
+            "location": "University of Georgia Research Foundation Inc",
+            "lon": -83.3759
+        },
+        {
             "lat": 39.7796,
             "location": "Wright State University",
             "lon": -84.2008
-        },
-        {
-            "lat": 37.9857,
-            "location": "Rissler, Leslie J",
-            "lon": -78.4349
         },
         {
             "lat": 40.4841,
@@ -1472,9 +1467,9 @@
             "lon": -74.4428
         },
         {
-            "lat": 61.2967,
-            "location": "Huntington Consulting",
-            "lon": -149.437
+            "lat": 37.9857,
+            "location": "Rissler, Leslie J",
+            "lon": -78.4349
         },
         {
             "lat": 40.0135,
@@ -1482,14 +1477,19 @@
             "lon": -105.268
         },
         {
-            "lat": 41.8256,
-            "location": "Brown University",
-            "lon": -71.4022
+            "lat": 61.2967,
+            "location": "Huntington Consulting",
+            "lon": -149.437
         },
         {
             "lat": 41.8715,
             "location": "University of Illinois at Chicago",
             "lon": -87.6677
+        },
+        {
+            "lat": 41.8256,
+            "location": "Brown University",
+            "lon": -71.4022
         },
         {
             "lat": 42.7329,
@@ -1507,14 +1507,14 @@
             "lon": -119.503
         },
         {
-            "lat": 35.3662,
-            "location": "University of North Carolina at Chapel Hill",
-            "lon": -79.4294
-        },
-        {
             "lat": 35.3001,
             "location": "University of North Carolina at Charlotte",
             "lon": -80.734
+        },
+        {
+            "lat": 35.3662,
+            "location": "University of North Carolina at Chapel Hill",
+            "lon": -79.4294
         },
         {
             "lat": 42.3731,
@@ -1562,14 +1562,14 @@
             "lon": -89.4009
         },
         {
-            "lat": 36.9776,
-            "location": "University of California-Santa Cruz",
-            "lon": -122.056
-        },
-        {
             "lat": 40.7541,
             "location": "Ecohealth Alliance inc.",
             "lon": -73.999
+        },
+        {
+            "lat": 36.9776,
+            "location": "University of California-Santa Cruz",
+            "lon": -122.056
         },
         {
             "lat": 25.7176,

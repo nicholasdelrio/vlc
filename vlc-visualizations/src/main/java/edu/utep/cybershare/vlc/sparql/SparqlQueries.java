@@ -13,8 +13,9 @@ public class SparqlQueries {
 		select distinct ?sourceInstitution ?sourceLat ?sourceLon ?targetInstitution ?targetLat ?targetLon ?project
 		from <http://vlc.cybershare.utep.edu/filtered-projects.owl>
 		where {
-			?project rim:hasHostingInstitution ?sourceInstitutionURI .
-			?project rim:hasHostingInstitution ?targetInstitutionURI .
+			?projectURI rim:hasHostingInstitution ?sourceInstitutionURI .
+			?projectURI rim:hasHostingInstitution ?targetInstitutionURI .
+			?projectURI rim:hasName ?project .
 
 			?sourceInstitutionURI rim:hasLatitude ?sourceLat .
 			?sourceInstitutionURI rim:hasLongitude ?sourceLon .
@@ -32,9 +33,10 @@ public class SparqlQueries {
 																				+ newline;
 		query += namedGraphDeclaration											+ newline;
 		query += "where {"														+ newline;
-		query += "?project rim:hasHostingInstitution ?sourceInstitutionURI ."	+ newline; 
-		query += "?project rim:hasHostingInstitution ?targetInstitutionURI ."	+ newline;
-
+		query += "?projectURI rim:hasHostingInstitution ?sourceInstitutionURI ."+ newline; 
+		query += "?projectURI rim:hasHostingInstitution ?targetInstitutionURI ."+ newline;
+		query += "?projectURI rim:hasTitle ?project ."							+ newline;	
+		
 		query += "?sourceInstitutionURI rim:hasLatitude ?sourceLat ."			+ newline;
 		query += "?sourceInstitutionURI rim:hasLongitude ?sourceLon ."			+ newline;
 		query += "?sourceInstitutionURI rim:hasName ?sourceInstitution ."		+ newline;
