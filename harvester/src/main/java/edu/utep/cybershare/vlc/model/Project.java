@@ -1,5 +1,6 @@
 package edu.utep.cybershare.vlc.model;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
@@ -16,10 +17,13 @@ public class Project extends Collection {
 	private GregorianCalendar endDate;
 	private HashMap<String, Institution> hostingInstitutions;
 	private int awardAmount;
+	private URL awardHomepage;
 
 	// VLC specific properties
 	private HashMap<String, Project> relatedProjects;
 	private HashMap<String, Project> influencedProjects;
+	private HashMap<String, Resource> relatedWorks;
+	private HashMap<String, Resource> results;
 	
 	public String getGrantIdentification() {
 		return grantIdentification;
@@ -104,5 +108,29 @@ public class Project extends Collection {
 	}
 	public void addInfluencedProject(Project project){
 		this.influencedProjects.put(project.getTitle(), project);
+	}
+	public URL getAwardHomepage() {
+		return awardHomepage;
+	}
+	public void setAwardHomepage(URL awardHomepage) {
+		this.awardHomepage = awardHomepage;
+	}
+	public List<Resource> getRelatedWorks() {
+		return new ArrayList<Resource>(relatedWorks.values());
+	}
+	public void setRelatedWorks(HashMap<String, Resource> relatedWorks) {
+		this.relatedWorks = relatedWorks;
+	}
+	public void addRelatedWork(Resource resource){
+		this.relatedWorks.put(resource.getIdentification(), resource);
+	}
+	public List<Resource> getResults() {
+		return new ArrayList<Resource>(results.values());
+	}
+	public void setResults(HashMap<String, Resource> results) {
+		this.results = results;
+	}
+	public void addResult(Resource resource){
+		this.results.put(resource.getIdentification(), resource);
 	}
 }
