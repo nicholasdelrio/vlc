@@ -8,26 +8,6 @@ public class SparqlQueries {
 	private static String newline = "\n";
 	
 	public static String getInstitutions2InstitutionsByProjects(){
-		/*
-		prefix rim: <https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#>
-		select distinct ?sourceInstitution ?sourceLat ?sourceLon ?targetInstitution ?targetLat ?targetLon ?project
-		from <http://vlc.cybershare.utep.edu/filtered-projects.owl>
-		where {
-			?projectURI rim:hasHostingInstitution ?sourceInstitutionURI .
-			?projectURI rim:hasHostingInstitution ?targetInstitutionURI .
-			?projectURI rim:hasName ?project .
-
-			?sourceInstitutionURI rim:hasLatitude ?sourceLat .
-			?sourceInstitutionURI rim:hasLongitude ?sourceLon .
-			?sourceInstitutionURI rim:hasName ?sourceInstitution .
-
-			?targetInstitutionURI rim:hasLatitude ?targetLat .
-			?targetInstitutionURI rim:hasLongitude ?targetLon .
-			?targetInstitutionURI rim:hasName ?targetInstitution .
-	
-			filter(?sourceInstitution != ?targetInstitution)
-		}		
-		*/
 		String query = prefixDeclaration_RIM									+ newline;
 		query += "select distinct ?sourceInstitution ?sourceLat ?sourceLon ?targetInstitution ?targetLat ?targetLon ?project"
 																				+ newline;
@@ -51,33 +31,7 @@ public class SparqlQueries {
 		return query;
 	}
 	
-	public static String getProjects2ProjectsByPeople(){
-		/*
-		define input:inference "https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM-Rules.owl"
-		prefix rim: <https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#>
-		select ?person ?sourceProject ?targetProject
-		from <http://vlc.cybershare.utep.edu/filtered-projects.owl>
-		where {
-			{
-				?sourceProject rim:hasProjectMember ?person .
-				?sourceProject rim:hasHostingInstitution ?sourceInstitution . 
-				?targetProject rim:hasProjectMember ?person .
-				?targetProject rim:hasHostingInstitution ?targetInstitution .
-				filter(?sourceProject != ?targetProject)
-				filter(?person != <http://vlc.cybershare.utep.edu/filtered-projects.owl#nullnamenullname>)
-			}
-			union
-			{
-				?sourceProject rim:hasProjectMember ?person .
-				?sourceProject rim:hasHostingInstitution ?sourceInstitution . 
-				?targetProject rim:hasProjectMember ?person .
-				?targetProject rim:hasHostingInstitution ?targetInstitution .
-				filter(?sourceInstitution != ?targetInstitution)
-			}
-			filter(?person != <http://vlc.cybershare.utep.edu/filtered-projects.owl#nullnamenullname>)
-		}
-		*/
-		
+	public static String getProjects2ProjectsByPeople(){		
 		String query = rimRuleSetDeclaration 										+ newline;
 		query += prefixDeclaration_RIM												+ newline;
 		query += "select distinct ?person ?sourceProject ?sourceInstitution ?targetProject ?targetInstitution" 																					+ newline;
@@ -85,23 +39,42 @@ public class SparqlQueries {
 		query += "where"															+ newline;
 		query += "{"																+ newline;
 		query += "{"																+ newline;
-		query += "?sourceProject rim:hasProjectMember ?person ."					+ newline;
-		query += "?sourceProject rim:hasHostingInstitution ?sourceInstitution ." 	+ newline;
-		query += "?targetProject rim:hasProjectMember ?person ."					+ newline;
-		query += "?targetProject rim:hasHostingInstitution ?targetInstitution ."	+ newline;
-		query += "filter(?sourceProject != ?targetProject)"							+ newline;
+		query += "?sourceProjectURI rim:hasProjectMember ?personURI ."					+ newline;
+		query += "?sourceProjectURI rim:hasHostingInstitution ?sourceInstitutionURI ." 	+ newline;
+		query += "?targetProjectURI rim:hasProjectMember ?personURI ."					+ newline;
+		query += "?targetProjectURI rim:hasHostingInstitution ?targetInstitutionURI ."	+ newline;
+
+		query += "?sourceProjectURI rim:hasTitle ?sourceProject ."					+ newline;
+		query += "?targetProjectURI rim:hasTitle ?targetProject ."					+ newline;
+		query += "?sourceInstitutionURI rim:hasName ?sourceInstitution ."			+ newline;
+		query += "?targetInstitutionURI rim:hasName ?targetInstitution ."			+ newline;
+		query += "?personURI rim:hasLastName ?person ."								+ newline;
+		
+		query += "filter(?sourceProjectURI != ?targetProjectURI)"							+ newline;
 		query += "}"																+ newline;
 		query += "union"															+ newline;
 		query += "{"																+ newline;		
-		query += "?sourceProject rim:hasProjectMember ?person ."					+ newline;
-		query += "?sourceProject rim:hasHostingInstitution ?sourceInstitution ." 	+ newline;
-		query += "?targetProject rim:hasProjectMember ?person ."					+ newline;
-		query += "?targetProject rim:hasHostingInstitution ?targetInstitution ."	+ newline;
-		query += "filter(?sourceInstitution != ?targetInstituiton)"					+ newline;
+		query += "?sourceProjectURI rim:hasProjectMember ?personURI ."					+ newline;
+		query += "?sourceProjectURI rim:hasHostingInstitution ?sourceInstitutionURI ." 	+ newline;
+		query += "?targetProjectURI rim:hasProjectMember ?personURI ."					+ newline;
+		query += "?targetProjectURI rim:hasHostingInstitution ?targetInstitutionURI ."	+ newline;
+
+		query += "?sourceProjectURI rim:hasTitle ?sourceProject ."					+ newline;
+		query += "?targetProjectURI rim:hasTitle ?targetProject ."					+ newline;
+		query += "?sourceInstitutionURI rim:hasName ?sourceInstitution ."			+ newline;
+		query += "?targetInstitutionURI rim:hasName ?targetInstitution ."			+ newline;
+		query += "?personURI rim:hasLastName ?person ."								+ newline;
+		
+		query += "filter(?sourceInstitutionURI != ?targetInstitutionURI)"					+ newline;
 		query += "}"																+ newline;
-		query += "filter(?person != <http://vlc.cybershare.utep.edu/filtered-projects.owl#nullnamenullname>)"
+		query += "filter(?personURI != <http://vlc.cybershare.utep.edu/filtered-projects.owl#nullnamenullname>)"
 																					+ newline;
 		query += "}"																+ newline;
 		return query;
+	}
+	
+	public static void main(String[] args){
+		System.out.println(SparqlQueries.getProjects2ProjectsByPeople());
+		System.out.println(SparqlQueries.getInstitutions2InstitutionsByProjects());
 	}
 }
