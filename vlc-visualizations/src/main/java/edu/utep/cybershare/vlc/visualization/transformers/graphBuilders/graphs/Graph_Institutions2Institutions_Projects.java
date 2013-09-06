@@ -86,24 +86,16 @@ public class Graph_Institutions2Institutions_Projects {
 		InstitutionLink institutionLink;
 		JSONArray jsonLinks = new JSONArray();
 		JSONObject jsonLink;
-		JSONObject jsonLinkReversed;
 		for(int i = 0; i < links.size(); i ++){
 			institutionLink = links.get(i);
 			jsonLink = new JSONObject();
-			jsonLinkReversed = new JSONObject();
 			try{				
 				jsonLink.put("source", institutionLink.getSourceInstitution().getIndex());
 				jsonLink.put("target", institutionLink.getTargetInstitution().getIndex());
 				jsonLink.put("location", "");
 				jsonLink.put("projects", new JSONArray(institutionLink.getCommonProjectNames()));
 
-				jsonLinkReversed.put("source", institutionLink.getTargetInstitution().getIndex());
-				jsonLinkReversed.put("target", institutionLink.getSourceInstitution().getIndex());
-				jsonLinkReversed.put("location", "");
-				jsonLinkReversed.put("projects", new JSONArray(institutionLink.getCommonProjectNames()));				
-				
 				jsonLinks.put(i, jsonLink);
-				jsonLinks.put(links.size() + i, jsonLinkReversed);
 			}catch(Exception e){e.printStackTrace();}
 		}
 		return jsonLinks; 
