@@ -15,6 +15,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import edu.utep.cybershare.vlc.sources.XMLSet_NSF;
+import edu.utep.cybershare.vlc.util.NSFAwardsUtils;
 
 public class Director_NSFProjects {
 	
