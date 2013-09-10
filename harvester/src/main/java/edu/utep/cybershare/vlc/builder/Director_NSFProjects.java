@@ -14,8 +14,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import edu.utep.cybershare.vlc.sources.XMLSet;
-import edu.utep.cybershare.vlc.sources.nsf.NSFAwardsUtils;
+import edu.utep.cybershare.vlc.sources.XMLSet_NSF;
 
 public class Director_NSFProjects {
 	
@@ -25,7 +24,7 @@ public class Director_NSFProjects {
 		this.builder = builder;
 	}
 	
-	public void construct(XMLSet awardsXML){
+	public void construct(XMLSet_NSF awardsXML){
 		DocumentBuilderFactory dbFactory;
 		DocumentBuilder dBuilder;
 		Document awardsDoc;
