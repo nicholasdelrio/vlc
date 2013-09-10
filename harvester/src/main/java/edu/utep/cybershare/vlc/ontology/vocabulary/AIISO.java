@@ -1,6 +1,7 @@
 package edu.utep.cybershare.vlc.ontology.vocabulary;
 
 /**
+ * Academic Institution Internal Structure Ontology (AIISO)
  * <a href="http://vocab.org/aiiso/schema#term-Institution">http://vocab.org/aiiso/schema#term-Institution</a>
  * @author Nicholas Del Rio
  *
@@ -8,8 +9,8 @@ package edu.utep.cybershare.vlc.ontology.vocabulary;
 
 public class AIISO {
 	
-	public static final String NAMESPACE = "http://purl.org/vocab/aiiso/schema#";
+	public static final String NAMESPACE = "http://purl.org/vocab/aiiso/schema";
 
 	// Classes
-	public static final String Institution = NAMESPACE + "Institution";
+	public static final String Institution = NAMESPACE + "#Institution";
 }

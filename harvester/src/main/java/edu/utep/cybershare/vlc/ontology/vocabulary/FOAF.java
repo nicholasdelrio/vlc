@@ -9,9 +9,12 @@ package edu.utep.cybershare.vlc.ontology.vocabulary;
 
 public class FOAF {
 
-	public static final String NAMESPACE = "http://xmlns.com/foaf/0.1/";
+	public static final String NAMESPACE = "http://xmlns.com/foaf/0.1";
 	
-	// Data Properties
-	public static final String DATA_PROPERTY_homepage = NAMESPACE + "homepage";
+	// Classes
+	public static final String CLASS_Person = NAMESPACE + "/Person";
+	
+	// Object Properties
+	public static final String OBJECT_PROPERTY_homepage = NAMESPACE + "/homepage";
 	
 }
