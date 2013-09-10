@@ -17,11 +17,11 @@ import org.w3c.dom.NodeList;
 import edu.utep.cybershare.vlc.sources.XMLSet_NSF;
 import edu.utep.cybershare.vlc.util.NSFAwardsUtils;
 
-public class Director_NSFProjects {
+public class NSFDirector {
 	
 	private Builder builder;
 	
-	public Director_NSFProjects(Builder builder){
+	public NSFDirector(Builder builder){
 		this.builder = builder;
 	}
 	

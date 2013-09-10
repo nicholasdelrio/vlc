@@ -11,7 +11,7 @@ import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
 
-public class Builder_NSFProjects implements Builder {
+public class NSFBuilder implements Builder {
 
 	private static URI dbpediaResource;
 	
@@ -26,7 +26,7 @@ public class Builder_NSFProjects implements Builder {
 	private URI discipline;
 	private URI subject;
 			
-	public Builder_NSFProjects(){
+	public NSFBuilder(){
 		try{dbpediaResource = new URI("http://dbpedia.org/resource/");}
 		catch(Exception e){e.printStackTrace();}
 		
