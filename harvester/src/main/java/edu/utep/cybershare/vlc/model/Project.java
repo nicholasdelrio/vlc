@@ -1,5 +1,6 @@
 package edu.utep.cybershare.vlc.model;
 
+import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -18,6 +19,7 @@ public class Project extends Resource {
 	private HashMap<String, Institution> hostingInstitutions;
 	private int awardAmount;
 	private URL awardHomepage;
+	private URI subject;
 
 	// VLC specific properties
 	private HashMap<String, Resource> relatedWorks;
@@ -119,5 +121,13 @@ public class Project extends Resource {
 	}
 	public void addResult(Resource resource){
 		this.results.put(resource.getIdentification(), resource);
+	}
+
+	public URI getSubject() {
+		return subject;
+	}
+
+	public void setSubject(URI subject) {
+		this.subject = subject;
 	}
 }

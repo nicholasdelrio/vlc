@@ -6,7 +6,7 @@ public class Institution extends Element {
 	private Coordinate coordinate;
 	private String city;
 	private String address;
-	private String aipCode;
+	private String zipCode;
 	private String state;
 	
 	public Institution(String name){
@@ -38,12 +38,12 @@ public class Institution extends Element {
 		this.address = address;
 	}
 
-	public String getAipCode() {
-		return aipCode;
+	public String getZipCode() {
+		return zipCode;
 	}
 
-	public void setAipCode(String aipCode) {
-		this.aipCode = aipCode;
+	public void seTZipCode(String aipCode) {
+		this.zipCode = aipCode;
 	}
 
 	public String getState() {

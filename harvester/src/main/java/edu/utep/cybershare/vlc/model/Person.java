@@ -14,7 +14,7 @@ public class Person extends Agent {
 	private String lastName;
 	private String email;
 		
-	public Person(String lastName, String firstName){
+	public Person(String firstName, String lastName){
 		super(getProperName(lastName, firstName));
 		
 		this.lastName = lastName;
