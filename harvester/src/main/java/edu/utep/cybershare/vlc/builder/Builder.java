@@ -2,6 +2,7 @@ package edu.utep.cybershare.vlc.builder;
 
 import java.net.URL;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import edu.utep.cybershare.vlc.model.Project;
 
@@ -12,7 +13,7 @@ public interface Builder {
 	public void buildInstitution(String name, String city, String state, String zip, String street);
 	public void buildCoPrincipalInvestigator(String firstName, String lastName);
 	public void buildPrincipalInvestigator(String firstName, String lastName);
-	public Project buildProject(
+	public void buildProject(
 			String title,
 			String summary,
 			GregorianCalendar startDate,
@@ -20,4 +21,6 @@ public interface Builder {
 			int awardAmount,
 			String grantIdentification,
 			URL awardHomepage);
+	
+	public List<Project> getResult();
 }

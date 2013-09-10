@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.Hashtable;
+import java.util.List;
 
 import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.model.Person;
@@ -24,7 +25,7 @@ public class Builder_NSFProjects implements Builder {
 	private Institution institution;
 	private URI discipline;
 	private URI subject;
-		
+			
 	public Builder_NSFProjects(){
 		try{dbpediaResource = new URI("http://dbpedia.org/resource/");}
 		catch(Exception e){e.printStackTrace();}
@@ -58,7 +59,7 @@ public class Builder_NSFProjects implements Builder {
 		this.principalInvestigator = this.getPerson(firstName, lastName);
 	}
 	
-	public Project buildProject(
+	public void buildProject(
 			String title,
 			String summary,
 			GregorianCalendar startDate,
@@ -81,9 +82,12 @@ public class Builder_NSFProjects implements Builder {
 			projects.put(project.getIdentification(), project);
 		}
 		
-		this.populateWithBuiltParts(project);
-		return project;
+		populateWithBuiltParts(project);
 	}	
+	
+	public List<Project> getResult(){
+		return new ArrayList<Project>(projects.values());
+	}
 	
 	private URI getDBPediaResource(String name){
 		String resourceURIString = dbpediaResource + name;
