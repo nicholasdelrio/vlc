@@ -3,7 +3,7 @@ package edu.utep.cybershare.vlc.model;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
+import edu.utep.cybershare.vlc.visitor.Visitor;
 public class Resource extends Element {
 	
 	private HashMap<String, Resource> relatedResources;
@@ -31,5 +31,9 @@ public class Resource extends Element {
 	}
 	public void addInfluencedResource(Resource project){
 		this.influencedResources.put(project.getIdentification(), project);
+	}
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
 	}
 }

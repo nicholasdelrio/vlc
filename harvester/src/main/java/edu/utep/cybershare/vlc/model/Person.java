@@ -4,7 +4,7 @@ package edu.utep.cybershare.vlc.model;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
+import edu.utep.cybershare.vlc.visitor.Visitor;
 public class Person extends Agent {
 	
 	private HashMap<String, Institution> affiliatedInstitutions;
@@ -83,5 +83,9 @@ public class Person extends Agent {
 	
 	public void addAffiliatedOrganization(Organization organization){
 		this.affiliatedOrganizations.put(organization.getIdentification(), organization);
+	}
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
 	}
 }

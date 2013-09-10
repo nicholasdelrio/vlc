@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
-
+import edu.utep.cybershare.vlc.visitor.Visitor;
 public class Project extends Resource {
 
 	private String grantIdentification;
@@ -129,5 +129,9 @@ public class Project extends Resource {
 
 	public void setSubject(URI subject) {
 		this.subject = subject;
+	}
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
 	}
 }

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import edu.utep.cybershare.vlc.visitor.Visitor;
+
 public class Agent extends Element{
 
 	private HashMap<String, Agent> influencedAgents;
@@ -70,5 +72,10 @@ public class Agent extends Element{
 	
 	public void addDiscipline(URI uri){
 		this.disciplines.put(uri.toASCIIString(), uri);
+	}
+
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
 	}
 }

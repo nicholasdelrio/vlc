@@ -1,5 +1,7 @@
 package edu.utep.cybershare.vlc.model;
 
+import edu.utep.cybershare.vlc.visitor.Visitor;
+
 
 public class Institution extends Element {
 	
@@ -52,5 +54,44 @@ public class Institution extends Element {
 
 	public void setState(String state) {
 		this.state = state;
-	}	
+	}
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
+	}
+	
+	public static class Coordinate {
+		private double x;
+		private double y;
+		
+		public Coordinate(double x, double y){
+			this.x = x;
+			this.y = y;
+		}
+		
+		public Coordinate(){
+			this.x = 0;
+			this.y = 0;
+		}
+		
+		public void setX(double x){
+			this.x = x;
+		}
+		
+		public void setY(double y){
+			this.y = y;
+		}
+		
+		public double getX(){
+			return x;
+		}
+		
+		public double getY(){
+			return y;
+		}
+		
+		public String toString(){
+			return "x = " + x + ", y = " + y;
+		}
+	}
 }

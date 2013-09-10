@@ -2,7 +2,9 @@ package edu.utep.cybershare.vlc.model;
 
 import java.util.ArrayList;
 
-public class Element {
+import edu.utep.cybershare.vlc.visitor.Visitor;
+
+public abstract class Element {
 	
 	private static ArrayList<String> names = new ArrayList<String>(); 
 	
@@ -24,4 +26,6 @@ public class Element {
 	public void setIdentification(String identification) {
 		this.identification = identification;
 	}
+	
+	public abstract void accept(Visitor visitor);
 }
