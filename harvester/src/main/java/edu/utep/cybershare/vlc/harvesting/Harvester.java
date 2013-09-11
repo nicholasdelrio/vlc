@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.utep.cybershare.vlc.geocoding.InstitutionCSV;
-import edu.utep.cybershare.vlc.ontology.Project;
+import edu.utep.cybershare.vlc.model.Project;
 import edu.utep.cybershare.vlc.ontology.axioms.AxiomSetter;
 import edu.utep.cybershare.vlc.ontology.axioms.OntologyToolset;
 import edu.utep.cybershare.vlc.ontology.axioms.ProjectAxioms;

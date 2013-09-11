@@ -13,13 +13,13 @@ public class Project extends Resource {
 	private Person principalInvestigator;
 	private HashMap<String, Person> coPrincipalInvestigators;	
 	private String title;
-	private String summary;
+	private String abstractText;
 	private GregorianCalendar startDate;
 	private GregorianCalendar endDate;
 	private HashMap<String, Institution> hostingInstitutions;
 	private int awardAmount;
 	private URL awardHomepage;
-	private URI subject;
+	private URL projectHomePage;
 
 	// VLC specific properties
 	private HashMap<String, Resource> relatedWorks;
@@ -28,9 +28,26 @@ public class Project extends Resource {
 	public Project(String title) {
 		super(title);
 		this.title = title;
+		
 		coPrincipalInvestigators = new HashMap<String, Person>();
 		hostingInstitutions = new HashMap<String, Institution>(); 
+		relatedWorks = new HashMap<String, Resource>();
+		results = new HashMap<String, Resource>();
 	}
+	
+	public boolean isSet_grantIdentification(){return this.getGrantIdentification() != null;}
+	public boolean isSet_principalInvestigator(){return this.getPrincipalInvestigator() != null;}
+	public boolean isSet_coPrincipalInvestigators(){return this.getCoPrincipalInvestigators().size() > 0;}
+	public boolean isSet_title(){return this.getTitle() != null;}
+	public boolean isSet_abstractText(){return this.getAbstractText() != null;}
+	public boolean isSet_startDate(){return this.getStartDate() != null;}
+	public boolean isSet_endDate(){return this.getEndDate() != null;}
+	public boolean isSet_hostingInstitutions(){return this.getHostingInstitutions().size() > 0;}
+	public boolean isSet_awardAmount(){return this.getAwardAmount() != 0;}
+	public boolean isSet_awardHomepage(){return this.awardHomepage != null;}
+	public boolean isSet_projectHomePage(){return this.projectHomePage != null;}
+	public boolean isSet_relatedWorks(){return this.getRelatedWorks().size() > 0;}
+	public boolean isSet_results(){return this.getResults().size() > 0;}
 	
 	public String getGrantIdentification() {
 		return grantIdentification;
@@ -62,14 +79,14 @@ public class Project extends Resource {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getSummary() {
-		if(summary == null || summary.isEmpty())
-			return "Null Summary";
+	public String getAbstractText() {
+		if(abstractText == null || abstractText.isEmpty())
+			return "Null Abstract";
 		
-		return summary;
+		return abstractText;
 	}
-	public void setSummary(String summary) {
-		this.summary = summary;
+	public void setAbstractText(String summary) {
+		this.abstractText = summary;
 	}
 	public GregorianCalendar getStartDate() {
 		return startDate;
@@ -122,13 +139,12 @@ public class Project extends Resource {
 	public void addResult(Resource resource){
 		this.results.put(resource.getIdentification(), resource);
 	}
-
-	public URI getSubject() {
-		return subject;
+	public URL getProjectHomePage() {
+		return projectHomePage;
 	}
 
-	public void setSubject(URI subject) {
-		this.subject = subject;
+	public void setProjectHomePage(URL projectHomePage) {
+		this.projectHomePage = projectHomePage;
 	}
 	@Override
 	public void accept(Visitor visitor) {

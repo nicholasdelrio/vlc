@@ -1,10 +1,8 @@
 package edu.utep.cybershare.vlc.builder;
 
+
 import java.net.URL;
 import java.util.GregorianCalendar;
-import java.util.List;
-
-import edu.utep.cybershare.vlc.model.Project;
 
 public interface Builder {
 
@@ -22,5 +20,5 @@ public interface Builder {
 			String grantIdentification,
 			URL awardHomepage);
 	
-	public List<Project> getResult();
+	public ModelProduct getResult();
 }

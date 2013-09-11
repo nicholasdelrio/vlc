@@ -22,6 +22,11 @@ public class Agent extends Element{
 		disciplines = new HashMap<String, URI>();
 	}
 
+	public boolean isSet_influencedAgents(){return this.getInfluencedAgents().size() > 0;}
+	public boolean isSet_relatedAgenets(){return this.getRelatedAgents().size() > 0;}
+	public boolean isSet_contributedResources(){return this.getContributedResources().size() > 0;}
+	public boolean isSet_disciplines(){return this.getDisciplines().size() > 0;}
+	
 	public List<Agent> getInfluencedAgents() {
 		return new ArrayList<Agent>(influencedAgents.values());
 	}

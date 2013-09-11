@@ -26,7 +26,7 @@ public class OWLVisitor implements Visitor {
 	
 	public void visit(Project project) {
 		OWLNamedIndividual individual = Individuals.getIndividual(project.getIdentification(), bundle);
-		ProjectAxioms projectAxioms = new ProjectAxioms(individual, bundle);
+		ProjectAxioms projectAxioms = new ProjectAxioms(project, individual, bundle);
 	}
 
 	public void visit(Institution institution) {

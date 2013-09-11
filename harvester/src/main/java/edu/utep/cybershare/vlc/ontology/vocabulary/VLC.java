@@ -17,6 +17,7 @@ public class VLC extends Vocabulary{
 	public static final String OWLObjectProperty_hasRelatedWork = NAMESPACE + "#hasRelatedWork";
 	public static final String OWLObjectProperty_hasResultantWork = NAMESPACE + "#hasResultantWork";
 	public static final String OWLObjectProperty_affiliatedWithInstitution = NAMESPACE + "#affiliatedWithInstitution";
+	public static final String OWLObjectProperty_hasDiscipline = NAMESPACE + "#hasDiscipline";
 	
 	// Data Properties
 	public static final String OWLDataProperty_hasGrantAmount = NAMESPACE + "#hasGrantAmount";
@@ -54,6 +55,9 @@ public class VLC extends Vocabulary{
 	}
 	public OWLObjectProperty getOWLObjectProperty_affiliatedWithInstitution(){
 		return factory.getOWLObjectProperty(IRI.create(OWLObjectProperty_affiliatedWithInstitution));
+	}
+	public OWLObjectProperty getOWLObjectProperty_hasDiscipline(){
+		return factory.getOWLObjectProperty(IRI.create(OWLObjectProperty_hasDiscipline));
 	}
 	
 	public OWLDataProperty getOWLDataProperty_hasGrantAmount(){

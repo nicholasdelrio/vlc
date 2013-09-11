@@ -12,8 +12,8 @@ import java.util.List;
 
 import au.com.bytecode.opencsv.CSVReader;
 import au.com.bytecode.opencsv.CSVWriter;
-import edu.utep.cybershare.vlc.ontology.Person;
-import edu.utep.cybershare.vlc.ontology.Project;
+import edu.utep.cybershare.vlc.model.Person;
+import edu.utep.cybershare.vlc.model.Project;
 
 public class FilteredProjects {
 	

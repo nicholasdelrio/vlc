@@ -20,7 +20,7 @@ public class FOAF extends Vocabulary {
 	public static final String OWLClass_Person = NAMESPACE + "/Person";
 	
 	// Data Properties
-	public static final String OWLObjectProperty_homepage = NAMESPACE + "/homepage";
+	public static final String OWLDataProperty_homepage = NAMESPACE + "/homepage";
 	
 	public FOAF(OWLDataFactory factory){
 		super(factory);
@@ -30,6 +30,6 @@ public class FOAF extends Vocabulary {
 		return factory.getOWLClass(IRI.create(OWLClass_Person));
 	}
 	public OWLDataProperty getOWLObjectProperty_homepage(){
-		return factory.getOWLDataProperty(IRI.create(OWLObjectProperty_homepage));
+		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_homepage));
 	}
 }

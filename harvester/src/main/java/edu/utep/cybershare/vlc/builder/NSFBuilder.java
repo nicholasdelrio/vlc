@@ -4,8 +4,6 @@ import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
-import java.util.Hashtable;
-import java.util.List;
 
 import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.model.Person;
@@ -15,38 +13,37 @@ public class NSFBuilder implements Builder {
 
 	private static URI dbpediaResource;
 	
-	private static Hashtable<String, Person> people = new Hashtable<String,Person>();
-	private static Hashtable<String, Project> projects = new Hashtable<String,Project>();	
-	private static Hashtable<String, Institution> institutions = new Hashtable<String, Institution>();
-	private static Hashtable<String, URI> dbpediaResources = new Hashtable<String, URI>();
-	
 	private ArrayList<Person> coPrincipalInvestigators;
 	private Person principalInvestigator;
 	private Institution institution;
-	private URI discipline;
-	private URI subject;
-			
+	private ArrayList<URI> disciplines;
+	private ArrayList<URI> subjects;
+	
+	private ModelProduct product;
+	
 	public NSFBuilder(){
 		try{dbpediaResource = new URI("http://dbpedia.org/resource/");}
 		catch(Exception e){e.printStackTrace();}
 		
 		coPrincipalInvestigators = new ArrayList<Person>();
+		
+		product = new ModelProduct();
 	}
 	
 	public void buildDiscipline(String name){
-		this.discipline = getDBPediaResource(name);
+		this.disciplines.add(getDBPediaResource(name));
 	}	
 	public void buildSubject(String name){
-		this.subject = getDBPediaResource(name);
+		this.subjects.add(getDBPediaResource(name));
 	}
 	public void buildInstitution(String name, String city, String state, String zip, String address){
-		Institution institution = institutions.get(name);
+		Institution institution = product.getInstitution(name);
 		if(institution == null){
 			institution = new Institution(name);
 			institution.setAddress(address);
 			institution.setCity(city);
 			institution.setState(state);
-			institutions.put(institution.getIdentification(), institution);
+			product.addInstitution(institution);
 		}
 		this.institution = institution;
 	}
@@ -68,35 +65,35 @@ public class NSFBuilder implements Builder {
 			String grantIdentification,
 			URL awardHomepage){
 		
-		Project project = projects.get(title);
+		Project project = product.getProject(title);
 		
 		if(project == null){
 			project = new Project(title);
-			project.setSummary(summary);
+			project.setAbstractText(summary);
 			project.setAwardAmount(awardAmount);
 			project.setStartDate(startDate);
 			project.setEndDate(endDate);
 			project.setGrantIdentification(grantIdentification);
 			project.setAwardHomepage(awardHomepage);
 	
-			projects.put(project.getIdentification(), project);
+			product.addProject(project);
 		}
 		
 		populateWithBuiltParts(project);
 	}	
 	
-	public List<Project> getResult(){
-		return new ArrayList<Project>(projects.values());
+	public ModelProduct getResult(){
+		return product;
 	}
 	
 	private URI getDBPediaResource(String name){
 		String resourceURIString = dbpediaResource + name;
-		URI dbpediaResourceURI = dbpediaResources.get(resourceURIString);
+		URI dbpediaResourceURI = product.getDBPediaResource(resourceURIString);
 		
 		if(dbpediaResourceURI == null)
 			try{
 				dbpediaResourceURI = new URI(resourceURIString);
-				dbpediaResources.put(dbpediaResourceURI.toASCIIString(), dbpediaResourceURI);
+				product.addDBPediaResource(dbpediaResourceURI);
 			}
 			catch(Exception e){e.printStackTrace();}
 		
@@ -113,21 +110,27 @@ public class NSFBuilder implements Builder {
 		for(Person coPrincipalInvestigator : this.coPrincipalInvestigators)
 			project.addCoPrincipalInvestigator(coPrincipalInvestigator);
 		
-		project.setSubject(subject);
+		for(URI subject : subjects)
+			project.addSubject(subject);
 	}
 	
 	private Person getPerson(String firstName, String lastName){
 		Person person = new Person(firstName, lastName);
-		person = people.get(person.getIdentification());
+		person = product.getPerson(person.getIdentification());
 
 		if(person == null){
 			person = new Person(firstName, lastName);
-			person.addDiscipline(discipline);
+			
+			for(URI discipline :disciplines)
+				person.addDiscipline(discipline);
+
 			person.addAffiliatedInstitution(institution);
-			people.put(person.getIdentification(), person);
+			product.addPerson(person);
 		}
 		else{
-			person.addDiscipline(discipline);
+			for(URI discipline : disciplines)
+				person.addDiscipline(discipline);
+			
 			person.addAffiliatedInstitution(institution);
 		}
 		return person;

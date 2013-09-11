@@ -9,16 +9,15 @@ import java.util.Hashtable;
 import java.util.List;
 
 import au.com.bytecode.opencsv.CSVReader;
-
-import edu.utep.cybershare.vlc.ontology.Institution;
-import edu.utep.cybershare.vlc.ontology.Point;
+import edu.utep.cybershare.vlc.model.Institution;
+import edu.utep.cybershare.vlc.model.Coordinate;
 import edu.utep.cybershare.vlc.sources.ProjectSource;
 import edu.utep.cybershare.vlc.sources.nsf.NSFAwards;
 
 public class InstitutionCSV {
 
 	private List<Institution> institutions;
-	private Hashtable<String, Point> institutionToCoordinates;
+	private Hashtable<String, Coordinate> institutionToCoordinates;
 	
 	public InstitutionCSV(List<Institution> institutions){
 		this.institutions = institutions;
@@ -27,7 +26,7 @@ public class InstitutionCSV {
 	public InstitutionCSV(){
 		File csvFile = new File("./output-institutions/institutions-geocoded.csv");
 		
-	    institutionToCoordinates = new Hashtable <String, Point>();
+	    institutionToCoordinates = new Hashtable <String, Coordinate>();
 		
 		try{
 			CSVReader reader = new CSVReader(new FileReader(csvFile));
@@ -42,7 +41,7 @@ public class InstitutionCSV {
 		    	name = record[4];
 				lat = Double.valueOf(record[29]);
 		    	lon = Double.valueOf(record[30]);
-		    	institutionToCoordinates.put(name, new Point(lon, lat));
+		    	institutionToCoordinates.put(name, new Coordinate(lon, lat));
 		    }
 			reader.close();
 		}catch(Exception e){e.printStackTrace();}
@@ -50,7 +49,7 @@ public class InstitutionCSV {
 	
 	public void setInstitutionCoordinates(List<Institution> institutions){
 		String name;
-		Point coordinates;
+		Coordinate coordinates;
 		for(Institution anInstitution : institutions){
 			name = anInstitution.getHasName();
 			coordinates = getCoordinates(name);
@@ -59,9 +58,9 @@ public class InstitutionCSV {
 		}
 	}
 	
-	private Point getCoordinates(String institutionName){
+	private Coordinate getCoordinates(String institutionName){
 		String cleanedName = institutionName.replaceAll(",", " ");
-		Point coordinates = institutionToCoordinates.get(cleanedName);
+		Coordinate coordinates = institutionToCoordinates.get(cleanedName);
 		
 		if(coordinates != null)
 			return coordinates;

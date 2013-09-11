@@ -24,6 +24,11 @@ public class Person extends Agent {
 		affiliatedOrganizations = new HashMap<String, Organization>();
 	}
 	
+	public boolean isSet_affiliatedInstitutions(){return this.getAffiliatedInstitutions().size() > 0;}
+	public boolean isSet_affiliatedOrganizations(){return this.getAffiliatedOrganizations().size() > 0;}
+	public boolean isSet_firstName(){return this.getFirstName() != null;}
+	public boolean isSet_lastName(){return this.getLastName() != null;}
+	
 	private static String getProperName(String lastName, String firstName){
 		String properName = null;
 		if(lastName != null && firstName != null)

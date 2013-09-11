@@ -12,8 +12,8 @@ import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.PostMethod;
 
-import edu.utep.cybershare.vlc.ontology.Person;
-import edu.utep.cybershare.vlc.ontology.Project;
+import edu.utep.cybershare.vlc.model.Person;
+import edu.utep.cybershare.vlc.model.Project;
 
 public class VLCProjectsUploader {
 	

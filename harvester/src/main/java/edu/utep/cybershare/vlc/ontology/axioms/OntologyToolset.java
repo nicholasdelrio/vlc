@@ -11,6 +11,8 @@ import org.semanticweb.owlapi.model.OWLImportsDeclaration;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
+import edu.utep.cybershare.vlc.ontology.vocabulary.VLC;
+
 public class OntologyToolset {
 	private OWLDataFactory dataFactory;
 	private OWLOntology ontology;
@@ -29,7 +31,7 @@ public class OntologyToolset {
 	}
 	
 	private void importVLCOntology(){
-		IRI vlcOntologyIRI = IRI.create(Vocabulary.VLC_ONTOLOGY_IRI);
+		IRI vlcOntologyIRI = IRI.create(VLC.VLC_ONTOLOGY_IRI);
 		OWLImportsDeclaration vlcImportDeclaration = dataFactory.getOWLImportsDeclaration(vlcOntologyIRI);
 		AddImport addVLCImport = new AddImport(ontology, vlcImportDeclaration);
 		ontologyManager.applyChange(addVLCImport);
