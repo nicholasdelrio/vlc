@@ -14,6 +14,8 @@ import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
 import edu.utep.cybershare.vlc.model.Resource;
+import edu.utep.cybershare.vlc.ontology.Individuals;
+import edu.utep.cybershare.vlc.ontology.OntologyToolset;
 import edu.utep.cybershare.vlc.ontology.vocabulary.ARPFO;
 import edu.utep.cybershare.vlc.ontology.vocabulary.DCMI;
 import edu.utep.cybershare.vlc.ontology.vocabulary.FOAF;
@@ -36,7 +38,7 @@ public class ProjectAxioms extends Axioms{
 	
 	@Override
 	protected void addAxioms() {
-		this.addTypeAssertion(this.vocabulary_ARPFO.getOWLClass_Project());
+		this.addType(this.vocabulary_ARPFO.getOWLClass_Project());
 		this.addTitleAssertion();
 		this.addAbstract();
 		this.addStartDate();
@@ -60,7 +62,7 @@ public class ProjectAxioms extends Axioms{
 		
 	private void addTitleAssertion(){
 		if(project.isSet_title()){
-			OWLLiteral titleLiteral = bundle.getDataFactory().getOWLLiteral(NSFAwardsUtils.removeIllegalCharacters(project.getTitle()), this.vocabulary_XSD.getDataType_string());
+			OWLLiteral titleLiteral = bundle.getDataFactory().getOWLLiteral(NSFAwardsUtils.removeIllegalCharacters(project.getTitle()));
 			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_DCMI.getOWLDataProperty_title(), individual, titleLiteral);
 			add(assertion);
 		}
@@ -68,7 +70,7 @@ public class ProjectAxioms extends Axioms{
 	
 	private void addAbstract(){
 		if(project.isSet_abstractText()){
-			OWLLiteral abstractLiteral = bundle.getDataFactory().getOWLLiteral(NSFAwardsUtils.removeIllegalCharacters(project.getAbstractText()), this.vocabulary_XSD.getDataType_string());
+			OWLLiteral abstractLiteral = bundle.getDataFactory().getOWLLiteral(NSFAwardsUtils.removeIllegalCharacters(project.getAbstractText()));
 			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_ARPFO.getOWLDataProperty_statedPurpose(), individual, abstractLiteral);
 			add(assertion);
 		}
@@ -128,7 +130,7 @@ public class ProjectAxioms extends Axioms{
 	
 	private void addGrantIdentification(){
 		if(project.isSet_grantIdentification()){
-			OWLLiteral grantIdentificationLiteral = bundle.getDataFactory().getOWLLiteral(project.getGrantIdentification(), this.vocabulary_XSD.getDataType_string());
+			OWLLiteral grantIdentificationLiteral = bundle.getDataFactory().getOWLLiteral(project.getGrantIdentification());
 			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_ARPFO.getOWLDataProperty_grantNumber(), individual, grantIdentificationLiteral);
 			add(assertion);
 		}
@@ -136,7 +138,7 @@ public class ProjectAxioms extends Axioms{
 	
 	public void addAwardAmount(){
 		if(project.isSet_awardAmount()){
-			OWLLiteral grantAmountLiteral = bundle.getDataFactory().getOWLLiteral(project.getGrantIdentification(), this.vocabulary_XSD.getDataType_integer());
+			OWLLiteral grantAmountLiteral = bundle.getDataFactory().getOWLLiteral(project.getAwardAmount());
 			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_VLC.getOWLDataProperty_hasGrantAmount(), individual, grantAmountLiteral);
 			add(assertion);			
 		}

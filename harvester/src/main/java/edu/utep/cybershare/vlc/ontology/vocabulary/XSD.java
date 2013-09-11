@@ -18,9 +18,6 @@ public class XSD extends Vocabulary {
 	// Data Types
 	public static final String Datatype_dateTime = NAMESPACE + "#dateTime";
 	public static final String Datatype_anyURI = NAMESPACE + "#anyURI";
-	public static final String Datatype_integer = NAMESPACE + "#integer";
-	public static final String Datatype_string = NAMESPACE + "#string";
-	public static final String Datatype_double = NAMESPACE + "#double";
 
 	public XSD(OWLDataFactory dataFactory) {
 		super(dataFactory);
@@ -31,15 +28,6 @@ public class XSD extends Vocabulary {
 	}	
 	public OWLDatatype getDataType_anyURI(){
 		return factory.getOWLDatatype(IRI.create(Datatype_anyURI));
-	}
-	public OWLDatatype getDataType_integer(){
-		return factory.getOWLDatatype(IRI.create(Datatype_integer));
-	}
-	public OWLDatatype getDataType_string(){
-		return factory.getOWLDatatype(IRI.create(Datatype_string));
-	}
-	public OWLDatatype getDataType_double(){
-		return factory.getOWLDatatype(IRI.create(Datatype_double));
 	}
 	@Override
 	public String getNamespace() {

@@ -16,6 +16,12 @@ public class Institution extends Element {
 		coordinate = new Coordinate(0,0);
 	}
 
+	public boolean isSet_coordinate(){return this.getCoordinate().getLongitude() != 0 && this.getCoordinate().getLatitude() != 0;}
+	public boolean isSet_city(){return this.getCity() != null;}
+	public boolean isSet_address(){return this.getAddress() != null;}
+	public boolean isSet_zipCode(){return this.getZipCode() != null;}
+	public boolean isSet_state(){return this.getState() != null;}
+	
 	public Coordinate getCoordinate() {
 		return coordinate;
 	}
@@ -61,37 +67,33 @@ public class Institution extends Element {
 	}
 	
 	public static class Coordinate {
-		private double x;
-		private double y;
+		private double lon;
+		private double lat;
 		
-		public Coordinate(double x, double y){
-			this.x = x;
-			this.y = y;
+		public Coordinate(double longitude, double latitude){
+			this.lon = longitude;
+			this.lat = latitude;
 		}
 		
 		public Coordinate(){
-			this.x = 0;
-			this.y = 0;
+			this.lon = 0;
+			this.lat = 0;
 		}
 		
-		public void setX(double x){
-			this.x = x;
+		public void setLongitude(double longitude){
+			this.lon = longitude;
 		}
 		
-		public void setY(double y){
-			this.y = y;
+		public void setLatitude(double latitude){
+			this.lat = latitude;
 		}
 		
-		public double getX(){
-			return x;
+		public double getLongitude(){
+			return lon;
 		}
 		
-		public double getY(){
-			return y;
-		}
-		
-		public String toString(){
-			return "x = " + x + ", y = " + y;
+		public double getLatitude(){
+			return lat;
 		}
 	}
 }

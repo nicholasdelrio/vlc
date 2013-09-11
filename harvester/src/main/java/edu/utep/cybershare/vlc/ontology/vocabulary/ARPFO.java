@@ -60,4 +60,10 @@ public class ARPFO extends Vocabulary {
 	public OWLObjectProperty getOWLObjectProperty_hasPrincipalInvestigator(){
 		return factory.getOWLObjectProperty(IRI.create(OWLObjectProperty_hasPrincipalInvestigator));
 	}
+
+	@Override
+	public String getNamespace() {
+		// TODO Auto-generated method stub
+		return NAMESPACE;
+	}
 }

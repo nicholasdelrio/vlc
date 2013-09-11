@@ -8,6 +8,7 @@ import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
+import edu.utep.cybershare.vlc.ontology.OntologyToolset;
 import edu.utep.cybershare.vlc.ontology.vocabulary.AIISO;
 import edu.utep.cybershare.vlc.ontology.vocabulary.ARPFO;
 import edu.utep.cybershare.vlc.ontology.vocabulary.DCMI;
@@ -55,7 +56,7 @@ public abstract class Axioms extends ArrayList<OWLAxiom> {
 		vocabulary_XSD = new XSD(dataFactory);
 	}
 		
-	protected void addTypeAssertion(OWLClass owlClass){
+	protected void addType(OWLClass owlClass){
 		OWLClassAssertionAxiom classAssertionAxiom = bundle.getDataFactory().getOWLClassAssertionAxiom(owlClass, individual);
 		add(classAssertionAxiom);
 	}	

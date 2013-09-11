@@ -34,5 +34,11 @@ public class DCMI extends Vocabulary {
 	}
 	public OWLDataProperty getOWLDataProperty_title(){
 		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_title));
+	}
+
+	@Override
+	public String getNamespace() {
+		// TODO Auto-generated method stub
+		return NAMESPACE;
 	}	
 }

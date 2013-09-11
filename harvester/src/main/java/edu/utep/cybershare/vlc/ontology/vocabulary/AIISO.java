@@ -17,12 +17,18 @@ public class AIISO extends Vocabulary {
 
 	// Classes
 	private static final String OWLClass_Institution = NAMESPACE + "#Institution";
-
+	
 	public AIISO(OWLDataFactory dataFactory) {
 		super(dataFactory);
 	}
 	
 	public OWLClass getOWLClass_Institution(){
 		return factory.getOWLClass(IRI.create(OWLClass_Institution));
+	}
+
+	@Override
+	public String getNamespace() {
+		// TODO Auto-generated method stub
+		return NAMESPACE;
 	}
 }

@@ -21,6 +21,9 @@ public class FOAF extends Vocabulary {
 	
 	// Data Properties
 	public static final String OWLDataProperty_homepage = NAMESPACE + "/homepage";
+	public static final String OWLDataProperty_firstName = NAMESPACE + "/firstName";
+	public static final String OWLDataProperty_lastName = NAMESPACE + "/lastName";
+	public static final String OWLDataProperty_name = NAMESPACE + "/name";
 	
 	public FOAF(OWLDataFactory factory){
 		super(factory);
@@ -31,5 +34,19 @@ public class FOAF extends Vocabulary {
 	}
 	public OWLDataProperty getOWLObjectProperty_homepage(){
 		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_homepage));
+	}
+	public OWLDataProperty getOWLDataProperty_firstName(){
+		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_firstName));
+	}
+	public OWLDataProperty getOWLDataProperty_lastName(){
+		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_lastName));
+	}
+	public OWLDataProperty getOWLDataProperty_name(){
+		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_name));
+	}
+	@Override
+	public String getNamespace() {
+		// TODO Auto-generated method stub
+		return NAMESPACE;
 	}
 }

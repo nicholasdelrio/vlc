@@ -1,6 +1,5 @@
 package edu.utep.cybershare.vlc.model;
 
-import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;

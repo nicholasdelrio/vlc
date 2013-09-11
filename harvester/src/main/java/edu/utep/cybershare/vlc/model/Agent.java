@@ -51,8 +51,8 @@ public class Agent extends Element{
 		this.relatedAgents.put(agent.getIdentification(), agent);
 	}
 	
-	public HashMap<String, Resource> getContributedResources() {
-		return contributedResources;
+	public List<Resource> getContributedResources() {
+		return new ArrayList<Resource>(contributedResources.values());
 	}
 
 	public void setContributedResources(HashMap<String, Resource> contributedResources) {

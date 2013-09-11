@@ -1,7 +1,5 @@
 package edu.utep.cybershare.vlc.ontology;
 
-import org.semanticweb.owlapi.model.AddAxiom;
-import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 import edu.utep.cybershare.vlc.model.Agent;
@@ -10,9 +8,8 @@ import edu.utep.cybershare.vlc.model.Organization;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
 import edu.utep.cybershare.vlc.model.Resource;
-import edu.utep.cybershare.vlc.ontology.axioms.Axioms;
-import edu.utep.cybershare.vlc.ontology.axioms.Individuals;
-import edu.utep.cybershare.vlc.ontology.axioms.OntologyToolset;
+import edu.utep.cybershare.vlc.ontology.axioms.InstitutionAxioms;
+import edu.utep.cybershare.vlc.ontology.axioms.PersonAxioms;
 import edu.utep.cybershare.vlc.ontology.axioms.ProjectAxioms;
 import edu.utep.cybershare.vlc.visitor.Visitor;
 
@@ -27,16 +24,19 @@ public class OWLVisitor implements Visitor {
 	public void visit(Project project) {
 		OWLNamedIndividual individual = Individuals.getIndividual(project.getIdentification(), bundle);
 		ProjectAxioms projectAxioms = new ProjectAxioms(project, individual, bundle);
+		bundle.addAxioms(projectAxioms);
 	}
 
 	public void visit(Institution institution) {
-		// TODO Auto-generated method stub
-		
+		OWLNamedIndividual individual = Individuals.getIndividual(institution.getIdentification(), bundle);
+		InstitutionAxioms projectAxioms = new InstitutionAxioms(institution, individual, bundle);
+		bundle.addAxioms(projectAxioms);		
 	}
 
 	public void visit(Person person) {
-		// TODO Auto-generated method stub
-		
+		OWLNamedIndividual individual = Individuals.getIndividual(person.getIdentification(), bundle);
+		PersonAxioms projectAxioms = new PersonAxioms(person, individual, bundle);
+		bundle.addAxioms(projectAxioms);		
 	}
 
 	public void visit(Organization organization) {
@@ -53,14 +53,4 @@ public class OWLVisitor implements Visitor {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	private void populateOntologyWithAxioms(Axioms axioms){
-		AddAxiom addAxiomChange;
-		for(OWLAxiom anAxiom : axioms){
-			addAxiomChange = new AddAxiom(bundle.getOntology(), anAxiom);
-			bundle.getOntologyManager().applyChange(addAxiomChange);
-		}
-	}
-
-
 }

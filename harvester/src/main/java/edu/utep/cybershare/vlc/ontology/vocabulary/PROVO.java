@@ -17,12 +17,22 @@ public class PROVO extends Vocabulary {
 	
 	// Object Properties
 	public static final String OWLObjectProperty_influenced = NAMESPACE + "/influenced";
+	public static final String OWLObjectProperty_contributed = NAMESPACE + "/contributed";
 
+	
 	public PROVO(OWLDataFactory dataFactory) {
 		super(dataFactory);
 		// TODO Auto-generated constructor stub
 	}
 	public OWLObjectProperty getOWLObjectProperty_influenced(){
 		return factory.getOWLObjectProperty(IRI.create(OWLObjectProperty_influenced));
+	}
+	public OWLObjectProperty getOWLObjectProperty_contributed(){
+		return factory.getOWLObjectProperty(IRI.create(OWLObjectProperty_contributed));
+	}
+	@Override
+	public String getNamespace() {
+		// TODO Auto-generated method stub
+		return NAMESPACE;
 	}
 }

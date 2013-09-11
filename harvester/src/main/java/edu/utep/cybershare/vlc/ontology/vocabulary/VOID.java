@@ -16,4 +16,10 @@ public class VOID extends Vocabulary {
 		super(dataFactory);
 		// TODO Auto-generated constructor stub
 	}
+
+	@Override
+	public String getNamespace() {
+		// TODO Auto-generated method stub
+		return NAMESPACE;
+	}
 }
