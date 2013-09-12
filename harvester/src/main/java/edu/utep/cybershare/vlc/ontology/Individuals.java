@@ -14,7 +14,8 @@ public class Individuals {
 	
 	public static boolean doesIndividualExist(Element element, OntologyToolset bundle){
 		String individualName = makeURICompliantFragment(element.getIdentification(), bundle);
-		return individuals.get(individualName) != null;
+		String individualIRI = bundle.getIndividualIRI(individualName);
+		return individuals.get(individualIRI) != null;
 	}
 	
 	public static OWLNamedIndividual getIndividual(URI uri, OntologyToolset bundle){
@@ -22,21 +23,19 @@ public class Individuals {
 	}
 	
 	public static OWLNamedIndividual getIndividual(Element element, OntologyToolset bundle){	
-		return getIndividual(element.getIdentification(), bundle);
+		String individualName = makeURICompliantFragment(element.getIdentification(), bundle);
+		String individualIRI = bundle.getIndividualIRI(individualName);
+		
+		return getIndividual(individualIRI, bundle);
 	}
 	
-	private static OWLNamedIndividual getIndividual(String id, OntologyToolset bundle){
-		String individualName = makeURICompliantFragment(id, bundle);
-		
-		OWLNamedIndividual individual = individuals.get(individualName);
-		IRI individualIRI;
+	private static OWLNamedIndividual getIndividual(String uri, OntologyToolset bundle){		
+		OWLNamedIndividual individual = individuals.get(uri);
 		
 		if(individual == null){
-			individualIRI = IRI.create(bundle.getIndividualIRI(individualName));
-			individual = bundle.getDataFactory().getOWLNamedIndividual(individualIRI);
-			individuals.put(individualName, individual);
+			individual = bundle.getDataFactory().getOWLNamedIndividual(IRI.create(uri));
+			individuals.put(uri, individual);
 		}
-		
 		return individual;
 	}
 		
