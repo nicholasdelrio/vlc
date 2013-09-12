@@ -9,8 +9,8 @@ public interface Builder {
 	public void buildDiscipline(String name);
 	public void buildSubject(String name);
 	public void buildInstitution(String name, String city, String state, String zip, String street);
-	public void buildCoPrincipalInvestigator(String firstName, String lastName);
-	public void buildPrincipalInvestigator(String firstName, String lastName);
+	public void buildCoPrincipalInvestigator(String firstName, String lastName, String email);
+	public void buildPrincipalInvestigator(String firstName, String lastName, String email);
 	public void buildProject(
 			String title,
 			String summary,

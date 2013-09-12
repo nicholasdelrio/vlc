@@ -24,7 +24,6 @@ public class InstitutionAxioms extends Axioms {
 	protected void addAxioms() {
 		addLatitude();
 		addLongitude();
-		addName();
 		addAddress();
 		addCity();
 		addState();
@@ -46,13 +45,7 @@ public class InstitutionAxioms extends Axioms {
 			add(assertion);	
 		}
 	}
-	
-	private void addName(){
-		OWLLiteral nameLiteral = bundle.getDataFactory().getOWLLiteral(institution.getIdentification());
-		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_FOAF.getOWLDataProperty_name(), individual, nameLiteral);
-		add(assertion);		
-	}
-	
+		
 	private void addAddress(){
 		OWLLiteral addressLiteral = bundle.getDataFactory().getOWLLiteral(institution.getAddress());
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_VLC.getOWLDataProperty_hasAddress(), individual, addressLiteral);

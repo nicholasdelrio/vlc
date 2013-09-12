@@ -59,6 +59,7 @@ public class NSFDirector {
 		String startDateString = awardElement.getElementsByTagName("StartDate").item(0).getTextContent();
 		String endDateString = awardElement.getElementsByTagName("ExpirationDate").item(0).getTextContent();
 		String awardAmountString = awardElement.getElementsByTagName("AwardedAmountToDate").item(0).getTextContent();
+		String piEmail = awardElement.getElementsByTagName("PIEmailAddress").item(0).getTextContent();
 		int awardAmount = new Integer(awardAmountString);
 		String grantID = awardElement.getElementsByTagName("AwardNumber").item(0).getTextContent();
 		URL awardHomepage = NSFAwardsUtils.getAwardHomepageURL(grantID);
@@ -71,7 +72,7 @@ public class NSFDirector {
 		
 		buildInstitution(awardElement);
 		buildCoPrincipalInvestigators(awardElement);
-		builder.buildPrincipalInvestigator(NSFAwardsUtils.getFirstName(piName), NSFAwardsUtils.getLastName(piName));
+		builder.buildPrincipalInvestigator(NSFAwardsUtils.getFirstName(piName), NSFAwardsUtils.getLastName(piName), piEmail);
 		builder.buildProject(title, abstractText, startDate, endDate, awardAmount, grantID, awardHomepage);
 	}
 
@@ -79,7 +80,7 @@ public class NSFDirector {
 		List<String> coiNames = getCoInvestigators(awardElement);
 
 		for(String coiName : coiNames){
-			builder.buildCoPrincipalInvestigator(NSFAwardsUtils.getFirstName(coiName), NSFAwardsUtils.getLastName(coiName));
+			builder.buildCoPrincipalInvestigator(NSFAwardsUtils.getFirstName(coiName), NSFAwardsUtils.getLastName(coiName), null);
 		}
 	}
 	

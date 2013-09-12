@@ -21,9 +21,9 @@ public class FOAF extends Vocabulary {
 	
 	// Data Properties
 	public static final String OWLDataProperty_homepage = NAMESPACE + "/homepage";
-	public static final String OWLDataProperty_firstName = NAMESPACE + "/firstName";
-	public static final String OWLDataProperty_lastName = NAMESPACE + "/lastName";
-	public static final String OWLDataProperty_name = NAMESPACE + "/name";
+	public static final String OWLDataProperty_givenName = NAMESPACE + "/givenName";
+	public static final String OWLDataProperty_familyName = NAMESPACE + "/familyName";
+	public static final String OWLDataProperty_mbox_sha1sum = NAMESPACE + "/mbox_sha1sum";
 	
 	public FOAF(OWLDataFactory factory){
 		super(factory);
@@ -35,14 +35,14 @@ public class FOAF extends Vocabulary {
 	public OWLDataProperty getOWLObjectProperty_homepage(){
 		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_homepage));
 	}
-	public OWLDataProperty getOWLDataProperty_firstName(){
-		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_firstName));
+	public OWLDataProperty getOWLDataProperty_givenName(){
+		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_givenName));
 	}
-	public OWLDataProperty getOWLDataProperty_lastName(){
-		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_lastName));
+	public OWLDataProperty getOWLDataProperty_familyName(){
+		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_familyName));
 	}
-	public OWLDataProperty getOWLDataProperty_name(){
-		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_name));
+	public OWLDataProperty getOWLDataProperty_mbox_sha1sum(){
+		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_mbox_sha1sum));
 	}
 	@Override
 	public String getNamespace() {

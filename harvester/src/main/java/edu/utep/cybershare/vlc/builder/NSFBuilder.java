@@ -50,12 +50,12 @@ public class NSFBuilder implements Builder {
 		this.institution = institution;
 	}
 	
-	public void buildCoPrincipalInvestigator(String firstName, String lastName){
-		this.coPrincipalInvestigators.add(this.getPerson(firstName, lastName));
+	public void buildCoPrincipalInvestigator(String firstName, String lastName, String email){
+		this.coPrincipalInvestigators.add(this.getPerson(firstName, lastName, email));
 	}
 	
-	public void buildPrincipalInvestigator(String firstName, String lastName){
-		this.principalInvestigator = this.getPerson(firstName, lastName);
+	public void buildPrincipalInvestigator(String firstName, String lastName, String email){
+		this.principalInvestigator = this.getPerson(firstName, lastName, email);
 	}
 	
 	public void buildProject(
@@ -117,25 +117,23 @@ public class NSFBuilder implements Builder {
 			project.addSubject(subject);
 	}
 	
-	private Person getPerson(String firstName, String lastName){
-		Person person = new Person(firstName, lastName);
+	private Person getPerson(String firstName, String lastName, String email){		
+		Person person = new Person(firstName, lastName); //temporary object to calculate identifier
 		person = product.getPerson(person.getIdentification());
 
 		if(person == null){
-			person = new Person(firstName, lastName);
-			
-			for(URI discipline :disciplines)
-				person.addDiscipline(discipline);
-
-			person.addAffiliatedInstitution(institution);
+			person = new Person(firstName, lastName);			
 			product.addPerson(person);
 		}
-		else{
-			for(URI discipline : disciplines)
-				person.addDiscipline(discipline);
-			
-			person.addAffiliatedInstitution(institution);
-		}
+		
+		for(URI discipline : disciplines)
+			person.addDiscipline(discipline);
+					
+		if(email != null)
+			person.setEmail(email);
+		
+		person.addAffiliatedInstitution(institution);
+		
 		return person;
 	}
 }

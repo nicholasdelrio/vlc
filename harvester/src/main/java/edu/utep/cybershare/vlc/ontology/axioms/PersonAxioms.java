@@ -33,6 +33,7 @@ public class PersonAxioms extends Axioms {
 		this.addDisciplines();
 		this.addFirstName();
 		this.addLastName();
+		this.addEmailSha1Sum();
 		
 		this.addInfluencedAgents();
 		this.addRelatedAgents();
@@ -67,7 +68,7 @@ public class PersonAxioms extends Axioms {
 	private void addFirstName(){
 		if(person.isSet_firstName()){
 			OWLLiteral firstNameLiteral = bundle.getDataFactory().getOWLLiteral(person.getFirstName());
-			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_FOAF.getOWLDataProperty_firstName(), individual, firstNameLiteral);
+			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_FOAF.getOWLDataProperty_givenName(), individual, firstNameLiteral);
 			add(assertion);
 		}
 	}
@@ -75,7 +76,15 @@ public class PersonAxioms extends Axioms {
 	private void addLastName(){
 		if(person.isSet_firstName()){
 			OWLLiteral lastNameLiteral = bundle.getDataFactory().getOWLLiteral(person.getLastName());
-			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_FOAF.getOWLDataProperty_firstName(), individual, lastNameLiteral);
+			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_FOAF.getOWLDataProperty_familyName(), individual, lastNameLiteral);
+			add(assertion);
+		}
+	}
+	
+	public void addEmailSha1Sum(){
+		if(person.isSet_email()){
+			OWLLiteral shaLiteral = bundle.getDataFactory().getOWLLiteral(person.getEmailSha1Sum());
+			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_FOAF.getOWLDataProperty_mbox_sha1sum(), individual, shaLiteral);
 			add(assertion);
 		}
 	}

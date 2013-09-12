@@ -4,6 +4,8 @@ package edu.utep.cybershare.vlc.model;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import edu.utep.cybershare.vlc.util.NSFAwardsUtils;
 public class Person extends Agent {
 	
 	private HashMap<String, Institution> affiliatedInstitutions;
@@ -27,6 +29,7 @@ public class Person extends Agent {
 	public boolean isSet_affiliatedOrganizations(){return this.getAffiliatedOrganizations().size() > 0;}
 	public boolean isSet_firstName(){return this.getFirstName() != null;}
 	public boolean isSet_lastName(){return this.getLastName() != null;}
+	public boolean isSet_email(){return this.getEmail() != null;}
 	
 	private static String getProperName(String lastName, String firstName){
 		String properName = null;
@@ -73,6 +76,15 @@ public class Person extends Agent {
 		return email;
 	}
 
+	public String getEmailSha1Sum(){
+		String shaSum = null;
+		if(this.isSet_email()){
+			try{shaSum = NSFAwardsUtils.SHAsum(this.getEmail().getBytes("UTF-8"));}
+			catch(Exception e){e.printStackTrace();}
+		}
+		return shaSum;
+	}
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
