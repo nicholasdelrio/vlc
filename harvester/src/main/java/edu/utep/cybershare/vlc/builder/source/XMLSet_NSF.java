@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.sources;
+package edu.utep.cybershare.vlc.builder.source;
 
 import java.io.File;
 import java.util.ArrayList;

@@ -1,10 +1,10 @@
-package edu.utep.cybershare.vlc.harvesting;
+package edu.utep.cybershare.vlc.harvesting.filter;
 
 import java.util.List;
 
 import edu.utep.cybershare.vlc.builder.ModelProduct;
 import edu.utep.cybershare.vlc.model.Project;
-import edu.utep.cybershare.vlc.relationships.Relationships;
+import edu.utep.cybershare.vlc.util.Relationships;
 
 public class AddToCollectionsFilter implements Filter {
 

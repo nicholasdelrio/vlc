@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.subsetting;
+package edu.utep.cybershare.vlc.harvesting.filter;
 
 import java.io.File;
 import java.io.FileReader;
@@ -8,7 +8,6 @@ import java.util.List;
 
 import au.com.bytecode.opencsv.CSVReader;
 import edu.utep.cybershare.vlc.builder.ModelProduct;
-import edu.utep.cybershare.vlc.harvesting.Filter;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
 

@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.geocoding;
+package edu.utep.cybershare.vlc.util;
 
 
 import java.io.File;
@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import au.com.bytecode.opencsv.CSVReader;
-import edu.utep.cybershare.vlc.builder.NSFSourceFilter;
+import edu.utep.cybershare.vlc.harvesting.filter.NSFSourceFilter;
 import edu.utep.cybershare.vlc.model.Institution;
 
 public class InstitutionCSV {

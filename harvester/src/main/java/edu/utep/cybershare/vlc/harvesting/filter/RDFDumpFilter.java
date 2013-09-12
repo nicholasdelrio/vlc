@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.harvesting;
+package edu.utep.cybershare.vlc.harvesting.filter;
 
 import java.io.File;
 

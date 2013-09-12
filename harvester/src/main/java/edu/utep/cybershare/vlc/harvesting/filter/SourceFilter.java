@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.harvesting;
+package edu.utep.cybershare.vlc.harvesting.filter;
 
 import edu.utep.cybershare.vlc.builder.ModelProduct;
 

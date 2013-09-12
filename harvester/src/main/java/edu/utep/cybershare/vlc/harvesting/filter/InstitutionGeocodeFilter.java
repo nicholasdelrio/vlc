@@ -1,7 +1,7 @@
-package edu.utep.cybershare.vlc.harvesting;
+package edu.utep.cybershare.vlc.harvesting.filter;
 
 import edu.utep.cybershare.vlc.builder.ModelProduct;
-import edu.utep.cybershare.vlc.geocoding.InstitutionCSV;
+import edu.utep.cybershare.vlc.util.InstitutionCSV;
 
 public class InstitutionGeocodeFilter implements Filter {
 

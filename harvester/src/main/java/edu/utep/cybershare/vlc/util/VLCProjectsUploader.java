@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.upload;
+package edu.utep.cybershare.vlc.util;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;

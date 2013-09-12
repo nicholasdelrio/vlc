@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.relationships;
+package edu.utep.cybershare.vlc.util;
 
 import java.util.ArrayList;
 import java.util.List;
