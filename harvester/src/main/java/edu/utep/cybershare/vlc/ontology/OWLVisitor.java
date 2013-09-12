@@ -9,6 +9,7 @@ import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
 import edu.utep.cybershare.vlc.model.Resource;
 import edu.utep.cybershare.vlc.model.Visitor;
+import edu.utep.cybershare.vlc.ontology.axioms.Axioms;
 import edu.utep.cybershare.vlc.ontology.axioms.InstitutionAxioms;
 import edu.utep.cybershare.vlc.ontology.axioms.PersonAxioms;
 import edu.utep.cybershare.vlc.ontology.axioms.ProjectAxioms;
@@ -23,20 +24,23 @@ public class OWLVisitor implements Visitor {
 	
 	public void visit(Project project) {
 		OWLNamedIndividual individual = Individuals.getIndividual(project.getIdentification(), bundle);
-		ProjectAxioms projectAxioms = new ProjectAxioms(project, individual, bundle);
-		bundle.addAxioms(projectAxioms);
+		Axioms axioms = new ProjectAxioms(project, individual, bundle);
+		axioms.setAxioms();
+		bundle.addAxioms(axioms);
 	}
 
 	public void visit(Institution institution) {
 		OWLNamedIndividual individual = Individuals.getIndividual(institution.getIdentification(), bundle);
-		InstitutionAxioms projectAxioms = new InstitutionAxioms(institution, individual, bundle);
-		bundle.addAxioms(projectAxioms);		
+		Axioms axioms = new InstitutionAxioms(institution, individual, bundle);
+		axioms.setAxioms();
+		bundle.addAxioms(axioms);		
 	}
 
 	public void visit(Person person) {
 		OWLNamedIndividual individual = Individuals.getIndividual(person.getIdentification(), bundle);
-		PersonAxioms projectAxioms = new PersonAxioms(person, individual, bundle);
-		bundle.addAxioms(projectAxioms);		
+		Axioms axioms = new PersonAxioms(person, individual, bundle);
+		axioms.setAxioms();
+		bundle.addAxioms(axioms);		
 	}
 
 	public void visit(Organization organization) {
@@ -46,11 +50,12 @@ public class OWLVisitor implements Visitor {
 
 	public void visit(Agent agent) {
 		// TODO Auto-generated method stub
+		System.out.println("visiting agent");
 		
 	}
 
 	public void visit(Resource resource) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("visiting resource");
 	}
 }

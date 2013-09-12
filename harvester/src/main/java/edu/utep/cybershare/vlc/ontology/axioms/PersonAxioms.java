@@ -28,8 +28,8 @@ public class PersonAxioms extends Axioms {
 	}
 
 	@Override
-	public void addAxioms() {
-		this.addType(this.vocabulary_FOAF.getOWLClass_Person());
+	public void setAxioms() {
+		this.setTypeAxiom(this.vocabulary_FOAF.getOWLClass_Person());
 		this.addAffiliatedInstitutions();
 		this.addDisciplines();
 		this.addFirstName();

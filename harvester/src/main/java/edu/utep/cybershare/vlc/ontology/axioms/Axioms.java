@@ -55,10 +55,10 @@ public abstract class Axioms extends ArrayList<OWLAxiom> {
 		vocabulary_XSD = new XSD(dataFactory);
 	}
 		
-	protected void addType(OWLClass owlClass){
+	protected void setTypeAxiom(OWLClass owlClass){
 		OWLClassAssertionAxiom classAssertionAxiom = bundle.getDataFactory().getOWLClassAssertionAxiom(owlClass, individual);
 		add(classAssertionAxiom);
 	}	
 	
-	public abstract void addAxioms();
+	public abstract void setAxioms();
 }

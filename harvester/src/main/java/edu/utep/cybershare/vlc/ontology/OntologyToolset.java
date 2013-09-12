@@ -4,6 +4,7 @@ import java.io.File;
 
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.io.FileDocumentTarget;
+import org.semanticweb.owlapi.model.AddAxiom;
 import org.semanticweb.owlapi.model.AddImport;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAxiom;
@@ -45,8 +46,11 @@ public class OntologyToolset {
 	}
 	
 	public void addAxioms(Axioms axioms){
-		for(OWLAxiom anAxiom : axioms)
-			ontologyManager.addAxiom(ontology, anAxiom);	
+		AddAxiom addAxiomChange;
+		for(OWLAxiom anAxiom : axioms){
+			addAxiomChange = new AddAxiom(ontology, anAxiom);
+			ontologyManager.applyChange(addAxiomChange);
+		}
 	}
 	
 	public void setBaseIRI(String baseIRI){

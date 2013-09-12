@@ -30,19 +30,23 @@ public class RDFDumpFilter implements DumpFilter {
 		OWLVisitor axiomGenerator = new OWLVisitor(toolset);
 		
 		//visit all projects
+		System.out.println("Transforming " + product.getProjects().size() + " projects into owl axioms...");
 		for(Project aProject : product.getProjects())
 			aProject.accept(axiomGenerator);
 		
 		//visit all institutions
+		System.out.println("Transforming " + product.getInstitutions().size() + " institutions into owl axioms...");
 		for(Institution anInstitution : product.getInstitutions())
 			anInstitution.accept(axiomGenerator);
 		
 		//visit all people
+		System.out.println("Transforming " + product.getPeople().size() + " people into owl axioms...");
 		for(Person aPerson : product.getPeople())
 			aPerson.accept(axiomGenerator);
-						
+		
 		//convert each project to a set of ontology axioms
 		//print out the resulting ontology
+		System.out.println("Dumping owl axioms as RDF...");
 		toolset.dumpOntology(dumpFile);		
 	}
 }

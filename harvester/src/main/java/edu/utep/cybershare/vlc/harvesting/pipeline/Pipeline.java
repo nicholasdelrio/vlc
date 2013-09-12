@@ -25,10 +25,14 @@ public class Pipeline {
 	}
 	
 	public void execute(){
+		System.out.println("Constructing model...");
 		ModelProduct product = modelSource.getModelProduct();
+
+		System.out.println("Applying filters...");
 		for(Filter aFilter : modelFilters)
 			product = aFilter.process(product);
 		
+		System.out.println("Dumping model...");
 		modelDump.dumpModelProduct(product);
 	}
 }
