@@ -19,6 +19,9 @@ public class Project extends Resource {
 	private int awardAmount;
 	private URL awardHomepage;
 	private URL projectHomePage;
+	
+	// Hack for VLC demo
+	private ArrayList<String> collectionIDs;
 
 	// VLC specific properties
 	private HashMap<String, Resource> relatedWorks;
@@ -32,6 +35,7 @@ public class Project extends Resource {
 		hostingInstitutions = new HashMap<String, Institution>(); 
 		relatedWorks = new HashMap<String, Resource>();
 		results = new HashMap<String, Resource>();
+		collectionIDs = new ArrayList<String>();
 	}
 	
 	public boolean isSet_grantIdentification(){return this.getGrantIdentification() != null;}
@@ -144,6 +148,12 @@ public class Project extends Resource {
 
 	public void setProjectHomePage(URL projectHomePage) {
 		this.projectHomePage = projectHomePage;
+	}
+	public ArrayList<String> getCollectionIDs() {
+		return collectionIDs;
+	}
+	public void addCollectionID(String collectionID) {
+		this.collectionIDs.add(collectionID);
 	}
 	@Override
 	public void accept(Visitor visitor) {

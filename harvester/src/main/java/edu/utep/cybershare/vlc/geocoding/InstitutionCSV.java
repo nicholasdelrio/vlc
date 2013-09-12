@@ -5,19 +5,17 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.StringWriter;
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.List;
 
 import au.com.bytecode.opencsv.CSVReader;
+import edu.utep.cybershare.vlc.builder.NSFSourceFilter;
 import edu.utep.cybershare.vlc.model.Institution;
-import edu.utep.cybershare.vlc.model.Coordinate;
-import edu.utep.cybershare.vlc.sources.ProjectSource;
-import edu.utep.cybershare.vlc.sources.nsf.NSFAwards;
 
 public class InstitutionCSV {
 
 	private List<Institution> institutions;
-	private Hashtable<String, Coordinate> institutionToCoordinates;
+	private HashMap<String,  Institution.Coordinate> institutionToCoordinates;
 	
 	public InstitutionCSV(List<Institution> institutions){
 		this.institutions = institutions;
@@ -26,7 +24,7 @@ public class InstitutionCSV {
 	public InstitutionCSV(){
 		File csvFile = new File("./output-institutions/institutions-geocoded.csv");
 		
-	    institutionToCoordinates = new Hashtable <String, Coordinate>();
+	    institutionToCoordinates = new HashMap <String, Institution.Coordinate>();
 		
 		try{
 			CSVReader reader = new CSVReader(new FileReader(csvFile));
@@ -41,7 +39,7 @@ public class InstitutionCSV {
 		    	name = record[4];
 				lat = Double.valueOf(record[29]);
 		    	lon = Double.valueOf(record[30]);
-		    	institutionToCoordinates.put(name, new Coordinate(lon, lat));
+		    	institutionToCoordinates.put(name, new Institution.Coordinate(lon, lat));
 		    }
 			reader.close();
 		}catch(Exception e){e.printStackTrace();}
@@ -49,18 +47,18 @@ public class InstitutionCSV {
 	
 	public void setInstitutionCoordinates(List<Institution> institutions){
 		String name;
-		Coordinate coordinates;
+		Institution.Coordinate coordinates;
 		for(Institution anInstitution : institutions){
-			name = anInstitution.getHasName();
+			name = anInstitution.getIdentification();
 			coordinates = getCoordinates(name);
 			if(coordinates != null)
-				anInstitution.setHasCoordinates(coordinates);
+				anInstitution.setCoordinate(coordinates);
 		}
 	}
 	
-	private Coordinate getCoordinates(String institutionName){
+	private Institution.Coordinate getCoordinates(String institutionName){
 		String cleanedName = institutionName.replaceAll(",", " ");
-		Coordinate coordinates = institutionToCoordinates.get(cleanedName);
+		Institution.Coordinate coordinates = institutionToCoordinates.get(cleanedName);
 		
 		if(coordinates != null)
 			return coordinates;
@@ -79,11 +77,11 @@ public class InstitutionCSV {
 		String institutionName;
 		for(Institution anInstitution : institutions){
 			
-			address = anInstitution.getHasAddress().replaceAll(",", " ");
-			city = anInstitution.getHasCity().replaceAll(",", " ");
-			state = anInstitution.getHasState().replaceAll(",",  "");
-			zipCode = anInstitution.getHasZipCode().replaceAll(",", " ");
-			institutionName = anInstitution.getHasName().replaceAll(",", " ");
+			address = anInstitution.getAddress().replaceAll(",", " ");
+			city = anInstitution.getCity().replaceAll(",", " ");
+			state = anInstitution.getState().replaceAll(",",  "");
+			zipCode = anInstitution.getZipCode().replaceAll(",", " ");
+			institutionName = anInstitution.getIdentification().replaceAll(",", " ");
 			
 			writer.append(address + ", ");
 			writer.append(city + ", ");
@@ -102,9 +100,9 @@ public class InstitutionCSV {
 	
 	public static void main(String[] args){
 		//load set of project objects
-		ProjectSource nsfSource = new NSFAwards();
+		NSFSourceFilter nsfSource = new NSFSourceFilter();
 		
-		InstitutionCSV csvWriter = new InstitutionCSV(nsfSource.getInstitutions());
+		InstitutionCSV csvWriter = new InstitutionCSV(nsfSource.getModelProduct().getInstitutions());
 		csvWriter.dumpCSVFile();
 	}
 }

@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.Hashtable;
 
+import edu.utep.cybershare.vlc.model.Project;
 import au.com.bytecode.opencsv.CSVReader;
 
 public class Relationships {
@@ -84,7 +85,8 @@ public class Relationships {
 		}
 	}
 	
-	public List<String> getParentCollection(String projectTitle){
+	public List<String> getParentCollections(Project aProject){
+		String projectTitle = aProject.getTitle();
 		String collectionList = projectTitleToCollectionNames.get(projectTitle);
 		ArrayList<String> collections = new ArrayList<String>();
 		if(collectionList != null){
@@ -95,7 +97,8 @@ public class Relationships {
 		return collections;
 	}
 	
-	public List<String> getRelatedProjectTitles(String projectTitle){
+	public List<String> getRelatedProjectTitles(Project aProject){
+		String projectTitle = aProject.getTitle();
 		String relatedProjectIDs = projectTitleToRelatedProjectIDs.get(projectTitle);
 		ArrayList<String> relatedProjectTitles = new ArrayList<String>();
 		String[] projectIDs;

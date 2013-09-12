@@ -31,24 +31,24 @@ public class VLCProjectsUploader {
 		for(Project aProject : projects){
 			
 			uploadURL = new VLCProjectUploadURL();
-			uploadURL.setInputAbstract(aProject.getHasAbstract());
+			uploadURL.setInputAbstract(aProject.getAbstractText());
 
-			for(String collectionID : aProject.getParentCollectionIDs())
+			for(String collectionID : aProject.getCollectionIDs())
 				uploadURL.addInputCarpTerm(collectionID);
 	
-			uploadURL.setInputFieldSite(aProject.getHasPrincipalInvestigator().getAffiliatedWithInstitution().get(0).getHasName());
+			uploadURL.setInputFieldSite(aProject.getPrincipalInvestigator().getAffiliatedInstitutions().get(0).getIdentification());
 			uploadURL.setInputFundingAgency("NSF");
-			uploadURL.setInputFundingEndDate(formatDate(aProject.getHasEndDate_Funding()));
-			uploadURL.setInputFundingStartDate(formatDate(aProject.getHasStartDate_Funding()));
+			uploadURL.setInputFundingEndDate(formatDate(aProject.getEndDate()));
+			uploadURL.setInputFundingStartDate(formatDate(aProject.getStartDate()));
 			uploadURL.setInputGoals(null);
 			uploadURL.setInputInceptionStartDate(null);
 			uploadURL.setInputLink(null);
 			
-			for(Person aPerson : aProject.getHasCoPrincipalInvestigator())
-				uploadURL.addInputCoPI(aPerson.getHasFirstName() + " " + aPerson.getHasLastName());
+			for(Person aPerson : aProject.getCoPrincipalInvestigators())
+				uploadURL.addInputCoPI(aPerson.getFirstName() + " " + aPerson.getLastName());
 			
-			uploadURL.setInputPI(aProject.getHasPrincipalInvestigator().getHasFirstName() + " " + aProject.getHasPrincipalInvestigator().getHasLastName());
-			uploadURL.setInputTitle(aProject.getHasTitle());
+			uploadURL.setInputPI(aProject.getPrincipalInvestigator().getFirstName() + " " + aProject.getPrincipalInvestigator().getLastName());
+			uploadURL.setInputTitle(aProject.getTitle());
 			
 			//add uploadURL to list
 			uploadURLs.add(uploadURL);

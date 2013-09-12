@@ -10,10 +10,17 @@ import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
 
 public class ModelProduct {
-	private Hashtable<String, Person> people = new Hashtable<String,Person>();
-	private Hashtable<String, Project> projects = new Hashtable<String,Project>();	
-	private Hashtable<String, Institution> institutions = new Hashtable<String, Institution>();
-	private Hashtable<String, URI> dbpediaResources = new Hashtable<String, URI>();
+	private Hashtable<String, Person> people;
+	private Hashtable<String, Project> projects;	
+	private Hashtable<String, Institution> institutions;
+	private Hashtable<String, URI> dbpediaResources;
+
+	public ModelProduct(){
+		people = new Hashtable<String,Person>();
+		projects = new Hashtable<String,Project>();	
+		institutions = new Hashtable<String, Institution>();
+		dbpediaResources = new Hashtable<String, URI>();
+	}
 	
 	Institution getInstitution(String key){
 		return institutions.get(key);

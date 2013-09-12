@@ -2,24 +2,27 @@ package edu.utep.cybershare.vlc.subsetting;
 
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Hashtable;
-import java.util.Iterator;
 import java.util.List;
 
 import au.com.bytecode.opencsv.CSVReader;
-import au.com.bytecode.opencsv.CSVWriter;
+import edu.utep.cybershare.vlc.builder.ModelProduct;
+import edu.utep.cybershare.vlc.harvesting.Filter;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
 
-public class FilteredProjects {
+/**
+ * Filters projects based on a listing of people populated by Deana Pennington for demo purposes.
+ * @author Nicholas Del Rio
+ *
+ */
+
+public class PeopleOfInterestFilter implements Filter {
 	
 	private Hashtable<String, Boolean> peopleOfInterest;
 
-	public FilteredProjects(){
+	public PeopleOfInterestFilter(){
 		peopleOfInterest = new Hashtable<String, Boolean>();
 		
 		File csvFile = new File("./people-of-interest/vlc-demo-people.csv");
@@ -40,19 +43,12 @@ public class FilteredProjects {
 		}catch(Exception e){e.printStackTrace();}
 	}
 	
-	public List<Project> filter(List<Project> projects){
-		HashSet<Project> filteredProjectsSet = new HashSet<Project>();
-		ArrayList<Project> filteredProjects = new ArrayList<Project>();
-		for(Project aProject : projects){
-			if(isTargetProject(aProject))
-				filteredProjectsSet.add(aProject);
-		}
-		
-		Iterator<Project> projectIterator = filteredProjectsSet.iterator();
-		while(projectIterator.hasNext())
-			filteredProjects.add(projectIterator.next());
-		
-		return filteredProjects;
+	public ModelProduct process(ModelProduct product) {
+		for(Project aProject : product.getProjects()){
+			if(!isTargetProject(aProject))
+				product.getProjects().remove(aProject);
+		}		
+		return product;
 	}
 	
 	private boolean isTargetProject(Project aProject){
@@ -62,15 +58,15 @@ public class FilteredProjects {
 		boolean isTargetProject = false;
 		
 		//check if pi is target first
-		firstName = aProject.getHasPrincipalInvestigator().getHasFirstName();
-		lastName = aProject.getHasPrincipalInvestigator().getHasLastName();
+		firstName = aProject.getPrincipalInvestigator().getFirstName();
+		lastName = aProject.getPrincipalInvestigator().getLastName();
 		isTargetProject |= isTargetPerson(firstName, lastName);
 		
 		//check co-pis
-		Collection<Person> coPIS = aProject.getHasCoPrincipalInvestigator();
+		Collection<Person> coPIS = aProject.getCoPrincipalInvestigators();
 		for(Person aPerson : coPIS){
-			firstName = aPerson.getHasFirstName();
-			lastName = aPerson.getHasLastName();
+			firstName = aPerson.getFirstName();
+			lastName = aPerson.getLastName();
 			isTargetProject |= isTargetPerson(firstName, lastName);
 		}
 		
@@ -87,6 +83,7 @@ public class FilteredProjects {
 		return lastName + ", " + firstName;
 	}
 
+	/*
 	public void filterAndDumpCSV(List<Project> projects){
 		List<Project> filteredProjects = filter(projects);
 		try{
@@ -99,17 +96,17 @@ public class FilteredProjects {
 			Person pi;
 			String[] aRecord = new String[3];
 			for(Project aProject : filteredProjects){
-				aRecord[0] = aProject.getHasTitle();
-				pi = aProject.getHasPrincipalInvestigator();
-				aRecord[1] = pi.getHasFirstName() + " " + pi.getHasLastName();
+				aRecord[0] = aProject.getTitle();
+				pi = aProject.getPrincipalInvestigator();
+				aRecord[1] = pi.getFirstName() + " " + pi.getLastName();
 			
 				String coPiList = "";
-				coPis = aProject.getHasCoPrincipalInvestigator();
+				coPis = aProject.getCoPrincipalInvestigators();
 				for(Person coPi : coPis){
-					if(coPi.getHasFirstName().equals("null-name"))
+					if(coPi.getFirstName().equals("null-name"))
 						coPiList += "None";
 					else
-						coPiList += coPi.getHasFirstName() + " " + coPi.getHasLastName() + ", ";
+						coPiList += coPi.getFirstName() + " " + coPi.getLastName() + ", ";
 				}
 				
 				if(coPiList.lastIndexOf(", ") > -1)
@@ -122,4 +119,5 @@ public class FilteredProjects {
 			writer.close();
 		}catch(Exception e){e.printStackTrace();}
 	}
+	*/
 }
