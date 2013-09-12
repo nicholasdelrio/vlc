@@ -22,12 +22,13 @@ public class PersonAxioms extends Axioms {
 	private static final long serialVersionUID = 1L;
 	private Person person;
 	
-	public PersonAxioms(Person person, OWLNamedIndividual personIndividual, OntologyToolset bundle) {
+	public PersonAxioms(Person aPerson, OWLNamedIndividual personIndividual, OntologyToolset bundle) {
 		super(personIndividual, bundle);
+		this.person = aPerson;
 	}
 
 	@Override
-	protected void addAxioms() {
+	public void addAxioms() {
 		this.addType(this.vocabulary_FOAF.getOWLClass_Person());
 		this.addAffiliatedInstitutions();
 		this.addDisciplines();

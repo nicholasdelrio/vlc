@@ -41,7 +41,6 @@ public abstract class Axioms extends ArrayList<OWLAxiom> {
 		this.individual = individual;
 		this.bundle = bundle;
 		initializeVocabularies();
-		addAxioms();
 	}
 	
 	private void initializeVocabularies(){
@@ -60,5 +59,6 @@ public abstract class Axioms extends ArrayList<OWLAxiom> {
 		OWLClassAssertionAxiom classAssertionAxiom = bundle.getDataFactory().getOWLClassAssertionAxiom(owlClass, individual);
 		add(classAssertionAxiom);
 	}	
-	protected abstract void addAxioms();
+	
+	public abstract void addAxioms();
 }

@@ -25,15 +25,14 @@ public class NSFDirector {
 	}
 	
 	public void construct(XMLSet_NSF awardsXML){
-		DocumentBuilderFactory dbFactory;
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;
 		Document awardsDoc;
 		try{
+			dBuilder = dbFactory.newDocumentBuilder();
 			for(File awardFile : awardsXML){
-				dbFactory = DocumentBuilderFactory.newInstance();
-				dBuilder = dbFactory.newDocumentBuilder();
-				awardsDoc = dBuilder.parse(awardFile);	 
-				awardsDoc.getDocumentElement().normalize();
+				System.out.println("Constructing Projects from file: " + awardFile);
+				awardsDoc = dBuilder.parse(awardFile);
 				populateProjects(awardsDoc);
 				dBuilder.reset();
 			}
@@ -51,43 +50,23 @@ public class NSFDirector {
 		
 	private void populateProject(Node awardNode){
 		Element awardElement = (Element) awardNode;
-			
-		String piName = getPI(awardElement);
-		String program = getProgram(awardElement);
-		String title = awardElement.getElementsByTagName("Title").item(0).getTextContent();
-		String abstractText = awardElement.getElementsByTagName("Abstract").item(0).getTextContent();				
-		String startDateString = awardElement.getElementsByTagName("StartDate").item(0).getTextContent();
-		String endDateString = awardElement.getElementsByTagName("ExpirationDate").item(0).getTextContent();
-		String awardAmountString = awardElement.getElementsByTagName("AwardedAmountToDate").item(0).getTextContent();
-		String piEmail = awardElement.getElementsByTagName("PIEmailAddress").item(0).getTextContent();
-		int awardAmount = new Integer(awardAmountString);
-		String grantID = awardElement.getElementsByTagName("AwardNumber").item(0).getTextContent();
-		URL awardHomepage = NSFAwardsUtils.getAwardHomepageURL(grantID);
-		
-		GregorianCalendar startDate = NSFAwardsUtils.getDate(startDateString);
-		GregorianCalendar endDate = NSFAwardsUtils.getDate(endDateString);
 
-		builder.buildDiscipline(program);
-		builder.buildSubject(program);
-		
+		// need to call these builder methods in this order
+		buildProgramAndSubject(awardElement);
 		buildInstitution(awardElement);
+		buildPrincipalInvestigator(awardElement);
 		buildCoPrincipalInvestigators(awardElement);
-		builder.buildPrincipalInvestigator(NSFAwardsUtils.getFirstName(piName), NSFAwardsUtils.getLastName(piName), piEmail);
-		builder.buildProject(title, abstractText, startDate, endDate, awardAmount, grantID, awardHomepage);
-	}
-
-	private void buildCoPrincipalInvestigators(Element awardElement){
-		List<String> coiNames = getCoInvestigators(awardElement);
-
-		for(String coiName : coiNames){
-			builder.buildCoPrincipalInvestigator(NSFAwardsUtils.getFirstName(coiName), NSFAwardsUtils.getLastName(coiName), null);
-		}
+		buildProject(awardElement);
 	}
 	
-	private List<String> getCoInvestigators(Element awardElement){
-		NodeList pis = awardElement.getElementsByTagName("Co-PIName");
-		List<String> pisList = NSFAwardsUtils.nodeListConverter(pis);		
-		return pisList;
+	// The following methods invoke the builder object
+	private void buildProgramAndSubject(Element awardElement){
+		String program = getProgram(awardElement);
+		
+		if(program != null){
+			builder.buildDiscipline(program);
+			builder.buildSubject(program);
+		}
 	}
 	
 	private void buildInstitution(Element awardElement){
@@ -99,7 +78,57 @@ public class NSFDirector {
 
 		builder.buildInstitution(institutionName, city, state, zipCode, address);
 	}
+	
+	private void buildPrincipalInvestigator(Element awardElement){
+		String piName = getPI(awardElement);
+		String piEmail = getEmail(awardElement);
 		
+		if(piName != null)
+			builder.buildPrincipalInvestigator(NSFAwardsUtils.getFirstName(piName), NSFAwardsUtils.getLastName(piName), piEmail);
+	}
+	
+	private void buildProject(Element awardElement){
+		String title = awardElement.getElementsByTagName("Title").item(0).getTextContent();
+		String abstractText = awardElement.getElementsByTagName("Abstract").item(0).getTextContent();				
+		String startDateString = awardElement.getElementsByTagName("StartDate").item(0).getTextContent();
+		String endDateString = awardElement.getElementsByTagName("ExpirationDate").item(0).getTextContent();
+		String awardAmountString = awardElement.getElementsByTagName("AwardedAmountToDate").item(0).getTextContent();
+		String grantID = awardElement.getElementsByTagName("AwardNumber").item(0).getTextContent();
+
+		int awardAmount = new Integer(awardAmountString);
+		URL awardHomepage = NSFAwardsUtils.getAwardHomepageURL(grantID);
+		GregorianCalendar startDate = NSFAwardsUtils.getDate(startDateString);
+		GregorianCalendar endDate = NSFAwardsUtils.getDate(endDateString);
+
+		builder.buildProject(title, abstractText, startDate, endDate, awardAmount, grantID, awardHomepage);
+	}
+
+	private void buildCoPrincipalInvestigators(Element awardElement){
+		List<String> coiNames = getCoInvestigators(awardElement);
+
+		for(String coiName : coiNames){
+			builder.buildCoPrincipalInvestigator(NSFAwardsUtils.getFirstName(coiName), NSFAwardsUtils.getLastName(coiName), null);
+		}
+	}
+	
+	
+	// XML extractor methods
+	private List<String> getCoInvestigators(Element awardElement){
+		NodeList pis = awardElement.getElementsByTagName("Co-PIName");
+		List<String> pisList = NSFAwardsUtils.nodeListConverter(pis);		
+		return pisList;
+	}
+	
+	private String getEmail(Element awardElement){
+		String email = null;
+		NodeList emails = awardElement.getElementsByTagName("PIEmailAddress");
+		
+		if(emails.getLength() > 0)
+			email = emails.item(0).getTextContent();
+		
+		return email;
+	}
+	
 	private String getProgram(Element awardElement){
 		String program = null;
 		NodeList programs = awardElement.getElementsByTagName("Program");

@@ -38,7 +38,7 @@ public class ProjectAxioms extends Axioms{
 	}
 	
 	@Override
-	protected void addAxioms() {
+	public void addAxioms() {
 		this.addType(this.vocabulary_ARPFO.getOWLClass_Project());
 		this.addTitleAssertion();
 		this.addAbstract();

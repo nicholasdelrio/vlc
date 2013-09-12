@@ -25,11 +25,17 @@ public class NSFBuilder implements Builder {
 		try{dbpediaResource = new URI("http://dbpedia.org/resource/");}
 		catch(Exception e){e.printStackTrace();}
 		
+		// create the builder product
+		product = new ModelProduct();
+		
+		// clear the local resources
+		reset();
+	}
+	
+	private void reset(){
 		coPrincipalInvestigators = new ArrayList<Person>();
 		disciplines = new ArrayList<URI>();
 		subjects = new ArrayList<URI>();
-		
-		product = new ModelProduct();
 	}
 	
 	public void buildDiscipline(String name){
@@ -82,6 +88,8 @@ public class NSFBuilder implements Builder {
 		}
 		
 		populateWithBuiltParts(project);
+		
+		reset();
 	}	
 	
 	public ModelProduct getResult(){

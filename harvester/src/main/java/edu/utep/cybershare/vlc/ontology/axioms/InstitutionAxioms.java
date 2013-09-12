@@ -21,7 +21,7 @@ public class InstitutionAxioms extends Axioms {
 	}
 
 	@Override
-	protected void addAxioms() {
+	public void addAxioms() {
 		addLatitude();
 		addLongitude();
 		addAddress();
