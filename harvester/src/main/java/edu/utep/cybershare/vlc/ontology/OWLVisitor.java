@@ -23,24 +23,28 @@ public class OWLVisitor implements Visitor {
 	}
 	
 	public void visit(Project project) {
-		OWLNamedIndividual individual = Individuals.getIndividual(project.getIdentification(), bundle);
+		OWLNamedIndividual individual = Individuals.getIndividual(project, bundle);
 		Axioms axioms = new ProjectAxioms(project, individual, bundle);
 		axioms.setAxioms();
 		bundle.addAxioms(axioms);
 	}
 
 	public void visit(Institution institution) {
-		OWLNamedIndividual individual = Individuals.getIndividual(institution.getIdentification(), bundle);
-		Axioms axioms = new InstitutionAxioms(institution, individual, bundle);
-		axioms.setAxioms();
-		bundle.addAxioms(axioms);		
+		if(Individuals.doesIndividualExist(institution, bundle)){
+			OWLNamedIndividual individual = Individuals.getIndividual(institution, bundle);
+			Axioms axioms = new InstitutionAxioms(institution, individual, bundle);
+			axioms.setAxioms();
+			bundle.addAxioms(axioms);
+		}
 	}
 
 	public void visit(Person person) {
-		OWLNamedIndividual individual = Individuals.getIndividual(person.getIdentification(), bundle);
-		Axioms axioms = new PersonAxioms(person, individual, bundle);
-		axioms.setAxioms();
-		bundle.addAxioms(axioms);		
+		if(Individuals.doesIndividualExist(person, bundle)){
+			OWLNamedIndividual individual = Individuals.getIndividual(person, bundle);
+			Axioms axioms = new PersonAxioms(person, individual, bundle);
+			axioms.setAxioms();
+			bundle.addAxioms(axioms);
+		}
 	}
 
 	public void visit(Organization organization) {

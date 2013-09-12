@@ -6,13 +6,27 @@ import java.util.Hashtable;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
+import edu.utep.cybershare.vlc.model.Element;
+
 public class Individuals {
 
 	private static Hashtable<String, OWLNamedIndividual> individuals = new Hashtable<String, OWLNamedIndividual>();
 	
-	public static OWLNamedIndividual getIndividual(String elementIdentification, OntologyToolset bundle){	
-
-		String individualName = makeURICompliantFragment(elementIdentification, bundle);
+	public static boolean doesIndividualExist(Element element, OntologyToolset bundle){
+		String individualName = makeURICompliantFragment(element.getIdentification(), bundle);
+		return individuals.get(individualName) != null;
+	}
+	
+	public static OWLNamedIndividual getIndividual(URI uri, OntologyToolset bundle){
+		return getIndividual(uri.toASCIIString(), bundle);
+	}
+	
+	public static OWLNamedIndividual getIndividual(Element element, OntologyToolset bundle){	
+		return getIndividual(element.getIdentification(), bundle);
+	}
+	
+	private static OWLNamedIndividual getIndividual(String id, OntologyToolset bundle){
+		String individualName = makeURICompliantFragment(id, bundle);
 		
 		OWLNamedIndividual individual = individuals.get(individualName);
 		IRI individualIRI;

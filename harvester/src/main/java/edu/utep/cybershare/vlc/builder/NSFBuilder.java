@@ -36,6 +36,9 @@ public class NSFBuilder implements Builder {
 		coPrincipalInvestigators = new ArrayList<Person>();
 		disciplines = new ArrayList<URI>();
 		subjects = new ArrayList<URI>();
+
+		principalInvestigator = null;
+		institution = null;
 	}
 	
 	public void buildDiscipline(String name){

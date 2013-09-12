@@ -20,6 +20,7 @@ public class FOAF extends Vocabulary {
 	public static final String OWLClass_Person = NAMESPACE + "/Person";
 	
 	// Data Properties
+	public static final String OWLDataProperty_name = NAMESPACE + "/name";
 	public static final String OWLDataProperty_homepage = NAMESPACE + "/homepage";
 	public static final String OWLDataProperty_givenName = NAMESPACE + "/givenName";
 	public static final String OWLDataProperty_familyName = NAMESPACE + "/familyName";
@@ -43,6 +44,9 @@ public class FOAF extends Vocabulary {
 	}
 	public OWLDataProperty getOWLDataProperty_mbox_sha1sum(){
 		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_mbox_sha1sum));
+	}
+	public OWLDataProperty getOWLDataProperty_name(){
+		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_name));
 	}
 	@Override
 	public String getNamespace() {

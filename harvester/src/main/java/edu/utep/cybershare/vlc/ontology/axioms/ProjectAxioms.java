@@ -98,7 +98,7 @@ public class ProjectAxioms extends Axioms{
 			OWLNamedIndividual personIndividual;
 			OWLAxiom assertion;
 			for(Person person : project.getCoPrincipalInvestigators()){
-				personIndividual = Individuals.getIndividual(person.getIdentification(), bundle);
+				personIndividual = Individuals.getIndividual(person, bundle);
 				assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(this.vocabulary_ARPFO.getOWLObjectProperty_hasCoInvestigatar(), individual, personIndividual);
 				add(assertion);
 			}
@@ -108,7 +108,7 @@ public class ProjectAxioms extends Axioms{
 	private void addPrincipalInvestigatorAssertion(){
 		if(project.isSet_principalInvestigator()){
 			Person person = project.getPrincipalInvestigator();
-			OWLNamedIndividual personIndividual = Individuals.getIndividual(person.getIdentification(), bundle);
+			OWLNamedIndividual personIndividual = Individuals.getIndividual(person, bundle);
 			OWLAxiom assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(this.vocabulary_ARPFO.getOWLObjectProperty_hasPrincipalInvestigator(), individual, personIndividual);
 			add(assertion);
 		}
@@ -150,7 +150,7 @@ public class ProjectAxioms extends Axioms{
 			OWLNamedIndividual personIndividual;
 			OWLAxiom assertion;
 			for(Person person : project.getCoPrincipalInvestigators()){
-				personIndividual = Individuals.getIndividual(person.getIdentification(), bundle);
+				personIndividual = Individuals.getIndividual(person, bundle);
 				assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(this.vocabulary_ARPFO.getOWLObjectProperty_hasCoInvestigatar(), individual, personIndividual);
 				add(assertion);
 			}
@@ -164,7 +164,7 @@ public class ProjectAxioms extends Axioms{
 			OWLNamedIndividual institutionIndividual;
 			OWLAxiom assertion;
 			for(Institution anInstitution : project.getHostingInstitutions()){
-				institutionIndividual = Individuals.getIndividual(anInstitution.getIdentification(), bundle);
+				institutionIndividual = Individuals.getIndividual(anInstitution, bundle);
 				assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(this.vocabulary_VLC.getOWLObjectProperty_hasHostingInstitution(), individual, institutionIndividual);
 				add(assertion);
 			}
@@ -176,7 +176,7 @@ public class ProjectAxioms extends Axioms{
 			OWLNamedIndividual resourceIndividual;
 			OWLAxiom assertion;
 			for(Resource aResource : project.getRelatedResources()){
-				resourceIndividual = Individuals.getIndividual(aResource.getIdentification(), bundle);
+				resourceIndividual = Individuals.getIndividual(aResource, bundle);
 				assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(this.vocabulary_VLC.getOWLObjectProperty_hasRelatedResource(), individual, resourceIndividual);
 				add(assertion);
 			}
@@ -187,7 +187,7 @@ public class ProjectAxioms extends Axioms{
 			OWLNamedIndividual resourceIndividual;		
 			OWLAxiom assertion;
 			for(Resource aResource : project.getInfluencedResources()){
-				resourceIndividual = Individuals.getIndividual(aResource.getIdentification(), bundle);
+				resourceIndividual = Individuals.getIndividual(aResource, bundle);
 				assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(this.vocabulary_PROVO.getOWLObjectProperty_influenced(), individual, resourceIndividual);
 				add(assertion);
 			}
@@ -199,7 +199,7 @@ public class ProjectAxioms extends Axioms{
 			OWLNamedIndividual resourceIndividual;	
 			OWLAxiom assertion;
 			for(Resource aResource : project.getRelatedWorks()){
-				resourceIndividual = Individuals.getIndividual(aResource.getIdentification(), bundle);
+				resourceIndividual = Individuals.getIndividual(aResource, bundle);
 				assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(this.vocabulary_VLC.getOWLObjectProperty_hasRelatedWork(), individual, resourceIndividual);
 				add(assertion);
 			}
@@ -210,7 +210,7 @@ public class ProjectAxioms extends Axioms{
 			OWLNamedIndividual resourceIndividual;		
 			OWLAxiom assertion;
 			for(Resource aResource : project.getResults()){
-				resourceIndividual = Individuals.getIndividual(aResource.getIdentification(), bundle);
+				resourceIndividual = Individuals.getIndividual(aResource, bundle);
 				assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(this.vocabulary_VLC.getOWLObjectProperty_hasResultantWork(), individual, resourceIndividual);
 				add(assertion);
 			}

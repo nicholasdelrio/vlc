@@ -18,7 +18,7 @@ public class ARPFO extends Vocabulary {
 	private static final String NAMESPACE = "http://vocab.ox.ac.uk/projectfunding";
 	
 	// Classes
-	private static final String OWLClass_Project = NAMESPACE + "Project";
+	private static final String OWLClass_Project = NAMESPACE + "/Project";
 	
 	// Data Properties
 	private static final String OWLDataProperty_endDate = NAMESPACE + "/endDate";

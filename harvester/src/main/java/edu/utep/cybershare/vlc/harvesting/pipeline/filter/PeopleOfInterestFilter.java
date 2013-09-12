@@ -56,6 +56,10 @@ public class PeopleOfInterestFilter implements Filter {
 		
 		boolean isTargetProject = false;
 		
+		if(aProject.getPrincipalInvestigator() == null){
+			return false;
+		}
+		
 		//check if pi is target first
 		firstName = aProject.getPrincipalInvestigator().getFirstName();
 		lastName = aProject.getPrincipalInvestigator().getLastName();

@@ -22,12 +22,14 @@ public class InstitutionAxioms extends Axioms {
 
 	@Override
 	public void setAxioms() {
+		this.setTypeAxiom(this.vocabulary_AIISO.getOWLClass_Institution());
 		addLatitude();
 		addLongitude();
 		addAddress();
 		addCity();
 		addState();
 		addZipcode();
+		addName();
 	}
 	
 	private void addLongitude(){
@@ -74,5 +76,10 @@ public class InstitutionAxioms extends Axioms {
 			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_VLC.getOWLDataProperty_hasZipcode(), individual, zipcodeLiteral);
 			add(assertion);
 		}
+	}
+	private void addName(){
+		OWLLiteral nameLiteral = bundle.getDataFactory().getOWLLiteral(institution.getIdentification());
+		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_FOAF.getOWLDataProperty_name(), individual, nameLiteral);
+		add(assertion);
 	}
 }

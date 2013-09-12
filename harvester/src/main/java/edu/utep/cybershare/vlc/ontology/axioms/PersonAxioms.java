@@ -47,7 +47,7 @@ public class PersonAxioms extends Axioms {
 			OWLAxiom assertion;
 			OWLNamedIndividual disciplineIndividual;
 			for(URI discipline : person.getDisciplines()){
-				disciplineIndividual = Individuals.getIndividual(discipline.toASCIIString(), bundle);
+				disciplineIndividual = Individuals.getIndividual(discipline, bundle);
 				assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(this.vocabulary_VLC.getOWLObjectProperty_hasDiscipline(), individual, disciplineIndividual);
 				add(assertion);
 			}
@@ -59,7 +59,7 @@ public class PersonAxioms extends Axioms {
 			OWLAxiom assertion;
 			OWLNamedIndividual institutionIndividual;
 			for(Institution institution : person.getAffiliatedInstitutions()){
-				institutionIndividual = Individuals.getIndividual(institution.getIdentification(), bundle);
+				institutionIndividual = Individuals.getIndividual(institution, bundle);
 				assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(this.vocabulary_VLC.getOWLObjectProperty_affiliatedWithInstitution(), individual, institutionIndividual);
 				add(assertion);
 			}
@@ -95,7 +95,7 @@ public class PersonAxioms extends Axioms {
 			OWLAxiom assertion;
 			OWLNamedIndividual agentIndividual;
 			for(Agent agent : person.getInfluencedAgents()){
-				agentIndividual = Individuals.getIndividual(agent.getIdentification(), bundle);
+				agentIndividual = Individuals.getIndividual(agent, bundle);
 				assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(this.vocabulary_PROVO.getOWLObjectProperty_influenced(), individual, agentIndividual);
 				add(assertion);
 			}			
@@ -107,7 +107,7 @@ public class PersonAxioms extends Axioms {
 			OWLAxiom assertion;
 			OWLNamedIndividual agentIndividual;
 			for(Agent agent : person.getRelatedAgents()){
-				agentIndividual = Individuals.getIndividual(agent.getIdentification(), bundle);
+				agentIndividual = Individuals.getIndividual(agent, bundle);
 				assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(this.vocabulary_VLC.getOWLObjectProperty_hasRelatedAgent(), individual, agentIndividual);
 				add(assertion);
 			}						
@@ -118,7 +118,7 @@ public class PersonAxioms extends Axioms {
 			OWLAxiom assertion;
 			OWLNamedIndividual resourceIndividual;
 			for(Resource resource : person.getContributedResources()){
-				resourceIndividual = Individuals.getIndividual(resource.getIdentification(), bundle);
+				resourceIndividual = Individuals.getIndividual(resource, bundle);
 				assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(this.vocabulary_PROVO.getOWLObjectProperty_contributed(), individual, resourceIndividual);
 				add(assertion);
 			}									
