@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
-import edu.utep.cybershare.vlc.visitor.Visitor;
 public class Project extends Resource {
 
 	private String grantIdentification;

@@ -4,8 +4,6 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import edu.utep.cybershare.vlc.visitor.Visitor;
 public class Resource extends Element {
 	
 	private HashMap<String, Resource> relatedResources;

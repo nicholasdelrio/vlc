@@ -1,6 +1,5 @@
 package edu.utep.cybershare.vlc.model;
 
-import edu.utep.cybershare.vlc.visitor.Visitor;
 
 
 public class Institution extends Element {

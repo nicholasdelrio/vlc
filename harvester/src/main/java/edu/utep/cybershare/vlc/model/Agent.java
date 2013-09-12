@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import edu.utep.cybershare.vlc.visitor.Visitor;
-
 public class Agent extends Element{
 
 	private HashMap<String, Agent> influencedAgents;

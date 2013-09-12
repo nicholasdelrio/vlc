@@ -2,8 +2,6 @@ package edu.utep.cybershare.vlc.model;
 
 import java.util.ArrayList;
 
-import edu.utep.cybershare.vlc.visitor.Visitor;
-
 public abstract class Element {
 	
 	private static ArrayList<String> names = new ArrayList<String>(); 

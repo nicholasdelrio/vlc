@@ -8,10 +8,10 @@ import edu.utep.cybershare.vlc.model.Organization;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
 import edu.utep.cybershare.vlc.model.Resource;
+import edu.utep.cybershare.vlc.model.Visitor;
 import edu.utep.cybershare.vlc.ontology.axioms.InstitutionAxioms;
 import edu.utep.cybershare.vlc.ontology.axioms.PersonAxioms;
 import edu.utep.cybershare.vlc.ontology.axioms.ProjectAxioms;
-import edu.utep.cybershare.vlc.visitor.Visitor;
 
 public class OWLVisitor implements Visitor {
 
