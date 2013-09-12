@@ -2,7 +2,6 @@ package edu.utep.cybershare.vlc.builder;
 
 import java.io.File;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -79,19 +78,14 @@ public class NSFDirector {
 	private void buildCoPrincipalInvestigators(Element awardElement){
 		List<String> coiNames = getCoInvestigators(awardElement);
 
-		for(String coiName : coiNames)
+		for(String coiName : coiNames){
 			builder.buildCoPrincipalInvestigator(NSFAwardsUtils.getFirstName(coiName), NSFAwardsUtils.getLastName(coiName));
+		}
 	}
 	
 	private List<String> getCoInvestigators(Element awardElement){
-		String coiName = null;
 		NodeList pis = awardElement.getElementsByTagName("Co-PIName");
-		List<String> pisList = NSFAwardsUtils.nodeListConverter(pis);
-		
-		if(pisList.size() == 0){
-			pisList = new ArrayList<String>();
-			pisList.add(coiName);
-		}	
+		List<String> pisList = NSFAwardsUtils.nodeListConverter(pis);		
 		return pisList;
 	}
 	

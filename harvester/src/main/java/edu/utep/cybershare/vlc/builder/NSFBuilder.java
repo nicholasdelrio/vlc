@@ -26,6 +26,8 @@ public class NSFBuilder implements Builder {
 		catch(Exception e){e.printStackTrace();}
 		
 		coPrincipalInvestigators = new ArrayList<Person>();
+		disciplines = new ArrayList<URI>();
+		subjects = new ArrayList<URI>();
 		
 		product = new ModelProduct();
 	}
@@ -87,7 +89,8 @@ public class NSFBuilder implements Builder {
 	}
 	
 	private URI getDBPediaResource(String name){
-		String resourceURIString = dbpediaResource + name;
+		String cleanedName = name.replaceAll(" ", "_");
+		String resourceURIString = dbpediaResource + cleanedName;
 		URI dbpediaResourceURI = product.getDBPediaResource(resourceURIString);
 		
 		if(dbpediaResourceURI == null)

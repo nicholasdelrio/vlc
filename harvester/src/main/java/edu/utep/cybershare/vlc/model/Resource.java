@@ -14,6 +14,7 @@ public class Resource extends Element {
 		super(name);
 		relatedResources = new HashMap<String, Resource>();
 		influencedResources = new HashMap<String, Resource>();
+		subjects = new HashMap<String, URI>();
 	}
 	
 	public boolean isSet_relatedResources(){return this.getRelatedResources().size() > 0;}

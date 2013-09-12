@@ -15,16 +15,17 @@ public class RDFDumpFilter implements DumpFilter {
 	public static final String OWL_FILENAME_FILTERED = "filtered-projects.owl";	
 	public static final String DUMP_DIRECTORY = "./output-rdf/";
 	
-	private String dir;
-	private String fileName;
+	private File dumpFile;
 	
-	public RDFDumpFilter(String directory, String fileName){
-		this.dir = directory;
-		this.fileName = fileName;
+	public RDFDumpFilter(File dumpFile){
+		if(dumpFile == null)
+			throw new IllegalArgumentException("Specified file is null!");
+		
+		this.dumpFile = dumpFile;
 	}
 	
 	public void dumpModelProduct(ModelProduct product) {	//set the tools that the axiom setters will use to populate the ontology
-		OntologyToolset toolset = new OntologyToolset("http://vlc.cybershare.utep.edu/" + fileName);
+		OntologyToolset toolset = new OntologyToolset("http://vlc.cybershare.utep.edu/" + dumpFile.getName());
 	
 		OWLVisitor axiomGenerator = new OWLVisitor(toolset);
 		
@@ -39,11 +40,9 @@ public class RDFDumpFilter implements DumpFilter {
 		//visit all people
 		for(Person aPerson : product.getPeople())
 			aPerson.accept(axiomGenerator);
-		
-		String outputFilePath = dir + fileName;
-				
+						
 		//convert each project to a set of ontology axioms
 		//print out the resulting ontology
-		toolset.dumpOntology(new File(outputFilePath));		
+		toolset.dumpOntology(dumpFile);		
 	}
 }

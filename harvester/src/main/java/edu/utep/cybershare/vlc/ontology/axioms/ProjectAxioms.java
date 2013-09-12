@@ -34,6 +34,7 @@ public class ProjectAxioms extends Axioms{
 	
 	public ProjectAxioms(Project aProject, OWLNamedIndividual projectIndividual, OntologyToolset bundle){
 		super(projectIndividual, bundle);
+		project = aProject;
 	}
 	
 	@Override
