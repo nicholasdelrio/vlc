@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.harvesting.filter;
+package edu.utep.cybershare.vlc.harvesting.pipeline.dumpFilter;
 
 import java.io.File;
 

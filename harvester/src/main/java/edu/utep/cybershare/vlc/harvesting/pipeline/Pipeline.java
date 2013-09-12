@@ -3,9 +3,9 @@ package edu.utep.cybershare.vlc.harvesting.pipeline;
 import java.util.ArrayList;
 
 import edu.utep.cybershare.vlc.builder.ModelProduct;
-import edu.utep.cybershare.vlc.harvesting.filter.DumpFilter;
-import edu.utep.cybershare.vlc.harvesting.filter.Filter;
-import edu.utep.cybershare.vlc.harvesting.filter.SourceFilter;
+import edu.utep.cybershare.vlc.harvesting.pipeline.dumpFilter.DumpFilter;
+import edu.utep.cybershare.vlc.harvesting.pipeline.filter.Filter;
+import edu.utep.cybershare.vlc.harvesting.pipeline.sourceFilter.SourceFilter;
 
 public class Pipeline {
 	
