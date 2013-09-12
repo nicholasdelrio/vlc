@@ -45,7 +45,7 @@ public class PeopleOfInterestFilter implements Filter {
 	public ModelProduct process(ModelProduct product) {
 		for(Project aProject : product.getProjects()){
 			if(!isTargetProject(aProject))
-				product.getProjects().remove(aProject);
+				product.removeProject(aProject);
 		}		
 		return product;
 	}

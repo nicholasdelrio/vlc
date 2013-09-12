@@ -2,7 +2,7 @@ package edu.utep.cybershare.vlc.builder;
 
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.List;
 
 import edu.utep.cybershare.vlc.model.Institution;
@@ -10,16 +10,16 @@ import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
 
 public class ModelProduct {
-	private Hashtable<String, Person> people;
-	private Hashtable<String, Project> projects;	
-	private Hashtable<String, Institution> institutions;
-	private Hashtable<String, URI> dbpediaResources;
+	private HashMap<String, Person> people;
+	private HashMap<String, Project> projects;	
+	private HashMap<String, Institution> institutions;
+	private HashMap<String, URI> dbpediaResources;
 
 	public ModelProduct(){
-		people = new Hashtable<String,Person>();
-		projects = new Hashtable<String,Project>();	
-		institutions = new Hashtable<String, Institution>();
-		dbpediaResources = new Hashtable<String, URI>();
+		people = new HashMap<String,Person>();
+		projects = new HashMap<String,Project>();	
+		institutions = new HashMap<String, Institution>();
+		dbpediaResources = new HashMap<String, URI>();
 	}
 	
 	Institution getInstitution(String key){
@@ -54,6 +54,10 @@ public class ModelProduct {
 		dbpediaResources.put(value.toASCIIString(), value);
 	}
 	
+	public Project removeProject(Project aProject){
+		return projects.remove(aProject.getIdentification());
+	}
+		
 	public List<Person> getPeople(){
 		return new ArrayList<Person>(people.values());
 	}
