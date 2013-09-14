@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
+import org.apache.commons.lang.WordUtils;
+
 import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
@@ -100,8 +102,10 @@ public class NSFBuilder implements Builder {
 	}
 	
 	private URI getDBPediaResource(String name){
-		String cleanedName = name.replaceAll(" ", "_");
-		String resourceURIString = dbpediaResource + cleanedName;
+		name = name.toLowerCase();
+		name = WordUtils.capitalize(name);		
+		name = name.replaceAll(" ", "_");
+		String resourceURIString = dbpediaResource + name;
 		URI dbpediaResourceURI = product.getDBPediaResource(resourceURIString);
 		
 		if(dbpediaResourceURI == null)
