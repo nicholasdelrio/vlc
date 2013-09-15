@@ -4,10 +4,10 @@ import java.io.File;
 
 import edu.utep.cybershare.vlc.harvesting.pipeline.Pipeline;
 import edu.utep.cybershare.vlc.harvesting.pipeline.dumpFilter.RDFDumpFilter;
-import edu.utep.cybershare.vlc.harvesting.pipeline.filter.AddProjectToProjectRelationshipsFilter;
-import edu.utep.cybershare.vlc.harvesting.pipeline.filter.AddToCollectionsFilter;
+import edu.utep.cybershare.vlc.harvesting.pipeline.filter.ProjectRelationshipsFilter;
+import edu.utep.cybershare.vlc.harvesting.pipeline.filter.CollectionsFilter;
 import edu.utep.cybershare.vlc.harvesting.pipeline.filter.InstitutionGeocodeFilter;
-import edu.utep.cybershare.vlc.harvesting.pipeline.filter.PeopleOfInterestFilter;
+import edu.utep.cybershare.vlc.harvesting.pipeline.filter.PeopleFilter;
 import edu.utep.cybershare.vlc.harvesting.pipeline.sourceFilter.NSFSourceFilter;
 
 public class Harvester {
@@ -29,13 +29,13 @@ public class Harvester {
 		}
 		
 		// create deana filter
-		PeopleOfInterestFilter deanaFilter = new PeopleOfInterestFilter();
+		PeopleFilter deanaFilter = new PeopleFilter();
 		
 		// create add to collections filter
-		AddToCollectionsFilter collectionsFilter = new AddToCollectionsFilter();
+		CollectionsFilter collectionsFilter = new CollectionsFilter();
 		
 		// create project to project filter
-		AddProjectToProjectRelationshipsFilter relationshipsFilter = new AddProjectToProjectRelationshipsFilter();
+		ProjectRelationshipsFilter relationshipsFilter = new ProjectRelationshipsFilter();
 		
 		// create geocoder filter
 		InstitutionGeocodeFilter geocoderFilter = new InstitutionGeocodeFilter();

@@ -4,6 +4,7 @@ import edu.utep.cybershare.vlc.builder.ModelProduct;
 import edu.utep.cybershare.vlc.builder.NSFBuilder;
 import edu.utep.cybershare.vlc.builder.NSFDirector;
 import edu.utep.cybershare.vlc.builder.source.XMLSet_NSF;
+import edu.utep.cybershare.vlc.harvesting.pipeline.Pipeline.SourceFilter;
 
 public class NSFSourceFilter implements SourceFilter {
 	

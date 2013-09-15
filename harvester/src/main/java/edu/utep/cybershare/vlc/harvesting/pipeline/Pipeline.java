@@ -3,9 +3,6 @@ package edu.utep.cybershare.vlc.harvesting.pipeline;
 import java.util.ArrayList;
 
 import edu.utep.cybershare.vlc.builder.ModelProduct;
-import edu.utep.cybershare.vlc.harvesting.pipeline.dumpFilter.DumpFilter;
-import edu.utep.cybershare.vlc.harvesting.pipeline.filter.Filter;
-import edu.utep.cybershare.vlc.harvesting.pipeline.sourceFilter.SourceFilter;
 
 public class Pipeline {
 	
@@ -34,5 +31,17 @@ public class Pipeline {
 		
 		System.out.println("Dumping model...");
 		modelDump.dumpModelProduct(product);
+	}
+	
+	public static interface SourceFilter{
+		public ModelProduct getModelProduct();
+	}
+	
+	public static interface DumpFilter {	
+		public void dumpModelProduct(ModelProduct product);
+	}
+	
+	public static interface Filter {
+		public ModelProduct process(ModelProduct product);
 	}
 }

@@ -3,6 +3,7 @@ package edu.utep.cybershare.vlc.harvesting.pipeline.dumpFilter;
 import java.io.File;
 
 import edu.utep.cybershare.vlc.builder.ModelProduct;
+import edu.utep.cybershare.vlc.harvesting.pipeline.Pipeline.DumpFilter;
 import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;

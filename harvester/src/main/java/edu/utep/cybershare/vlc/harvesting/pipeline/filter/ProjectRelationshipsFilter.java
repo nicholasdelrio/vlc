@@ -3,6 +3,7 @@ package edu.utep.cybershare.vlc.harvesting.pipeline.filter;
 import java.util.List;
 
 import edu.utep.cybershare.vlc.builder.ModelProduct;
+import edu.utep.cybershare.vlc.harvesting.pipeline.Pipeline.Filter;
 import edu.utep.cybershare.vlc.model.Project;
 import edu.utep.cybershare.vlc.util.Relationships;
 /**
@@ -10,12 +11,12 @@ import edu.utep.cybershare.vlc.util.Relationships;
  * @author Nicholas Del Rio
  *
  */
-public class AddProjectToProjectRelationshipsFilter implements Filter {
+public class ProjectRelationshipsFilter implements Filter {
 
 	// contains collection information as well as
 	private Relationships relationships;
 	
-	public AddProjectToProjectRelationshipsFilter(){
+	public ProjectRelationshipsFilter(){
 		relationships = new Relationships();
 	}
 	

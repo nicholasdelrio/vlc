@@ -8,6 +8,7 @@ import java.util.List;
 
 import au.com.bytecode.opencsv.CSVReader;
 import edu.utep.cybershare.vlc.builder.ModelProduct;
+import edu.utep.cybershare.vlc.harvesting.pipeline.Pipeline.Filter;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
 
@@ -17,11 +18,11 @@ import edu.utep.cybershare.vlc.model.Project;
  *
  */
 
-public class PeopleOfInterestFilter implements Filter {
+public class PeopleFilter implements Filter {
 	
 	private Hashtable<String, Boolean> peopleOfInterest;
 
-	public PeopleOfInterestFilter(){
+	public PeopleFilter(){
 		peopleOfInterest = new Hashtable<String, Boolean>();
 		
 		File csvFile = new File("./people-of-interest/vlc-demo-people.csv");
