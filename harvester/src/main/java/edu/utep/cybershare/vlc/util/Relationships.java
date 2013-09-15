@@ -98,7 +98,7 @@ public class Relationships {
 	}
 	
 	public List<String> getRelatedProjectTitles(Project aProject){
-		String projectTitle = aProject.getTitle();
+		String projectTitle = aProject.getIdentification();
 		String relatedProjectIDs = projectTitleToRelatedProjectIDs.get(projectTitle);
 		ArrayList<String> relatedProjectTitles = new ArrayList<String>();
 		String[] projectIDs;

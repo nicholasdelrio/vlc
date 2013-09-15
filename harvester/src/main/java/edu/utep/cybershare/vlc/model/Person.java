@@ -43,11 +43,6 @@ public class Person extends Agent {
 		return new ArrayList<Institution>(affiliatedInstitutions.values());
 	}
 
-	public void setAffiliatedInstitutions(
-			HashMap<String, Institution> affiliatedInstitutions) {
-		this.affiliatedInstitutions = affiliatedInstitutions;
-	}
-	
 	public void addAffiliatedInstitution(Institution institution){
 		this.affiliatedInstitutions.put(institution.getIdentification(), institution);
 	}
@@ -91,10 +86,6 @@ public class Person extends Agent {
 
 	public List<Organization> getAffiliatedOrganizations() {
 		return new ArrayList<Organization>(affiliatedOrganizations.values());
-	}
-
-	public void setAffiliatedOrganizations(HashMap<String, Organization> affiliatedOrganizations) {
-		this.affiliatedOrganizations = affiliatedOrganizations;
 	}
 	
 	public void addAffiliatedOrganization(Organization organization){

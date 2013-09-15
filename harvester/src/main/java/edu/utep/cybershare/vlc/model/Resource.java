@@ -24,26 +24,17 @@ public class Resource extends Element {
 	public List<Resource> getRelatedResources() {
 		return new ArrayList<Resource>(relatedResources.values());
 	}
-	public void setRelatedResources(HashMap<String, Resource> relatedResources) {
-		this.relatedResources = relatedResources;
-	}
 	public void addRelatedResource(Resource resource){
 		this.relatedResources.put(resource.getIdentification(), resource);
 	}
 	public List<Resource> getInfluencedResources() {
 		return new ArrayList<Resource>(influencedResources.values());
 	}
-	public void setInfluencedResources(HashMap<String, Resource> influencedResources) {
-		this.influencedResources = influencedResources;
-	}
 	public void addInfluencedResource(Resource project){
 		this.influencedResources.put(project.getIdentification(), project);
 	}
 	public List<URI> getSubjects() {
 		return new ArrayList<URI>(subjects.values());
-	}
-	public void setSubjects(HashMap<String, URI> subjects) {
-		this.subjects = subjects;
 	}
 	public void addSubject(URI subject){
 		this.subjects.put(subject.toASCIIString(), subject);

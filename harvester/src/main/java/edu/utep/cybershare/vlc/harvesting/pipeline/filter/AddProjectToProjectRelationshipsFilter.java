@@ -23,6 +23,14 @@ public class AddProjectToProjectRelationshipsFilter implements Filter {
 		List<String> relatedProjectTitles;
 		for(Project aProject : product.getProjects()){
 			relatedProjectTitles = relationships.getRelatedProjectTitles(aProject);
+			for(String aTitle : relatedProjectTitles){
+				for(Project anotherProject : product.getProjects()){
+					if(aTitle.equals(anotherProject.getIdentification())){
+						aProject.addRelatedResource(anotherProject);
+						System.out.println("Project: " + aProject.getIdentification() + " is related to: " + anotherProject.getIdentification());
+					}
+				}
+			}
 		}
 		return product;
 	}

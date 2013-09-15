@@ -28,10 +28,6 @@ public class Agent extends Element{
 	public List<Agent> getInfluencedAgents() {
 		return new ArrayList<Agent>(influencedAgents.values());
 	}
-
-	public void setInfluencedAgents(HashMap<String, Agent> influencedAgents) {
-		this.influencedAgents = influencedAgents;
-	}
 	
 	public void addInfluencedAgent(Agent agent){
 		this.influencedAgents.put(agent.getIdentification(), agent);
@@ -41,20 +37,12 @@ public class Agent extends Element{
 		return new ArrayList<Agent>(relatedAgents.values());
 	}
 
-	public void setRelatedAgents(HashMap<String, Agent> relatedAgents) {
-		this.relatedAgents = relatedAgents;
-	}
-
 	public void addRelatedAgent(Agent agent){
 		this.relatedAgents.put(agent.getIdentification(), agent);
 	}
 	
 	public List<Resource> getContributedResources() {
 		return new ArrayList<Resource>(contributedResources.values());
-	}
-
-	public void setContributedResources(HashMap<String, Resource> contributedResources) {
-		this.contributedResources = contributedResources;
 	}
 	
 	public void addContributedResource(Resource resource){
@@ -67,10 +55,6 @@ public class Agent extends Element{
 	
 	public List<URI> getDisciplines() {
 		return new ArrayList<URI>(disciplines.values());
-	}
-
-	public void setDisciplines(HashMap<String, URI> disciplines) {
-		this.disciplines = disciplines;
 	}
 	
 	public void addDiscipline(URI uri){

@@ -66,9 +66,6 @@ public class Project extends Resource {
 	public List<Person> getCoPrincipalInvestigators() {
 		return new ArrayList<Person>(coPrincipalInvestigators.values());
 	}
-	public void setCoPrincipalInvestigators(HashMap<String, Person> coPrincipalInvestigators) {
-		this.coPrincipalInvestigators = coPrincipalInvestigators;
-	}
 	public void addCoPrincipalInvestigator(Person person){
 		this.coPrincipalInvestigators.put(person.getProperName(), person);
 	}
@@ -105,9 +102,6 @@ public class Project extends Resource {
 	public List<Institution> getHostingInstitutions() {
 		return new ArrayList<Institution>(hostingInstitutions.values());
 	}
-	public void setHostingInstitutions(HashMap<String, Institution> hostingInstitutions) {
-		this.hostingInstitutions = hostingInstitutions;
-	}
 	public void addHostingInstitution(Institution institution){
 		this.hostingInstitutions.put(institution.getIdentification(), institution);
 	}
@@ -126,17 +120,11 @@ public class Project extends Resource {
 	public List<Resource> getRelatedWorks() {
 		return new ArrayList<Resource>(relatedWorks.values());
 	}
-	public void setRelatedWorks(HashMap<String, Resource> relatedWorks) {
-		this.relatedWorks = relatedWorks;
-	}
 	public void addRelatedWork(Resource resource){
 		this.relatedWorks.put(resource.getIdentification(), resource);
 	}
 	public List<Resource> getResults() {
 		return new ArrayList<Resource>(results.values());
-	}
-	public void setResults(HashMap<String, Resource> results) {
-		this.results = results;
 	}
 	public void addResult(Resource resource){
 		this.results.put(resource.getIdentification(), resource);
