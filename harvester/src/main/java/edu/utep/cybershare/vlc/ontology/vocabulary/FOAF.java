@@ -33,7 +33,7 @@ public class FOAF extends Vocabulary {
 	public OWLClass getOWLClass_Person(){
 		return factory.getOWLClass(IRI.create(OWLClass_Person));
 	}
-	public OWLDataProperty getOWLObjectProperty_homepage(){
+	public OWLDataProperty getOWLDataProperty_homepage(){
 		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_homepage));
 	}
 	public OWLDataProperty getOWLDataProperty_givenName(){

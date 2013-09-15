@@ -35,7 +35,7 @@ public class InstitutionAxioms extends Axioms {
 	private void addLongitude(){
 		if(institution.isSet_coordinate()){
 			OWLLiteral longitudeLiteral = bundle.getDataFactory().getOWLLiteral(institution.getCoordinate().getLongitude());
-			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_VLC.getOWLDataProperty_hasLongitude(), individual, longitudeLiteral);
+			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_GEO.getOWLDataProperty_long(), individual, longitudeLiteral);
 			add(assertion);		
 		}
 	}
@@ -43,7 +43,7 @@ public class InstitutionAxioms extends Axioms {
 	private void addLatitude(){
 		if(institution.isSet_coordinate()){
 			OWLLiteral latitudeLiteral = bundle.getDataFactory().getOWLLiteral(institution.getCoordinate().getLatitude());
-			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_VLC.getOWLDataProperty_hasLatitude(), individual, latitudeLiteral);
+			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_GEO.getOWLDataProperty_lat(), individual, latitudeLiteral);
 			add(assertion);	
 		}
 	}

@@ -24,9 +24,6 @@ public class VLC extends Vocabulary{
 	public static final String OWLDataProperty_hasGrantAmount = NAMESPACE + "#hasGrantAmount";
 
 	// To be replaced by VCARD and others...
-	public static final String OWLDataProperty_hasLatitude = NAMESPACE + "#hasLatitude";
-	public static final String OWLDataProperty_hasLongitude = NAMESPACE + "#hasLongitude";
-	public static final String OWLDataProperty_hasName = NAMESPACE + "#hasName";
 	public static final String OWLDataProperty_hasState = NAMESPACE + "#hasState";
 	public static final String OWLDataProperty_hasCity = NAMESPACE + "#hasCity";
 	public static final String OWLDataProperty_hasZipcode = NAMESPACE + "#hasZipcode";
@@ -61,15 +58,6 @@ public class VLC extends Vocabulary{
 	
 	public OWLDataProperty getOWLDataProperty_hasGrantAmount(){
 		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_hasGrantAmount));
-	}
-	public OWLDataProperty getOWLDataProperty_hasLatitude(){
-		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_hasLatitude));
-	}
-	public OWLDataProperty getOWLDataProperty_hasLongitude(){
-		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_hasLongitude));
-	}
-	public OWLDataProperty getOWLDataProperty_hasName(){
-		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_hasName));
 	}
 	public OWLDataProperty getOWLDataProperty_hasState(){
 		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_hasState));

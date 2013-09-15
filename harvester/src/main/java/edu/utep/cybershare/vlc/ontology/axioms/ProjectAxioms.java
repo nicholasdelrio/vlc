@@ -124,7 +124,7 @@ public class ProjectAxioms extends Axioms{
 	private void addHomepage(){
 		if(project.isSet_projectHomePage()){
 			OWLLiteral homepageLiteral = bundle.getDataFactory().getOWLLiteral(project.getProjectHomePage().toString(), this.vocabulary_XSD.getDataType_anyURI());
-			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_FOAF.getOWLObjectProperty_homepage(), individual, homepageLiteral);
+			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_FOAF.getOWLDataProperty_homepage(), individual, homepageLiteral);
 			add(assertion);
 		}
 	}

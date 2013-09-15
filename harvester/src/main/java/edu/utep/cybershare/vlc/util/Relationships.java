@@ -25,16 +25,15 @@ public class Relationships {
 	private static int sensors = 12;
 
 	
-	public Relationships(){
+	public Relationships(File mappingsFile){
 		
-		File csvFile = new File("./people-of-interest/target-vlc-projects-relationships.csv");
 		
 		projectTitleToRelatedProjectIDs = new Hashtable<String,String>();
 		projectIDToProjectTitle = new Hashtable<Integer,String>();
 		projectTitleToCollectionNames = new Hashtable<String,String>();
 		
 		try{
-			CSVReader reader = new CSVReader(new FileReader(csvFile));	
+			CSVReader reader = new CSVReader(new FileReader(mappingsFile));	
 			List<String[]> records = reader.readAll();
 			
 			String projectTitle;

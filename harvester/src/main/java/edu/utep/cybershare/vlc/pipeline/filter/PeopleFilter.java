@@ -11,6 +11,7 @@ import edu.utep.cybershare.vlc.build.ModelProduct;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
 import edu.utep.cybershare.vlc.pipeline.Pipeline.Filter;
+import edu.utep.cybershare.vlc.util.FilterSourceData;
 
 /**
  * Filters projects based on a listing of people populated by Deana Pennington for demo purposes.
@@ -25,7 +26,7 @@ public class PeopleFilter implements Filter {
 	public PeopleFilter(){
 		peopleOfInterest = new Hashtable<String, Boolean>();
 		
-		File csvFile = new File("./people-of-interest/vlc-demo-people.csv");
+		File csvFile = FilterSourceData.getPeople();
 		
 		try{
 			CSVReader reader = new CSVReader(new FileReader(csvFile));
@@ -86,42 +87,4 @@ public class PeopleFilter implements Filter {
 	private String getProperName(String firstName, String lastName){
 		return lastName + ", " + firstName;
 	}
-
-	/*
-	public void filterAndDumpCSV(List<Project> projects){
-		List<Project> filteredProjects = filter(projects);
-		try{
-			CSVWriter writer = new CSVWriter(new FileWriter("./people-of-interest/target-vlc-projects.csv"), ',');
-			// feed in your array (or convert your data to an array)
-
-			String[] header = new String[]{"Project Title", "Principal Investigator", "Co-Principal Investigators", "Related to Project"};
-			writer.writeNext(header);
-			Collection<Person> coPis;
-			Person pi;
-			String[] aRecord = new String[3];
-			for(Project aProject : filteredProjects){
-				aRecord[0] = aProject.getTitle();
-				pi = aProject.getPrincipalInvestigator();
-				aRecord[1] = pi.getFirstName() + " " + pi.getLastName();
-			
-				String coPiList = "";
-				coPis = aProject.getCoPrincipalInvestigators();
-				for(Person coPi : coPis){
-					if(coPi.getFirstName().equals("null-name"))
-						coPiList += "None";
-					else
-						coPiList += coPi.getFirstName() + " " + coPi.getLastName() + ", ";
-				}
-				
-				if(coPiList.lastIndexOf(", ") > -1)
-					coPiList = coPiList.substring(0, coPiList.lastIndexOf(", "));
-				
-				aRecord[2] = coPiList;
-			
-				writer.writeNext(aRecord);
-			}
-			writer.close();
-		}catch(Exception e){e.printStackTrace();}
-	}
-	*/
 }

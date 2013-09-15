@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.pipeline.filter;
+package edu.utep.cybershare.vlc.util;
 
 import java.io.File;
 

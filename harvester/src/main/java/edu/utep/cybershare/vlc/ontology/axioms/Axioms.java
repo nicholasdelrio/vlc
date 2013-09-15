@@ -13,6 +13,7 @@ import edu.utep.cybershare.vlc.ontology.vocabulary.AIISO;
 import edu.utep.cybershare.vlc.ontology.vocabulary.ARPFO;
 import edu.utep.cybershare.vlc.ontology.vocabulary.DCMI;
 import edu.utep.cybershare.vlc.ontology.vocabulary.FOAF;
+import edu.utep.cybershare.vlc.ontology.vocabulary.GEO;
 import edu.utep.cybershare.vlc.ontology.vocabulary.PROVO;
 import edu.utep.cybershare.vlc.ontology.vocabulary.VLC;
 import edu.utep.cybershare.vlc.ontology.vocabulary.VOID;
@@ -36,6 +37,7 @@ public abstract class Axioms extends ArrayList<OWLAxiom> {
 	protected VLC vocabulary_VLC;
 	protected VOID vocabulary_VOID;
 	protected XSD vocabulary_XSD;
+	protected GEO vocabulary_GEO;
 		
 	protected Axioms(OWLNamedIndividual individual, OntologyToolset bundle){
 		this.individual = individual;
@@ -53,6 +55,7 @@ public abstract class Axioms extends ArrayList<OWLAxiom> {
 		vocabulary_VLC = new VLC(dataFactory);
 		vocabulary_VOID = new VOID(dataFactory);
 		vocabulary_XSD = new XSD(dataFactory);
+		vocabulary_GEO = new GEO(dataFactory);
 	}
 		
 	protected void setTypeAxiom(OWLClass owlClass){
