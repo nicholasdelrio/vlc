@@ -1,10 +1,10 @@
-package edu.utep.cybershare.vlc.harvesting.pipeline.sourceFilter;
+package edu.utep.cybershare.vlc.pipeline.filter;
 
-import edu.utep.cybershare.vlc.builder.ModelProduct;
-import edu.utep.cybershare.vlc.builder.NSFBuilder;
-import edu.utep.cybershare.vlc.builder.NSFDirector;
-import edu.utep.cybershare.vlc.builder.source.XMLSet_NSF;
-import edu.utep.cybershare.vlc.harvesting.pipeline.Pipeline.SourceFilter;
+import edu.utep.cybershare.vlc.build.ModelProduct;
+import edu.utep.cybershare.vlc.build.NSFBuilder;
+import edu.utep.cybershare.vlc.build.NSFDirector;
+import edu.utep.cybershare.vlc.build.source.XMLSet_NSF;
+import edu.utep.cybershare.vlc.pipeline.Pipeline.SourceFilter;
 
 public class NSFSourceFilter implements SourceFilter {
 	

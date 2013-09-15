@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.builder;
+package edu.utep.cybershare.vlc.build;
 
 import java.io.File;
 import java.net.URL;
@@ -13,7 +13,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import edu.utep.cybershare.vlc.builder.source.XMLSet_NSF;
+import edu.utep.cybershare.vlc.build.source.XMLSet_NSF;
 import edu.utep.cybershare.vlc.util.NSFAwardsUtils;
 
 public class NSFDirector {

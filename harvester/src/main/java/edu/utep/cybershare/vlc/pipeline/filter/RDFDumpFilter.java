@@ -1,14 +1,14 @@
-package edu.utep.cybershare.vlc.harvesting.pipeline.dumpFilter;
+package edu.utep.cybershare.vlc.pipeline.filter;
 
 import java.io.File;
 
-import edu.utep.cybershare.vlc.builder.ModelProduct;
-import edu.utep.cybershare.vlc.harvesting.pipeline.Pipeline.DumpFilter;
+import edu.utep.cybershare.vlc.build.ModelProduct;
 import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
 import edu.utep.cybershare.vlc.ontology.OWLVisitor;
 import edu.utep.cybershare.vlc.ontology.OntologyToolset;
+import edu.utep.cybershare.vlc.pipeline.Pipeline.DumpFilter;
 
 public class RDFDumpFilter implements DumpFilter {
 

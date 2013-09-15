@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.harvesting.pipeline.filter;
+package edu.utep.cybershare.vlc.pipeline.filter;
 
 import java.io.File;
 import java.io.FileReader;
@@ -7,10 +7,10 @@ import java.util.Hashtable;
 import java.util.List;
 
 import au.com.bytecode.opencsv.CSVReader;
-import edu.utep.cybershare.vlc.builder.ModelProduct;
-import edu.utep.cybershare.vlc.harvesting.pipeline.Pipeline.Filter;
+import edu.utep.cybershare.vlc.build.ModelProduct;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
+import edu.utep.cybershare.vlc.pipeline.Pipeline.Filter;
 
 /**
  * Filters projects based on a listing of people populated by Deana Pennington for demo purposes.

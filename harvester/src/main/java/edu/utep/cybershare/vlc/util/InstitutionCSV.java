@@ -9,13 +9,14 @@ import java.util.HashMap;
 import java.util.List;
 
 import au.com.bytecode.opencsv.CSVReader;
-import edu.utep.cybershare.vlc.harvesting.pipeline.sourceFilter.NSFSourceFilter;
 import edu.utep.cybershare.vlc.model.Institution;
+import edu.utep.cybershare.vlc.model.Institution.Coordinate;
+import edu.utep.cybershare.vlc.pipeline.filter.NSFSourceFilter;
 
 public class InstitutionCSV {
 
 	private List<Institution> institutions;
-	private HashMap<String,  Institution.Coordinate> institutionToCoordinates;
+	private HashMap<String,  Coordinate> institutionToCoordinates;
 	
 	public InstitutionCSV(List<Institution> institutions){
 		this.institutions = institutions;
@@ -24,7 +25,7 @@ public class InstitutionCSV {
 	public InstitutionCSV(){
 		File csvFile = new File("./output-institutions/institutions-geocoded.csv");
 		
-	    institutionToCoordinates = new HashMap <String, Institution.Coordinate>();
+	    institutionToCoordinates = new HashMap <String, Coordinate>();
 		
 		try{
 			CSVReader reader = new CSVReader(new FileReader(csvFile));

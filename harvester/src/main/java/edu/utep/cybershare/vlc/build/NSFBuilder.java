@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.builder;
+package edu.utep.cybershare.vlc.build;
 
 import java.net.URI;
 import java.net.URL;

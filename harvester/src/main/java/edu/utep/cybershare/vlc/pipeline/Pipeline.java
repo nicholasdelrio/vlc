@@ -1,8 +1,8 @@
-package edu.utep.cybershare.vlc.harvesting.pipeline;
+package edu.utep.cybershare.vlc.pipeline;
 
 import java.util.ArrayList;
 
-import edu.utep.cybershare.vlc.builder.ModelProduct;
+import edu.utep.cybershare.vlc.build.ModelProduct;
 
 public class Pipeline {
 	

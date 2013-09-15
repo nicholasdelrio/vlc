@@ -1,14 +1,14 @@
-package edu.utep.cybershare.vlc.harvesting;
+package edu.utep.cybershare.vlc.harvest;
 
 import java.io.File;
 
-import edu.utep.cybershare.vlc.harvesting.pipeline.Pipeline;
-import edu.utep.cybershare.vlc.harvesting.pipeline.dumpFilter.RDFDumpFilter;
-import edu.utep.cybershare.vlc.harvesting.pipeline.filter.ProjectRelationshipsFilter;
-import edu.utep.cybershare.vlc.harvesting.pipeline.filter.CollectionsFilter;
-import edu.utep.cybershare.vlc.harvesting.pipeline.filter.InstitutionGeocodeFilter;
-import edu.utep.cybershare.vlc.harvesting.pipeline.filter.PeopleFilter;
-import edu.utep.cybershare.vlc.harvesting.pipeline.sourceFilter.NSFSourceFilter;
+import edu.utep.cybershare.vlc.pipeline.Pipeline;
+import edu.utep.cybershare.vlc.pipeline.filter.CollectionsFilter;
+import edu.utep.cybershare.vlc.pipeline.filter.InstitutionGeocodeFilter;
+import edu.utep.cybershare.vlc.pipeline.filter.NSFSourceFilter;
+import edu.utep.cybershare.vlc.pipeline.filter.PeopleFilter;
+import edu.utep.cybershare.vlc.pipeline.filter.ProjectRelationshipsFilter;
+import edu.utep.cybershare.vlc.pipeline.filter.RDFDumpFilter;
 
 public class Harvester {
 
