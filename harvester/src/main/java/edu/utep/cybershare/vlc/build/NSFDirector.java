@@ -18,9 +18,9 @@ import edu.utep.cybershare.vlc.util.NSFAwardsUtils;
 
 public class NSFDirector {
 	
-	private Builder builder;
+	private NSFBuilder builder;
 	
-	public NSFDirector(Builder builder){
+	public NSFDirector(NSFBuilder builder){
 		this.builder = builder;
 	}
 	

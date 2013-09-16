@@ -28,8 +28,10 @@ public class NSFAwardsUtils {
 		String[] nameParts;
 		if(properName != null){
 			nameParts = properName.split(" ");
-			if(nameParts.length > 1)
+			if(nameParts.length == 2)
 				lastName = nameParts[1];
+			else if(nameParts.length == 3)
+				lastName = nameParts[2];
 		}
 		return lastName;
 	}
