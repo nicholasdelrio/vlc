@@ -5,10 +5,10 @@ import java.io.File;
 import edu.utep.cybershare.vlc.pipeline.Pipeline;
 import edu.utep.cybershare.vlc.pipeline.filter.CollectionsFilter;
 import edu.utep.cybershare.vlc.pipeline.filter.InstitutionGeocodeFilter;
-import edu.utep.cybershare.vlc.pipeline.filter.NSFSourceFilter;
-import edu.utep.cybershare.vlc.pipeline.filter.PeopleFilter;
 import edu.utep.cybershare.vlc.pipeline.filter.ProjectRelationshipsFilter;
-import edu.utep.cybershare.vlc.pipeline.filter.RDFDumpFilter;
+import edu.utep.cybershare.vlc.pipeline.filter.ProjectsFilter;
+import edu.utep.cybershare.vlc.pipeline.sink.RDFDumpFilter;
+import edu.utep.cybershare.vlc.pipeline.source.NSFSourceFilter;
 
 public class Harvester {
 
@@ -29,7 +29,7 @@ public class Harvester {
 		}
 		
 		// create deana filter
-		PeopleFilter deanaFilter = new PeopleFilter();
+		ProjectsFilter deanaFilter = new ProjectsFilter();
 		
 		// create add to collections filter
 		CollectionsFilter collectionsFilter = new CollectionsFilter();

@@ -15,8 +15,45 @@ import edu.utep.cybershare.vlc.util.FilterSourceData;
 
 public class ProjectsFilter implements Filter {
 	private Hashtable<String, Boolean> projectsOfInterest;
+	private Hashtable<String, Boolean> peopleOfInterest;
 
 	public ProjectsFilter(){
+		populateProjectsOfInterest();
+		populatePeopleOfInterest();
+	}
+	
+	public ModelProduct process(ModelProduct product) {
+		for(Project aProject : product.getProjects()){
+			if(!isTargetProject(aProject))
+				product.removeProject(aProject);
+		}		
+		return product;
+	}
+	
+	private void populatePeopleOfInterest(){
+		peopleOfInterest = new Hashtable<String, Boolean>();
+		
+		File csvFile = FilterSourceData.getPeople();
+		
+		try{
+			CSVReader reader = new CSVReader(new FileReader(csvFile));
+			List<String[]> records = reader.readAll();
+		    String firstName;
+		    String lastName;
+		    String properName;
+		    Person tempPerson;
+		    for(String[] record : records){
+		    	firstName = record[0];
+		    	lastName = record[1];
+		    	tempPerson = new Person(firstName, lastName);
+		    	properName = tempPerson.getIdentification();
+		    	peopleOfInterest.put(properName, new Boolean(true));
+		    }
+			reader.close();
+		}catch(Exception e){e.printStackTrace();}
+	}
+	
+	private void populateProjectsOfInterest(){
 		projectsOfInterest = new Hashtable<String, Boolean>();
 		
 		File csvFile = FilterSourceData.getWaterSustainabilityProjects();
@@ -31,22 +68,43 @@ public class ProjectsFilter implements Filter {
 		    }
 			reader.close();
 		}catch(Exception e){e.printStackTrace();}
-	}
-	
-	public ModelProduct process(ModelProduct product) {
-		for(Project aProject : product.getProjects()){
-			if(!isTargetProject(aProject))
-				product.removeProject(aProject);
-		}		
-		return product;
+
 	}
 	
 	private boolean isTargetProject(Project aProject){
-		return this.projectsOfInterest.get(aProject.getIdentification()) != null;
+		return this.projectsOfInterest.get(aProject.getIdentification()) != null || isTargetProjectViaPeople(aProject);
 	}
 	
-
-	private String getProperName(String firstName, String lastName){
-		return lastName + ", " + firstName;
+	private boolean isTargetProjectViaPeople(Project aProject){
+		String firstName;
+		String lastName;
+		
+		boolean isTargetProject = false;
+		
+		if(aProject.getPrincipalInvestigator() == null){
+			return false;
+		}
+		
+		//check if pi is target first
+		firstName = aProject.getPrincipalInvestigator().getFirstName();
+		lastName = aProject.getPrincipalInvestigator().getLastName();
+		isTargetProject |= isTargetPerson(firstName, lastName);
+		
+		//check co-pis
+		Collection<Person> coPIS = aProject.getCoPrincipalInvestigators();
+		for(Person aPerson : coPIS){
+			firstName = aPerson.getFirstName();
+			lastName = aPerson.getLastName();
+			isTargetProject |= isTargetPerson(firstName, lastName);
+		}
+		
+		return isTargetProject;
 	}
+	private boolean isTargetPerson(String firstName, String lastName){
+		Person tempPerson = new Person(firstName, lastName);
+		if(peopleOfInterest.get(tempPerson.getIdentification()) == null)
+			return false;
+		return true;
+	}
+
 }

@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.pipeline.filter;
+package edu.utep.cybershare.vlc.pipeline.source;
 
 import edu.utep.cybershare.vlc.build.ModelProduct;
 import edu.utep.cybershare.vlc.build.NSFBuilder;
