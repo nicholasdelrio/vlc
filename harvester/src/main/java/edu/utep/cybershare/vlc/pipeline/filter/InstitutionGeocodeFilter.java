@@ -10,7 +10,6 @@ import edu.utep.cybershare.vlc.build.ModelProduct;
 import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.model.Institution.Coordinate;
 import edu.utep.cybershare.vlc.pipeline.Pipeline.Filter;
-import edu.utep.cybershare.vlc.util.FilterSourceData;
 
 public class InstitutionGeocodeFilter implements Filter {
 

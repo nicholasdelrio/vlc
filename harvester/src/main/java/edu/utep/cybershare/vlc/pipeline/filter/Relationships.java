@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.util;
+package edu.utep.cybershare.vlc.pipeline.filter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,7 +79,7 @@ public class Relationships {
 		if(!aRecord[Relationships.workflows].isEmpty())
 			collections += "collectionR44U52,";
 		if(!aRecord[Relationships.waterSustainability].isEmpty())
-			collections += "someCollection....";
+			collections += "someCollection....,";
 		
 		if(!collections.isEmpty()){
 			collections = collections.substring(0, collections.lastIndexOf(","));

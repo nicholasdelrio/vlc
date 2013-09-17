@@ -23,12 +23,11 @@ public class NSFBuilder implements Builder {
 	
 	private ModelProduct product;
 	
-	public NSFBuilder(){
+	public NSFBuilder(ModelProduct product){
 		try{dbpediaResource = new URI("http://dbpedia.org/resource/");}
 		catch(Exception e){e.printStackTrace();}
-		
-		// create the builder product
-		product = new ModelProduct();
+
+		this.product = product;
 		
 		// clear the local resources
 		reset();

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import edu.utep.cybershare.vlc.util.NSFAwardsUtils;
+import edu.utep.cybershare.vlc.util.StringManipulation;
 public class Person extends Agent {
 	
 	private HashMap<String, Institution> affiliatedInstitutions;
@@ -74,7 +74,7 @@ public class Person extends Agent {
 	public String getEmailSha1Sum(){
 		String shaSum = null;
 		if(this.isSet_email()){
-			try{shaSum = NSFAwardsUtils.SHAsum(this.getEmail().getBytes("UTF-8"));}
+			try{shaSum = StringManipulation.SHAsum(this.getEmail().getBytes("UTF-8"));}
 			catch(Exception e){e.printStackTrace();}
 		}
 		return shaSum;

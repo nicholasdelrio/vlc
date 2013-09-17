@@ -2,13 +2,9 @@ package edu.utep.cybershare.vlc.ontology.axioms;
 
 import javax.xml.bind.DatatypeConverter;
 
-import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAxiom;
-import org.semanticweb.owlapi.model.OWLDataProperty;
-import org.semanticweb.owlapi.model.OWLDatatype;
 import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
-import org.semanticweb.owlapi.model.OWLObjectProperty;
 
 import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.model.Person;
@@ -16,13 +12,7 @@ import edu.utep.cybershare.vlc.model.Project;
 import edu.utep.cybershare.vlc.model.Resource;
 import edu.utep.cybershare.vlc.ontology.Individuals;
 import edu.utep.cybershare.vlc.ontology.OntologyToolset;
-import edu.utep.cybershare.vlc.ontology.vocabulary.ARPFO;
-import edu.utep.cybershare.vlc.ontology.vocabulary.DCMI;
-import edu.utep.cybershare.vlc.ontology.vocabulary.FOAF;
-import edu.utep.cybershare.vlc.ontology.vocabulary.PROVO;
-import edu.utep.cybershare.vlc.ontology.vocabulary.VLC;
-import edu.utep.cybershare.vlc.ontology.vocabulary.XSD;
-import edu.utep.cybershare.vlc.util.NSFAwardsUtils;
+import edu.utep.cybershare.vlc.util.StringManipulation;
 
 public class ProjectAxioms extends Axioms{
 	
@@ -63,7 +53,7 @@ public class ProjectAxioms extends Axioms{
 		
 	private void addTitleAssertion(){
 		if(project.isSet_title()){
-			OWLLiteral titleLiteral = bundle.getDataFactory().getOWLLiteral(NSFAwardsUtils.removeIllegalCharacters(project.getTitle()));
+			OWLLiteral titleLiteral = bundle.getDataFactory().getOWLLiteral(StringManipulation.removeIllegalCharacters(project.getTitle()));
 			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_DCMI.getOWLDataProperty_title(), individual, titleLiteral);
 			add(assertion);
 		}
@@ -71,7 +61,7 @@ public class ProjectAxioms extends Axioms{
 	
 	private void addAbstract(){
 		if(project.isSet_abstractText()){
-			OWLLiteral abstractLiteral = bundle.getDataFactory().getOWLLiteral(NSFAwardsUtils.removeIllegalCharacters(project.getAbstractText()));
+			OWLLiteral abstractLiteral = bundle.getDataFactory().getOWLLiteral(StringManipulation.removeIllegalCharacters(project.getAbstractText()));
 			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_ARPFO.getOWLDataProperty_statedPurpose(), individual, abstractLiteral);
 			add(assertion);
 		}

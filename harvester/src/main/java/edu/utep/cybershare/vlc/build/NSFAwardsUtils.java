@@ -1,4 +1,4 @@
-package edu.utep.cybershare.vlc.util;
+package edu.utep.cybershare.vlc.build;
 
 import java.net.URL;
 import java.security.MessageDigest;
@@ -30,8 +30,8 @@ public class NSFAwardsUtils {
 			nameParts = properName.split(" ");
 			if(nameParts.length == 2)
 				lastName = nameParts[1];
-			else if(nameParts.length == 3)
-				lastName = nameParts[2];
+			else if(nameParts.length > 2)
+				lastName = nameParts[nameParts.length - 1];
 		}
 		return lastName;
 	}
@@ -59,31 +59,5 @@ public class NSFAwardsUtils {
 		GregorianCalendar calendar = new GregorianCalendar();
 		calendar.set(year, month, day);
 		return calendar;
-	}
-	
-	public static String removeIllegalCharacters(String text){
-		// XML 1.0
-		// #x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF]
-		String xml10pattern = "[^"
-		                    + "\u0009\r\n"
-		                    + "\u0020-\uD7FF"
-		                    + "\uE000-\uFFFD"
-		                    + "\ud800\udc00-\udbff\udfff"
-		                    + "]";
-		return text.replaceAll(xml10pattern, "");
-	}
-	public static String SHAsum(byte[] convertme) throws NoSuchAlgorithmException{
-	    MessageDigest md = MessageDigest.getInstance("SHA-1"); 
-	    return byteArray2Hex(md.digest(convertme));
-	}
-
-	private static String byteArray2Hex(final byte[] hash) {
-	    Formatter formatter = new Formatter();
-	    for (byte b : hash) {
-	        formatter.format("%02x", b);
-	    }
-	    String hex = formatter.toString();
-	    formatter.close();
-	    return hex;
 	}
 }

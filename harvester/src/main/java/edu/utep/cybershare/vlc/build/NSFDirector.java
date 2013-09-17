@@ -14,7 +14,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import edu.utep.cybershare.vlc.build.source.XMLSet_NSF;
-import edu.utep.cybershare.vlc.util.NSFAwardsUtils;
 
 public class NSFDirector {
 	
@@ -82,7 +81,6 @@ public class NSFDirector {
 	private void buildPrincipalInvestigator(Element awardElement){
 		String piName = getPI(awardElement);
 		String piEmail = getEmail(awardElement);
-		
 		if(piName != null)
 			builder.buildPrincipalInvestigator(NSFAwardsUtils.getFirstName(piName), NSFAwardsUtils.getLastName(piName), piEmail);
 	}

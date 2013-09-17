@@ -11,7 +11,6 @@ import edu.utep.cybershare.vlc.build.ModelProduct;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
 import edu.utep.cybershare.vlc.pipeline.Pipeline.Filter;
-import edu.utep.cybershare.vlc.util.FilterSourceData;
 
 public class ProjectsFilter implements Filter {
 	private Hashtable<String, Boolean> projectsOfInterest;

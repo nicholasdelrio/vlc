@@ -8,8 +8,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import edu.utep.cybershare.vlc.util.NSFAwardsUtils;
-
 
 public class NASADirector {
 
@@ -62,7 +60,6 @@ public class NASADirector {
 		
 		Element content = projectHTML.getElementsByClass("field-item").get(0);
 
-		String projectHomepage = getProjectHomepage(content);
 		String abstractText = getAbstractText(content);			
 		
 		buildPIs(content);
@@ -80,18 +77,6 @@ public class NASADirector {
 	private String getAbstractText(Element innerDiv){
 		return innerDiv.getElementsByTag("p").get(0).ownText();
 	}
-
-	private String getProjectHomepage(Element content){
-		String homepage = null;
-		Element pTag = content.getElementsByTag("p").get(0);
-		Element firstBRTag = pTag.getElementsByTag("br").get(0);
-		Element projectHomePageTag = firstBRTag.previousElementSibling();
-		
-		if(projectHomePageTag != null)
-			homepage = projectHomePageTag.attributes().get("href");
-		
-		return homepage;
-	}
 	
 	private void buildInstitutions(String abstractText){
 		//the damn institutions are embedded within the abstract text :(
@@ -102,14 +87,17 @@ public class NASADirector {
 		// skip first segment because it is the actual abstract
 		for(int i = 1; i < abstractParts.length; i ++){
 			piPlusInstitution = abstractParts[i].trim();
-			String[] piAndInstitution = piPlusInstitution.split(",");
-			String role = piAndInstitution[0].trim();
-			String institution = piAndInstitution[1].trim();
+			if(piPlusInstitution.startsWith("PI") || piPlusInstitution.startsWith("Co-PI")){
+				System.out.println(piPlusInstitution);
+				String[] piAndInstitution = piPlusInstitution.split(",");
+				String role = piAndInstitution[0].trim();
+				String institution = piAndInstitution[1].trim();
 			
-			if(role.equals("PI"))
-				builder.buildHostingInstitution(institution);
-			else if(role.equals("Co-PI"))
-				builder.buildInstitution(institution);
+				if(role.equals("PI"))
+					builder.buildHostingInstitution(institution);
+				else if(role.equals("Co-PI"))
+					builder.buildInstitution(institution);
+			}
 		}
 	}
 	
@@ -144,7 +132,8 @@ public class NASADirector {
 	}
 	
 	public static void main(String[] args){
-		NASADirector dir = new NASADirector(null);
+		ModelProduct product = new ModelProduct();
+		NASADirector dir = new NASADirector(new NASABuilder(product));
 		dir.construct();
 	}	
 }
