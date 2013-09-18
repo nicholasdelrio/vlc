@@ -9,7 +9,6 @@ import java.util.List;
 import au.com.bytecode.opencsv.CSVReader;
 import edu.utep.cybershare.vlc.build.ModelProduct;
 import edu.utep.cybershare.vlc.build.source.Awards;
-import edu.utep.cybershare.vlc.model.Agency;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
 import edu.utep.cybershare.vlc.pipeline.Pipeline.Filter;
@@ -26,16 +25,7 @@ public class ProjectsFilter implements Filter {
 	}
 	
 	public ModelProduct process(ModelProduct product) {
-		this.product = product;
-		
-		System.out.println("number of project associated with agencies: ");
-		for(Agency agency : product.getAgencies()){
-			System.out.println("agency: " + agency.getIdentification());
-			for(Project aProject : agency.getFundedProjects()){
-				System.out.println("funded projects: " + aProject.getIdentification());
-			}
-		}
-		
+		this.product = product;		
 		
 		for(Project aProject : product.getProjects()){
 			if(!isTargetProject(aProject))
@@ -86,23 +76,9 @@ public class ProjectsFilter implements Filter {
 	}
 	
 	private boolean isTargetProject(Project aProject){
-		return this.projectsOfInterest.get(aProject.getIdentification()) != null || isTargetProjectViaPeople(aProject) || isNASAProject(aProject);
+		return this.projectsOfInterest.get(aProject.getIdentification()) != null || isTargetProjectViaPeople(aProject) || product.isFundedByAgency(Awards.getAGENCY_NASA().toString(), aProject);
 	}
-	
-	private boolean isNASAProject(Project aProject){
-		for(Agency agency : product.getAgencies()){
-			if(agency.getIdentification().equals(Awards.getAGENCY_NASA().toString())){
-				for(Project someProject : agency.getFundedProjects()){;
-					if(someProject.getIdentification().equals(aProject.getIdentification())){
-						System.out.println("returned true!!!!!!!!!!!!!!!!!!!!!!!!!");
-						return true;
-					}
-				}
-			}
-		}
-		return false;
-	}
-	
+		
 	private boolean isTargetProjectViaPeople(Project aProject){
 		String firstName;
 		String lastName;

@@ -75,7 +75,7 @@ public class NASADirector {
 		
 
 		String abstractText = getAbstractText(content);			
-		System.out.println(abstractText);
+		System.out.println("abstract: " + abstractText);
 		
 		URL awardPageURL = this.getAwardHomepage(awardDocument);
 		
@@ -88,7 +88,16 @@ public class NASADirector {
 	}
 	
 	private String getAbstractText(Element innerDiv){
-		return innerDiv.getElementsByTag("p").get(0).ownText();
+		String abstractText = "No abstract found";
+		for(Element pTags : innerDiv.getElementsByTag("p" )){
+			String text = pTags.ownText();
+			if(text != null && !text.matches("\\s*") && !text.equals("")){
+				System.out.println("found abstract: " + text);
+				abstractText = text;
+				break;
+			}
+		}
+		return abstractText;
 	}
 	
 	private void buildInstitutions(String abstractText){

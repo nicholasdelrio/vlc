@@ -27,18 +27,13 @@ public class ProjectSourceFilter implements SourceFilter {
 		// instantiate builders
 		NSFBuilder nsfBuilder = new NSFBuilder(product);
 		NASABuilder nasaBuilder = new NASABuilder(product);
-	
-		NASADirector nasaDirector = new NASADirector(nasaBuilder);
-		nasaDirector.construct(nasaAwards);
-		
+
 		NSFDirector nsfDirector = new NSFDirector(nsfBuilder);
 		nsfDirector.construct(nsfAwards);
 		
-		for(Institution institution : nasaBuilder.getResult().getInstitutions()){
-			if(institution.getIdentification().equalsIgnoreCase("JPL"))
-				System.out.println("found jpl------------------");
-		}
-		
+		NASADirector nasaDirector = new NASADirector(nasaBuilder);
+		nasaDirector.construct(nasaAwards);		
+
 		return nasaBuilder.getResult();
 	}
 }

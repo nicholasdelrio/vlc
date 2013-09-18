@@ -55,7 +55,7 @@ public class NSFDirector {
 		
 		builder.buildAgency(Awards.getAGENCY_NSF().toString());
 		
-		buildProgramAndSubject(awardElement);
+		buildDisciplineAndSubject(awardElement);
 		buildInstitution(awardElement);
 		buildPrincipalInvestigator(awardElement);
 		buildCoPrincipalInvestigators(awardElement);
@@ -63,7 +63,7 @@ public class NSFDirector {
 	}
 	
 	// The following methods invoke the builder object
-	private void buildProgramAndSubject(Element awardElement){
+	private void buildDisciplineAndSubject(Element awardElement){
 		String program = getProgram(awardElement);
 		
 		if(program != null){

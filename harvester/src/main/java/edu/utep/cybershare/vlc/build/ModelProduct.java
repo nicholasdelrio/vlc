@@ -61,10 +61,10 @@ public class ModelProduct {
 	}
 	
 	public URI getDBPediaResource(URI key){
-		URI uri = dbpediaResources.get(key);
+		URI uri = dbpediaResources.get(key.toASCIIString());
 		if(uri == null)
 			dbpediaResources.put(key.toASCIIString(), key);
-		return uri;
+		return key;
 	}
 	public boolean projectExists(Project aProject){
 		return projects.get(aProject.getIdentification()) != null;
@@ -86,5 +86,17 @@ public class ModelProduct {
 	}
 	public List<URI> getDBPediaResources(){
 		return new ArrayList<URI>(dbpediaResources.values());
+	}
+	public boolean isFundedByAgency(String agencyKey, Project project){
+		boolean isFunded = false;
+		Agency agency = agencies.get(agencyKey);
+		if(agency != null){
+			for(Project aProject : agency.getFundedProjects())
+				if(aProject.getIdentification().equals(project.getIdentification())){
+					isFunded = true;
+					break;
+				}
+		}
+		return isFunded;
 	}
 }

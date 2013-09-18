@@ -14,7 +14,8 @@ import edu.utep.cybershare.vlc.model.Project;
 
 public abstract class Builder{
 
-	private static URI dbpediaResource;
+	private static String dbpediaResourceBaseURIString = "http://dbpedia.org/resource/";
+	private static URI dbpediaResourceBaseURI;
 	
 	protected ArrayList<Person> coPrincipalInvestigators;
 	protected Person principalInvestigator;
@@ -36,7 +37,7 @@ public abstract class Builder{
 	}
 	
 	private void setDBPediaBaseURI(){
-		try{dbpediaResource = new URI("http://dbpedia.org/resource/");}
+		try{dbpediaResourceBaseURI = new URI(Builder.dbpediaResourceBaseURIString);}
 		catch(Exception e){e.printStackTrace();}
 	}
 	
@@ -129,10 +130,10 @@ public abstract class Builder{
 		name = name.toLowerCase();
 		name = WordUtils.capitalize(name);		
 		name = name.replaceAll(" ", "_");
-		String resourceURIString = dbpediaResource + name;
+		String resourceURIString = dbpediaResourceBaseURI.toASCIIString() + name;
 		try{
-		URI dbpediaResourceURI = new URI(resourceURIString);
-		return product.getDBPediaResource(dbpediaResourceURI);
+			URI dbpediaResourceURI = new URI(resourceURIString);
+			return product.getDBPediaResource(dbpediaResourceURI);
 		}catch(Exception e){e.printStackTrace();}
 		return null;
 	}

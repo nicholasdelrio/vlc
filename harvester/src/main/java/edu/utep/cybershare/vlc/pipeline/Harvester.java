@@ -1,8 +1,7 @@
-package edu.utep.cybershare.vlc.harvest;
+package edu.utep.cybershare.vlc.pipeline;
 
 import java.io.File;
 
-import edu.utep.cybershare.vlc.pipeline.Pipeline;
 import edu.utep.cybershare.vlc.pipeline.filter.CollectionsFilter;
 import edu.utep.cybershare.vlc.pipeline.filter.InstitutionGeocodeFilter;
 import edu.utep.cybershare.vlc.pipeline.filter.ProjectRelationshipsFilter;
