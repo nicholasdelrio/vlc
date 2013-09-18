@@ -12,7 +12,7 @@ public class CollectionsFilter implements Filter {
 	private Relationships relationships;
 	
 	public CollectionsFilter(){
-		relationships = new Relationships(FilterSourceData.getProjectRelationships());
+		relationships = new Relationships(FilterData.getProjectRelationships());
 	}
 	
 	public ModelProduct process(ModelProduct product) {

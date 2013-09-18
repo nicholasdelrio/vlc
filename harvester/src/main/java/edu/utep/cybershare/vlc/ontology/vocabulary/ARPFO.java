@@ -19,6 +19,7 @@ public class ARPFO extends Vocabulary {
 	
 	// Classes
 	private static final String OWLClass_Project = NAMESPACE + "/Project";
+	private static final String OWLClass_FundingBody = NAMESPACE + "/FundingBody";
 	
 	// Data Properties
 	private static final String OWLDataProperty_endDate = NAMESPACE + "/endDate";
@@ -30,6 +31,7 @@ public class ARPFO extends Vocabulary {
 	// Object Properties
 	private static final String OWLObjectProperty_hasCoInvestigator = NAMESPACE + "/hasCoInvestigator";
 	private static final String OWLObjectProperty_hasPrincipalInvestigator = NAMESPACE + "/hasPrincipalInvestigator";
+	private static final String OWLObjectProperty_contributesTo = NAMESPACE + "/contributesTo";
 	
 	public ARPFO(OWLDataFactory dataFactory) {
 		super(dataFactory);
@@ -38,7 +40,9 @@ public class ARPFO extends Vocabulary {
 	public OWLClass getOWLClass_Project(){
 		return factory.getOWLClass(IRI.create(OWLClass_Project));
 	}
-
+	public OWLClass getOWLClass_FundingBody(){
+		return factory.getOWLClass(IRI.create(OWLClass_FundingBody));
+	}
 	public OWLDataProperty getOWLDataProperty_endDate(){
 		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_endDate));
 	}
@@ -60,7 +64,9 @@ public class ARPFO extends Vocabulary {
 	public OWLObjectProperty getOWLObjectProperty_hasPrincipalInvestigator(){
 		return factory.getOWLObjectProperty(IRI.create(OWLObjectProperty_hasPrincipalInvestigator));
 	}
-
+	public OWLObjectProperty getOWLObjectProperty_contributesTo(){
+		return factory.getOWLObjectProperty(IRI.create(OWLObjectProperty_contributesTo));
+	}
 	@Override
 	public String getNamespace() {
 		// TODO Auto-generated method stub

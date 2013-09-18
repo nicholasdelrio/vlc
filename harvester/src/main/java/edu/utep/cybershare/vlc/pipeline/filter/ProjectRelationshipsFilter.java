@@ -16,7 +16,7 @@ public class ProjectRelationshipsFilter implements Filter {
 	private Relationships relationships;
 	
 	public ProjectRelationshipsFilter(){
-		relationships = new Relationships(FilterSourceData.getProjectRelationships());
+		relationships = new Relationships(FilterData.getProjectRelationships());
 	}
 	
 	public ModelProduct process(ModelProduct product) {

@@ -17,7 +17,7 @@ public class InstitutionGeocodeFilter implements Filter {
 
 	public InstitutionGeocodeFilter(){
 		institutionToCoordinate = new HashMap<String, Coordinate>();
-		populateMappings(FilterSourceData.getGeocodedInstitutions());
+		populateMappings(FilterData.getGeocodedInstitutions());
 	}
 	
 	private void populateMappings(File mappingsFile){

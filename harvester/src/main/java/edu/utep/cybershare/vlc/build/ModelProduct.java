@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import edu.utep.cybershare.vlc.model.Agency;
 import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
@@ -14,12 +15,14 @@ public class ModelProduct {
 	private HashMap<String, Project> projects;	
 	private HashMap<String, Institution> institutions;
 	private HashMap<String, URI> dbpediaResources;
+	private HashMap<String, Agency> agencies;
 
 	public ModelProduct(){
 		people = new HashMap<String,Person>();
 		projects = new HashMap<String,Project>();	
 		institutions = new HashMap<String, Institution>();
 		dbpediaResources = new HashMap<String, URI>();
+		agencies = new HashMap<String, Agency>();
 	}
 	
 	Institution getInstitution(String key){
@@ -28,6 +31,14 @@ public class ModelProduct {
 	
 	void addInstitution(Institution value){
 		institutions.put(value.getIdentification(), value);
+	}
+	
+	Agency getAgency(String key){
+		return agencies.get(key);
+	}
+	
+	void addAgency(Agency value){
+		agencies.put(value.getIdentification(), value);
 	}
 	
 	Person getPerson(String key){
@@ -65,7 +76,9 @@ public class ModelProduct {
 	public List<Institution> getInstitutions(){
 		return new ArrayList<Institution>(institutions.values());
 	}
-	
+	public List<Agency> getAgencies(){
+		return new ArrayList<Agency>(agencies.values());
+	}
 	public List<Project> getProjects(){
 		return new ArrayList<Project>(projects.values());
 	}

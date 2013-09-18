@@ -7,6 +7,7 @@ import java.util.GregorianCalendar;
 
 import org.apache.commons.lang.WordUtils;
 
+import edu.utep.cybershare.vlc.model.Agency;
 import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
@@ -20,6 +21,7 @@ public class NSFBuilder implements Builder {
 	private Institution institution;
 	private ArrayList<URI> disciplines;
 	private ArrayList<URI> subjects;
+	private Agency fundingAgency;
 	
 	private ModelProduct product;
 	
@@ -40,7 +42,18 @@ public class NSFBuilder implements Builder {
 
 		principalInvestigator = null;
 		institution = null;
+		fundingAgency = null;
 	}
+	
+	public void buildAgency(String name){
+		fundingAgency = product.getAgency(name);
+		if(fundingAgency == null){
+			fundingAgency = new Agency(name);
+			product.addAgency(fundingAgency);
+		}
+	}
+	
+	
 	
 	public void buildDiscipline(String name){
 		this.disciplines.add(getDBPediaResource(name));
@@ -119,6 +132,8 @@ public class NSFBuilder implements Builder {
 	
 	private void populateWithBuiltParts(Project project){
 
+		fundingAgency.addFundedProject(project);
+		
 		if(this.principalInvestigator != null){
 			project.setPrincipalInvestigator(this.principalInvestigator);
 			project.addHostingInstitution(institution);

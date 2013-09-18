@@ -13,7 +13,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import edu.utep.cybershare.vlc.build.source.XMLSet_NSF;
+import edu.utep.cybershare.vlc.build.source.Awards;
+import edu.utep.cybershare.vlc.build.source.NSFAwards;
 
 public class NSFDirector {
 	
@@ -23,7 +24,7 @@ public class NSFDirector {
 		this.builder = builder;
 	}
 	
-	public void construct(XMLSet_NSF awardsXML){
+	public void construct(NSFAwards awardsXML){
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;
 		Document awardsDoc;
@@ -51,6 +52,9 @@ public class NSFDirector {
 		Element awardElement = (Element) awardNode;
 
 		// need to call these builder methods in this order
+		
+		builder.buildAgency(Awards.getAGENCY_NSF().toString());
+		
 		buildProgramAndSubject(awardElement);
 		buildInstitution(awardElement);
 		buildPrincipalInvestigator(awardElement);

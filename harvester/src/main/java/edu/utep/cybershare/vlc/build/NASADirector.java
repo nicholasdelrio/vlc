@@ -1,77 +1,90 @@
 package edu.utep.cybershare.vlc.build;
 
+import java.io.File;
 import java.net.URL;
 
-import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+
+import edu.utep.cybershare.vlc.build.source.Awards;
+import edu.utep.cybershare.vlc.build.source.NASAAwards;
 
 
 public class NASADirector {
-
-	private static int TIMEOUT = 5000;
-	private static String BASE_URL = "https://earthdata.nasa.gov";
-	private static String ACCESS_PROJECTS = "https://earthdata.nasa.gov/our-community/community-data-system-programs/access-projects";
+	private static String AWARDS_BASE_URL = "https://earthdata.nasa.gov";
 	private NASABuilder builder;
 	
 	public NASADirector(NASABuilder builder){
 		this.builder = builder;
 	}
 	
-	public void construct(){
-		Document awardsHTML = null;
-		try{
-			Connection connection = Jsoup.connect(ACCESS_PROJECTS);
-			connection.timeout(TIMEOUT);
-			awardsHTML = connection.get();
-		}
-		catch(Exception e){e.printStackTrace();}
+	public void construct(NASAAwards awards){
+		Document awardDocument = null;
 		
-		Elements categorizations = awardsHTML.getElementsByTag("h3");
-		String categoryName;
-		Element projectList;
-		String link;
-		String projectTitle;
-		for(Element category : categorizations){
-			categoryName = category.data();
-			
-			projectList = category.nextElementSibling();
-			for(Element aTag : projectList.getElementsByTag("a")){
-				link = aTag.attributes().get("href");
-				projectTitle = aTag.ownText();
-				populateProject(categoryName, projectTitle, link);
+		for(File awardFile : awards){
+			try{
+				awardDocument = Jsoup.parse(awardFile, null);
+				System.out.println("processing: " + awardFile.getName());
+				populateProject(awardDocument, getCategory(awardFile));
 			}
-		}
+			catch(Exception e){e.printStackTrace();}
+		}			
 	}
 	
+	private String getCategory(File awardFile){
+		File parentDirectory = new File(awardFile.getParent());
+		return parentDirectory.getName();
+	}
 	
-	private void populateProject(String category, String projectTitle, String relativeProjectPageLink){
-		Document projectHTML = null;
-		String projectPageLink = BASE_URL + relativeProjectPageLink;
-		System.out.println(projectPageLink);
-		try{
-			Connection connection = Jsoup.connect(projectPageLink);
-			connection.timeout(TIMEOUT);
-			projectHTML = connection.get();
+	private String getProjectTitle(Document awardDocument){
+		for(Element metaElement : awardDocument.getElementsByTag("meta")){
+			String title = metaElement.attributes().get("content");
+			String aboutURI = metaElement.attributes().get("about");
+			if(title != null && aboutURI != null && !aboutURI.isEmpty()){
+				System.out.println("title: " + title);
+				System.out.println("aboutURI: " + aboutURI);
+				return title;
+			}
 		}
-		catch(Exception e){e.printStackTrace();}
+		return null;
+	}
+	
+	private URL getAwardHomepage(Document awardDocument){
+		for(Element metaElement : awardDocument.getElementsByTag("meta")){
+			String title = metaElement.attributes().get("content");
+			String aboutURI = metaElement.attributes().get("about");
+			if(title != null && aboutURI != null && !aboutURI.isEmpty()){
+				try{return new URL(AWARDS_BASE_URL + aboutURI);}
+				catch(Exception e){e.printStackTrace();}
+			}
+		}
+		return null;
+	}
+	
+	private void populateProject(Document awardDocument, String category){
+
+		String projectTitle = getProjectTitle(awardDocument);
 		
-		Element content = projectHTML.getElementsByClass("field-item").get(0);
+		Element content = null;
+		try{content = awardDocument.getElementsByClass("field-item").get(0);}
+		catch(Exception e){
+			e.printStackTrace();
+			System.out.println("current project: " + projectTitle);
+		}
+		
 
 		String abstractText = getAbstractText(content);			
+		System.out.println(abstractText);
+		
+		URL awardPageURL = this.getAwardHomepage(awardDocument);
 		
 		buildPIs(content);
 		buildInstitutions(abstractText);
+		builder.buildAgency(Awards.getAGENCY_NASA().toString());
 		builder.buildDiscipline(category);
 		builder.buildSubject(category);
-		
-		URL projectPageURL = null;
-		try{projectPageURL = new URL(projectPageLink);}
-		catch(Exception e){e.printStackTrace();}
-		
-		builder.buildProject(projectTitle, abstractText, null, null, projectPageURL);		
+		builder.buildProject(projectTitle, abstractText, null, null, awardPageURL);		
 	}
 	
 	private String getAbstractText(Element innerDiv){
@@ -81,7 +94,7 @@ public class NASADirector {
 	private void buildInstitutions(String abstractText){
 		//the damn institutions are embedded within the abstract text :(
 		
-		String[] abstractParts = abstractText.split("-");
+		String[] abstractParts = abstractText.split(" - ");
 		String piPlusInstitution;
 		
 		// skip first segment because it is the actual abstract
@@ -130,10 +143,4 @@ public class NASADirector {
 			}
 		}
 	}
-	
-	public static void main(String[] args){
-		ModelProduct product = new ModelProduct();
-		NASADirector dir = new NASADirector(new NASABuilder(product));
-		dir.construct();
-	}	
 }

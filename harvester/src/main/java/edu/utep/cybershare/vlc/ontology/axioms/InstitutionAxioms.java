@@ -49,9 +49,11 @@ public class InstitutionAxioms extends Axioms {
 	}
 		
 	private void addAddress(){
-		OWLLiteral addressLiteral = bundle.getDataFactory().getOWLLiteral(institution.getAddress());
-		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_VLC.getOWLDataProperty_hasAddress(), individual, addressLiteral);
-		add(assertion);		
+		if(institution.isSet_address()){
+			OWLLiteral addressLiteral = bundle.getDataFactory().getOWLLiteral(institution.getAddress());
+			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_VLC.getOWLDataProperty_hasAddress(), individual, addressLiteral);
+			add(assertion);
+		}
 	}
 	
 	private void addCity(){

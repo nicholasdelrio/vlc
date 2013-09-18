@@ -64,7 +64,7 @@ public class NASAProjectsDownloader {
 			String cleanedCategory = StringManipulation.makeURICompliantFragment(category, "http://test.edu/");
 			String cleanedTitle = StringManipulation.makeURICompliantFragment(projectTitle, "http://test.edu/");
 			
-			File categoryDirectory = new File(CachedAwards.NASA + "/" + cleanedCategory);
+			File categoryDirectory = new File(Awards.NASA + "/" + cleanedCategory);
 			categoryDirectory.mkdir();
 			
 			File awardFile = new File(categoryDirectory.getAbsoluteFile() + "/" + cleanedTitle + ".html");

@@ -8,14 +8,14 @@ import edu.utep.cybershare.vlc.pipeline.filter.InstitutionGeocodeFilter;
 import edu.utep.cybershare.vlc.pipeline.filter.ProjectRelationshipsFilter;
 import edu.utep.cybershare.vlc.pipeline.filter.ProjectsFilter;
 import edu.utep.cybershare.vlc.pipeline.sink.RDFDumpFilter;
-import edu.utep.cybershare.vlc.pipeline.source.NSFSourceFilter;
+import edu.utep.cybershare.vlc.pipeline.source.ProjectSourceFilter;
 
 public class Harvester {
 
 	public static void main(String[] args){
 		
 		//create nsf source filter
-		NSFSourceFilter nsfSourceFilter = new NSFSourceFilter();
+		ProjectSourceFilter nsfSourceFilter = new ProjectSourceFilter();
 		
 		//create rdf dump filter
 		RDFDumpFilter rdfDumpFilter = null;

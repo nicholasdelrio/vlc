@@ -8,4 +8,5 @@ public interface Visitor {
 	public void visit(Organization organization);
 	public void visit(Agent agent);
 	public void visit(Resource resource);
+	public void visit(Agency agency);
 }

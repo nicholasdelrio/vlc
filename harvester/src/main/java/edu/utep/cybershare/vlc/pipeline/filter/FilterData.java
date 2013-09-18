@@ -2,7 +2,7 @@ package edu.utep.cybershare.vlc.pipeline.filter;
 
 import java.io.File;
 
-public class FilterSourceData {
+public class FilterData {
 	
 	private static final String FILTER_DATA_DIR = "./filter-data/";
 	

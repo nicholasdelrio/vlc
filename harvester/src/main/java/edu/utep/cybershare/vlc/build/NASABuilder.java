@@ -7,6 +7,7 @@ import java.util.GregorianCalendar;
 
 import org.apache.commons.lang.WordUtils;
 
+import edu.utep.cybershare.vlc.model.Agency;
 import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
@@ -21,6 +22,7 @@ public class NASABuilder implements Builder {
 	private ArrayList<Institution> institutions;
 	private ArrayList<URI> disciplines;
 	private ArrayList<URI> subjects;
+	private Agency fundingAgency;
 	
 	private ModelProduct product;
 	
@@ -41,6 +43,15 @@ public class NASABuilder implements Builder {
 		institutions = new ArrayList<Institution>();
 		principalInvestigator = null;
 		hostingInstitution = null;
+		fundingAgency = null;
+	}
+	
+	public void buildAgency(String name){
+		fundingAgency = product.getAgency(name);
+		if(fundingAgency == null){
+			fundingAgency = new Agency(name);
+			product.addAgency(fundingAgency);
+		}
 	}
 	
 	public void buildDiscipline(String name){
@@ -122,15 +133,22 @@ public class NASABuilder implements Builder {
 	}
 	
 	private void populateWithBuiltParts(Project project){
+		
+		fundingAgency.addFundedProject(project);
 
 		if(this.principalInvestigator != null){
 			project.setPrincipalInvestigator(this.principalInvestigator);
 			project.addHostingInstitution(hostingInstitution);
 		}
 		
-		for(Person coPrincipalInvestigator : this.coPrincipalInvestigators)
-			project.addCoPrincipalInvestigator(coPrincipalInvestigator);
+		if(coPrincipalInvestigators.size() != institutions.size())
+			System.out.println("nooooooooooooo --------------");
 		
+		for(int i = 0; i < coPrincipalInvestigators.size(); i ++){
+			Person aPerson = coPrincipalInvestigators.get(0);
+			Institution anInstitution = institutions.get(0);
+			aPerson.addAffiliatedInstitution(anInstitution);
+		}
 		for(URI subject : subjects)
 			project.addSubject(subject);
 	}

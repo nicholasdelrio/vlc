@@ -2,6 +2,7 @@ package edu.utep.cybershare.vlc.ontology;
 
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
+import edu.utep.cybershare.vlc.model.Agency;
 import edu.utep.cybershare.vlc.model.Agent;
 import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.model.Organization;
@@ -9,6 +10,7 @@ import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
 import edu.utep.cybershare.vlc.model.Resource;
 import edu.utep.cybershare.vlc.model.Visitor;
+import edu.utep.cybershare.vlc.ontology.axioms.AgencyAxioms;
 import edu.utep.cybershare.vlc.ontology.axioms.Axioms;
 import edu.utep.cybershare.vlc.ontology.axioms.InstitutionAxioms;
 import edu.utep.cybershare.vlc.ontology.axioms.PersonAxioms;
@@ -61,5 +63,12 @@ public class OWLVisitor implements Visitor {
 	public void visit(Resource resource) {
 		// TODO Auto-generated method stub
 		System.out.println("visiting resource");
+	}
+
+	public void visit(Agency agency) {
+		OWLNamedIndividual individual = Individuals.getIndividual(agency, bundle);
+		Axioms axioms = new AgencyAxioms(agency, individual, bundle);
+		axioms.setAxioms();
+		bundle.addAxioms(axioms);
 	}
 }

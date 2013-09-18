@@ -3,6 +3,7 @@ package edu.utep.cybershare.vlc.pipeline.sink;
 import java.io.File;
 
 import edu.utep.cybershare.vlc.build.ModelProduct;
+import edu.utep.cybershare.vlc.model.Agency;
 import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
@@ -42,6 +43,9 @@ public class RDFDumpFilter implements DumpFilter {
 		//visit all institutions
 		for(Institution anInstitution : product.getInstitutions())
 			anInstitution.accept(axiomGenerator);
+		
+		for(Agency anAgency : product.getAgencies())
+			anAgency.accept(axiomGenerator);
 				
 		//convert each project to a set of ontology axioms
 		//print out the resulting ontology

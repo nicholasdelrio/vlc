@@ -3,20 +3,20 @@ package edu.utep.cybershare.vlc.build.source;
 import java.io.File;
 import java.util.ArrayList;
 
-public class XMLSet_NSF extends ArrayList<File> {
+public class NSFAwards extends ArrayList<File> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 			
-	public XMLSet_NSF(){
+	public NSFAwards(){
+		super();
 		populate();
 	}
 	
 	private void populate(){
-		File nsfCachedAwardsDir = new File(CachedAwards.NSF);
-		for(File cachedAward : nsfCachedAwardsDir.listFiles())
+		for(File cachedAward : Awards.NSF.listFiles())
 			add(cachedAward);
 	}
 }
