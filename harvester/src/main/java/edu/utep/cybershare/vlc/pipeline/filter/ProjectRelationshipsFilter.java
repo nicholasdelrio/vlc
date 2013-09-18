@@ -27,7 +27,6 @@ public class ProjectRelationshipsFilter implements Filter {
 				for(Project anotherProject : product.getProjects()){
 					if(aTitle.equals(anotherProject.getIdentification())){
 						aProject.addRelatedResource(anotherProject);
-						System.out.println("Project: " + aProject.getIdentification() + " is related to: " + anotherProject.getIdentification());
 					}
 				}
 			}

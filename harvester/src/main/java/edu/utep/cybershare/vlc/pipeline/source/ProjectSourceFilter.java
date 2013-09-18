@@ -31,9 +31,10 @@ public class ProjectSourceFilter implements SourceFilter {
 		NSFDirector nsfDirector = new NSFDirector(nsfBuilder);
 		nsfDirector.construct(nsfAwards);
 		
+		/*
 		NASADirector nasaDirector = new NASADirector(nasaBuilder);
 		nasaDirector.construct(nasaAwards);		
-
+	*/
 		return nasaBuilder.getResult();
 	}
 }

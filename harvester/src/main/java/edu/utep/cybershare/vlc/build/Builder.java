@@ -99,7 +99,11 @@ public abstract class Builder{
 		//although the title of the project is identical (for NSF usually)
 		Project project = new Project(title);
 		if(product.projectExists(project) && this.principalInvestigator != null){
-			project = product.getProject(title + "_" + counter++); // since we are changing the title of the project, this method will create a new project
+			Person existingPI = product.getProject(project.getIdentification()).getPrincipalInvestigator();
+			if(existingPI != null && !existingPI.getIdentification().equals(principalInvestigator.getIdentification()))
+				project = product.getProject(title + "_" + counter++); // since we are changing the title of the project, this method will create a new project
+			else
+				project = product.getProject(title);
 		}
 		// this is the case when the project is multi-institutional but still only a single PI and a single award amount, so it is already populated but needs
 		// more adornment by either adding co-pi's or pi and hosting institution
@@ -109,7 +113,6 @@ public abstract class Builder{
 		// the project is new
 		else{
 			project = product.getProject(title);
-			project = new Project(title);
 			project.setAbstractText(summary);
 			project.setStartDate(startDate);
 			project.setEndDate(endDate);

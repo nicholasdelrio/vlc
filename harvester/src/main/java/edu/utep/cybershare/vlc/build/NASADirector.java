@@ -42,8 +42,6 @@ public class NASADirector {
 			String title = metaElement.attributes().get("content");
 			String aboutURI = metaElement.attributes().get("about");
 			if(title != null && aboutURI != null && !aboutURI.isEmpty()){
-				System.out.println("title: " + title);
-				System.out.println("aboutURI: " + aboutURI);
 				return title;
 			}
 		}
@@ -75,7 +73,6 @@ public class NASADirector {
 		
 
 		String abstractText = getAbstractText(content);			
-		System.out.println("abstract: " + abstractText);
 		
 		URL awardPageURL = this.getAwardHomepage(awardDocument);
 		
@@ -91,8 +88,7 @@ public class NASADirector {
 		String abstractText = "No abstract found";
 		for(Element pTags : innerDiv.getElementsByTag("p" )){
 			String text = pTags.ownText();
-			if(text != null && !text.matches("\\s*") && !text.equals("")){
-				System.out.println("found abstract: " + text);
+			if(text != null && text.trim().length() > 0){
 				abstractText = text;
 				break;
 			}
@@ -110,7 +106,6 @@ public class NASADirector {
 		for(int i = 1; i < abstractParts.length; i ++){
 			piPlusInstitution = abstractParts[i].trim();
 			if(piPlusInstitution.startsWith("PI") || piPlusInstitution.startsWith("Co-PI")){
-				System.out.println(piPlusInstitution);
 				String[] piAndInstitution = piPlusInstitution.split(",");
 				String role = piAndInstitution[0].trim();
 				String institution = piAndInstitution[1].trim();
