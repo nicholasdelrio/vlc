@@ -16,7 +16,7 @@ public class Person extends Agent {
 	private String email;
 		
 	public Person(String firstName, String lastName){
-		super(getProperName(lastName, firstName));
+		super(getIdentification(firstName, lastName));
 		
 		this.lastName = lastName;
 		this.firstName = firstName;
@@ -31,7 +31,7 @@ public class Person extends Agent {
 	public boolean isSet_lastName(){return this.getLastName() != null;}
 	public boolean isSet_email(){return this.getEmail() != null;}
 	
-	private static String getProperName(String lastName, String firstName){
+	public static String getIdentification(String firstName, String lastName){
 		String properName = null;
 		if(lastName != null && firstName != null)
 			properName = lastName + ", " + firstName;
@@ -48,7 +48,7 @@ public class Person extends Agent {
 	}
 	
 	public String getProperName(){
-		return getProperName(lastName, firstName);
+		return getIdentification(firstName, lastName);
 	}
 
 	public String getFirstName() {

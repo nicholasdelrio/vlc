@@ -24,55 +24,57 @@ public class ModelProduct {
 		dbpediaResources = new HashMap<String, URI>();
 		agencies = new HashMap<String, Agency>();
 	}
-	
-	Institution getInstitution(String key){
-		return institutions.get(key);
+	public Institution getInstitution(String key){
+		Institution institution = institutions.get(key);
+		if(institution == null){
+			institution = new Institution(key);
+			institutions.put(key, institution);
+		}
+		return institution;
 	}
 	
-	void addInstitution(Institution value){
-		institutions.put(value.getIdentification(), value);
+	public Agency getAgency(String key){
+		Agency agency = agencies.get(key);
+		if(agency == null){
+			agency = new Agency(key);
+			agencies.put(key, agency);
+		}
+		return agency;
 	}
 	
-	Agency getAgency(String key){
-		return agencies.get(key);
+	public Person getPerson(String firstName, String lastName){
+		String key = Person.getIdentification(firstName, lastName);
+		Person person = people.get(key);
+		if(person == null){
+			person = new Person(firstName, lastName);
+			people.put(key, person);
+		}
+		return person;
+	}
+	public Project getProject(String key){
+		Project project = projects.get(key);
+		if(project == null){
+			project = new Project(key);
+			projects.put(key, project);
+		}
+		return project;
 	}
 	
-	void addAgency(Agency value){
-		agencies.put(value.getIdentification(), value);
+	public URI getDBPediaResource(URI key){
+		URI uri = dbpediaResources.get(key);
+		if(uri == null)
+			dbpediaResources.put(key.toASCIIString(), key);
+		return uri;
 	}
-	
-	Person getPerson(String key){
-		return people.get(key);
+	public boolean projectExists(Project aProject){
+		return projects.get(aProject.getIdentification()) != null;
 	}
-	
-	void addPerson(Person value){
-		people.put(value.getIdentification(), value);
-	}
-	
-	Project getProject(String key){
-		return projects.get(key);
-	}
-	
-	void addProject(Project value){
-		projects.put(value.getIdentification(), value);
-	}
-	
-	URI getDBPediaResource(String key){
-		return dbpediaResources.get(key);
-	}
-	
-	void addDBPediaResource(URI value){
-		dbpediaResources.put(value.toASCIIString(), value);
-	}
-	
 	public Project removeProject(Project aProject){
 		return projects.remove(aProject.getIdentification());
 	}
-		
 	public List<Person> getPeople(){
 		return new ArrayList<Person>(people.values());
 	}
-	
 	public List<Institution> getInstitutions(){
 		return new ArrayList<Institution>(institutions.values());
 	}

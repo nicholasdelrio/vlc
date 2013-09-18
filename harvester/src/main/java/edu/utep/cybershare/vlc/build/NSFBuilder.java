@@ -1,142 +1,25 @@
 package edu.utep.cybershare.vlc.build;
 
 import java.net.URI;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.GregorianCalendar;
 
-import org.apache.commons.lang.WordUtils;
-
-import edu.utep.cybershare.vlc.model.Agency;
-import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
 
-public class NSFBuilder implements Builder {
+public class NSFBuilder extends Builder {
 
-	private static URI dbpediaResource;
-	
-	private ArrayList<Person> coPrincipalInvestigators;
-	private Person principalInvestigator;
-	private Institution institution;
-	private ArrayList<URI> disciplines;
-	private ArrayList<URI> subjects;
-	private Agency fundingAgency;
-	
-	private ModelProduct product;
-	
-	public NSFBuilder(ModelProduct product){
-		try{dbpediaResource = new URI("http://dbpedia.org/resource/");}
-		catch(Exception e){e.printStackTrace();}
+	public NSFBuilder(ModelProduct aProduct) {
+		super(aProduct);
+		// TODO Auto-generated constructor stub
+	}
 
-		this.product = product;
-		
-		// clear the local resources
-		reset();
-	}
-	
-	private void reset(){
-		coPrincipalInvestigators = new ArrayList<Person>();
-		disciplines = new ArrayList<URI>();
-		subjects = new ArrayList<URI>();
-
-		principalInvestigator = null;
-		institution = null;
-		fundingAgency = null;
-	}
-	
-	public void buildAgency(String name){
-		fundingAgency = product.getAgency(name);
-		if(fundingAgency == null){
-			fundingAgency = new Agency(name);
-			product.addAgency(fundingAgency);
-		}
-	}
-	
-	
-	
-	public void buildDiscipline(String name){
-		this.disciplines.add(getDBPediaResource(name));
-	}	
-	public void buildSubject(String name){
-		this.subjects.add(getDBPediaResource(name));
-	}
-	public void buildInstitution(String name, String city, String state, String zip, String address){
-		Institution institution = product.getInstitution(name);
-		if(institution == null){
-			institution = new Institution(name);
-			institution.setAddress(address);
-			institution.setCity(city);
-			institution.setState(state);
-			product.addInstitution(institution);
-		}
-		this.institution = institution;
-	}
-	
-	public void buildCoPrincipalInvestigator(String firstName, String lastName, String email){
-		this.coPrincipalInvestigators.add(this.getPerson(firstName, lastName, email));
-	}
-	
-	public void buildPrincipalInvestigator(String firstName, String lastName, String email){
-		this.principalInvestigator = this.getPerson(firstName, lastName, email);
-	}
-	
-	public void buildProject(
-			String title,
-			String summary,
-			GregorianCalendar startDate,
-			GregorianCalendar endDate,
-			int awardAmount,
-			String grantIdentification,
-			URL awardHomepage){
-		
-		Project project = product.getProject(title);
-		
-		if(project == null){
-			project = new Project(title);
-			project.setAbstractText(summary);
-			project.setAwardAmount(awardAmount);
-			project.setStartDate(startDate);
-			project.setEndDate(endDate);
-			project.setGrantIdentification(grantIdentification);
-			project.setAwardHomepage(awardHomepage);
-	
-			product.addProject(project);
-		}
-		
-		populateWithBuiltParts(project);
-		
-		reset();
-	}	
-	
-	public ModelProduct getResult(){
-		return product;
-	}
-	
-	private URI getDBPediaResource(String name){
-		name = name.toLowerCase();
-		name = WordUtils.capitalize(name);		
-		name = name.replaceAll(" ", "_");
-		String resourceURIString = dbpediaResource + name;
-		URI dbpediaResourceURI = product.getDBPediaResource(resourceURIString);
-		
-		if(dbpediaResourceURI == null)
-			try{
-				dbpediaResourceURI = new URI(resourceURIString);
-				product.addDBPediaResource(dbpediaResourceURI);
-			}
-			catch(Exception e){e.printStackTrace();}
-		
-		return dbpediaResourceURI;
-	}
-	
-	private void populateWithBuiltParts(Project project){
+	@Override
+	protected void populateWithBuiltParts(Project project) {
 
 		fundingAgency.addFundedProject(project);
 		
 		if(this.principalInvestigator != null){
 			project.setPrincipalInvestigator(this.principalInvestigator);
-			project.addHostingInstitution(institution);
+			project.setHostingInstitution(institutions.get(0)); //should be only one institution per award xml document for NSF
 		}
 		
 		for(Person coPrincipalInvestigator : this.coPrincipalInvestigators)
@@ -144,25 +27,5 @@ public class NSFBuilder implements Builder {
 		
 		for(URI subject : subjects)
 			project.addSubject(subject);
-	}
-	
-	private Person getPerson(String firstName, String lastName, String email){		
-		Person person = new Person(firstName, lastName); //temporary object to calculate identifier
-		person = product.getPerson(person.getIdentification());
-
-		if(person == null){
-			person = new Person(firstName, lastName);			
-			product.addPerson(person);
-		}
-		
-		for(URI discipline : disciplines)
-			person.addDiscipline(discipline);
-					
-		if(email != null)
-			person.setEmail(email);
-		
-		person.addAffiliatedInstitution(institution);
-		
-		return person;
 	}
 }

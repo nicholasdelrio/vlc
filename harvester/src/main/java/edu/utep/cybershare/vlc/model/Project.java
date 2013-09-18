@@ -14,7 +14,7 @@ public class Project extends Resource {
 	private String abstractText;
 	private GregorianCalendar startDate;
 	private GregorianCalendar endDate;
-	private HashMap<String, Institution> hostingInstitutions;
+	private Institution hostingInstitution;
 	private int awardAmount;
 	private URL awardHomepage;
 	private URL projectHomePage;
@@ -31,7 +31,6 @@ public class Project extends Resource {
 		this.title = title;
 		
 		coPrincipalInvestigators = new HashMap<String, Person>();
-		hostingInstitutions = new HashMap<String, Institution>(); 
 		relatedWorks = new HashMap<String, Resource>();
 		results = new HashMap<String, Resource>();
 		collectionIDs = new ArrayList<String>();
@@ -44,7 +43,7 @@ public class Project extends Resource {
 	public boolean isSet_abstractText(){return this.getAbstractText() != null;}
 	public boolean isSet_startDate(){return this.getStartDate() != null;}
 	public boolean isSet_endDate(){return this.getEndDate() != null;}
-	public boolean isSet_hostingInstitutions(){return this.getHostingInstitutions().size() > 0;}
+	public boolean isSet_hostingInstitution(){return this.getHostingInstitution() != null;}
 	public boolean isSet_awardAmount(){return this.getAwardAmount() != 0;}
 	public boolean isSet_awardHomepage(){return this.awardHomepage != null;}
 	public boolean isSet_projectHomePage(){return this.projectHomePage != null;}
@@ -99,11 +98,11 @@ public class Project extends Resource {
 	public void setEndDate(GregorianCalendar endDate) {
 		this.endDate = endDate;
 	}
-	public List<Institution> getHostingInstitutions() {
-		return new ArrayList<Institution>(hostingInstitutions.values());
+	public Institution getHostingInstitution() {
+		return this.hostingInstitution;
 	}
-	public void addHostingInstitution(Institution institution){
-		this.hostingInstitutions.put(institution.getIdentification(), institution);
+	public void setHostingInstitution(Institution institution){
+		hostingInstitution = institution;
 	}
 	public int getAwardAmount() {
 		return awardAmount;

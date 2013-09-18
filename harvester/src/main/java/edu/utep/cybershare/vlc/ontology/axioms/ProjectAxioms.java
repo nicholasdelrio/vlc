@@ -150,14 +150,13 @@ public class ProjectAxioms extends Axioms{
 	
 	// VLC Specific Axioms
 	private void addHostingInstitution(){
-		if(project.isSet_hostingInstitutions()){
+		if(project.isSet_hostingInstitution()){
 			OWLNamedIndividual institutionIndividual;
 			OWLAxiom assertion;
-			for(Institution anInstitution : project.getHostingInstitutions()){
-				institutionIndividual = Individuals.getIndividual(anInstitution, bundle);
-				assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(this.vocabulary_VLC.getOWLObjectProperty_hasHostingInstitution(), individual, institutionIndividual);
-				add(assertion);
-			}
+			Institution anInstitution = project.getHostingInstitution();
+			institutionIndividual = Individuals.getIndividual(anInstitution, bundle);
+			assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(this.vocabulary_VLC.getOWLObjectProperty_hasHostingInstitution(), individual, institutionIndividual);
+			add(assertion);
 		}
 	}
 	

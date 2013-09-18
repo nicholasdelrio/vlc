@@ -84,7 +84,7 @@ public class NASADirector {
 		builder.buildAgency(Awards.getAGENCY_NASA().toString());
 		builder.buildDiscipline(category);
 		builder.buildSubject(category);
-		builder.buildProject(projectTitle, abstractText, null, null, awardPageURL);		
+		builder.buildProject(projectTitle, abstractText, null, null, 0, null, awardPageURL);		
 	}
 	
 	private String getAbstractText(Element innerDiv){
@@ -109,7 +109,7 @@ public class NASADirector {
 				if(role.equals("PI"))
 					builder.buildHostingInstitution(institution);
 				else if(role.equals("Co-PI"))
-					builder.buildInstitution(institution);
+					builder.buildInstitution(institution, null, null, null, null);
 			}
 		}
 	}

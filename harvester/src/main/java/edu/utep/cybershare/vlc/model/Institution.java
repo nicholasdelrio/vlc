@@ -49,8 +49,8 @@ public class Institution extends Element {
 		return zipCode;
 	}
 
-	public void seTZipCode(String aipCode) {
-		this.zipCode = aipCode;
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
 	}
 
 	public String getState() {
