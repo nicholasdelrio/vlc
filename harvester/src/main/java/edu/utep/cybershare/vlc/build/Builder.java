@@ -11,6 +11,7 @@ import edu.utep.cybershare.vlc.model.Agency;
 import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
+import edu.utep.cybershare.vlc.util.StringManipulation;
 
 public abstract class Builder{
 
@@ -95,35 +96,55 @@ public abstract class Builder{
 			String grantID,
 			URL awardHomepage){
 		
-		//Figure out if it is a multi-institutional project with multiple PI's at different institutions given their own rewards,
-		//although the title of the project is identical (for NSF usually)
-		Project project = new Project(title);
-		if(product.projectExists(project) && this.principalInvestigator != null){
-			Person existingPI = product.getProject(project.getIdentification()).getPrincipalInvestigator();
-			if(existingPI != null && !existingPI.getIdentification().equals(principalInvestigator.getIdentification()))
-				project = product.getProject(title + "_" + counter++); // since we are changing the title of the project, this method will create a new project
-			else
-				project = product.getProject(title);
+		String id = getProjectID(grantID, title);
+		Project project = new Project(id);
+
+		if(product.projectExists(project)){
+			//something is weird, we have two projects with the same grant id each with a PI
+			//now lets narrow it down and check if the pis are the same or different
+			if(project.isSet_principalInvestigator() && principalInvestigator != null){
+				if(project.getPrincipalInvestigator().getIdentification().equals(principalInvestigator.getIdentification()))
+					System.err.println("Multiple instances of same project with different PI's");
+				else
+					System.err.println("Multiple instances of same project with same PI's - duplicate record");
+			}
+			else{//merge the projects
+				project = product.getProject(id);
+				this.populateProject(project, title, summary, startDate, endDate, awardAmount, grantID, awardHomepage);
+			}
 		}
-		// this is the case when the project is multi-institutional but still only a single PI and a single award amount, so it is already populated but needs
-		// more adornment by either adding co-pi's or pi and hosting institution
-		else if(product.projectExists(project) && this.principalInvestigator == null){
-			project = product.getProject(title);
-		}
-		// the project is new
 		else{
-			project = product.getProject(title);
-			project.setAbstractText(summary);
-			project.setStartDate(startDate);
-			project.setEndDate(endDate);
-			project.setAwardAmount(awardAmount);
-			project.setGrantIdentification(grantID);
-			project.setAwardHomepage(awardHomepage);
+			project = product.getProject(id);
+			this.populateProject(project, title, summary, startDate, endDate, awardAmount, grantID, awardHomepage);
 		}
 		
 		populateWithBuiltParts(project);
 		reset();
-	}	
+	}
+	
+	private String getProjectID(String grantID, String title){
+		if(grantID != null)
+			return title + grantID;
+		return title;
+	}
+	
+	private void populateProject(
+			Project project,
+			String title,
+			String summary,
+			GregorianCalendar startDate,
+			GregorianCalendar endDate,
+			int awardAmount,
+			String grantID,
+			URL awardHomepage){
+		project.setTitle(title);
+		project.setAbstractText(summary);
+		project.setStartDate(startDate);
+		project.setEndDate(endDate);
+		project.setAwardAmount(awardAmount);
+		project.setGrantIdentification(grantID);
+		project.setAwardHomepage(awardHomepage);
+	}
 	
 	public ModelProduct getResult(){
 		return product;

@@ -17,9 +17,12 @@ public class StringManipulation {
 		                    + "]";
 		return text.replaceAll(xml10pattern, "");
 	}
-	public static String SHAsum(byte[] convertme) throws NoSuchAlgorithmException{
-	    MessageDigest md = MessageDigest.getInstance("SHA-1"); 
-	    return byteArray2Hex(md.digest(convertme));
+	public static String SHAsum(byte[] convertme){
+		try{
+			MessageDigest md = MessageDigest.getInstance("SHA-1"); 
+			return byteArray2Hex(md.digest(convertme));
+		}catch(Exception e){e.printStackTrace();}
+		return null;
 	}
 
 	private static String byteArray2Hex(final byte[] hash) {

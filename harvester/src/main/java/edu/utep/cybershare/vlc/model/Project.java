@@ -28,7 +28,6 @@ public class Project extends Resource {
 	
 	public Project(String title) {
 		super(title);
-		this.title = title;
 		
 		coPrincipalInvestigators = new HashMap<String, Person>();
 		relatedWorks = new HashMap<String, Resource>();
@@ -131,7 +130,6 @@ public class Project extends Resource {
 	public URL getProjectHomePage() {
 		return projectHomePage;
 	}
-
 	public void setProjectHomePage(URL projectHomePage) {
 		this.projectHomePage = projectHomePage;
 	}

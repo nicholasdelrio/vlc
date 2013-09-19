@@ -56,6 +56,10 @@ public class ProjectAxioms extends Axioms{
 			OWLLiteral titleLiteral = bundle.getDataFactory().getOWLLiteral(StringManipulation.removeIllegalCharacters(project.getTitle()));
 			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_DCMI.getOWLDataProperty_title(), individual, titleLiteral);
 			add(assertion);
+
+			//add label
+			OWLAxiom labelAssertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_RDFS.getOWLDataProperty_label(), individual, titleLiteral);
+			add(labelAssertion);
 		}
 	}
 	

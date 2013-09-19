@@ -3,6 +3,7 @@ package edu.utep.cybershare.vlc.build;
 import java.io.File;
 import java.net.URL;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -15,13 +16,16 @@ import org.w3c.dom.NodeList;
 
 import edu.utep.cybershare.vlc.build.source.Awards;
 import edu.utep.cybershare.vlc.build.source.NSFAwards;
+import edu.utep.cybershare.vlc.util.StringManipulation;
 
 public class NSFDirector {
 	
 	private NSFBuilder builder;
+	private HashMap<String,Boolean> awardSignatures;
 	
 	public NSFDirector(NSFBuilder builder){
 		this.builder = builder;
+		awardSignatures = new HashMap<String, Boolean>();
 	}
 	
 	public void construct(NSFAwards awardsXML){
@@ -42,10 +46,24 @@ public class NSFDirector {
 	private void populateProjects(Document awardsDoc){
 		NodeList awardsList = awardsDoc.getElementsByTagName("Award");
 		
-		for (int i = 0; i < awardsList.getLength(); i++) {						
+		for (int i = 0; i < awardsList.getLength(); i++) {
 			Node awardNode = awardsList.item(i);
-			populateProject(awardNode);
+			if(!alreadyProcessed(awardNode)){
+				populateProject(awardNode);
+			}
 		}
+	}
+	
+	private boolean alreadyProcessed(Node awardNode){
+		String awardText = awardNode.getTextContent();
+		String shaSum = StringManipulation.SHAsum(awardText.getBytes());
+		Boolean value = this.awardSignatures.get(shaSum);
+		if(value == null){
+			awardSignatures.put(shaSum, new Boolean(true));
+			return false;
+		}
+		else
+			return true;
 	}
 		
 	private void populateProject(Node awardNode){
