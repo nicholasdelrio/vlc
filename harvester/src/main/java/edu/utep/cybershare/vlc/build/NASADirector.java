@@ -26,7 +26,7 @@ public class NASADirector {
 			awardFile = awards.get(i);
 			try{
 				awardDocument = Jsoup.parse(awardFile, null);
-				System.out.println("processing: " + awardFile.getName());
+				System.out.println("Constructing Projects from file: " + awardFile.getName());
 				populateProject(awardDocument, getCategory(awardFile));
 			}
 			catch(Exception e){e.printStackTrace();}

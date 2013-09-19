@@ -35,7 +35,7 @@ public class NSFDirector {
 		try{
 			dBuilder = dbFactory.newDocumentBuilder();
 			for(File awardFile : awardsXML){
-				System.out.println("Constructing Projects from file: " + awardFile);
+				System.out.println("Constructing Projects from file: " + awardFile.getName());
 				awardsDoc = dBuilder.parse(awardFile);
 				populateProjects(awardsDoc);
 				dBuilder.reset();
