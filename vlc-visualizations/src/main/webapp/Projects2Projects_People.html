@@ -29,13 +29,48 @@ line.link {
   stroke-opacity: 0.5;
   pointer-events: none;
 }
+.visualization{
+	display: inline-block;
+}
+
+.legend{
+	display: inline-block;
+}
+
     </style>
   </head>
   <body>
+ 
     <script type="text/javascript">
-var width = 960,     // svg width
-    height = 600,     // svg height
-    dr = 4,      // default point radius
+    function getBrowserWindowSize(){
+    	var myWidth = 0, myHeight = 0;
+    	if( typeof( window.innerWidth ) == 'number' ){
+    		//Non-IE
+    		myWidth = window.innerWidth;
+    		myHeight = window.innerHeight;
+    	}
+    	else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ){
+    		//IE 6+ in 'standards compliant mode'
+    		myWidth = document.documentElement.clientWidth;
+    		myHeight = document.documentElement.clientHeight;
+    	}
+    	else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ){
+    		//IE 4 compatible
+    		myWidth = document.body.clientWidth;
+    		myHeight = document.body.clientHeight;
+    	}
+
+    return {width:myWidth, height:myHeight};
+    }
+
+    var width = (getBrowserWindowSize().width * 2) / 3 ,
+       height = getBrowserWindowSize().height ;
+
+
+    window.onresize = function() {
+        location.reload();
+    }
+var dr = 4,      // default point radius
     off = 15,    // cluster hull offset
     expand = {}, // expanded clusters
     data, net, force, hullg, hull, linkg, link, nodeg, node;
@@ -46,6 +81,10 @@ var curve = d3.svg.line()
 
 var fill = d3.scale.category20();
 
+function dragstart(d) {
+	  d.fixed = true;
+	  d3.select(this).classed("fixed", true);
+	}
 function noop() { return false; }
 
 function nodeid(n) {
@@ -174,11 +213,15 @@ function drawCluster(d) {
 
 var body = d3.select("body");
 
-var vis = body.append("svg")
+
+
+var vis = d3.select("body").insert("div").style("float", "left").attr("class", "visualization").append("svg")
    .attr("width", width)
    .attr("height", height);
 
-d3.json("./Projects2Projects_People", function(json) {
+
+
+d3.json("./Institutions2Institutions_Projects", function(json) {
   data = json;
   for (var i=0; i<data.links.length; ++i) {
     o = data.links[i];
@@ -187,8 +230,12 @@ d3.json("./Projects2Projects_People", function(json) {
   }
   
   //create the legend
-  var legendNode = vis.selectAll("g.legendNode").data(data.locations);
-  legendNode.enter().append("g").attr("class","node");
+  var legend = d3.select("body").append("div").style("height",height+"px").style("width",(width/2.1)+"px")
+			.style("white-space","nowrap").style("overflow","auto").attr("class","legend");
+  
+ 
+ // var legend = d3.select("body").append("div").style("overflow","auto").style("text-align","left").style("float","right").attr("class","legend");
+  //legend.style("width",(width/3)).style("height",height).data(data.locations);
 
   var legendHalo = vis.append("circle")
 	.attr("class", "legendHalo")
@@ -197,54 +244,33 @@ d3.json("./Projects2Projects_People", function(json) {
 	  	.style("fill","black");
 
   
-  legendNode.append("circle").attr("r",5)
-  	.attr("id", function(d){return d.name;})
-  	.attr("cx", 10)
-  	.attr("cy", function(d,i){return 10+(i*10);})
-  	.style("fill", function(d) { return fill(d.group); })
-  	.on("mouseover", function(d){d3.selectAll(".legendHalo")
-  	  	.style("visibility","visible")
-  	  	.attr("r", d3.selectAll("#group"+ d.group).attr("r")*2)
-  	  	.attr("cx", d3.selectAll("#group"+ d.group).attr("cx"))
-  	  	.attr("cy",d3.selectAll("#group"+ d.group).attr("cy"))
-  	  	.style("fill","black")})
-  	//.on("mouseover", function(d){d3.select("." + d.name).style("visibility", "visible")})
-  	.on("mouseout", function(d){d3.select(".legendHalo").style("visibility","hidden");})
-  	//.on("mouseout", function(d){d3.select("." + d.name).style("visibility", "hidden")});
-    .on("click", function(d) {d3.select(".legendHalo").style("visibility","hidden");;
-    	console.log("node click", d, arguments, this, expand[d.group]);
-    	        expand[d.group] = !expand[d.group];
-    	    init();
-    	      });
-  		   
-
-  legendNode.append("text").attr("x", 15)
-	.attr("y", function(d,i){return 15+(i*10);})
-	.attr("id", function(d){return "legend"+ d.group;})
-	//.style("text-decoration", "underline")
-	.text(function(d){return d.name;})
-	.style("font-size", "10");
-
-  legendLink = vis.selectAll(".legendLink")
-	.data(data.locations);
-
-	legendLink.enter()
-	.append("line")
-	.attr("class", function(d){return d.name;})
-	.style("stroke", "black")
-	.attr("stroke-width",2)
-	.style("visibility", "hidden");
-	
-
+	data.nodes.forEach(function(d,i){
 		
+		legend.append("div").attr("class", "legendNode")
+			.attr("id","group"+d.group)
+			.html(d.name)
+			.on("mouseover", function(){
+  			  	d3.selectAll(".legendHalo")
+  	  				.style("visibility","visible")
+  	  				.attr("r", d3.selectAll("#group"+ d.group).attr("r")*2)
+  	  				.attr("cx", d3.selectAll("#group"+ d.group).attr("cx"))
+  	  				.attr("cy",d3.selectAll("#group"+ d.group).attr("cy"))
+  	  				.style("fill","black");
+	  		d3.selectAll(".legendNode").style("color", "lightgray"); 
+  			d3.select(this).style("color", "black"); })
+  	  .on("mouseout", function(d){d3.select(".legendHalo").style("visibility","hidden");
+	  	d3.selectAll(".legendNode").style("color", "black"); })
+				.append("br");
+		});
 	
 
-var legendText = legendNode.append("g").text("hello").attr("x", 20).attr("y", 20);
-  
+
   hullg = vis.append("g");
   linkg = vis.append("g");
   nodeg = vis.append("g");
 
+ 
+  
   init();
 
   vis.attr("opacity", 1e-6)
@@ -258,12 +284,18 @@ function init() {
  
   net = network(data, net, getGroup, expand);
 
+  
+ 
+
+  
   force = d3.layout.force()
       .nodes(net.nodes)
       .links(net.links)
       .size([width, height])
       .linkDistance(function(l, i) {
       var n1 = l.source, n2 = l.target;
+      
+     
     // larger distance for bigger groups:
     // both between single nodes and _other_ groups (where size of own node group still counts),
     // and between two group nodes.
@@ -288,7 +320,7 @@ function init() {
     .gravity(0.05)   // gravity+charge tweaked to ensure good 'grouped' view (e.g. green group not smack between blue&orange, ...
     .charge(-600)    // ... charge is important to turn single-linked groups to the outside
     .friction(0.5)   // friction adjusted to get dampened display: less bouncy bouncy ball [Swedish Chef, anyone?]
-      .start();
+    .start();
 
   hullg.selectAll("path.hull").remove();
   hull = hullg.selectAll("path.hull")
@@ -313,6 +345,8 @@ console.log("hull click", d, arguments, this, expand[d.group]);
       .style("stroke-width", function(d) { return d.size || 1; });
 
   node = nodeg.selectAll("circle.node").data(net.nodes, nodeid);
+  var total = net.nodes.length;
+  //alert(n);
   node.exit().remove();
   node.enter().append("circle")
       // if (d.size) -- d.size > 0 when d is a group node.
@@ -322,9 +356,12 @@ console.log("hull click", d, arguments, this, expand[d.group]);
       .attr("cy", function(d) { return d.y; })
       .style("z-index", 10)
       .attr("id", function(d) {return "group" + d.group;})
-      .style("fill", function(d) { return fill(d.group); })
-      .on("mouseover", function(d){d3.select("#legend"+d.group).attr("x", 50);})
-      .on("mouseout", function(d){d3.select("#legend"+d.group).attr("x", 15);})
+      .style("fill", function(d) { return fill( d.group); })
+      .on("mouseover", function(d){d3.selectAll(".legendNode").style("color", "lightgray"); 
+       		d3.selectAll("#group"+d.group).style("color", "black");
+      		d3.select("#projectName").html(d.name);})
+      .on("mouseout", function(d){d3.selectAll(".legendNode").style("color", "black")
+    	  d3.select("#projectName").html("");})
       .on("click", function(d) {
 console.log("node click", d, arguments, this, expand[d.group]);
         expand[d.group] = !expand[d.group];
@@ -332,8 +369,10 @@ console.log("node click", d, arguments, this, expand[d.group]);
       });
 
 
+      var drag = force.drag()
+      .on("dragstart", dragstart); 
       
-  node.call(force.drag);
+  node.call(drag);
 
   force.on("tick", function() {
     if (!hull.empty()) {
@@ -346,10 +385,11 @@ console.log("node click", d, arguments, this, expand[d.group]);
         .attr("x2", function(d) { return d.target.x; })
         .attr("y2", function(d) { return d.target.y; });
 
-    node.attr("cx", function(d) { return d.x; })
-        .attr("cy", function(d) { return d.y; });
+    node.attr("cx", function(d) { return d.x = Math.max(node.attr("r"), Math.min(width - node.attr("r"), d.x)); })
+        .attr("cy", function(d) { return d.y = Math.max(node.attr("r"), Math.min(height - node.attr("r"), d.y));  });
+       
 
-
+   
 	//legendLink.attr("x1", function(d){return d3.select("#" + d.name).attr("cx")} )
 	//.attr("y1", function(d){return d3.select("#" + d.name).attr("cy")} )
 	//.attr("x2", function(d){return d3.select("#group" + d.group).attr("cx");})
@@ -358,9 +398,10 @@ console.log("node click", d, arguments, this, expand[d.group]);
   });
   
 
+
 }
 
-
     </script>
+ 
   </body>
 </html>

@@ -1,9 +1,26 @@
 <!DOCTYPE html>
 <head>
-<meta charset="utf-8">
-<style>
+<meta charset="utf-8" content="">
+<style type="text/css">
+span{
+	vertical-align: top;
+	border-style: dotted;
+}
 svg {
 	border-style: dotted;
+}
+#resetButton{
+	position:absolute;
+	left: 33%;
+	top: 1%
+}
+
+.visualization{
+	display: inline-block;
+}
+
+.legend{
+	display: inline-block;
 }
 
 .link {
@@ -34,85 +51,165 @@ text {
 	z-index: 1;
 }
 
-}
-path {
-	stroke-linejoin: round;
+
+.background {
+  fill: white;
+  pointer-events: all;
 }
 
-.land-glow {
-	fill-opacity: .2;
-	filter: url(#blur);
+#states {
+  fill: #aaa;
 }
 
-.land-fill {
-	fill: #aaa;
-}
-
-.state-boundary {
-	fill: none;
-	stroke: #777;
-	stroke-width: .70px;
-}
-
-.county-boundary {
-	fill: none;
-}
-
-.land-fill,.county-boundary {
-	stroke: #777;
-	stroke-width: .35px;
+#state-borders {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  pointer-events: none;
 }
 </style>
 
 </head>
 <body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://d3js.org/topojson.v1.min.js"></script>
-<script><!--
+<script src="http://d3js.org/d3.v3.min.js" type="text/javascript"></script>
+<script src="http://d3js.org/topojson.v1.min.js" type="text/javascript"></script>
+<script type="text/javascript"><!--
 
-var width = 960,
-    height = 600;
+
+	
+function getBrowserWindowSize(){
+	var myWidth = 0, myHeight = 0;
+	if( typeof( window.innerWidth ) == 'number' ){
+		//Non-IE
+		myWidth = window.innerWidth;
+		myHeight = window.innerHeight;
+	}
+	else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ){
+		//IE 6+ in 'standards compliant mode'
+		myWidth = document.documentElement.clientWidth;
+		myHeight = document.documentElement.clientHeight;
+	}
+	else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ){
+		//IE 4 compatible
+		myWidth = document.body.clientWidth;
+		myHeight = document.body.clientHeight;
+	}
+
+return {width:myWidth, height:myHeight};
+}
+
+var width = (getBrowserWindowSize().width * 2) / 3 ,
+   height = getBrowserWindowSize().height ;
+
+
+window.onresize = function() {
+    location.reload();
+}
+
 
 var projection = d3.geo.albersUsa()
-    .scale(1000)
+    .scale(1070)
     .translate([width / 2, height / 2]);
 
 var path = d3.geo.path()
     .projection(projection);
 
-var svg = d3.select("body").append("svg")
+var zoom = d3.behavior.zoom()
+    .translate(projection.translate())
+    .scale(projection.scale())
+    .scaleExtent([height, 8 * height])
+    .on("zoom", function() {
+      
+    	projection.translate(d3.event.translate).scale(d3.event.scale);
+  	  g.selectAll("path").attr("d", path);
+  	 
+  	  d3.selectAll(".locNode").transition()
+  	  	.attr("cx", function(d){var coords = projection([d.lon, d.lat]); return coords[0];})
+  	 	.attr("cy", function(d){var coords = projection([d.lon, d.lat]); return coords[1];});
+	 	
+  	  d3.selectAll("line").transition()
+  		.attr("x1", function(d) { var coords = projection([d.source.lon, d.source.lat]); return coords[0];})
+		.attr("y1", function(d) { var coords = projection([d.source.lon, d.source.lat]); return coords[1];})
+		.attr("x2", function(d) { var coords = projection([d.target.lon, d.target.lat]); return coords[0];})
+		.attr("y2", function(d) { var coords = projection([d.target.lon, d.target.lat]); return coords[1];});
+		
+    });
+//zoomed);
+
+var svg = d3.select("body").insert("div").style("float", "left").attr("class", "visualization").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-var defs = svg.append("defs");
+var legend = d3.select("body").append("div").style("height",height+"px").style("width",(width/2.1)+"px")
+			.style("white-space","nowrap").style("overflow","auto").attr("class","legend");
 
-defs.append("filter")
-    .attr("id", "blur")
-  .append("feGaussianBlur")
-    .attr("stdDeviation", 5);
+//.style("overflow","auto")
+//.style("overflow-x","auto")
 
-d3.json("geography.json", function(error, us) {
-  defs.append("path")
-      .datum(topojson.feature(us, us.objects.countries))
-      .attr("id", "land")
+var clearDiv = d3.select("body").append("div").style("clear","both");
+
+var g = svg.append("g")
+    .call(zoom);
+
+g.append("rect")
+    .attr("class", "background")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("fill", "none");
+
+d3.json("geography1.json", function(error, us) {
+  g.append("g")
+      .attr("id", "states")
+    .selectAll("path")
+      .data(topojson.feature(us, us.objects.states).features)
+    .enter().append("path")
+      .attr("d", path);
+      //.on("click", clicked);
+
+  g.append("path")
+      .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+      .attr("id", "state-borders")
       .attr("d", path);
 
-  svg.append("use")
-      .attr("class", "land-glow")
-      .attr("xlink:href", "#land");
-
-  svg.append("use")
-      .attr("class", "land-fill")
-      .attr("xlink:href", "#land");
-
-	d3.json("./Institutions2Institutions_Projects", function(error, data){
-
-		data.links.forEach(function(d) {
+  var haloNode = svg.append("g")
+	.append("circle").attr("id","haloNode")
+	.style("fill", "white" )
+	.attr("r",10)
+	.attr("cx", 0)
+	.attr("cy", 0);
+	
+	d3.json("./Projects2Projects_People", function(error, data){
+		  
+		data.links.forEach(function(d,i) {
 			d.location = data.nodes[d.source].location;
 		    d.source = data.nodes[d.source];
 		    d.target = data.nodes[d.target];
 		  });
+
+
+		data.nodes.forEach(function(d,i){
+			
+			legend.append("div").attr("class", "legendNode")
+				.attr("id","id"+ i)
+				.html(d.location)
+				.on("mouseover", function(){
+	  			  	d3.selectAll("#haloNode")
+	  	  				.style("visibility","visible")
+	  	  				.attr("r", 10)
+	  	  				.attr("cx", d3.selectAll("#id"+ i ).attr("cx"))
+	  	  				.attr("cy",d3.selectAll("#id"+i).attr("cy"))
+	  	  				.style("fill","white");
+		  		d3.selectAll(".legendNode").style("color", "lightgray"); 
+	  			d3.select(this).style("color", "black"); })
+	  	  .on("mouseout", function(d){d3.select("#haloNode").style("visibility","hidden");
+		  	d3.selectAll(".legendNode").style("color", "black"); })
+					.append("br");
+			});
+
 		  
+		
 		//Add links
 		link = svg.selectAll(".link")
 			.data(data.links);
@@ -120,15 +217,29 @@ d3.json("geography.json", function(error, us) {
 		link.enter()
 		.append("line")
 		.attr("class", function(d){return d.location;})
+		.attr("id", function(d,i){return i;})
 		.style("stroke", "black")
 		.attr("stroke-width",2) 
-		.on("mouseover", function(d){d3.selectAll("line").style("visibility", "hidden"); d3.select(this).style("visibility","visible"); })
-		.on("mouseout", function(d){d3.selectAll("line").style("visibility","visible");});
+		.on("mouseover", function(d){d3.selectAll("line").style("visibility", "hidden"); 
+									d3.select(this).style("visibility","visible");
+
+									var thisLink = d;
+									d3.selectAll(".node").style("fill", function(d){
+										//alert(d.lat + "  " + thisLink.source.lat);
+										if(d.lat == thisLink.source.lat){//alert("hello");
+                                                                return "white";}
+										
+										})
+										
+									 });
 
 		
 		//remove old links
 		link.exit().remove();
 
+
+		
+		
 		//Add Nodes
 		node = svg.selectAll("g.node")
 			.data(data.nodes);
@@ -136,7 +247,17 @@ d3.json("geography.json", function(error, us) {
 		//Enter new nodes			
 		node.enter()
 			.append("g")
-			.attr("class", "node");
+			.attr("class", "node")
+			.on("mouseover",
+					function(d,i){d3.selectAll(".legendNode").style("color","lightgrey"); 
+								d3.selectAll("#id"+i).style("color","black"); 
+					var thisNode = d; 
+					d3.selectAll("line" ).style("visibility", 
+							function(d){if(thisNode.lat == d.source.lat){ return "visible";}
+										if(thisNode.lat == d.target.lat){ return "visible";} 
+										else{return "hidden";} }); })
+			.on("mouseout", function(d,i){
+				d3.selectAll(".legendNode").style("color","black"); });
 
 		link.attr("x1", function(d) { var coords = projection([d.source.lon, d.source.lat]); return coords[0];})
 		.attr("y1", function(d) { var coords = projection([d.source.lon, d.source.lat]); return coords[1];})
@@ -145,50 +266,33 @@ d3.json("geography.json", function(error, us) {
 		
 		node.append("circle")
 		.style("fill", "steelblue" )
-		.attr("id", function(d){return d.location})
-		.attr("r",10)
+		.attr("class","locNode")
+		.attr("id", function(d,i){return "id"+i})
+		.attr("r",5)
 		.attr("cx", function(d){var coords = projection([d.lon, d.lat]); return coords[0];})
-		.attr("cy", function(d){var coords = projection([d.lon, d.lat]); return coords[1];})
-		.on("mouseover", function(d){d3.selectAll("line").style("visibility", "hidden");d3.selectAll("." +  d.location).style("visibility","visible"); })
-		.on("mouseout", function(d){d3.selectAll("line").style("visibility","visible");});
-		//.on("click", function(d){d3.select("#title").text(d.name);
-			//d3.select("#description").text(d.description);});
+		.attr("cy", function(d){var coords = projection([d.lon, d.lat]); return coords[1];});
+
+		//Add reset button
+		
 		
 
-  var nodeText = node.append("text")
-	.text(function(d){return d.location})
-	.attr("x", function(d){return d3.select("#"+ d.location).attr("cx");})
-    .attr("y", function(d){return parseFloat(d3.select("#"+ d.location).attr("cy"),10)+20;});
+  //var nodeText = node.append("text")
+	//.text(function(d){return d.location})
+	//.attr("x", function(d){return d3.select("#"+ d.location).attr("cx");})
+    //.attr("y", function(d){return parseFloat(d3.select("#"+ d.location).attr("cy"),10)+20;});
 
 
- //  var projectsText = svg.append("text")
-	//.attr("id", "utepProjects")
-	//.text("Projects: Project1, Project2")
-	//.style("visibility", "hidden")
-	//.attr("x", function(){return d3.select("#utep").attr("cx");})
-	//.attr("y", function(){return parseFloat(d3.select("#utep").attr("cy"),10)+20;}); //return d3.select("#utep").attr("cy");});		
 
-
-	//var linkText = svg.append("text")
-	//.attr("id", "ucsdLinkText")
-	//.text("Label1")
-	//.style("visibility", "hidden")
-	//.attr("x", function(){var x2 = d3.select("#ucsdLink").attr("x2");
-		//		var x1 = d3.select("#ucsdLink").attr("x1");
-			//	return (((x2 - x1)/2) + parseInt(x1, 10));})
-	//.attr("y", function(){var y2 = d3.select("#ucsdLink").attr("y2");
-		//		var y1 = d3.select("#ucsdLink").attr("y1");
-			//	return (((y2 - y1)/2) + parseInt(y1, 10))-10;});
-
-
-	  
 	});  
-});
+  
+  
+	});  
 
+	d3.select("body").append("button").attr("id","resetButton").attr("type","button").html("reset")
+		.on("click",function(){d3.selectAll("line").style("visibility", "visible")});
 	
 
 --></script>
-<div id="title"></div>
-<div id="description"></div>
 
-</script>
+<script type="text/javascript"></script>
+</body>
