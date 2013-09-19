@@ -72,9 +72,7 @@ public class NASADirector {
 			System.err.println("Offending Project that doesn't have field-item class: " + projectTitle);
 		}
 		
-
-		String abstractText = getAbstractText(content);			
-		
+		String abstractText = getAbstractText(content);
 		URL awardPageURL = this.getAwardHomepage(awardDocument);
 		
 		buildPIs(content);
@@ -111,10 +109,12 @@ public class NASADirector {
 				String role = piAndInstitution[0].trim();
 				String institution = piAndInstitution[1].trim();
 			
-				if(role.equals("PI"))
+				if(role.equals("PI")){
 					builder.buildHostingInstitution(institution);
-				else if(role.equals("Co-PI"))
+				}
+				else if(role.equals("Co-PI")){
 					builder.buildInstitution(institution, null, null, null, null);
+				}
 			}
 		}
 	}
@@ -135,7 +135,6 @@ public class NASADirector {
 				firstName = NSFAwardsUtils.getFirstName(piName);
 				lastName = NSFAwardsUtils.getLastName(piName);
 				email = anchor.attributes().get("href").substring(7);
-				
 				builder.buildPrincipalInvestigator(firstName, lastName, email);
 			}
 			else if(anchor.attributes().get("href").startsWith("mailto:") && !firstPersonEncountered){
@@ -143,7 +142,6 @@ public class NASADirector {
 				firstName = NSFAwardsUtils.getFirstName(piName);
 				lastName = NSFAwardsUtils.getLastName(piName);
 				email = anchor.attributes().get("href").substring(7);
-				
 				builder.buildCoPrincipalInvestigator(firstName, lastName, email);
 			}
 		}

@@ -87,9 +87,9 @@ public class ModelProduct {
 	public List<URI> getDBPediaResources(){
 		return new ArrayList<URI>(dbpediaResources.values());
 	}
-	public boolean isFundedByAgency(String agencyKey, Project project){
+	public boolean isFundedByAgency(URI agencyURI, Project project){
 		boolean isFunded = false;
-		Agency agency = agencies.get(agencyKey);
+		Agency agency = agencies.get(agencyURI);
 		if(agency != null){
 			for(Project aProject : agency.getFundedProjects())
 				if(aProject.getIdentification().equals(project.getIdentification())){

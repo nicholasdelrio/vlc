@@ -76,7 +76,7 @@ public class ProjectsFilter implements Filter {
 	}
 	
 	private boolean isTargetProject(Project aProject){
-		return this.projectsOfInterest.get(aProject.getIdentification()) != null || isTargetProjectViaPeople(aProject) || product.isFundedByAgency(Awards.getAGENCY_NASA().toString(), aProject);
+		return this.projectsOfInterest.get(aProject.getIdentification()) != null || isTargetProjectViaPeople(aProject) || product.isFundedByAgency(Awards.getAGENCY_NASA(), aProject);
 	}
 		
 	private boolean isTargetProjectViaPeople(Project aProject){

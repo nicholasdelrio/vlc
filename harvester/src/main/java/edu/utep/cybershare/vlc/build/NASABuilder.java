@@ -24,8 +24,11 @@ public class NASABuilder extends Builder {
 		}
 		
 		for(int i = 0; i < coPrincipalInvestigators.size(); i ++){
-			Person aPerson = coPrincipalInvestigators.get(0);
-			Institution anInstitution = institutions.get(0);
+			Person aPerson = coPrincipalInvestigators.get(i);
+			project.addCoPrincipalInvestigator(aPerson);
+			
+			// add affiliated institution to co pi
+			Institution anInstitution = institutions.get(i);
 			aPerson.addAffiliatedInstitution(anInstitution);
 		}
 		for(URI subject : subjects)
