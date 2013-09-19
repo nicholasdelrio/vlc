@@ -180,7 +180,7 @@ d3.json("geography1.json", function(error, us) {
 	.attr("cx", 0)
 	.attr("cy", 0);
 	
-	d3.json("./Projects2Projects_People", function(error, data){
+	d3.json("./Institutions2Institutions_Projects", function(error, data){
 		  
 		data.links.forEach(function(d,i) {
 			d.location = data.nodes[d.source].location;
