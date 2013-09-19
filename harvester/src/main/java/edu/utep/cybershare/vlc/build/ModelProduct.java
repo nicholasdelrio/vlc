@@ -94,9 +94,6 @@ public class ModelProduct {
 			for(Project aProject : agency.getFundedProjects())
 				if(aProject.getIdentification().equals(project.getIdentification())){
 					isFunded = true;
-					
-					System.out.println("Project title: " + aProject.getTitle());
-					
 					break;
 				}
 		}
