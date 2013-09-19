@@ -6,6 +6,7 @@ import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.ontology.OntologyToolset;
+import edu.utep.cybershare.vlc.util.StringManipulation;
 
 public class InstitutionAxioms extends Axioms {
 	
@@ -80,7 +81,8 @@ public class InstitutionAxioms extends Axioms {
 		}
 	}
 	private void addName(){
-		OWLLiteral nameLiteral = bundle.getDataFactory().getOWLLiteral(institution.getIdentification());
+		String cleanedName = StringManipulation.encodeValue(institution.getIdentification());
+		OWLLiteral nameLiteral = bundle.getDataFactory().getOWLLiteral(cleanedName);
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_FOAF.getOWLDataProperty_name(), individual, nameLiteral);
 		add(assertion);
 	}

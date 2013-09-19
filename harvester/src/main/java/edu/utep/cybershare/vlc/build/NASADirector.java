@@ -21,8 +21,9 @@ public class NASADirector {
 	
 	public void construct(NASAAwards awards){
 		Document awardDocument = null;
-		
-		for(File awardFile : awards){
+		File awardFile;
+		for(int i = 0; i < awards.size(); i ++){
+			awardFile = awards.get(i);
 			try{
 				awardDocument = Jsoup.parse(awardFile, null);
 				System.out.println("processing: " + awardFile.getName());
@@ -39,8 +40,8 @@ public class NASADirector {
 	
 	private String getProjectTitle(Document awardDocument){
 		for(Element metaElement : awardDocument.getElementsByTag("meta")){
-			String title = metaElement.attributes().get("content");
-			String aboutURI = metaElement.attributes().get("about");
+			String title = metaElement.attributes().get("content").trim();
+			String aboutURI = metaElement.attributes().get("about").trim();
 			if(title != null && aboutURI != null && !aboutURI.isEmpty()){
 				return title;
 			}
@@ -50,8 +51,8 @@ public class NASADirector {
 	
 	private URL getAwardHomepage(Document awardDocument){
 		for(Element metaElement : awardDocument.getElementsByTag("meta")){
-			String title = metaElement.attributes().get("content");
-			String aboutURI = metaElement.attributes().get("about");
+			String title = metaElement.attributes().get("content").trim();
+			String aboutURI = metaElement.attributes().get("about").trim();
 			if(title != null && aboutURI != null && !aboutURI.isEmpty()){
 				try{return new URL(AWARDS_BASE_URL + aboutURI);}
 				catch(Exception e){e.printStackTrace();}
@@ -68,7 +69,7 @@ public class NASADirector {
 		try{content = awardDocument.getElementsByClass("field-item").get(0);}
 		catch(Exception e){
 			e.printStackTrace();
-			System.out.println("current project: " + projectTitle);
+			System.err.println("Offending Project that doesn't have field-item class: " + projectTitle);
 		}
 		
 
@@ -87,8 +88,8 @@ public class NASADirector {
 	private String getAbstractText(Element innerDiv){
 		String abstractText = "No abstract found";
 		for(Element pTags : innerDiv.getElementsByTag("p" )){
-			String text = pTags.ownText();
-			if(text != null && text.trim().length() > 0){
+			String text = pTags.ownText().trim();
+			if(text != null && text.length() > 0){
 				abstractText = text;
 				break;
 			}
@@ -130,7 +131,7 @@ public class NASADirector {
 		for(Element anchor : pTag.getElementsByTag("a")){
 			if(anchor.attributes().get("href").startsWith("mailto:") && firstPersonEncountered){
 				firstPersonEncountered = false;
-				piName = anchor.text();
+				piName = anchor.ownText().trim();
 				firstName = NSFAwardsUtils.getFirstName(piName);
 				lastName = NSFAwardsUtils.getLastName(piName);
 				email = anchor.attributes().get("href").substring(7);
@@ -138,7 +139,7 @@ public class NASADirector {
 				builder.buildPrincipalInvestigator(firstName, lastName, email);
 			}
 			else if(anchor.attributes().get("href").startsWith("mailto:") && !firstPersonEncountered){
-				piName = anchor.text();
+				piName = anchor.ownText().trim();
 				firstName = NSFAwardsUtils.getFirstName(piName);
 				lastName = NSFAwardsUtils.getLastName(piName);
 				email = anchor.attributes().get("href").substring(7);

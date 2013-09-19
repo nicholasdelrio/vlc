@@ -53,19 +53,8 @@ public class ProjectAxioms extends Axioms{
 		
 	private void addTitleAssertion(){
 		if(project.isSet_title()){
-			String cleanedTitleText = StringManipulation.removeIllegalCharacters(project.getTitle());
-			
-			try{
-			if(StringManipulation.validUTF8(cleanedTitleText.getBytes("UTF-8"))){
-				System.err.println("Illegal UTF-8 characters");
-				System.err.println("Project: " + cleanedTitleText);
-				//System.exit(0);
-			}
-			else
-				System.out.println("passed utf-8 check");
-			}catch(Exception e){e.printStackTrace();}
-					
-			OWLLiteral titleLiteral = bundle.getDataFactory().getOWLLiteral(StringManipulation.removeIllegalCharacters(project.getTitle()));
+			String cleanedTitle = StringManipulation.encodeValue(project.getTitle());	
+			OWLLiteral titleLiteral = bundle.getDataFactory().getOWLLiteral(cleanedTitle);
 			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_DCMI.getOWLDataProperty_title(), individual, titleLiteral);
 			add(assertion);
 
@@ -77,7 +66,8 @@ public class ProjectAxioms extends Axioms{
 	
 	private void addAbstract(){
 		if(project.isSet_abstractText()){
-			OWLLiteral abstractLiteral = bundle.getDataFactory().getOWLLiteral(StringManipulation.removeIllegalCharacters(project.getAbstractText()));
+			String cleanedAbstract = StringManipulation.encodeValue(project.getAbstractText());
+			OWLLiteral abstractLiteral = bundle.getDataFactory().getOWLLiteral(cleanedAbstract);			
 			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_ARPFO.getOWLDataProperty_statedPurpose(), individual, abstractLiteral);
 			add(assertion);
 		}

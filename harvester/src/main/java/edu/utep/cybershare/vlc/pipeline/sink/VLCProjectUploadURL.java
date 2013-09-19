@@ -9,6 +9,8 @@ import java.util.List;
 import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.lang.StringEscapeUtils;
 
+import edu.utep.cybershare.vlc.util.StringManipulation;
+
 public class VLCProjectUploadURL {
 	
 	private static final String PROTOCOL = "http";
@@ -159,42 +161,20 @@ public class VLCProjectUploadURL {
 	public List<NameValuePair> getParameters(){
 		ArrayList<NameValuePair> pairs = new ArrayList<NameValuePair>();
 		
-		pairs.add(new NameValuePair(VLCProjectUploadURL.carpTerm, encodeValue(this.getInputCarpTerm())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.carpTerm, StringManipulation.encodeValue(this.getInputCarpTerm())));
 		
-		pairs.add(new NameValuePair(VLCProjectUploadURL.coPi, encodeValue(this.getInputCoPI())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.fieldSite, encodeValue(this.getInputFieldSite())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.fundingAgency, encodeValue(this.getInputFundingAgency())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.fundingEndDate, encodeValue(this.getInputFundingEndDate())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.fundingStartDate, encodeValue(this.getInputFundingStartDate())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.goals, encodeValue(this.getInputGoals())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.inceptionStartDate, encodeValue(this.getInputInceptionStartDate())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.link, encodeValue(this.getInputLink())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.pi, encodeValue(this.getInputPI())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.researchAbstract, encodeValue(this.getInputAbstract())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.researchTitle, encodeValue(this.getInputTitle())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.coPi, StringManipulation.encodeValue(this.getInputCoPI())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.fieldSite, StringManipulation.encodeValue(this.getInputFieldSite())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.fundingAgency, StringManipulation.encodeValue(this.getInputFundingAgency())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.fundingEndDate, StringManipulation.encodeValue(this.getInputFundingEndDate())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.fundingStartDate, StringManipulation.encodeValue(this.getInputFundingStartDate())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.goals, StringManipulation.encodeValue(this.getInputGoals())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.inceptionStartDate, StringManipulation.encodeValue(this.getInputInceptionStartDate())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.link, StringManipulation.encodeValue(this.getInputLink())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.pi, StringManipulation.encodeValue(this.getInputPI())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.researchAbstract, StringManipulation.encodeValue(this.getInputAbstract())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.researchTitle, StringManipulation.encodeValue(this.getInputTitle())));
 		
 		return pairs;
-	}
-		
-	private String encodeValue(String value){
-		if(value != null && !value.isEmpty()){
-			String text = StringEscapeUtils.escapeXml(value);
-			text = StringEscapeUtils.escapeHtml(text);
-			System.out.println(text);
-			return text;
-		}
-					
-		return "nullvalue";
-	}
-	
-	private String encodeValue(List<String> list){
-		String stringList = "";
-		for(String item : list)
-			stringList += encodeValue(item) + ",";
-		
-		if(stringList.isEmpty())
-			stringList="nullvalue";
-
-		return stringList;
 	}
 }
