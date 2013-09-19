@@ -9,6 +9,7 @@ import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
+import edu.utep.cybershare.vlc.model.ProjectSection;
 import edu.utep.cybershare.vlc.model.Resource;
 import edu.utep.cybershare.vlc.ontology.Individuals;
 import edu.utep.cybershare.vlc.ontology.OntologyToolset;
@@ -41,6 +42,7 @@ public class ProjectAxioms extends Axioms{
 		this.addGrantIdentification();
 		this.addAwardAmount();
 		this.addSubjects();
+		this.addProjectSections();
 		
 		//VLC Specific Axioms
 		this.addHostingInstitution();
@@ -152,6 +154,18 @@ public class ProjectAxioms extends Axioms{
 			}
 		}
 
+	}
+	
+	private void addProjectSections(){
+		if(project.isSet_projectSections()){
+			OWLNamedIndividual projectSectionIndividual;
+			OWLAxiom assertion;
+			for(ProjectSection aProjectSection : project.getProjectSections()){
+				projectSectionIndividual = Individuals.getIndividual(aProjectSection, bundle);
+				assertion = bundle.getDataFactory().getOWLObjectPropertyAssertionAxiom(this.vocabulary_VLC.getOWLObjectProperty_hasHostingInstitution(), individual, projectSectionIndividual);
+				add(assertion);
+			}
+		}
 	}
 	
 	// VLC Specific Axioms

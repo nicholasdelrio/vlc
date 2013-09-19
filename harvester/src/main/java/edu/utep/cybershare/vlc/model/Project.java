@@ -18,6 +18,7 @@ public class Project extends Resource {
 	private int awardAmount;
 	private URL awardHomepage;
 	private URL projectHomePage;
+	private HashMap<String, ProjectSection> projectSections;
 	
 	// Hack for VLC demo
 	private ArrayList<String> collectionIDs;
@@ -33,8 +34,10 @@ public class Project extends Resource {
 		relatedWorks = new HashMap<String, Resource>();
 		results = new HashMap<String, Resource>();
 		collectionIDs = new ArrayList<String>();
+		this.projectSections = new HashMap<String, ProjectSection>();
 	}
 	
+	public boolean isSet_projectSections(){return this.getProjectSections().size() > 0;}
 	public boolean isSet_grantIdentification(){return this.getGrantIdentification() != null;}
 	public boolean isSet_principalInvestigator(){return this.getPrincipalInvestigator() != null;}
 	public boolean isSet_coPrincipalInvestigators(){return this.getCoPrincipalInvestigators().size() > 0;}
@@ -138,6 +141,12 @@ public class Project extends Resource {
 	}
 	public void addCollectionID(String collectionID) {
 		this.collectionIDs.add(collectionID);
+	}
+	public void addProjectSection(ProjectSection projectSection){
+		projectSections.put(projectSection.getIdentification(), projectSection);
+	}
+	public List<ProjectSection> getProjectSections(){
+		return new ArrayList<ProjectSection>(projectSections.values());
 	}
 	@Override
 	public void accept(Visitor visitor) {

@@ -20,6 +20,7 @@ public class ARPFO extends Vocabulary {
 	// Classes
 	private static final String OWLClass_Project = NAMESPACE + "/Project";
 	private static final String OWLClass_FundingBody = NAMESPACE + "/FundingBody";
+	private static final String OWLClass_ProjectSection = NAMESPACE + "/ProjectSection";
 	
 	// Data Properties
 	private static final String OWLDataProperty_endDate = NAMESPACE + "/endDate";
@@ -42,6 +43,9 @@ public class ARPFO extends Vocabulary {
 	}
 	public OWLClass getOWLClass_FundingBody(){
 		return factory.getOWLClass(IRI.create(OWLClass_FundingBody));
+	}
+	public OWLClass getOWLClass_ProjectSection(){
+		return factory.getOWLClass(IRI.create(OWLClass_ProjectSection));
 	}
 	public OWLDataProperty getOWLDataProperty_endDate(){
 		return factory.getOWLDataProperty(IRI.create(OWLDataProperty_endDate));

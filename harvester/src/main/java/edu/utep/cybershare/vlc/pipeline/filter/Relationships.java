@@ -24,7 +24,6 @@ public class Relationships {
 	private static int geospatial = 11;
 	private static int sensors = 12;
 	private static int waterSustainability = 13;
-
 	
 	public Relationships(File mappingsFile){
 		
@@ -79,7 +78,7 @@ public class Relationships {
 		if(!aRecord[Relationships.workflows].isEmpty())
 			collections += "collectionR44U52,";
 		if(!aRecord[Relationships.waterSustainability].isEmpty())
-			collections += "someCollection....,";
+			collections += "collectionR121U26";
 		
 		if(!collections.isEmpty()){
 			collections = collections.substring(0, collections.lastIndexOf(","));
