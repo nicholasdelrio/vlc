@@ -53,6 +53,18 @@ public class ProjectAxioms extends Axioms{
 		
 	private void addTitleAssertion(){
 		if(project.isSet_title()){
+			String cleanedTitleText = StringManipulation.removeIllegalCharacters(project.getTitle());
+			
+			try{
+			if(StringManipulation.validUTF8(cleanedTitleText.getBytes("UTF-8"))){
+				System.err.println("Illegal UTF-8 characters");
+				System.err.println("Project: " + cleanedTitleText);
+				//System.exit(0);
+			}
+			else
+				System.out.println("passed utf-8 check");
+			}catch(Exception e){e.printStackTrace();}
+					
 			OWLLiteral titleLiteral = bundle.getDataFactory().getOWLLiteral(StringManipulation.removeIllegalCharacters(project.getTitle()));
 			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_DCMI.getOWLDataProperty_title(), individual, titleLiteral);
 			add(assertion);

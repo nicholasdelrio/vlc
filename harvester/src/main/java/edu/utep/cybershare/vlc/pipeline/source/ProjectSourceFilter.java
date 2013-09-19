@@ -7,7 +7,6 @@ import edu.utep.cybershare.vlc.build.NSFBuilder;
 import edu.utep.cybershare.vlc.build.NSFDirector;
 import edu.utep.cybershare.vlc.build.source.NASAAwards;
 import edu.utep.cybershare.vlc.build.source.NSFAwards;
-import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.pipeline.Pipeline.SourceFilter;
 
 public class ProjectSourceFilter implements SourceFilter {
@@ -27,14 +26,13 @@ public class ProjectSourceFilter implements SourceFilter {
 		// instantiate builders
 		NSFBuilder nsfBuilder = new NSFBuilder(product);
 		NASABuilder nasaBuilder = new NASABuilder(product);
-
+/*
 		NSFDirector nsfDirector = new NSFDirector(nsfBuilder);
 		nsfDirector.construct(nsfAwards);
-		
-		/*
+*/		
 		NASADirector nasaDirector = new NASADirector(nasaBuilder);
 		nasaDirector.construct(nasaAwards);		
-	*/
+
 		return nasaBuilder.getResult();
 	}
 }
