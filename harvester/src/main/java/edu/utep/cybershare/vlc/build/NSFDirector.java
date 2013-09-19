@@ -71,7 +71,7 @@ public class NSFDirector {
 
 		// need to call these builder methods in this order
 		
-		builder.buildAgency(Awards.getAGENCY_NSF().toString());
+		builder.buildAgency(Awards.getAGENCY_NSF());
 		
 		buildDisciplineAndSubject(awardElement);
 		buildInstitution(awardElement);

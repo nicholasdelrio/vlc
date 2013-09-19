@@ -65,4 +65,11 @@ public class StringManipulation {
 					
 		return "nullvalue";
 	}
+	
+	public static URI isURI(String uriString){
+		URI uri = null;
+		try{uri = new URI(uriString);}
+		catch(Exception e){e.printStackTrace();}
+		return uri;
+	}
 }

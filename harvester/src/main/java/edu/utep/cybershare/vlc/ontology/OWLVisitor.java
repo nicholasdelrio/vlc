@@ -1,5 +1,7 @@
 package edu.utep.cybershare.vlc.ontology;
 
+import java.net.URI;
+
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 import edu.utep.cybershare.vlc.model.Agency;
@@ -15,6 +17,7 @@ import edu.utep.cybershare.vlc.ontology.axioms.Axioms;
 import edu.utep.cybershare.vlc.ontology.axioms.InstitutionAxioms;
 import edu.utep.cybershare.vlc.ontology.axioms.PersonAxioms;
 import edu.utep.cybershare.vlc.ontology.axioms.ProjectAxioms;
+import edu.utep.cybershare.vlc.util.StringManipulation;
 
 public class OWLVisitor implements Visitor {
 
@@ -66,7 +69,14 @@ public class OWLVisitor implements Visitor {
 	}
 
 	public void visit(Agency agency) {
-		OWLNamedIndividual individual = Individuals.getIndividual(agency, bundle);
+		String agencyName = agency.getIdentification();
+		URI agencyURI = StringManipulation.isURI(agencyName);
+		OWLNamedIndividual individual;
+		if(agencyURI != null)
+			individual = Individuals.getIndividual(agencyURI, bundle);
+		else
+			individual = Individuals.getIndividual(agency, bundle);
+		
 		Axioms axioms = new AgencyAxioms(agency, individual, bundle);
 		axioms.setAxioms();
 		bundle.addAxioms(axioms);

@@ -23,7 +23,7 @@ public class Individuals {
 		return getIndividual(uri.toASCIIString(), bundle);
 	}
 	
-	public static OWLNamedIndividual getIndividual(Element element, OntologyToolset bundle){	
+	public static OWLNamedIndividual getIndividual(Element element, OntologyToolset bundle){
 		String individualName = StringManipulation.makeURICompliantFragment(element.getIdentification(), bundle.getBaseIRI());
 		String individualIRI = bundle.getIndividualIRI(individualName);
 		

@@ -11,7 +11,6 @@ import edu.utep.cybershare.vlc.model.Agency;
 import edu.utep.cybershare.vlc.model.Institution;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
-import edu.utep.cybershare.vlc.util.StringManipulation;
 
 public abstract class Builder{
 
@@ -28,11 +27,8 @@ public abstract class Builder{
 	
 	private ModelProduct product;
 	
-	private int counter;
-	
 	public Builder(ModelProduct aProduct){
 		product = aProduct;
-		counter = 0;
 		setDBPediaBaseURI();
 		reset();
 	}
@@ -50,12 +46,11 @@ public abstract class Builder{
 		principalInvestigator = null;
 		hostingInstitution = null;
 		fundingAgency = null;
-		
-		//don't roll back counter
+
 	}
 	
-	public void buildAgency(String name){
-		fundingAgency = product.getAgency(name);
+	public void buildAgency(URI uri){
+		fundingAgency = product.getAgency(uri);
 	}
 	
 	public void buildDiscipline(String name){

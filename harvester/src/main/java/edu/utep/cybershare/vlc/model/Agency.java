@@ -1,5 +1,6 @@
 package edu.utep.cybershare.vlc.model;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,8 +9,8 @@ public class Agency extends Organization{
 	
 	private HashMap<String, Project> fundedProjects;
 	
-	public Agency(String agencyName){
-		super(agencyName);
+	public Agency(URI key){
+		super(key.toASCIIString());
 		fundedProjects = new HashMap<String, Project>();
 	}
 	public boolean isSet_FundedProjects(){

@@ -79,7 +79,7 @@ public class NASADirector {
 		
 		buildPIs(content);
 		buildInstitutions(abstractText);
-		builder.buildAgency(Awards.getAGENCY_NASA().toString());
+		builder.buildAgency(Awards.getAGENCY_NASA());
 		builder.buildDiscipline(category);
 		builder.buildSubject(category);
 		builder.buildProject(projectTitle, abstractText, null, null, 0, null, awardPageURL);		

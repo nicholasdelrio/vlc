@@ -15,14 +15,14 @@ public class ModelProduct {
 	private HashMap<String, Project> projects;	
 	private HashMap<String, Institution> institutions;
 	private HashMap<String, URI> dbpediaResources;
-	private HashMap<String, Agency> agencies;
+	private HashMap<URI, Agency> agencies;
 
 	public ModelProduct(){
 		people = new HashMap<String,Person>();
 		projects = new HashMap<String,Project>();	
 		institutions = new HashMap<String, Institution>();
 		dbpediaResources = new HashMap<String, URI>();
-		agencies = new HashMap<String, Agency>();
+		agencies = new HashMap<URI, Agency>();
 	}
 	public Institution getInstitution(String key){
 		Institution institution = institutions.get(key);
@@ -33,7 +33,7 @@ public class ModelProduct {
 		return institution;
 	}
 	
-	public Agency getAgency(String key){
+	public Agency getAgency(URI key){
 		Agency agency = agencies.get(key);
 		if(agency == null){
 			agency = new Agency(key);
