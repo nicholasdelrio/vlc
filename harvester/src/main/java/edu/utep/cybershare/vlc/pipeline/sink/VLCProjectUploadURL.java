@@ -161,19 +161,19 @@ public class VLCProjectUploadURL {
 	public List<NameValuePair> getParameters(){
 		ArrayList<NameValuePair> pairs = new ArrayList<NameValuePair>();
 		
-		pairs.add(new NameValuePair(VLCProjectUploadURL.carpTerm, StringManipulation.encodeValue(this.getInputCarpTerm())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.carpTerm, StringManipulation.encodeValueForXML(this.getInputCarpTerm())));
 		
-		pairs.add(new NameValuePair(VLCProjectUploadURL.coPi, StringManipulation.encodeValue(this.getInputCoPI())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.fieldSite, StringManipulation.encodeValue(this.getInputFieldSite())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.fundingAgency, StringManipulation.encodeValue(this.getInputFundingAgency())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.fundingEndDate, StringManipulation.encodeValue(this.getInputFundingEndDate())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.fundingStartDate, StringManipulation.encodeValue(this.getInputFundingStartDate())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.goals, StringManipulation.encodeValue(this.getInputGoals())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.inceptionStartDate, StringManipulation.encodeValue(this.getInputInceptionStartDate())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.link, StringManipulation.encodeValue(this.getInputLink())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.pi, StringManipulation.encodeValue(this.getInputPI())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.researchAbstract, StringManipulation.encodeValue(this.getInputAbstract())));
-		pairs.add(new NameValuePair(VLCProjectUploadURL.researchTitle, StringManipulation.encodeValue(this.getInputTitle())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.coPi, StringManipulation.encodeValueForXML(this.getInputCoPI())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.fieldSite, StringManipulation.encodeValueForXML(this.getInputFieldSite())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.fundingAgency, StringManipulation.encodeValueForXML(this.getInputFundingAgency())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.fundingEndDate, StringManipulation.encodeValueForXML(this.getInputFundingEndDate())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.fundingStartDate, StringManipulation.encodeValueForXML(this.getInputFundingStartDate())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.goals, StringManipulation.encodeValueForXML(this.getInputGoals())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.inceptionStartDate, StringManipulation.encodeValueForXML(this.getInputInceptionStartDate())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.link, StringManipulation.encodeValueForXML(this.getInputLink())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.pi, StringManipulation.encodeValueForXML(this.getInputPI())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.researchAbstract, StringManipulation.encodeValueForXML(this.getInputAbstract())));
+		pairs.add(new NameValuePair(VLCProjectUploadURL.researchTitle, StringManipulation.encodeValueForXML(this.getInputTitle())));
 		
 		return pairs;
 	}

@@ -8,17 +8,6 @@ import java.util.List;
 import org.apache.commons.lang.StringEscapeUtils;
 
 public class StringManipulation {
-	public static String removeIllegalCharacters(String text){
-		// XML 1.0
-		// #x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF]
-		String xml10pattern = "[^"
-		                    + "\u0009\r\n"
-		                    + "\u0020-\uD7FF"
-		                    + "\uE000-\uFFFD"
-		                    + "\ud800\udc00-\udbff\udfff"
-		                    + "]";
-		return text.replaceAll(xml10pattern, "");
-	}
 	public static String SHAsum(byte[] convertme){
 		try{
 			MessageDigest md = MessageDigest.getInstance("SHA-1"); 
@@ -57,17 +46,17 @@ public class StringManipulation {
 		}
 		return null;
 	}
-	public static String encodeValue(List<String> list){
+	public static String encodeValueForXML(List<String> list){
 		String stringList = "";
 		for(String item : list)
-			stringList += StringManipulation.encodeValue(item) + ",";
+			stringList += StringManipulation.encodeValueForXML(item) + ",";
 		
 		if(stringList.isEmpty())
 			stringList="nullvalue";
 
 		return stringList;
 	}
-	public static String encodeValue(String value){
+	public static String encodeValueForXML(String value){
 		if(value != null && !value.isEmpty()){
 			String text = StringEscapeUtils.escapeXml(value);
 			text = StringEscapeUtils.escapeHtml(text);

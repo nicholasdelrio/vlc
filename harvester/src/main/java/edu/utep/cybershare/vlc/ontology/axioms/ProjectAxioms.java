@@ -53,7 +53,7 @@ public class ProjectAxioms extends Axioms{
 		
 	private void addTitleAssertion(){
 		if(project.isSet_title()){
-			String cleanedTitle = StringManipulation.encodeValue(project.getTitle());	
+			String cleanedTitle = StringManipulation.encodeValueForXML(project.getTitle());	
 			OWLLiteral titleLiteral = bundle.getDataFactory().getOWLLiteral(cleanedTitle);
 			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_DCMI.getOWLDataProperty_title(), individual, titleLiteral);
 			add(assertion);
@@ -66,7 +66,7 @@ public class ProjectAxioms extends Axioms{
 	
 	private void addAbstract(){
 		if(project.isSet_abstractText()){
-			String cleanedAbstract = StringManipulation.encodeValue(project.getAbstractText());
+			String cleanedAbstract = StringManipulation.encodeValueForXML(project.getAbstractText());
 			OWLLiteral abstractLiteral = bundle.getDataFactory().getOWLLiteral(cleanedAbstract);			
 			OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_ARPFO.getOWLDataProperty_statedPurpose(), individual, abstractLiteral);
 			add(assertion);

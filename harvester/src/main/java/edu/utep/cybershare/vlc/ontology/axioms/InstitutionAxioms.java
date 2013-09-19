@@ -81,7 +81,7 @@ public class InstitutionAxioms extends Axioms {
 		}
 	}
 	private void addName(){
-		String cleanedName = StringManipulation.encodeValue(institution.getIdentification());
+		String cleanedName = StringManipulation.encodeValueForXML(institution.getIdentification());
 		OWLLiteral nameLiteral = bundle.getDataFactory().getOWLLiteral(cleanedName);
 		OWLAxiom assertion = bundle.getDataFactory().getOWLDataPropertyAssertionAxiom(this.vocabulary_FOAF.getOWLDataProperty_name(), individual, nameLiteral);
 		add(assertion);
