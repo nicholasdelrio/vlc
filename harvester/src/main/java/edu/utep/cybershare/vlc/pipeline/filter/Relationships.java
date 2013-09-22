@@ -78,7 +78,7 @@ public class Relationships {
 		if(!aRecord[Relationships.workflows].isEmpty())
 			collections += "collectionR44U52,";
 		if(!aRecord[Relationships.waterSustainability].isEmpty())
-			collections += "collectionR121U26";
+			collections += "collectionR121U26,";
 		
 		if(!collections.isEmpty()){
 			collections = collections.substring(0, collections.lastIndexOf(","));
