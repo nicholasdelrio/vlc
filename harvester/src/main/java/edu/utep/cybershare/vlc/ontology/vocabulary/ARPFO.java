@@ -8,7 +8,7 @@ import org.semanticweb.owlapi.model.OWLObjectProperty;
 
 /**
  * Academic Research Project Funding Ontology (ARPFO)
- * <a href=""></>
+ * <a href="http://vocab.ox.ac.uk/projectfunding">http://vocab.ox.ac.uk/projectfunding</a>
  * @author Nicholas Del Rio
  *
  */

@@ -8,7 +8,7 @@ import org.semanticweb.owlapi.model.OWLObjectProperty;
 
 /**
  * Dublin Core Metadata Initiative (DCMI)
- * <a href=""></>
+ * <a href="http://dublincore.org/">http://dublincore.org/</a>
  * @author Nicholas Del Rio
  *
  */
@@ -20,6 +20,7 @@ public class DCMI extends Vocabulary {
 
 	// Object Properties
 	public static final String OWLObjectProperty_subject = NAMESPACE + "/subject";
+	public static final String OWLObjectProperty_isPartOf = NAMESPACE + "/isPartOf";
 	
 	// Data Properties
 	public static final String OWLDataProperty_title = NAMESPACE + "/title";

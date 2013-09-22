@@ -6,7 +6,7 @@ import org.semanticweb.owlapi.model.OWLDataFactory;
 
 /**
  * Academic Institution Internal Structure Ontology (AIISO)
- * <a href="http://vocab.org/aiiso/schema#term-Institution">http://vocab.org/aiiso/schema#term-Institution</a>
+ * <a href="http://vocab.org/aiiso/schema">http://vocab.org/aiiso/schema</a>
  * @author Nicholas Del Rio
  *
  */
