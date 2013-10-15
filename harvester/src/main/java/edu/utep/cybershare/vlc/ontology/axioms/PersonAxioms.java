@@ -31,7 +31,6 @@ public class PersonAxioms extends Axioms {
 	public void setAxioms() {
 		this.setTypeAxiom(this.vocabulary_FOAF.getOWLClass_Person());
 		this.addAffiliatedInstitutions();
-		this.addDisciplines();
 		this.addFirstName();
 		this.addLastName();
 		this.addEmailSha1Sum();

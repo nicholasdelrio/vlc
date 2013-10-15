@@ -16,8 +16,8 @@ public class PROVO extends Vocabulary {
 	public static final String NAMESPACE = "http://www.w3.org/ns/prov-o";
 	
 	// Object Properties
-	public static final String OWLObjectProperty_influenced = NAMESPACE + "/influenced";
-	public static final String OWLObjectProperty_contributed = NAMESPACE + "/contributed";
+	public static final String OWLObjectProperty_influenced = NAMESPACE + "#influenced";
+	public static final String OWLObjectProperty_contributed = NAMESPACE + "#contributed";
 
 	
 	public PROVO(OWLDataFactory dataFactory) {

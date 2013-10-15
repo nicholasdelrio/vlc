@@ -7,7 +7,7 @@ import org.semanticweb.owlapi.model.OWLObjectProperty;
 
 public class VLC extends Vocabulary{
 	
-	public static final String NAMESPACE = "https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl";
+	public static final String NAMESPACE = "http://ontology.cybershare.utep.edu/VLC/RIM.owl";
 
 	// Classes
 	
