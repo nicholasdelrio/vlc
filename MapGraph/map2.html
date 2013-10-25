@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+
+<head>
+
+    <title>Projects</title>
+
+     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" /> 
+
+     <script src="http://code.jquery.com/jquery-1.9.1.js"></script> 
+
+     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> 
+<meta charset="utf-8" content="">
+
+<style type="text/css">
+
+span{
+
+	vertical-align: top;
+
+	border-style: dotted;
+
+}
+
+svg {
+
+	border-style: dotted;
+
+}
+
+#resetButton{
+
+	position:absolute;
+
+	left: 33%;
+
+	top: 1%
+
+}
+
+#filterButton{
+
+	position:absolute;
+
+	left: 23%;
+
+	top: 1%
+
+}
+
+.visualization{
+
+	display: inline-block;
+
+}
+
+
+
+.legend{
+
+	display: inline-block;
+
+}
+
+
+
+.link {
+
+	fill: none;
+
+	stroke: #666;
+
+	stroke-width: 1.5px;
+
+}
+
+
+
+#title {
+
+	font: 20px sans-serif;
+
+	text-decoration;
+
+	underline;
+
+}
+
+
+
+.node circle {
+
+	fill: #ccc;
+
+	stroke: #fff;
+
+	stroke-width: 1.5px;
+
+}
+
+
+
+image {
+
+	z-index: 10;
+
+}
+
+
+
+text {
+
+	font: 10px sans-serif;
+
+	pointer-events: none;
+
+	z-index: 1;
+
+}
+
+
+
+
+
+.background {
+
+  fill: white;
+
+  pointer-events: all;
+
+}
+
+
+
+#states {
+
+  fill: #aaa;
+
+}
+
+
+
+#state-borders {
+
+  fill: none;
+
+  stroke: #fff;
+
+  stroke-width: 1.5px;
+
+  stroke-linejoin: round;
+
+  stroke-linecap: round;
+
+  pointer-events: none;
+
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+<script src="http://d3js.org/d3.v3.min.js" type="text/javascript"></script>
+
+<script src="http://d3js.org/topojson.v1.min.js" type="text/javascript"></script>
+
+<script type="text/javascript"><!--
+
+    function timeSliderFilter(data, yearRange){
+        d3.selectAll("line" ).style("visibility","hidden").attr("filterFlag",1);
+        data.projects.forEach(function(d,i) {
+                              var startDate = new Date(d.startDate);
+                              var endDate = new Date(d.endDate);
+                             // alert(startDate);
+            var tempProject = d;
+            var projectI = i;
+                if(yearRange[0] <= startDate.getFullYear()  && endDate.getFullYear()<= yearRange[1] ){
+                data.links.forEach(function(d,i){
+                    if(d.projects.indexOf(projectI)>-1){      
+                     
+                        d3.select("#link"+i).style("visibility","visible").attr("filterFlag",0);
+                       // alert(d.projects + "  project  " + projectI);
+
+                                            
+                        //if(data.links.projects.indexOf(0)>0){
+                        //alert(d.name);
+                    }
+            
+                    //svg.append("line").attr("x1",0).attr("y1",0).attr("x2",500).attr("y2",500).style("stroke","black");
+       
+                });        
+            }
+        });}
+
+  
+
+	
+
+    function getBrowserWindowSize(){
+
+        var myWidth = 0, myHeight = 0;
+
+        if( typeof( window.innerWidth ) == 'number' ){
+
+            //Non-IE
+
+            myWidth = window.innerWidth;
+
+            myHeight = window.innerHeight;
+
+        }
+
+        else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ){
+
+            //IE 6+ in 'standards compliant mode'
+
+            myWidth = document.documentElement.clientWidth;
+
+            myHeight = document.documentElement.clientHeight;
+
+        }
+
+        else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ){
+
+            //IE 4 compatible
+
+            myWidth = document.body.clientWidth;
+
+            myHeight = document.body.clientHeight;
+
+        }
+
+
+
+        return {width:myWidth, height:myHeight};
+
+    }
+
+
+    var projects, allData;
+    var width = (getBrowserWindowSize().width * 2) / 3 ,
+
+       height = getBrowserWindowSize().height ;
+
+    $(function() {   
+      $( "#slider-range" ).slider({
+                                  range: true,
+                                  min: 1990,
+                                  max: 2020,
+                                  values: [ 1990, 2020 ],
+            step: 1,
+            slide: function(event, ui){
+               // $( "#amount" ).val( ui.value );
+                $( "#amount" ).val(  ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                timeSliderFilter(allData, ui.values );
+                                 
+            }});
+      $( "#amount" ).val(  $( "#slider-range" ).slider( "values", 0 ) +
+                         " - " + $( "#slider-range" ).slider( "values", 1 ) );
+    });  
+
+    
+
+    window.onresize = function() {
+
+        location.reload();
+
+    }
+
+
+
+
+
+    var projection = d3.geo.albersUsa()
+
+        .scale(1070)
+
+        .translate([width / 2, height / 2]);
+
+
+
+    var path = d3.geo.path()
+
+        .projection(projection);
+
+
+
+    var zoom = d3.behavior.zoom()
+
+        .translate(projection.translate())
+
+        .scale(projection.scale())
+
+        .scaleExtent([height, 8 * height])
+
+        .on("zoom", function() {
+
+      
+
+            projection.translate(d3.event.translate).scale(d3.event.scale);
+
+            g.selectAll("path").attr("d", path);
+
+  	 
+
+            d3.selectAll(".locNode").transition()
+
+              .attr("cx", function(d){var coords = projection([d.lon, d.lat]); return coords[0];})
+
+              .attr("cy", function(d){var coords = projection([d.lon, d.lat]); return coords[1];});
+
+	 	
+
+            d3.selectAll("line").transition()
+
+              .attr("x1", function(d) { var coords = projection([d.source.lon, d.source.lat]); return coords[0];})
+
+              .attr("y1", function(d) { var coords = projection([d.source.lon, d.source.lat]); return coords[1];})
+
+              .attr("x2", function(d) { var coords = projection([d.target.lon, d.target.lat]); return coords[0];})
+
+              .attr("y2", function(d) { var coords = projection([d.target.lon, d.target.lat]); return coords[1];});
+
+		
+
+        });
+
+    //zoomed);
+    var svg = d3.select("body").insert("div").style("float", "left").attr("class", "visualization").append("svg")
+
+        .attr("width", width)
+
+        .attr("height", height);
+
+
+
+    var legend = d3.select("body").append("div").style("height",height+"px").style("width",(width/2.5)+"px")
+
+                .style("white-space","nowrap").style("overflow","auto").attr("class","legend");
+
+
+
+    //.style("overflow","auto")
+
+    //.style("overflow-x","auto")
+
+
+
+    var clearDiv = d3.select("body").append("div").style("clear","both");
+
+
+
+    var g = svg.append("g")
+
+        .call(zoom);
+
+
+
+    g.append("rect")
+
+        .attr("class", "background")
+
+        .attr("width", width)
+
+        .attr("height", height)
+
+        .attr("fill", "none");
+
+
+
+    d3.json("geography1.json", function(error, us) {
+
+        g.append("g")
+
+            .attr("id", "states")
+
+          .selectAll("path")
+
+            .data(topojson.feature(us, us.objects.states).features)
+
+          .enter().append("path")
+
+            .attr("d", path);
+
+
+
+
+        g.append("path")
+
+            .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+
+            .attr("id", "state-borders")
+
+            .attr("d", path);
+
+
+
+        var haloNode = svg.append("g")
+
+          .append("circle").attr("id","haloNode")
+
+          .style("fill", "white" )
+
+          .attr("r",10)
+
+          .attr("cx", 0)
+
+          .attr("cy", 0);
+
+	
+
+        d3.json("mapData2.json", function(error, data){
+
+            allData = data;
+
+            data.links.forEach(function(d,i) {
+
+                d.location = data.nodes[d.source].location;
+
+                d.source = data.nodes[d.source];
+
+                d.target = data.nodes[d.target];
+
+            });
+
+                
+
+                 projects = data.projects;
+
+
+
+            data.nodes.forEach(function(d,i){
+
+			
+
+                legend.append("div").attr("class", "legendNode")
+
+                    .attr("id","id"+ i)
+
+                    .html(d.location)
+
+                    .on("mouseover", function(){
+
+                        d3.selectAll("#haloNode")
+
+                            .style("visibility","visible")
+
+                            .attr("r", 10)
+
+                            .attr("cx", d3.selectAll("#id"+ i ).attr("cx"))
+
+                            .attr("cy",d3.selectAll("#id"+i).attr("cy"))
+
+                            .style("fill","white");
+
+                        d3.selectAll(".legendNode").style("color", "lightgray"); 
+
+                        d3.select(this).style("color", "black"); })
+
+              .on("mouseout", function(d){d3.select("#haloNode").style("visibility","hidden");
+
+                  d3.selectAll(".legendNode").style("color", "black"); })
+
+                        .append("br");
+
+            });
+
+
+
+		  
+
+		
+
+            //Add links
+
+            link = svg.selectAll(".link")
+
+                .data(data.links);
+
+
+
+            link.enter()
+
+            .append("line")
+
+            .attr("class", function(d){return d.location;})
+
+            .attr("id", function(d,i){return "link"+i;})
+
+            .style("stroke", "black")
+
+            .attr("stroke-width",2)
+            .attr("filterFlag",0)
+
+            .on("mouseover", function(d){d3.selectAll("line").style("visibility", "hidden"); 
+                    d3.select(this).style("visibility","visible");
+                
+
+
+                var thisLink = d;
+                d3.selectAll(".node").style("fill", function(d){
+                    //alert(d.lat + "  " + thisLink.source.lat);
+                    if(d.lat == thisLink.source.lat){//alert("hello");
+                        return "white";}									
+                })									
+            });
+
+
+
+		
+
+            //remove old links
+
+            link.exit().remove();
+
+
+            //Add Nodes
+
+            node = svg.selectAll("g.node")
+
+                .data(data.nodes);
+
+		
+
+            //Enter new nodes			
+
+            node.enter()
+
+                .append("g")
+
+                .attr("class", "node")
+
+                .attr("id", function(d){return d.location})
+
+                .on("mouseover", 
+
+                        function(d,i){d3.selectAll(".legendNode").style("color","lightgrey"); 
+
+                            d3.selectAll("#id"+i).style("color","black"); 
+
+                            var thisNode = d; 
+                   
+                            d3.selectAll("line" ).style("visibility", 
+
+                                                        function(d,i){
+                                                        if(thisNode.lat == d.source.lat &&
+                                                           d3.select("#link"+i).attr("filterFlag") == 0 ) {return "visible";}
+
+                                                        if(thisNode.lat == d.target.lat &&
+                                                           d3.select("#link"+i).attr("filterFlag") == 0 ){  return "visible";}
+
+                                                        else{return "hidden";} }); })
+
+                .on("mouseout", function(d,i){
+
+                    d3.selectAll(".legendNode").style("color","black"); });
+
+
+
+            node.exit().remove();
+
+
+
+            link.attr("x1", function(d) { var coords = projection([d.source.lon, d.source.lat]); return coords[0];})
+            .attr("y1", function(d) { var coords = projection([d.source.lon, d.source.lat]); return coords[1];})
+            .attr("x2", function(d) { var coords = projection([d.target.lon, d.target.lat]); return coords[0];})
+            .attr("y2", function(d) { var coords = projection([d.target.lon, d.target.lat]); return coords[1];});
+
+		
+
+            node.append("circle")
+            .style("fill", "steelblue" )
+            .attr("class","locNode")
+            .attr("id", function(d,i){return "id"+i;})
+            .attr("r",5)
+            .attr("cx", function(d){var coords = projection([d.lon, d.lat]); return coords[0];})
+            .attr("cy", function(d){var coords = projection([d.lon, d.lat]); return coords[1];});
+
+
+
+            //Add reset button
+            var toolBar = d3.select("body").append("div").attr("class","toolBar");
+            toolBar.append("button")
+                .attr("id","resetButton")
+                .attr("type","button")
+                .html("reset")
+                .on("click",function(){d3.selectAll("line")
+                    .style("visibility", "visible")
+                    $(function() {
+                      
+                      //$( "#amount" ).val(  ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                      $( "#slider-range" ).slider({
+                                                 
+                                                  min: 1990,
+                                                  max: 2020});})});
+                     toolBar.append("div").attr("id","slider");
+	
+
+            toolBar.append("button")
+                .attr("id","filterButton")
+                .attr("type","button")
+                .html("filter")
+                .on("click", function(){ node.select(function(d){
+                                                     return (d.location!="UTEP");})               
+                    .each(function(d,i){
+
+                          d3.select("#id" + i)
+
+                          .transition()
+
+                          .duration(500)
+
+                          .delay(function(){return i*50;})
+
+                          .attr("r",0).remove()});                
+                });  
+
+           // d3.select("body").append("p").append("label").attr("for","amount");
+          //  d3.select("body").append("input").attr("type","text").attr("id","amount").style("border",0).style("color", "#f6931f").style("font-weight","bold");
+          //  d3.select("body").append("div").attr("id","slider");
+        });  
+    });  
+    --></script>
+<script type="text/javascript"></script>
+
+ <p>  <label for="amount">Year:</label>  
+        <input type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold;" readonly/>
+    </p>
+        <div id="slider-range"></div> 
+</body>
