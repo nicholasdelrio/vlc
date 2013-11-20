@@ -44,7 +44,12 @@
 
     <!-- http://ontology.cybershare.utep.edu/VLC/RIM.owl#hasHostingInstitution -->
 
-    <owl:ObjectProperty rdf:about="http://ontology.cybershare.utep.edu/VLC/RIM.owl#hasHostingInstitution"/>
+    <owl:ObjectProperty rdf:about="http://ontology.cybershare.utep.edu/VLC/RIM.owl#hasHostingInstitution">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://vocab.ox.ac.uk/projectfunding/hasPrincipalInvestigator"/>
+            <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/VLC/RIM.owl#affiliatedWithInstitution"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
     
 
 
