@@ -15,7 +15,7 @@ public class RDFDumpFilter implements DumpFilter {
 
 	public static final String OWL_FILENAME = "projects.owl";
 	public static final String OWL_FILENAME_FILTERED = "filtered-projects.owl";	
-	public static final String DUMP_DIRECTORY = "./output-rdf/";
+	public static final String DUMP_DIRECTORY = "../ontology.cybershare.utep.edu/VLC/data/";
 	
 	private File dumpFile;
 	

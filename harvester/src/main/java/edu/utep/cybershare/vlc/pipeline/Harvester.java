@@ -20,7 +20,7 @@ public class Harvester {
 		RDFDumpFilter rdfDumpFilter = null;
 		
 		try{
-			rdfDumpFilter = new RDFDumpFilter(new File(RDFDumpFilter.DUMP_DIRECTORY + RDFDumpFilter.OWL_FILENAME));
+			rdfDumpFilter = new RDFDumpFilter(new File(RDFDumpFilter.DUMP_DIRECTORY + RDFDumpFilter.OWL_FILENAME_FILTERED));
 		}
 		catch(Exception e){
 			e.printStackTrace();
