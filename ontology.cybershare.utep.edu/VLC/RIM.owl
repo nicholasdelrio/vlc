@@ -46,10 +46,16 @@
 
     <owl:ObjectProperty rdf:about="http://ontology.cybershare.utep.edu/VLC/RIM.owl#hasHostingInstitution">
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://vocab.ox.ac.uk/projectfunding/hasPrincipalInvestigator"/>
+            <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/VLC/RIM.owl#hasProjectMember"/>
             <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/VLC/RIM.owl#affiliatedWithInstitution"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/VLC/RIM.owl#hasProjectMember -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.cybershare.utep.edu/VLC/RIM.owl#hasProjectMember"/>
     
 
 
@@ -97,13 +103,17 @@
 
     <!-- http://vocab.ox.ac.uk/projectfunding/hasCoInvestigator -->
 
-    <owl:ObjectProperty rdf:about="http://vocab.ox.ac.uk/projectfunding/hasCoInvestigator"/>
+    <owl:ObjectProperty rdf:about="http://vocab.ox.ac.uk/projectfunding/hasCoInvestigator">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.cybershare.utep.edu/VLC/RIM.owl#hasProjectMember"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://vocab.ox.ac.uk/projectfunding/hasPrincipalInvestigator -->
 
-    <owl:ObjectProperty rdf:about="http://vocab.ox.ac.uk/projectfunding/hasPrincipalInvestigator"/>
+    <owl:ObjectProperty rdf:about="http://vocab.ox.ac.uk/projectfunding/hasPrincipalInvestigator">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.cybershare.utep.edu/VLC/RIM.owl#hasProjectMember"/>
+    </owl:ObjectProperty>
     
 
 

@@ -1,13 +1,9 @@
 package edu.utep.cybershare.vlc.pipeline.sink;
 
-import java.net.URI;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.httpclient.NameValuePair;
-import org.apache.commons.lang.StringEscapeUtils;
 
 import edu.utep.cybershare.vlc.util.StringManipulation;
 
