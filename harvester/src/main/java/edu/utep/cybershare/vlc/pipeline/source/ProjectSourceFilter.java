@@ -25,14 +25,14 @@ public class ProjectSourceFilter implements SourceFilter {
 		
 		// instantiate builders
 		NSFBuilder nsfBuilder = new NSFBuilder(product);
-		NASABuilder nasaBuilder = new NASABuilder(product);
+		//NASABuilder nasaBuilder = new NASABuilder(product);
 
 		NSFDirector nsfDirector = new NSFDirector(nsfBuilder);
 		nsfDirector.construct(nsfAwards);
 		
-		NASADirector nasaDirector = new NASADirector(nasaBuilder);
-		nasaDirector.construct(nasaAwards);		
+		//NASADirector nasaDirector = new NASADirector(nasaBuilder);
+		//nasaDirector.construct(nasaAwards);		
 
-		return nasaBuilder.getResult();
+		return nsfBuilder.getResult();
 	}
 }

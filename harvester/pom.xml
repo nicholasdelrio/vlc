@@ -21,11 +21,18 @@
   		<artifactId>owlapi-apibinding</artifactId>
   		<version>3.4.4</version>
   	</dependency>
-  	<dependency>
-		<groupId>commons-httpclient</groupId>
-		<artifactId>commons-httpclient</artifactId>
-		<version>3.1</version>
-	</dependency>
+<dependency>
+  <groupId>org.apache.httpcomponents</groupId>
+  <artifactId>httpclient</artifactId>
+  <version>4.3.2</version>
+</dependency>
+
+<dependency>
+  <groupId>org.apache.httpcomponents</groupId>
+  <artifactId>httpclient-cache</artifactId>
+  <version>4.3.2</version>
+</dependency>
+
   	<dependency>
   		<groupId>net.sf.opencsv</groupId>
   		<artifactId>opencsv</artifactId>

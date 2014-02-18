@@ -93,6 +93,10 @@ public abstract class Builder{
 		
 		String id = getProjectID(grantID, title);
 		Project project = new Project(id);
+		
+		if(startDate == null)
+			System.out.println("something is wrong, there should alwasys be s start date: " + project.getIdentification());
+		
 
 		if(product.projectExists(project)){
 			//something is weird, we have two projects with the same grant id each with a PI

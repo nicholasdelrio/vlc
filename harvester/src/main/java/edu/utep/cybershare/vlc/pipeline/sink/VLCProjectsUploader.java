@@ -6,28 +6,37 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpException;
-import org.apache.commons.httpclient.HttpStatus;
-import org.apache.commons.httpclient.NameValuePair;
-import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.http.HttpEntity;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
 
+import edu.utep.cybershare.vlc.build.ModelProduct;
 import edu.utep.cybershare.vlc.model.Person;
 import edu.utep.cybershare.vlc.model.Project;
+import edu.utep.cybershare.vlc.pipeline.Pipeline.DumpFilter;
 
-public class VLCProjectsUploader {
+public class VLCProjectsUploader implements DumpFilter  {
 	
 	ArrayList<VLCProjectUploadURL> uploadURLs; 
 	
-	private HttpClient client;
+	private CloseableHttpClient client;
 	
 	public VLCProjectsUploader(){
-		client = new HttpClient();
+		VLCLogin login = new VLCLogin();
+		client = login.login("ndel2", "ndel2");
 		uploadURLs = new ArrayList<VLCProjectUploadURL>();
 	}
 	
 	public void setProjects(List<Project> projects){
 		VLCProjectUploadURL uploadURL;
+		int counter = 0;
+		
+		System.out.println("projects length: " + projects.size());
+		
 		for(Project aProject : projects){
 			
 			uploadURL = new VLCProjectUploadURL();
@@ -35,11 +44,19 @@ public class VLCProjectsUploader {
 
 			for(String collectionID : aProject.getCollectionIDs())
 				uploadURL.addInputCarpTerm(collectionID);
-	
-			uploadURL.setInputFieldSite(aProject.getPrincipalInvestigator().getAffiliatedInstitutions().get(0).getIdentification());
+			
+			System.out.println("count: " + counter++);
+			System.out.println("project: " + aProject.getIdentification());
+			
+			if(aProject.getPrincipalInvestigator().isSet_affiliatedInstitutions())
+				uploadURL.setInputFieldSite(aProject.getPrincipalInvestigator().getAffiliatedInstitutions().get(0).getIdentification());
+			else
+				System.out.println("no hosting institution");
+			
 			uploadURL.setInputFundingAgency("NSF");
 			uploadURL.setInputFundingEndDate(formatDate(aProject.getEndDate()));
 			uploadURL.setInputFundingStartDate(formatDate(aProject.getStartDate()));
+			
 			uploadURL.setInputGoals(null);
 			uploadURL.setInputInceptionStartDate(null);
 			uploadURL.setInputLink(null);
@@ -64,42 +81,26 @@ public class VLCProjectsUploader {
 	}
 		
 	private String uploadSingleProject(VLCProjectUploadURL uploadURL){
-		PostMethod method = new PostMethod(uploadURL.getServiceURL());
+		HttpPost httpPost = new HttpPost(uploadURL.getServiceURL());
 		
-		for(NameValuePair pair : uploadURL.getParameters())
-			method.addParameter(pair);
+		httpPost.setEntity(new UrlEncodedFormEntity(uploadURL.getParameters(), HTTP.DEF_CONTENT_CHARSET));
 		
 		String result = "Failure";
 		try {
 			// Execute the method.
 			
-			System.out.println(method.getURI().toString());
+			System.out.println(httpPost.getURI().toString());
 			
-			int statusCode = client.executeMethod(method);
+			CloseableHttpResponse response = client.execute(httpPost);
+			HttpEntity entity = response.getEntity();
+			
+			if(entity != null){result = EntityUtils.toString(entity);}
 
-			if (statusCode != HttpStatus.SC_OK) {
-				System.err.println("Method failed: " + method.getStatusLine());
-			}
-		
-			else{
-				// Read the response body.
-				byte[] responseBody = method.getResponseBody();
-				
-				// Deal with the response.
-				// Use caution: ensure correct character encoding and is not binary
-				// data
-				result = new String(responseBody);
-			}
-
-		} catch (HttpException e) {
-			System.err.println("Fatal protocol violation: " + e.getMessage());
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.err.println("Fatal transport error: " + e.getMessage());
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			// Release the connection.
-			method.releaseConnection();
+			httpPost.releaseConnection();
 		}
 		return result;
 	}
@@ -107,5 +108,13 @@ public class VLCProjectsUploader {
 	private String formatDate(Calendar calendar){
 		SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
 		return formater.format(calendar.getTime());
+	}
+
+	public void dumpModelProduct(ModelProduct product) {
+		List<Project> projects = product.getProjects();
+		//List<Project> testProjects = projects.subList(0, 10);
+		
+		this.setProjects(projects);
+		this.upload();
 	}
 }

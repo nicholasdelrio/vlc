@@ -7,6 +7,7 @@ import edu.utep.cybershare.vlc.pipeline.filter.InstitutionGeocodeFilter;
 import edu.utep.cybershare.vlc.pipeline.filter.ProjectRelationshipsFilter;
 import edu.utep.cybershare.vlc.pipeline.filter.ProjectsFilter;
 import edu.utep.cybershare.vlc.pipeline.sink.RDFDumpFilter;
+import edu.utep.cybershare.vlc.pipeline.sink.VLCProjectsUploader;
 import edu.utep.cybershare.vlc.pipeline.source.ProjectSourceFilter;
 
 public class Harvester {
@@ -19,6 +20,8 @@ public class Harvester {
 		//create rdf dump filter
 		RDFDumpFilter rdfDumpFilter = null;
 		
+		//create VLC upload filter
+		VLCProjectsUploader vlcProjectsUploader = new VLCProjectsUploader();
 		try{
 			rdfDumpFilter = new RDFDumpFilter(new File(RDFDumpFilter.DUMP_DIRECTORY + RDFDumpFilter.OWL_FILENAME_FILTERED));
 		}
@@ -39,7 +42,8 @@ public class Harvester {
 		// create geocoder filter
 		InstitutionGeocodeFilter geocoderFilter = new InstitutionGeocodeFilter();
 		
-		Pipeline harvestingPipeline = new Pipeline(nsfSourceFilter, rdfDumpFilter);
+		//Pipeline harvestingPipeline = new Pipeline(nsfSourceFilter, rdfDumpFilter);
+		Pipeline harvestingPipeline = new Pipeline(nsfSourceFilter, vlcProjectsUploader);
 		harvestingPipeline.addFilter(deanaFilter);
 		harvestingPipeline.addFilter(geocoderFilter);
 		harvestingPipeline.addFilter(collectionsFilter);

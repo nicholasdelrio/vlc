@@ -20,6 +20,8 @@ public class NSFBuilder extends Builder {
 		if(this.principalInvestigator != null){
 			project.setPrincipalInvestigator(this.principalInvestigator);
 			project.setHostingInstitution(institutions.get(0)); //should be only one institution per award xml document for NSF
+			
+			this.principalInvestigator.addAffiliatedInstitution(institutions.get(0));
 		}
 		
 		for(Person coPrincipalInvestigator : this.coPrincipalInvestigators)
