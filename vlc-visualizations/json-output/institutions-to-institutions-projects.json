@@ -20,21 +20,21 @@
         },
         {
             "location": "",
-            "projects": ["Using Images and Optimized Workflow for Automated Data Acquisition of Mexican Plant Specimens at MICH"],
+            "projects": ["III: Large: Collaborative Research: Moving Objects Databases for Exploration of Virtual and Real Environments"],
             "source": 5,
             "target": 6
         },
         {
             "location": "",
-            "projects": ["III: Large: Collaborative Research: Moving Objects Databases for Exploration of Virtual and Real Environments"],
+            "projects": ["Using Images and Optimized Workflow for Automated Data Acquisition of Mexican Plant Specimens at MICH"],
             "source": 7,
             "target": 8
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 9,
-            "target": 2
+            "source": 2,
+            "target": 9
         },
         {
             "location": "",
@@ -46,7 +46,7 @@
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 11,
-            "target": 4
+            "target": 3
         },
         {
             "location": "",
@@ -57,8 +57,8 @@
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 12,
-            "target": 14
+            "source": 14,
+            "target": 13
         },
         {
             "location": "",
@@ -70,7 +70,7 @@
             "location": "",
             "projects": ["Arctic Observing Networks: Collaborative Research: Sustaining and amplifying the ITEX AON through automation and increased interdisciplinarity of observations"],
             "source": 17,
-            "target": 7
+            "target": 6
         },
         {
             "location": "",
@@ -87,26 +87,26 @@
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 9,
-            "target": 14
+            "source": 14,
+            "target": 9
         },
         {
             "location": "",
             "projects": ["Collaborative Proposal: ITR-SemDIS: Discovering Complex Relationships in the Semantic Web"],
-            "source": 22,
-            "target": 20
+            "source": 20,
+            "target": 22
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 17,
-            "target": 1
+            "source": 1,
+            "target": 17
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 3,
-            "target": 10
+            "source": 10,
+            "target": 4
         },
         {
             "location": "",
@@ -117,44 +117,50 @@
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 9,
-            "target": 0
+            "source": 0,
+            "target": 9
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 3,
-            "target": 2
+            "source": 2,
+            "target": 4
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 1,
-            "target": 13
-        },
-        {
-            "location": "",
-            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 12,
-            "target": 10
-        },
-        {
-            "location": "",
-            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 3,
             "target": 12
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 0,
+            "source": 10,
             "target": 13
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 0,
+            "target": 12
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 4,
+            "target": 13
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 3,
             "target": 14
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 10,
+            "target": 1
         },
         {
             "location": "",
@@ -165,26 +171,20 @@
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 10,
-            "target": 1
-        },
-        {
-            "location": "",
-            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 2,
             "target": 1
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 17,
-            "target": 0
+            "source": 0,
+            "target": 17
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 11,
-            "target": 13
+            "target": 12
         },
         {
             "location": "",
@@ -201,8 +201,20 @@
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 9,
-            "target": 1
+            "source": 1,
+            "target": 9
+        },
+        {
+            "location": "",
+            "projects": ["Collaborative Research: Rolling Deck to Repository (R2R): Transforming the Academic Fleet Into an Integrated Global Observing System"],
+            "source": 29,
+            "target": 19
+        },
+        {
+            "location": "",
+            "projects": ["Digitization TCN: Collaborative Research: Digitizing Fossils to Enable New Syntheses in Biogeography - Creating a PALEONICHES-TCN"],
+            "source": 30,
+            "target": 8
         },
         {
             "location": "",
@@ -211,25 +223,19 @@
                 "SDCI: Data/NMI New/Improvement - Semantic Provenance Capture in Data Ingest Systems (SPCDIS)"
             ],
             "source": 9,
-            "target": 29
-        },
-        {
-            "location": "",
-            "projects": ["Digitization TCN: Collaborative Research: Digitizing Fossils to Enable New Syntheses in Biogeography - Creating a PALEONICHES-TCN"],
-            "source": 6,
-            "target": 30
-        },
-        {
-            "location": "",
-            "projects": ["Collaborative Research: Rolling Deck to Repository (R2R): Transforming the Academic Fleet Into an Integrated Global Observing System"],
-            "source": 31,
-            "target": 19
+            "target": 31
         },
         {
             "location": "",
             "projects": ["Collaborative Research: Linkage of Bacterial Pathogens to Human infectious Disease in an Estuary Subjected to Extreme Climatic Events"],
             "source": 32,
             "target": 33
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 3,
+            "target": 12
         },
         {
             "location": "",
@@ -240,23 +246,8 @@
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 4,
-            "target": 13
-        },
-        {
-            "location": "",
-            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 9,
-            "target": 12
-        },
-        {
-            "location": "",
-            "projects": [
-                "Collaborative Research, IPY: A Cooperative Arctic Data and Information Service (CADIS)",
-                "Collaborative Research: Integrated Arctic Data Management Services (IADS) to Support Arctic Research"
-            ],
-            "source": 25,
-            "target": 9
+            "target": 13
         },
         {
             "location": "",
@@ -264,43 +255,52 @@
                 "Collaborative Research: Systematic Analysis of Dynamic Earthquake Triggering Using the USArray Data",
                 "ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"
             ],
-            "source": 17,
-            "target": 2
+            "source": 2,
+            "target": 17
+        },
+        {
+            "location": "",
+            "projects": [
+                "Collaborative Research, IPY: A Cooperative Arctic Data and Information Service (CADIS)",
+                "Collaborative Research: Integrated Arctic Data Management Services (IADS) to Support Arctic Research"
+            ],
+            "source": 26,
+            "target": 9
         },
         {
             "location": "",
             "projects": ["Formulated and Specify: Using Visual Programming to Enable Web-based Biodiversity Analysis"],
-            "source": 6,
-            "target": 35
+            "source": 35,
+            "target": 8
         },
         {
             "location": "",
             "projects": ["III: Large: Collaborative Research: Moving Objects Databases for Exploration of Virtual and Real Environments"],
             "source": 27,
-            "target": 7
+            "target": 6
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 0,
-            "target": 4
+            "target": 3
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 1,
+            "target": 13
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 12,
-            "target": 1
-        },
-        {
-            "location": "",
-            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 3,
-            "target": 13
+            "target": 4
         },
         {
             "location": "",
             "projects": ["Collaborative Research: Rolling Deck to Repository (R2R): Transforming the Academic Fleet Into an Integrated Global Observing System"],
-            "source": 31,
+            "source": 29,
             "target": 36
         },
         {
@@ -313,7 +313,7 @@
             "location": "",
             "projects": ["Collaborative Research: CI-Team Diff: The Virtual Learning Commons: STEM Research Communities Learning about Data Management, Geospatial Informatics, and Scientific Visualization"],
             "source": 17,
-            "target": 6
+            "target": 8
         },
         {
             "location": "",
@@ -323,21 +323,21 @@
         },
         {
             "location": "",
-            "projects": ["Collaborative Research: Systematic Analysis of Dynamic Earthquake Triggering Using the USArray Data"],
-            "source": 17,
-            "target": 31
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 12,
+            "target": 14
         },
         {
             "location": "",
-            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 13,
-            "target": 14
+            "projects": ["Collaborative Research: Systematic Analysis of Dynamic Earthquake Triggering Using the USArray Data"],
+            "source": 17,
+            "target": 29
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 2,
-            "target": 4
+            "target": 3
         },
         {
             "location": "",
@@ -358,31 +358,25 @@
                 "ITR Collaborative Research: Enabling the Science Environment for Ecological Knowledge"
             ],
             "source": 37,
-            "target": 6
+            "target": 8
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 12,
-            "target": 4
+            "source": 3,
+            "target": 13
         },
         {
             "location": "",
             "projects": ["Collaborative Research: Science of Search: Data Search, Analytics, and Architectures Center (DSAAC)"],
             "source": 38,
-            "target": 7
+            "target": 6
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 17,
-            "target": 12
-        },
-        {
-            "location": "",
-            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 10,
-            "target": 14
+            "target": 13
         },
         {
             "location": "",
@@ -392,9 +386,15 @@
         },
         {
             "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 10,
+            "target": 14
+        },
+        {
+            "location": "",
             "projects": ["Collaborative Research: SGER: Research and education software requirements for an environmental sensor network at the OTS La Selva Biological Station"],
-            "source": 6,
-            "target": 7
+            "source": 8,
+            "target": 6
         },
         {
             "location": "",
@@ -404,63 +404,57 @@
         },
         {
             "location": "",
+            "projects": ["III: Large: Collaborative Research: Moving Objects Databases for Exploration of Virtual and Real Environments"],
+            "source": 27,
+            "target": 5
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 12,
+            "target": 9
+        },
+        {
+            "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 17,
             "target": 9
         },
         {
             "location": "",
-            "projects": ["III: Large: Collaborative Research: Moving Objects Databases for Exploration of Virtual and Real Environments"],
-            "source": 27,
-            "target": 8
-        },
-        {
-            "location": "",
-            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 9,
-            "target": 13
-        },
-        {
-            "location": "",
             "projects": ["Collaborative Research: Systematic Analysis of Dynamic Earthquake Triggering Using the USArray Data"],
-            "source": 31,
-            "target": 2
+            "source": 2,
+            "target": 29
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: Enabling the Science Environment for Ecological Knowledge"],
-            "source": 6,
+            "source": 8,
             "target": 39
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 17,
-            "target": 14
+            "source": 14,
+            "target": 17
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 17,
-            "target": 10
+            "source": 10,
+            "target": 17
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 12,
-            "target": 11
+            "source": 11,
+            "target": 13
         },
         {
             "location": "",
             "projects": ["Collaborative Research: Rolling Deck to Repository (R2R): Transforming the Academic Fleet Into an Integrated Global Observing System"],
             "source": 18,
-            "target": 31
-        },
-        {
-            "location": "",
-            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 17,
-            "target": 3
+            "target": 29
         },
         {
             "location": "",
@@ -471,14 +465,26 @@
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 3,
-            "target": 14
+            "source": 17,
+            "target": 4
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 14,
+            "target": 4
         },
         {
             "location": "",
             "projects": ["Digitization TCN: Collaborative Research: Digitizing Fossils to Enable New Syntheses in Biogeography - Creating a PALEONICHES-TCN"],
-            "source": 6,
-            "target": 40
+            "source": 40,
+            "target": 8
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 11,
+            "target": 10
         },
         {
             "location": "",
@@ -489,50 +495,44 @@
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 11,
-            "target": 10
-        },
-        {
-            "location": "",
-            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 17,
-            "target": 13
+            "source": 12,
+            "target": 17
         },
         {
             "location": "",
             "projects": ["III: Large: Collaborative Research: Moving Objects Databases for Exploration of Virtual and Real Environments"],
-            "source": 8,
+            "source": 5,
             "target": 28
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 17,
-            "target": 4
+            "source": 3,
+            "target": 17
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 3,
+            "source": 4,
             "target": 9
         },
         {
             "location": "",
             "projects": ["Collaborative Research: The El Nino-Southern Oscillation (ENSO)-Mediterranean Teleconnection: Observations and Dynamics"],
-            "source": 19,
-            "target": 41
+            "source": 41,
+            "target": 19
         },
         {
             "location": "",
             "projects": ["Collaborative Research: Information Integration for Locating and Querying Geospatial Data"],
-            "source": 42,
-            "target": 27
+            "source": 27,
+            "target": 42
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 10,
-            "target": 13
+            "target": 12
         },
         {
             "location": "",
@@ -543,20 +543,20 @@
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 9,
-            "target": 4
+            "source": 3,
+            "target": 9
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 12,
-            "target": 2
+            "source": 2,
+            "target": 13
         },
         {
             "location": "",
             "projects": ["III: Large: Collaborative Research: Moving Objects Databases for Exploration of Virtual and Real Environments"],
-            "source": 7,
-            "target": 28
+            "source": 28,
+            "target": 6
         },
         {
             "location": "",
@@ -567,26 +567,32 @@
         {
             "location": "",
             "projects": ["Collaborative Research: The El Nino-Southern Oscillation (ENSO)-Mediterranean Teleconnection: Observations and Dynamics"],
-            "source": 34,
-            "target": 41
+            "source": 41,
+            "target": 34
         },
         {
             "location": "",
             "projects": ["Collaborative Research: Coupled Models of Diffusion and Individual Behavior Over Extremely Large Social Networks"],
-            "source": 15,
-            "target": 8
+            "source": 5,
+            "target": 15
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 9,
-            "target": 11
+            "source": 11,
+            "target": 9
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 9,
-            "target": 10
+            "source": 10,
+            "target": 9
+        },
+        {
+            "location": "",
+            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
+            "source": 0,
+            "target": 4
         },
         {
             "location": "",
@@ -597,20 +603,14 @@
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 3,
-            "target": 0
-        },
-        {
-            "location": "",
-            "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 17,
-            "target": 11
+            "source": 11,
+            "target": 17
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 10,
-            "target": 4
+            "target": 3
         },
         {
             "location": "",
@@ -627,7 +627,7 @@
         {
             "location": "",
             "projects": ["ITR Collaborative Research: Enabling the Science Environment for Ecological Knowledge (SEEK)"],
-            "source": 3,
+            "source": 4,
             "target": 46
         },
         {
@@ -639,26 +639,26 @@
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 3,
-            "target": 11
+            "source": 11,
+            "target": 4
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 12,
-            "target": 0
+            "source": 0,
+            "target": 13
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
-            "source": 3,
-            "target": 1
+            "source": 1,
+            "target": 4
         },
         {
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 2,
-            "target": 13
+            "target": 12
         },
         {
             "location": "",
@@ -670,7 +670,7 @@
             "location": "",
             "projects": ["ITR Collaborative Research: GEON: A Research Project to Create Cyberinfrastructure for the Geosciences"],
             "source": 1,
-            "target": 4
+            "target": 3
         }
     ],
     "nodes": [
@@ -690,14 +690,24 @@
             "lon": -111.833
         },
         {
+            "lat": 40.0612,
+            "location": "UNAVCO, Inc.",
+            "lon": -105.206
+        },
+        {
             "lat": 37.24,
             "location": "University of California-San Diego",
             "lon": -119.503
         },
         {
-            "lat": 40.0612,
-            "location": "UNAVCO, Inc.",
-            "lon": -105.206
+            "lat": 42.0512,
+            "location": "Northwestern University",
+            "lon": -87.6847
+        },
+        {
+            "lat": 25.7753,
+            "location": "Florida International University",
+            "lon": -80.2089
         },
         {
             "lat": 42.244,
@@ -708,16 +718,6 @@
             "lat": 38.9515,
             "location": "University of Kansas Center for Research Inc",
             "lon": -95.2657
-        },
-        {
-            "lat": 25.7753,
-            "location": "Florida International University",
-            "lon": -80.2089
-        },
-        {
-            "lat": 42.0512,
-            "location": "Northwestern University",
-            "lon": -87.6847
         },
         {
             "lat": 39.9796,
@@ -735,14 +735,14 @@
             "lon": -97.4436
         },
         {
-            "lat": 42.4348,
-            "location": "Cornell University",
-            "lon": -76.4632
-        },
-        {
             "lat": 40.0218,
             "location": "Bryn Mawr College",
             "lon": -75.3222
+        },
+        {
+            "lat": 42.4348,
+            "location": "Cornell University",
+            "lon": -76.4632
         },
         {
             "lat": 33.4281,
@@ -790,24 +790,24 @@
             "lon": -84.2008
         },
         {
-            "lat": 40.4841,
-            "location": "Stocks, Karen I",
-            "lon": -74.4428
-        },
-        {
             "lat": 37.9857,
             "location": "Rissler, Leslie J",
             "lon": -78.4349
         },
         {
-            "lat": 40.0135,
-            "location": "University of Colorado at Boulder",
-            "lon": -105.268
+            "lat": 40.4841,
+            "location": "Stocks, Karen I",
+            "lon": -74.4428
         },
         {
             "lat": 61.2967,
             "location": "Huntington Consulting",
             "lon": -149.437
+        },
+        {
+            "lat": 40.0135,
+            "location": "University of Colorado at Boulder",
+            "lon": -105.268
         },
         {
             "lat": 41.8715,
@@ -820,9 +820,9 @@
             "lon": -71.4022
         },
         {
-            "lat": 42.7329,
-            "location": "Rensselaer Polytechnic Institute",
-            "lon": -73.6835
+            "lat": 37.24,
+            "location": "University of California-San Diego Scripps Inst of Oceanography",
+            "lon": -119.503
         },
         {
             "lat": 39.3136,
@@ -830,9 +830,9 @@
             "lon": -82.0821
         },
         {
-            "lat": 37.24,
-            "location": "University of California-San Diego Scripps Inst of Oceanography",
-            "lon": -119.503
+            "lat": 42.7329,
+            "location": "Rensselaer Polytechnic Institute",
+            "lon": -73.6835
         },
         {
             "lat": 35.3001,
@@ -890,14 +890,14 @@
             "lon": -89.4009
         },
         {
-            "lat": 40.7541,
-            "location": "Ecohealth Alliance inc.",
-            "lon": -73.999
-        },
-        {
             "lat": 36.9776,
             "location": "University of California-Santa Cruz",
             "lon": -122.056
+        },
+        {
+            "lat": 40.7541,
+            "location": "Ecohealth Alliance inc.",
+            "lon": -73.999
         },
         {
             "lat": 25.7176,

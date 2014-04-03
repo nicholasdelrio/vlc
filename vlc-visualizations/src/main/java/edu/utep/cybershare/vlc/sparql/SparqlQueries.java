@@ -3,8 +3,8 @@ package edu.utep.cybershare.vlc.sparql;
 public class SparqlQueries {
 	
 	private static String prefixDeclaration_RIM = "prefix rim: <https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM.owl#>";
-	private static String namedGraphDeclaration = "from <http://vlc.cybershare.utep.edu/filtered-projects.owl>";
-	private static String rimRuleSetDeclaration = "define input:inference 'https://raw.github.com/nicholasdelrio/VLC/master/ontology/RIM-Rules.owl'";
+	private static String namedGraphDeclaration = "from <http://ontology.cybershare.utep.edu/VLC/linked-data/projects/filtered-projects.owl>";
+	private static String rimRuleSetDeclaration = "define input:inference 'http://ontology.cybershare.utep.edu/VLC/RIM.owl'";
 	private static String newline = "\n";
 	
 	public static String getInstitutions2InstitutionsByProjects(){

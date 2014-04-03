@@ -31,7 +31,7 @@ public class SparqlEndpoint {
 	}
 	
 	private void setEndpoint(){
-		String endpoint = "http://129.108.156.52:8890/sparql";
+		String endpoint = "http://visko.cybershare.utep.edu/sparql";
 		try{sparqlEndpoint = new URL(endpoint);}
 		catch(Exception e){e.printStackTrace();}
 	}
