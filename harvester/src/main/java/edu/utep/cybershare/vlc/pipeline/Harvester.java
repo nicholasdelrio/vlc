@@ -42,8 +42,10 @@ public class Harvester {
 		// create geocoder filter
 		InstitutionGeocodeFilter geocoderFilter = new InstitutionGeocodeFilter();
 		
-		//Pipeline harvestingPipeline = new Pipeline(nsfSourceFilter, rdfDumpFilter);
-		Pipeline harvestingPipeline = new Pipeline(nsfSourceFilter, vlcProjectsUploader);
+		Pipeline harvestingPipeline = new Pipeline(nsfSourceFilter, rdfDumpFilter);
+		//Pipeline harvestingPipeline = new Pipeline(nsfSourceFilter, vlcProjectsUploader);
+		
+		
 		harvestingPipeline.addFilter(deanaFilter);
 		harvestingPipeline.addFilter(geocoderFilter);
 		harvestingPipeline.addFilter(collectionsFilter);
